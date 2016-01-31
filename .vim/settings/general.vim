@@ -14,6 +14,8 @@ set secure
 " updates content when ile is changed from the outside
 set autoread
 
+
+
 if has("gui_running")
 	" turns off toolbar, menu and left scrollbar
 	set guioptions-=T
@@ -34,13 +36,21 @@ if has("gui_running")
 	" endif
 	"font for gui version
 	set guifont=Consolas\ for\ Powerline\ FixedD\ 12
+
+	" current colorscheme
+	let g:gruvbox_italic = 0
+	let g:gruvbox_bold = 0
+	colorscheme gruvbox
+	set background=dark
+
+	" highlights current line
+	set cursorline
+
+else
+	colorscheme default
+	set nocursorline
 endif
 
-" current colorscheme
-let g:gruvbox_italic = 0
-let g:gruvbox_bold = 0
-colorscheme gruvbox
-set background=dark
 
 " $-mode of text changing
 "set cpoptions+=$
@@ -155,12 +165,6 @@ set showcmd
 
 " displays the current mode
 set showmode
-
-" highlights current line
-set cursorline
-" set cursorcolumn
-" hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-" hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
 " sets max number of opened tabs
 set tabpagemax=10
