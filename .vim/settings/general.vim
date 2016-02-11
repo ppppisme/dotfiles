@@ -45,7 +45,6 @@ if has("gui_running")
 
 	" highlights current line
 	set cursorline
-
 else
 	colorscheme default
 	set nocursorline
