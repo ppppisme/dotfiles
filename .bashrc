@@ -66,7 +66,7 @@ fi
 #     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 # fi
 
-PS1="\n\e[44m\u@\h \e[0m\e[0;34m\e[0m \W\n\$ "
+PS1="\n\e[0;44m\e[30m  \u@\h \e[0m\e[0;34m\e[0m \W\n\e[1;30m\$\e[0m "
 
 unset color_prompt force_color_prompt
 
