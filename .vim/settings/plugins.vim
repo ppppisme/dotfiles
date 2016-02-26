@@ -10,8 +10,6 @@ call plug#begin('~/.vim/plugged')
 " git stuff
 	Plug 'tpope/vim-fugitive'
 	Plug 'airblade/vim-gitgutter'
-" refactor tools
-	Plug 'terryma/vim-multiple-cursors'
 " snippets
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
@@ -21,7 +19,7 @@ call plug#begin('~/.vim/plugged')
 " decoration stuff
 	Plug 'bling/vim-airline'
 	Plug 'lilydjwg/colorizer'
-	Plug 'mhinz/vim-startify'
+	" Plug 'mhinz/vim-startify'
 	Plug 'kien/rainbow_parentheses.vim'
 	Plug 'myusuf3/numbers.vim'
 " organiser features
@@ -30,6 +28,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'duff/vim-scratch'
 " auto completion
 	Plug 'ervandew/supertab'
+	Plug 'Valloric/YouCompleteMe'
 " python
 	Plug 'davidhalter/jedi-vim'
 " text navigation
@@ -56,6 +55,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'xolox/vim-shell'
 	Plug 'xolox/vim-misc'
 	Plug 'tpope/vim-surround'
+
+" testing
 call plug#end()
 "}}}
 
@@ -105,11 +106,7 @@ let g:ctrlspace_symbols = {
 	\ "im":      "+",
 	\ "dots":    "..."
 	\ }
-"
-"---
-"MultipleCursors
-"---
-let g:multi_cursor_quit_key='<Esc>'
+
 
 "---
 "UltiSnips
@@ -117,6 +114,7 @@ let g:multi_cursor_quit_key='<Esc>'
 let g:UltiSnipsExpandTrigger = "<C-s>"
 let g:UltiSnipsJumpForwardTrigger = "<C-k>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-j>"
+
 
 "---
 "Syntastic
@@ -130,16 +128,15 @@ let g:syntastic_check_on_wq = 1
 let b:syntastic_mode = "active"
 let g:syntastic_loc_list_height = 4
 
+
 "---
 "YouCompleteMe
 "---
-" let g:ycm_global_ycm_extra_conf = $VIMRUNTIME.'\bundle\ycm\ycm_extra_conf.py'
-" let g:ycm_use_ultisnips_completer = 1
-" let g:ycm_auto_trigger = 0
-" let g:ycm_key_list_select_completion = []
-" let g:ycm_key_list_previous_completion = []
-" let g:ycm_key_invoke_completion = '<c-space>'
-"let g:ycm_filetype_specific_completion_to_disable = {'python': 1}
+let g:ycm_use_ultisnips_completer = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_filepath_completion_use_working_dir = 1
+
 
 "---
 "Airline
@@ -172,33 +169,34 @@ let g:ctrlp_map = '<C-P>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_cache_dir = '~/.vim/ctrlp/'
 let g:ctrlp_max_depth = 10
+let g:ctrlp_working_path_mode = 'crw'
 let g:ctrlp_extensions = ['tag','mixed']
 let g:ctrlp_funky_multi_buffers = 1
 
 "---
 "Startify
 "---
-let g:startify_list_order = ['files', 'bookmarks', 'sessions']
-let g:startify_bookmarks = [$MYVIMRC]
-let g:startify_session_autoload = 1
-let g:startify_session_dir = $VIMRUNTIME.'\sessions'
-let g:startify_session_persistence = 1
+" let g:startify_list_order = ['files', 'bookmarks', 'sessions']
+" let g:startify_bookmarks = [$MYVIMRC]
+" let g:startify_session_autoload = 1
+" let g:startify_session_dir = '~/.vim/sessions'
+" let g:startify_session_persistence = 1
 
-let g:startify_custom_header = [
-		\'  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__    ',
-        \'__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/ ',
-        \'  \__/  \     \__/  \     \__/  \     \__/  \     \__/  \     \__/  \ ',
-        \'__/     /   __/     /                           __/     /   __/     / ',
-        \'  \__   \__/  \__   \     \  / | |\/|          /  \__   \__/  \__   \_',
-        \'     \__/  \     \__/      \/  | |  | 7.4      \     \__/  \     \__/ ',
-        \'   __/     /   __/                             /   __/     /   __/    ',
-        \'__/  \__   \__/  \__    __    __    __    __   \__/  \__   \__/  \__  ',
-        \'  \     \__/  \     \__/  \     \__/  \     \__/  \     \__/  \     \_',
-        \'  /   __/     /   __/     /   __/     /   __/     /   __/     /   __/ ',
-        \'  \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \_',
-		\'',
-		\'',
-		\ ]
+" let g:startify_custom_header = [
+" 		\'  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__    ',
+"         \'__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/ ',
+"         \'  \__/  \     \__/  \     \__/  \     \__/  \     \__/  \     \__/  \ ',
+"         \'__/     /   __/     /                           __/     /   __/     / ',
+"         \'  \__   \__/  \__   \     \  / | |\/|          /  \__   \__/  \__   \_',
+"         \'     \__/  \     \__/      \/  | |  | 7.4      \     \__/  \     \__/ ',
+"         \'   __/     /   __/                             /   __/     /   __/    ',
+"         \'__/  \__   \__/  \__    __    __    __    __   \__/  \__   \__/  \__  ',
+"         \'  \     \__/  \     \__/  \     \__/  \     \__/  \     \__/  \     \_',
+"         \'  /   __/     /   __/     /   __/     /   __/     /   __/     /   __/ ',
+"         \'  \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \_',
+" 		\'',
+" 		\'',
+" 		\ ]
 
 "---
 "Tagbar
@@ -215,12 +213,22 @@ let g:shell_mappings_enabled = 0
 "---
 let g:gitgutter_enabled = 0
 
+
 "---
 "Ferret
 "---
 let g:FerretMap = 1
 let g:FerretDispatch = 1
 let g:FerretHlsearch = 0
+
+
+"---
+"NERDTree
+"---
+let NERDTreeQuitOnOpen = 1
+let NERDTreeChDirMode = 2
+let NERDTreeShowHidden = 1
+
 
 "---
 "Rainbow parentheses

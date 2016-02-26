@@ -1,4 +1,10 @@
 
+
+if has("nvim")
+	" fixes clipboard issue
+	set pastetoggle=<f6>
+endif
+
 " turns syntax highlighting on
 syntax on
 filetype plugin indent on
@@ -13,8 +19,6 @@ set secure
 
 " updates content when ile is changed from the outside
 set autoread
-
-
 
 if has("gui_running")
 	" turns off toolbar, menu and left scrollbar
@@ -35,7 +39,7 @@ if has("gui_running")
 	" 	set renderoptions=type:directx
 	" endif
 	"font for gui version
-	set guifont=Consolas\ for\ Powerline\ FixedD\ 12
+	set guifont=Consolas\ for\ Powerline\ FixedD\ 11
 
 	" current colorscheme
 	let g:gruvbox_italic = 0

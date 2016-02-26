@@ -12,11 +12,11 @@ vnoremap <C-C> "+y
 vnoremap <C-Insert> "+y
 
 " CTRL-V and SHIFT-Insert are Paste
-map <C-V>		"+gP
-map <S-Insert>		"+gP
+map <C-V> "+gP
+map <S-Insert> "+gP
 
-cmap <C-V>		<C-R>+
-cmap <S-Insert>		<C-R>+
+cmap <C-V> <C-R>+
+cmap <S-Insert> <C-R>+
 
 map <C-S-V> <C-v>
 
@@ -47,8 +47,6 @@ nnoremap <silent> <A-l> <C-w>l
 " highlight last inserted text
 nnoremap gV `[v`]
 
-inoremap <expr> <CR> pumvisible() ?"\<C-y>" :"\<C-g>u\<CR>"
-
 
 " editing and sourcing vimrc
 nnoremap <leader>ov :vi $MYVIMRC<cr>
@@ -64,6 +62,12 @@ nnoremap <down> <nop>
 nnoremap <up> <nop>
 nnoremap <right> <nop>
 
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" handle regexp very magically
+nmap / /\v
+nmap ? ?\v
 
 " tabshifting
 noremap <C-Tab> gt
@@ -101,6 +105,8 @@ nnoremap <leader>tt :QTInit<cr>
 " complete whole filenames with a quicker shortcut key in insert mode
 inoremap <C-f> <C-x><C-f>
 
+inoremap <C-cr> <cr><esc>O
+
 " insert <cr> after and before current line
 nnoremap <C-cr> mpo<esc>0D`p
 nnoremap <C-s-cr> mpO<esc>0D`p
@@ -120,3 +126,6 @@ vnoremap <leader>q :QuickRun<cr>
 " ferret
 nmap <leader>aa <Plug>(FerretAck)
 nmap <leader>as <Plug>(FerretAckWord)
+
+
+cmap w!! w !sudo tee > /dev/null %
