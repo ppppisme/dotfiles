@@ -169,7 +169,7 @@ let g:ctrlp_map = '<C-P>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_cache_dir = '~/.vim/ctrlp/'
 let g:ctrlp_max_depth = 10
-let g:ctrlp_working_path_mode = 'crw'
+let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_extensions = ['tag','mixed']
 let g:ctrlp_funky_multi_buffers = 1
 

@@ -50,7 +50,7 @@ if has("gui_running")
 	" highlights current line
 	set cursorline
 else
-	colorscheme default
+	colorscheme base16-flat
 	set nocursorline
 endif
 
@@ -59,7 +59,7 @@ endif
 "set cpoptions+=$
 "
 " autoupdate current directory
-autocmd BufEnter * silent! lcd %:p:h
+" autocmd BufEnter * silent! lcd %:p:h
 
 " shows line numbers
 set number
