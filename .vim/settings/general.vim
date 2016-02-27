@@ -20,6 +20,10 @@ set secure
 " updates content when ile is changed from the outside
 set autoread
 
+" current colorscheme
+colorscheme gruvbox
+set background=dark
+
 if has("gui_running")
 	" turns off toolbar, menu and left scrollbar
 	set guioptions-=T
@@ -41,19 +45,14 @@ if has("gui_running")
 	"font for gui version
 	set guifont=Consolas\ for\ Powerline\ FixedD\ 11
 
-	" current colorscheme
-	let g:gruvbox_italic = 0
-	let g:gruvbox_bold = 0
-	colorscheme gruvbox
-	set background=dark
-
 	" highlights current line
 	set cursorline
 else
-	colorscheme base16-flat
+	" colorscheme gruvbox
+	" set bg=dark
 	set nocursorline
+	set t_Co=256
 endif
-
 
 " $-mode of text changing
 "set cpoptions+=$
@@ -134,6 +133,8 @@ set hlsearch
 
 " jumps to search results
 set incsearch
+
+set smartcase
 
 " blinks instead of beeping
 set visualbell

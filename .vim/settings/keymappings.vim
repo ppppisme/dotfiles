@@ -39,10 +39,10 @@ inoremap <C-S-q> <esc>:q!<cr>
 
 
 " shifting between windows
-nnoremap <silent> <A-k> <C-w>k
-nnoremap <silent> <A-j> <C-w>j
-nnoremap <silent> <A-h> <C-w>h
-nnoremap <silent> <A-l> <C-w>l
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-l> <C-w>l
 
 " highlight last inserted text
 nnoremap gV `[v`]
