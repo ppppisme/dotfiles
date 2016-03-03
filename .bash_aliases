@@ -14,3 +14,5 @@ alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
 
 # run xboxdrv driver
 alias xb='sudo xboxdrv --detach-kernel-driver --silent'
+
+alias tmux='tmux -2'
