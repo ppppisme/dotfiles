@@ -96,8 +96,8 @@ set $tag4 "4: gimp"
 set $tag5 "5: misc"
 set $tag6 "6: misc"
 set $tag7 "7: misc"
-set $tag8 "8: misc"
-set $tag9 "9: misc"
+set $tag8 "8: jabber"
+set $tag9 "9: twitter"
 set $tag0 "0: term"
 
 # switch to workspace
