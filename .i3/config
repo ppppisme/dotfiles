@@ -150,15 +150,22 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3status -c ~/.i3/i3status.conf
         tray_output primary
         font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-        font pango:Ubuntu Mono 14
+        font pango:Ubuntu Mono 10
+
         colors {
             background #222222
             statusline #dddddd
             separator  #3f3f3f
+
+            # Type             border  bg      font
+            focused_workspace  #008fff #008fff #ffffff
+            active_workspace   #5f676a #5f676a #ffffff
+            inactive_workspace #444444 #444444 #888888
+            urgent_workspace   #ff046e #ff046e #ffffff
         }
 }
 
-exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0 --fbmm 320x240"
+exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0 --fbmm 344x193"
