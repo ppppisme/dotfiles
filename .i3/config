@@ -88,17 +88,29 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# workspace names
+set $tag1 "1: www"
+set $tag2 "2: vim"
+set $tag3 "3: man"
+set $tag4 "4: gimp"
+set $tag5 "5: misc"
+set $tag6 "6: misc"
+set $tag7 "7: misc"
+set $tag8 "8: misc"
+set $tag9 "9: misc"
+set $tag0 "0: term"
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $tag1
+bindsym $mod+2 workspace $tag2
+bindsym $mod+3 workspace $tag3
+bindsym $mod+4 workspace $tag4
+bindsym $mod+5 workspace $tag5
+bindsym $mod+6 workspace $tag6
+bindsym $mod+7 workspace $tag7
+bindsym $mod+8 workspace $tag8
+bindsym $mod+9 workspace $tag9
+bindsym $mod+0 workspace $tag0
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
