@@ -111,7 +111,7 @@ let g:ctrlspace_symbols = {
 "---
 "UltiSnips
 "---
-let g:UltiSnipsExpandTrigger = "<C-s>"
+let g:UltiSnipsExpandTrigger = "<leader>e"
 let g:UltiSnipsJumpForwardTrigger = "<C-k>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-j>"
 
