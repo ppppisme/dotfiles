@@ -180,6 +180,8 @@ bar {
         }
 }
 
-exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0 --fbmm 344x193"
+# exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0"
 exec --no-startup-id i3-msg 'workspace $tag0; exec pantheon-terminal; workspace $tag1'
 exec "dropboxd"
+exec "xset m 01"
+exec --no-startup-id nitrogen --restore

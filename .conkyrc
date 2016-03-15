@@ -28,7 +28,7 @@ background yes
 border_width 1
 border_inner_margin 300
 cpu_avg_samples 2
-default_color white
+default_color black
 default_outline_color white
 default_shade_color white
 draw_borders no
