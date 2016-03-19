@@ -47,4 +47,3 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=0
 # Syntax higlighting
 # Must be at the end of this file
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-

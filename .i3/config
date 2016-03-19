@@ -15,7 +15,7 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango: Ubuntu Mono 11
+font pango:Droid Sans Mono for Powerline Regular 11
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
@@ -32,7 +32,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -i
+# bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -165,7 +167,7 @@ bar {
         status_command i3status -c ~/.i3/i3status.conf
         tray_output primary
         font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-        font pango:Ubuntu Mono 10
+        font pango:Droid Sans Mono for Powerline Regular 9
 
         colors {
             background #222222
@@ -182,4 +184,4 @@ bar {
 
 # exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0"
 exec --no-startup-id "xset m 01"
-exec --no-startup-id "feh --bg-scale /home/vladgor/Pictures/Wallpapers/arcanum.jpg"
+exec --no-startup-id "feh --bg-fill /home/vladgor/Pictures/Wallpapers/arcanum.jpg"
