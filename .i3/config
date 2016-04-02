@@ -184,4 +184,5 @@ bar {
 
 # exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0"
 exec --no-startup-id "xset m 01"
-exec --no-startup-id "feh --bg-fill /home/vladgor/Pictures/Wallpapers/arcanum.jpg"
+exec --no-startup-id "feh --bg-scale /home/vladgor/Pictures/Wallpapers/w.jpg"
+exec --no-startup-id "dropbox"

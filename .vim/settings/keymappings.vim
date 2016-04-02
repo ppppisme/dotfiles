@@ -127,5 +127,6 @@ vnoremap <leader>q :QuickRun<cr>
 nmap <leader>aa <Plug>(FerretAck)
 nmap <leader>as <Plug>(FerretAckWord)
 
+nnoremap \ ,
 
 cmap w!! w !sudo tee > /dev/null %

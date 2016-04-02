@@ -28,13 +28,13 @@ call plug#begin('~/.vim/plugged')
 	Plug 'duff/vim-scratch'
 " auto completion
 	Plug 'ervandew/supertab'
-	Plug 'Valloric/YouCompleteMe'
+	" Plug 'Valloric/YouCompleteMe'
 " python
 	Plug 'davidhalter/jedi-vim'
 " text navigation
 	Plug 'majutsushi/tagbar'
 	Plug 'wincent/ferret'
-	Plug 'rhysd/clever-f.vim'
+	" Plug 'rhysd/clever-f.vim'
 	Plug 'justinmk/vim-sneak'
 	Plug 'thinca/vim-visualstar'
 " script runner

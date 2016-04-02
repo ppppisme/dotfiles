@@ -17,11 +17,11 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#181818"
+    background_color = "#151515"
     background_image = None
     font = Droid Sans Mono for Powerline 10
-    foreground_color = "#b1b1b1"
-    palette = "#2b2b2b:#aa0024:#6eaa00:#aa6700:#004aaa:#aa006c:#12c399:#969696:#5e5e5e:#f22626:#a6ff55:#ffff55:#5587ff:#ff55ad:#55ffc1:#dadada"
+    foreground_color = "#c5c8c6"
+    palette = "#2d2d2d:#c75646:#8eb33b:#d0b03c:#2d79e2:#c8a0d1:#218693:#b0b0b0:#5d5d5d:#d44236:#cdee69:#ffe377:#9dcfe3:#fbb1f9:#77dfd8:#f7f7f7"
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False

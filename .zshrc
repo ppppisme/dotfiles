@@ -35,6 +35,8 @@ PROMPT="
 alias ll='ls -lah'
 alias l='ls'
 alias rw='modprobe -r rtl8723be && modprobe rtl8723be'
+# colorful less
+alias less='less -R'
 
 
 # Plugins section
