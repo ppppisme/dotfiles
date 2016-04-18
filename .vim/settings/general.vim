@@ -43,7 +43,7 @@ if has("gui_running")
 	" 	set renderoptions=type:directx
 	" endif
 	"font for gui version
-	set guifont=Consolas\ for\ Powerline\ FixedD\ 11
+	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
 
 	" highlights current line
 	set cursorline

@@ -34,7 +34,8 @@ PROMPT="
 # Alias section
 alias ll='ls -lah'
 alias l='ls'
-alias rw='modprobe -r rtl8723be && modprobe rtl8723be'
+alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
+alias ya="yaourt"
 
 
 # Plugins section

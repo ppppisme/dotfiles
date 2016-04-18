@@ -25,8 +25,8 @@ inoremap <buffer> <F2> <esc>:call UpdateTags()<cr>:startinsert<cr>
 noremap <buffer> <F8> :Errors
 inoremap <buffer> <F8> <esc>:Errors :startinsert<cr>
 
-noremap <buffer> <F9> :!make<cr>:!exe\main.exe<cr>
-inoremap <buffer> <F9> <esc>:!make<cr>:!exe\main.exe<cr>
+noremap <buffer> <F9> :!make<cr>:!exe/main.exe<cr>
+inoremap <buffer> <F9> <esc>:!make<cr>:!exe/main.exe<cr>
 
-noremap <buffer> <F10> :!g++ -o .\exe\test % && exe\test<cr>
-inoremap <buffer> <F10> <esc>:!g++ -o .\exe\test % && exe\test<cr>
+noremap <buffer> <F10> :!g++ -o ./exe/test % && exe/test<cr>
+inoremap <buffer> <F10> <esc>:!g++ -o ./exe/test % && exe/test<cr>

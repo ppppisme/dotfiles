@@ -111,7 +111,7 @@ let g:ctrlspace_symbols = {
 "---
 "UltiSnips
 "---
-let g:UltiSnipsExpandTrigger = "<leader>e"
+let g:UltiSnipsExpandTrigger = "<Tab>"
 let g:UltiSnipsJumpForwardTrigger = "<C-k>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-j>"
 
@@ -172,6 +172,7 @@ let g:ctrlp_max_depth = 10
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_extensions = ['tag','mixed']
 let g:ctrlp_funky_multi_buffers = 1
+let g:ctrlp_custom_ignore = '\v\.(o|git|hg|svn)$'
 
 "---
 "Startify
