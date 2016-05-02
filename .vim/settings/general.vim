@@ -76,8 +76,8 @@ set nowrap
 set textwidth=80
 
 " sets window size
-set lines=80
-set columns=200
+set lines=40
+set columns=100
 
 " saves 50 lines in command line history
 set history=50
