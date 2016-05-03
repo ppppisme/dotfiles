@@ -1,3 +1,5 @@
+# don't forget to install zsh-completions!
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -36,6 +38,11 @@ alias ll='ls -lah'
 alias l='ls'
 alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
 alias ya="yaourt"
+alias notes="vim ~/Dropbox/notes/"
+
+
+WORDCHARS='*?[]~=&;!#$%^(){}<>'
+
 
 
 # Plugins section
@@ -48,5 +55,3 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=0
 # Syntax higlighting
 # Must be at the end of this file
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-WORDCHARS='*?[]~=&;!#$%^(){}<>'
