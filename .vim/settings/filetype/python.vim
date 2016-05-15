@@ -7,8 +7,6 @@ setlocal completeopt-=preview
 "let g:jedi#popup_on_dot = 0
 "let g:jedi#show_call_signatures = 2
 
-let g:gitgutter_enabled = 1
-
 setlocal iskeyword-=#
 let g:syntastic_python_checkers = ['pyflakes']  " 'flake8',
 

@@ -1,5 +1,6 @@
 # don't forget to install zsh-completions!
 
+EDITOR=vim
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000

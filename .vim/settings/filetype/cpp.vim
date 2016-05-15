@@ -1,8 +1,6 @@
 "set tags+=$VIMRUNTIME\tags\cpp
 "set tags+=$VIMRUNTIME\tags\c
 
-let g:gitgutter_enabled = 1
-
 autocmd FileType c,h,hpp au BufWinEnter * set filetype=cpp
 
 " highlights lines when it's longer than 80 symbols

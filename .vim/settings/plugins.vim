@@ -1,64 +1,78 @@
 
 " list of plugins {{{
 call plug#begin('~/.vim/plugged')
+
 " file system navigation
 	Plug 'scrooloose/NERDTree'
 	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'tacahiroy/ctrlp-funky'
+	Plug 'mileszs/ack.vim'
+
 " linter
 	Plug 'scrooloose/syntastic'
+
 " git stuff
-	Plug 'tpope/vim-fugitive'
 	Plug 'airblade/vim-gitgutter'
+
 " snippets
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
 	Plug 'mattn/emmet-vim'
+
 " buffer navigation
 	Plug 'szw/vim-ctrlspace'
+	Plug 'tpope/vim-unimpaired'
+
 " decoration stuff
 	Plug 'bling/vim-airline'
-	Plug 'lilydjwg/colorizer'
-	" Plug 'mhinz/vim-startify'
 	Plug 'kien/rainbow_parentheses.vim'
 	Plug 'myusuf3/numbers.vim'
+
 " organiser features
 	Plug 'TaskList.vim'
-	Plug 'aaronbieber/vim-quicktask'
 	Plug 'duff/vim-scratch'
+
 " auto completion
 	Plug 'ervandew/supertab'
-	" Plug 'Valloric/YouCompleteMe'
+
 " python
 	Plug 'davidhalter/jedi-vim'
+
 " text navigation
-	Plug 'majutsushi/tagbar'
-	Plug 'wincent/ferret'
-	" Plug 'rhysd/clever-f.vim'
-	Plug 'justinmk/vim-sneak'
 	Plug 'thinca/vim-visualstar'
+
 " script runner
 	Plug 'thinca/vim-quickrun'
+
 " text objects
-	" Plug 'wellle/targets.vim'
 	Plug 'kana/vim-textobj-user'
 	Plug 'kana/vim-textobj-function'
 	Plug 'kana/vim-textobj-entire'
 	Plug 'glts/vim-textobj-comment'
 	Plug 'michaeljsmith/vim-indent-object'
+
 " misc
 	Plug 'tpope/vim-commentary'
 	Plug 'Raimondi/delimitMate'
 	Plug 'matchit.zip'
 	Plug 'tpope/vim-dispatch'
 	Plug 'tpope/vim-repeat'
-	Plug 'xolox/vim-shell'
-	Plug 'xolox/vim-misc'
 	Plug 'tpope/vim-surround'
+	Plug 'vladgor/metal-vim-rising'
 
-" testing
+" color schemes
+	Plug 'morhetz/gruvbox'
+	Plug 'chriskempson/base16-vim'
+	Plug 'vladgor/itg_flat_vim'
+	Plug 'chriskempson/vim-tomorrow-theme'
+	Plug 'wombat256.vim'
+	Plug 'reedes/vim-colors-pencil'
+	Plug 'tpope/vim-vividchalk'
+	Plug 'w0ng/vim-hybrid'
+
 call plug#end()
 "}}}
+
 
 " plugins settings {{{
 "---
@@ -66,23 +80,12 @@ call plug#end()
 "---
 let g:SuperTabDefaultCompletionType = "context"
 
+
 "---
 "Jedi
 "---
 let g:jedi#popup_on_dot = 0
 
-"---
-"Sneak
-"---
-let g:sneak#streak = 1
-let g:sneak#s_next = 0
-
-"---
-"YankRing
-"---
-"let g:yankring_replace_n_pkey = "<F7>"
-"let g:yankring_replace_n_nkey = "<F8>"
-"let g:yankring_share_between_instances = 1
 
 "---
 "CtrlSpace
@@ -130,15 +133,6 @@ let g:syntastic_loc_list_height = 4
 
 
 "---
-"YouCompleteMe
-"---
-let g:ycm_use_ultisnips_completer = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-" let g:ycm_filepath_completion_use_working_dir = 1
-
-
-"---
 "Airline
 "---
 let g:airline_powerline_fonts = 1
@@ -161,7 +155,8 @@ let g:airline_mode_map = {
   \ 'S'  : 'S',
   \ '' : 'S',
   \ }
-"
+
+
 "---
 "Ctrlp
 "---
@@ -174,53 +169,11 @@ let g:ctrlp_extensions = ['tag','mixed']
 let g:ctrlp_funky_multi_buffers = 1
 let g:ctrlp_custom_ignore = '\v\.(o|git|hg|svn)$'
 
-"---
-"Startify
-"---
-" let g:startify_list_order = ['files', 'bookmarks', 'sessions']
-" let g:startify_bookmarks = [$MYVIMRC]
-" let g:startify_session_autoload = 1
-" let g:startify_session_dir = '~/.vim/sessions'
-" let g:startify_session_persistence = 1
-
-" let g:startify_custom_header = [
-" 		\'  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__    ',
-"         \'__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/ ',
-"         \'  \__/  \     \__/  \     \__/  \     \__/  \     \__/  \     \__/  \ ',
-"         \'__/     /   __/     /                           __/     /   __/     / ',
-"         \'  \__   \__/  \__   \     \  / | |\/|          /  \__   \__/  \__   \_',
-"         \'     \__/  \     \__/      \/  | |  | 7.4      \     \__/  \     \__/ ',
-"         \'   __/     /   __/                             /   __/     /   __/    ',
-"         \'__/  \__   \__/  \__    __    __    __    __   \__/  \__   \__/  \__  ',
-"         \'  \     \__/  \     \__/  \     \__/  \     \__/  \     \__/  \     \_',
-"         \'  /   __/     /   __/     /   __/     /   __/     /   __/     /   __/ ',
-"         \'  \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \__   \__/  \_',
-" 		\'',
-" 		\'',
-" 		\ ]
-
-"---
-"Tagbar
-"---
-let g:tagbar_width = 40
-
-"---
-"Shell
-"---
-let g:shell_mappings_enabled = 0
 
 "---
 "GitGutter
 "---
-let g:gitgutter_enabled = 0
-
-
-"---
-"Ferret
-"---
-let g:FerretMap = 1
-let g:FerretDispatch = 1
-let g:FerretHlsearch = 0
+" let g:gitgutter_enabled = 1
 
 
 "---

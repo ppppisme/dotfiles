@@ -9,13 +9,8 @@ endif
 syntax on
 filetype plugin indent on
 
-" enables the reading of .vimrc, .exrc and .gvimrc
-" in the current directory.
-set exrc
-
-" turns off shell and write commands in ".vimrc"
-" and ".exrc" in the current directory
-set secure
+set exrc   " reads from .vimrc, .exrc and .gvimrc in the current directory
+set secure " disables shell and write commands in local .vimrc
 
 " updates content when ile is changed from the outside
 set autoread
@@ -23,6 +18,7 @@ set autoread
 " current colorscheme
 colorscheme gruvbox
 set background=dark
+set t_Co=256
 
 if has("gui_running")
 	" turns off toolbar, menu and left scrollbar
@@ -30,194 +26,91 @@ if has("gui_running")
 	set guioptions-=m
 	set guioptions-=L
 
-	" use console dialogs instead of popup dialogs for simple choices
-	set guioptions+=c
-
-	" turns bottom scrollbar on
-	set guioptions+=b
-
-	" turns on text tabs
-	set guioptions-=e
+	set guioptions+=c   	" use console dialogs instead of popup dialogs for simple choices
+	set guioptions+=b   	" turns bottom scrollbar on
+	set guioptions-=e   	" turns on text tabs
 
 	" if (has("win32"))
 	" 	set renderoptions=type:directx
 	" endif
-	"font for gui version
-	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
-
-	" highlights current line
-	set cursorline
-else
+	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11  " font for gui version
+	set cursorline   	" highlights current line
 	" colorscheme gruvbox
-	" set bg=dark
+	" set background=dark
 	set nocursorline
-	set t_Co=256
 endif
 
-" $-mode of text changing
-"set cpoptions+=$
+set number   " shows line numbers
+set hidden   " doesn't let unload buffer when it's closed
+let mapleader = ","   " remap <leader> key to comma
+
+set nowrap   " turns word wrapping off
+set textwidth=80   " max width of text inserted
+
+set history=50   " saves 50 lines in command line history
+"set expandtab   " replaces tabulation with spaces
 "
-" autoupdate current directory
-" autocmd BufEnter * silent! lcd %:p:h
-
-" shows line numbers
-set number
-
-" doesn't let unload buffer when it's closed
-set hidden
-
-" remap <leader> key to comma
-let mapleader = ","
-
-" turns word wrapping off
-set nowrap
-
-" max width of text inserted
-set textwidth=80
-
-" sets window size
-set lines=40
-set columns=100
-
-" saves 50 lines in command line history
-set history=50
-
-" constantly shows cursor position
-set ruler
-
-" replaces tabulation with spaces
-"set expandtab
-
 " smart tabbing that takes into account 'shiftwidth', 'tabstop'
 " and 'softtabstop' options
 set smarttab
 
-" use multiple of shiftwidth when indenting with '<' and '>'
-set shiftround
+set shiftround   " use multiple of shiftwidth when indenting with '<' and '>'
+set tabstop=4   " tabulation size
+set shiftwidth=4   " size of indentation when entering << or >>
 
-" tabulation size
-set tabstop=4
 
-" size of indentation when entering << or >>
-set shiftwidth=4
+set autoindent   " takes indentation info from previous line
 
-" takes indent info from previous line
-set autoindent
+set cpoptions+=I   " do not delete indentation from empty line when cursor is moved
+set cindent   " applies indentation rules for c
+"set smartindent   " turns on 'smart indents'
+set copyindent   " copy the previous indentation on autoindenting
+set backspace=indent,eol,start   " allow backspacing over everything in insert mode
 
-" do not delete indentation from empty line when cursor is moved
-set cpoptions+=I
 
-" applies indentation rules for c
-set cindent
+set colorcolumn=80   " higlights specified column
 
-" turns on 'smart indents'
-"set smartindent
+set ignorecase   " ignores case when searching
+set hlsearch   " highlights search results
+set incsearch   " jumps to search results
+set smartcase   " be case sensitive only when there is at least one uppercase symbol in pattern
 
-" copy the previous indentation on autoindenting
-set copyindent
+set visualbell   " blinks instead of beeping
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+set showmatch   " highlights opening and closing brackets
 
-" no need to write 'g' flag when substituiting
-set gdefault
+set laststatus=2   " constantly displays status line
+set ruler   " constantly shows cursor position
+set rulerformat=%(%l,%c\ %p%%%)   " sets format of ruler
 
-" higlights specified column
-set colorcolumn=80
+set wildmenu   " nice autocompletion in command line
 
-" ignores case when searching
-set ignorecase
+set whichwrap=<,>,[,],h,l   " doesn't stop cursor at the end of line
 
-" highlights search results
-set hlsearch
+set autowrite   " saves file when moving to another
 
-" jumps to search results
-set incsearch
+set encoding=utf8   " sets default encoding
+set termencoding=utf8   " sets terminal encoding
+set fileencodings=utf8,cp1251,koi8r   " sets list of possible encodings
 
-set smartcase
+set showcmd   " turns on autocomplete in command line
+set showmode   " displays the current mode
 
-" blinks instead of beeping
-set visualbell
+set undolevels=1024   " determines size of undo-history
 
-" highlights opening and closing brackets
-set showmatch
+set virtualedit=all   " allows to move cursor in empty space
 
-" sets format of ruler
-set rulerformat=%(%l,%c\ %p%%%)
+set completeopt=menuone,menu,longest   " sets complete menu options
 
-" nice autocompletion in command line
-set wildmenu
-set wildmode=list:longest,full
+set list   " displays special symbols like eol or whitespace
+set listchars=tab:··,trail:_,eol:¬   " sets what symbols vim will show
 
-" doesn't stop cursor at the end of line
-set whichwrap=<,>,[,],h,l
+set lazyredraw   " turns on lazy redraw on completing scripts
 
-" saves file when moving to another one
-set autowrite
-
-" sets default encoding
-set encoding=utf8
-
-" sets terminal encoding
-set termencoding=utf8
-
-" sets list of possible encodings
-set fileencodings=utf8,cp1251,koi8r
-
-" turns on autocomplete in command line
-set showcmd
-
-" displays the current mode
-set showmode
-
-" sets max number of opened tabs
-set tabpagemax=10
-
-" uses alt as it's supposed to be used (not to open win menu)
-set winaltkeys=yes
-
-" what to save when :mkview is called
-set sessionoptions+=resize,winpos
-
-" determines size of undo-history
-set undolevels=1024
-
-" constantly displays status line
-set laststatus=2
-
-" allows to move cursor in empty space
-set virtualedit=all
-
-" writes undo history in file
-set undofile
-
-" sets complete menu options
-set completeopt=menuone,menu,longest
-
-" displays special symbols like eol or whitespace
-set list
-
-" sets what symbols vim will show
-set listchars=tab:··,trail:_,eol:¬
-
-" turns on lazy redraw on completing scripts
-set lazyredraw
-
-" for russian keyboard layouts {{{
-" set keymap=russian-jcukenwin
-" cmap <silent> <C-S-Space> <C-^>
-" imap <silent> <C-S-Space> <C-^><Esc>
-" nmap <silent> <C-S-Space> a<C-^><Esc>
-
-" set iminsert=0
-" set imsearch=0
-" set iskeyword=@,48-57,_,192-255
-" language ctype Russian_Russia.1251
-"}}}
-
-" saves swapfiles in vim74/swapfiles/
+" custom directories for storing backup, swap and undo files
 set backup
 set writebackup
+set undofile   " writes undo history in file
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
 set undodir=~/.vim/undo/

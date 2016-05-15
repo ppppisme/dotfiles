@@ -1,8 +1,8 @@
 
-iabbr widht width
-iabbr Widht Width
-iabbr heigth height
-iabbr Heigth Height
-iabbr lenght length
-iabbr Lenght Length
+iabbrev widht width
+iabbrev Widht Width
+iabbrev heigth height
+iabbrev Heigth Height
+iabbrev lenght length
+iabbrev Lenght Length
 

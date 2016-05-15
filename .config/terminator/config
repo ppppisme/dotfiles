@@ -4,7 +4,6 @@
   homogeneous_tabbar = False
   scroll_tabbar = True
   title_transmit_bg_color = "#c80022"
-  window_state = maximise
 [keybindings]
 [layouts]
   [[default]]
