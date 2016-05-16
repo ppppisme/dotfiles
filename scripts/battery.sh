@@ -20,9 +20,9 @@ if [[ "$procent" != "100%" ]]; then
 fi
 
 if [[ $status = "Discharging" ]]; then
-	status="↘"
+	status="(↘)"
 elif [[ $status = "Charging" ]]; then
-	status="↗"
+	status="(↗)"
 fi
 
 procent_number=${procent::-1}
@@ -46,6 +46,6 @@ else
 	color='#fb4934'
 fi
 
-echo "$icon  $procent ($status)"
-echo "$icon  $procent ($status)"
+echo "$icon  $procent $status"
+echo "$icon  $procent $status"
 echo $color
