@@ -37,7 +37,7 @@ elif [ $procent_number -ge 45 ]
 then
 	icon=""
 	color="#fabd2f"
-elif [ $procent_number -ge 20 ]
+elif [ $procent_number -ge 15 ]
 then
 	icon=""
 	color="#fabd2f"

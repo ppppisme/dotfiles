@@ -1,0 +1,15 @@
+
+rofi.fullscreen:	true
+rofi.padding:		300
+rofi.columns: 		1
+rofi.lines: 		3
+rofi.color-enabled:	true
+rofi.opacity: 		90
+rofi.hide-scrollbar:true
+rofi.line-margin:	7
+rofi.sidebar-mode: 	true
+
+
+rofi.color-normal: #282828, #bdae93, #282828, #282828, #83a598
+rofi.color-active: #282828, #bdae93, #282828, #bdae93, #bdae93
+rofi.color-window: #282828, #282828, #282828
