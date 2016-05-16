@@ -11,6 +11,11 @@ nnoremap <silent> <C-l> <C-w>l
 " highlight last inserted text
 nnoremap gV `[v`]
 
+nnoremap Y y$
+
+
+" break string in two
+nnoremap K i<cr><esc>k$l
 
 " editing and sourcing vimrc
 nnoremap <leader>vv :vi $MYVIMRC<cr>

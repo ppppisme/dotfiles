@@ -4,9 +4,8 @@
 
 pppp=`deadbeef --nowplaying-tf "%artist% — %title% \[%playback_time%\/%length%]" 2> /dev/null`
 
-# if deadbeef is on
-if [[ ${pppp:1:1} != "—" ]]; then
+if [[ ${pppp:1:1} != "—" ]]; then  # if deadbeef is on
 	echo "♫ "$pppp
 	echo $pppp
-	echo "#bae82f"
+	echo "#b8bb26"
 fi

@@ -32,7 +32,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Droid Sans Mono for Powerline-9' -h 24 -sb '#2D79E2' -sf '#333333'
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Droid Sans Mono for Powerline-9' -nb '#282828' -nf '#a89984' -sb '#fb4934' -sf '#3c3836'
+# bindsym $mod+d exec --no-startup-id rofi -show run
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -165,22 +166,30 @@ focus_follows_mouse no
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        # status_command i3status -c ~/.i3/i3status.conf
+        position top
         status_command i3blocks
         tray_output primary
-        font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-        font pango:Droid Sans Mono for Powerline Regular 9
+        # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+        font pango:FontAwesome Regular 8
 
         colors {
-            background #222222
-            statusline #dddddd
-            separator  #3f3f3f
+            # gruvbox palette
+
+            # dark theme
+            background #282828
+            statusline #d5c4a1
+            separator  #928374
+
+            # light theme
+            # background #fbf1c7
+            # statusline #665c54
+            # separator  #928374
 
             # Type             border  bg      font
-            focused_workspace  #2D79E2 #2D79E2 #333333
-            active_workspace   #5f676a #5f676a #ffffff
-            inactive_workspace #444444 #444444 #888888
-            urgent_workspace   #D44236 #D44236 #333333
+            focused_workspace  #282828 #282828 #b8bb26
+            active_workspace   #282828 #282828 #b8bb26
+            inactive_workspace #282828 #282828 #928374
+            urgent_workspace   #282828 #282828 #fb4834
         }
 }
 
@@ -192,3 +201,8 @@ exec --no-startup-id "xset m 01"
 exec --no-startup-id "xss-lock -- slock"
 exec --no-startup-id "feh --bg-scale /home/vladgor/Pictures/Wallpapers/w.jpg"
 exec --no-startup-id "dropbox"
+
+
+# i3-gaps specific
+gaps outer 15
+gaps inner 15
