@@ -44,6 +44,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Droid Sans Mono for Powerline-9' -nb '#282828' -nf '#a89984' -sb '#fb4934' -sf '#3c3836'
 bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.rofirc
+bindsym $mod+m exec --no-startup-id rofi -show window -config ~/.rofirc
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
