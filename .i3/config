@@ -22,11 +22,10 @@ font pango:Droid Sans Mono for Powerline Regular 9
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
 
-
 # class                 border  backgr. text    indicator child_border
 client.focused          #282828 #282828 #a89984 #fb4834   #fb4834
-client.focused_inactive #282828 #3c3836 #d5c4a1 #484e50   #5f676a
-client.unfocused        #282828 #3c3836 #665c54 #292d2e   #222222
+client.focused_inactive #928374 #3c3836 #d5c4a1 #484e50   #5f676a
+client.unfocused        #928374 #3c3836 #665c54 #292d2e   #504945
 client.urgent           #282828 #900000 #fb4934 #900000   #900000
 client.placeholder      #282828 #282828 #ffffff #000000   #0c0c0c
 
@@ -208,6 +207,7 @@ bar {
 bindsym $mod+p exec --no-startup-id "slock"
 
 # exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0"
+exec --no-startup-id "compton -b -I 0.06"
 exec --no-startup-id "xset m 01"
 exec --no-startup-id "xss-lock -- slock"
 exec --no-startup-id "feh --bg-scale /home/vladgor/Pictures/Wallpapers/w.jpg"
@@ -217,3 +217,4 @@ exec --no-startup-id "dropbox"
 # i3-gaps specific
 gaps outer 15
 gaps inner 15
+for_window [class="^.*"] border pixel 3

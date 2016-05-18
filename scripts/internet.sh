@@ -3,11 +3,14 @@
 
 ping -c 1 8.8.8.8 >/dev/null 2>&1 && status="on" || status="off"
 
-
-echo "  is $status"
-echo "  is $status"
 if [[ $status = "on" ]]; then
-	echo "#b8bb26"
+	color="#b8bb26"
+	text=`iwgetid -r`
 else
-	echo "#fb4934"
+	color="#fb4934"
+	text="is off"
 fi
+
+echo "  $text"
+echo "  $text"
+echo $color
