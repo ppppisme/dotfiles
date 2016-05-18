@@ -23,11 +23,11 @@ font pango:Droid Sans Mono for Powerline Regular 9
 # font pango:DejaVu Sans Mono 10
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #282828 #282828 #a89984 #fb4834   #fb4834
-client.focused_inactive #928374 #3c3836 #d5c4a1 #484e50   #5f676a
-client.unfocused        #928374 #3c3836 #665c54 #292d2e   #504945
-client.urgent           #282828 #900000 #fb4934 #900000   #900000
-client.placeholder      #282828 #282828 #ffffff #000000   #0c0c0c
+client.focused          #fb4834 #282828 #a89984 #fb4834   #fb4834
+client.focused_inactive #5f676a #3c3836 #d5c4a1 #484e50   #5f676a
+client.unfocused        #504945 #3c3836 #665c54 #292d2e   #504945
+client.urgent           #900000 #900000 #fb4934 #900000   #900000
+client.placeholder      #5f676a #282828 #ffffff #000000   #5f676a
 
 client.background       #282828
 
