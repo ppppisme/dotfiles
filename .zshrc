@@ -57,7 +57,7 @@ autoload -U colors && colors
 function set-prompt() 
 {
 	if [[ $KEYMAP = vicmd ]]; then
-		vi_mode="%{$fg[red]%}N"
+		vi_mode="%{$fg_bold[red]%}N"
 	else
 		vi_mode="%{$fg[grey]%}%%"
 	fi
