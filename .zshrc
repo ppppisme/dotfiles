@@ -1,6 +1,10 @@
 # don't forget to install zsh-completions!
 
-EDITOR=vim
+
+export EDITOR=vim
+export PATH=$PATH:/home/vladgor/.gem/ruby/2.3.0/bin/
+
+# export EDITOR=vim
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -15,6 +19,26 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+bindkey -v
+export KEYTIMEOUT=1
+
+# Use vim cli mode
+bindkey '^P' up-history
+bindkey '^N' down-history
+#
+# # backspace and ^h working even after
+# # returning from command mode
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+#
+# # ctrl-w removed word backwards
+ bindkey '^w' backward-kill-word
+
+# # ctrl-r starts searching history backward
+bindkey '^r' history-incremental-search-backward
+
+
+
 # Advanced completion
 # autoload -U compinit
 # compinit
@@ -28,10 +52,28 @@ setopt sharehistory
 setopt extendedhistory
 
 # Customized shell prompt
+		
 autoload -U colors && colors
-PROMPT="
-%{$fg[black]$bg[blue]%}   %n@%m %{$reset_color%}%{$fg[blue]%}%{$reset_color%} %~ 
- %{$fg[grey]%}%%%{$reset_color%} "
+function set-prompt() 
+{
+	if [[ $KEYMAP = vicmd ]]; then
+		vi_mode="%{$fg[red]%}N"
+	else
+		vi_mode="%{$fg[grey]%}%%"
+	fi
+	PROMPT="
+%{$fg[black]$bg[blue]%}   %n@%m %{$reset_color%}%{$fg[blue]%}%{$reset_color%} %~
+ $vi_mode%{$reset_color%} "
+}
+
+function zle-line-init zle-keymap-select {
+    set-prompt
+	zle reset-prompt
+}
+
+
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 
 # Alias section
