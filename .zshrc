@@ -9,7 +9,11 @@ export PATH=$PATH:/home/vladgor/.gem/ruby/2.3.0/bin/
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-setopt autocd extendedglob notify
+setopt notify
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt extended_history
 unsetopt appendhistory beep
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -32,20 +36,21 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 #
 # # ctrl-w removed word backwards
- bindkey '^w' backward-kill-word
+bindkey '^w' backward-kill-word
 
 # # ctrl-r starts searching history backward
 bindkey '^r' history-incremental-search-backward
 
 
+# No cd anymore
+setopt autocd
 
-# Advanced completion
-# autoload -U compinit
-# compinit
+setopt extended_glob
+
+setopt interactive_comments
 
 # Tab-completion from both ends of word
 setopt completeinword
-
 
 # One history for all open shells
 setopt sharehistory
@@ -89,11 +94,6 @@ WORDCHARS='*?[]~=&;!#$%^(){}<>'
 
 
 # Plugins section
-
-# Shadowed history-based autocompletion
-# ^e to accept completion
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=0
 
 # Syntax higlighting
 # Must be at the end of this file
