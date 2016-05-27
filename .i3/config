@@ -180,7 +180,7 @@ bar {
         status_command i3blocks
         tray_output primary
         # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-        font pango:FontAwesome Regular 8
+        font pango:CtrlD 9
 
         colors {
             # gruvbox palette
@@ -205,7 +205,11 @@ bar {
 
 # locker bindsym
 bindsym $mod+p exec --no-startup-id "physlock"
-bindsym Print exec --no-startup-id "scrot ~/Pictures/screen.jpg"
+
+# install "sox" for "play" command
+bindsym Print exec --no-startup-id "scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png && play ~/.i3/screenshot.mp3"
+# screenshot of focused window
+bindsym Shift+Print exec --no-startup-id "scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png && play ~/.i3/screenshot.mp3"
 
 # exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0"
 # exec --no-startup-id "compton -b -I 0.03 -O 0.03"
