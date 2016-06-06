@@ -54,6 +54,9 @@ Plug 'michaeljsmith/vim-indent-object'
 " language support
 Plug 'sheerun/vim-polyglot'
 
+" php
+Plug 'shawncplus/phpcomplete.vim'
+
 " misc
 Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'

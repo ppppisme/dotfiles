@@ -2,7 +2,7 @@
 #!/bin/bash
 
 
-pppp=`ncmpcpp --current-song 2> /dev/null`
+pppp=`ncmpcpp --current-song="{%n} %t —  %a" 2> /dev/null`
 
 echo "♫ "$pppp
 echo $pppp

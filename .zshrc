@@ -37,7 +37,6 @@ bindkey '^h' backward-delete-char
 #
 # # ctrl-w removed word backwards
 bindkey '^w' backward-kill-word
-
 # # ctrl-r starts searching history backward
 bindkey '^r' history-incremental-search-backward
 
@@ -68,8 +67,23 @@ function set-prompt()
 	else
 		vi_mode="%{$fg[grey]%}%%"
 	fi
+
+	gitbranch=$(git branch | sed -n '/\* /s///p')
+
+	if [[ "$gitbranch" != "" ]]; then
+		diffinfo=$(git diff --stat | tail -n 1)
+		if [[ "$diffinfo" != "" ]]; then
+			fileschanged=$(echo $diffinfo | cut -d, -f1 | cut -d ' ' -f2)
+			insertions=$(echo $diffinfo | cut -d, -f2 | cut -d ' ' -f2)
+			deletions=$(echo $diffinfo | cut -d, -f3 | cut -d ' ' -f2)
+			diffinfo="(${fileschanged}f, +${insertions}, -${deletions})"
+		fi
+		# shitty
+		gitbranch="%{$fg[grey]%} ${gitbranch} ${diffinfo}%{$reset_color%}"
+	fi
+
 	PROMPT="
-%{$fg[black]$bg[blue]%}   %n@%m %{$reset_color%}%{$fg[blue]%}%{$reset_color%} %~
+%{$fg[black]$bg[blue]%}   %n@%m %{$reset_color%}%{$fg[blue]%}%{$reset_color%} %~ ${gitbranch}
  $vi_mode%{$reset_color%} "
 }
 
