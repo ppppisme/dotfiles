@@ -74,11 +74,19 @@ function set-prompt()
 		diffinfo=$(git diff --stat | tail -n 1)
 		if [[ "$diffinfo" != "" ]]; then
 			fileschanged=$(echo $diffinfo | cut -d, -f1 | cut -d ' ' -f2)
+			if [[ $fileschanged != "" ]]; then
+				fileschanged="${fileschanged}f"
+			fi
 			insertions=$(echo $diffinfo | cut -d, -f2 | cut -d ' ' -f2)
+			if [[ $insertions != "" ]]; then
+				insertions=" +${insertions}"
+			fi
 			deletions=$(echo $diffinfo | cut -d, -f3 | cut -d ' ' -f2)
-			diffinfo="(${fileschanged}f, +${insertions}, -${deletions})"
+			if [[ $deletions != "" ]]; then
+				deletions=" -${deletions}"
+			fi
+			diffinfo="(${fileschanged}${insertions}${deletions})"
 		fi
-		# shitty
 		gitbranch="%{$fg[grey]%} ${gitbranch} ${diffinfo}%{$reset_color%}"
 	fi
 
@@ -96,7 +104,6 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-
 # Alias section
 alias ll='ls -lah'
 alias l='ls'
@@ -104,10 +111,7 @@ alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
 alias ya="yaourt"
 alias notes="vim ~/Dropbox/notes/"
 
-
 WORDCHARS='*?[]~=&;!#$%^(){}<>'
-
-
 
 # Plugins section
 
