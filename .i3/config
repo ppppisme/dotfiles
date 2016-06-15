@@ -109,8 +109,8 @@ set $tag4 "4: gimp"
 set $tag5 "5: music"
 set $tag6 "6: mail"
 set $tag7 "7: misc"
-set $tag8 "8: misc"
-set $tag9 "9: jabber"
+set $tag8 "8: vagrant"
+set $tag9 "9: slack"
 set $tag0 "0: term"
 
 # switch to workspace
@@ -213,12 +213,10 @@ bindsym Print exec --no-startup-id "scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-
 bindsym Shift+Print exec --no-startup-id "scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png && play ~/.i3/screenshot.mp3"
 
 # exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0"
-# exec --no-startup-id "compton -b -I 0.03 -O 0.03"
-exec --no-startup-id "mpd"
 exec --no-startup-id "xset m 01"
 exec --no-startup-id "xset r rate 250 25"
 exec --no-startup-id "xss-lock -- physlock"
-exec --no-startup-id "feh --bg-scale /home/vladgor/Pictures/Wallpapers/w.jpg"
+exec --no-startup-id "feh --bg-scale /home/pppp/Pictures/wallpaper.jpg"
 exec --no-startup-id "dropbox"
 
 
