@@ -108,10 +108,14 @@ set $tag3 "3: man"
 set $tag4 "4: gimp"
 set $tag5 "5: music"
 set $tag6 "6: mail"
-set $tag7 "7: misc"
-set $tag8 "8: vagrant"
+set $tag7 "7: vagrant"
+set $tag8 "8: telegram"
 set $tag9 "9: slack"
 set $tag0 "0: term"
+
+
+assign [class="Slack"] → $tag9
+assign [class="telegram-desktop"] → $tag8
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
@@ -208,16 +212,17 @@ bar {
 bindsym $mod+p exec --no-startup-id "physlock"
 
 # install "sox" for "play" command
-bindsym Print exec --no-startup-id "scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png && play ~/.i3/screenshot.mp3"
+# bindsym Print exec --no-startup-id "scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png && play ~/.i3/screenshot.mp3"
 # screenshot of focused window
-bindsym Shift+Print exec --no-startup-id "scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png && play ~/.i3/screenshot.mp3"
+# bindsym Shift+Print exec --no-startup-id "scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png && play ~/.i3/screenshot.mp3"
 
 # exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0"
 exec --no-startup-id "xset m 01"
 exec --no-startup-id "xset r rate 250 25"
 exec --no-startup-id "xss-lock -- physlock"
-exec --no-startup-id "feh --bg-scale /home/pppp/Pictures/wallpaper.jpg"
-exec --no-startup-id "dropbox"
+exec --no-startup-id "feh --bg-tile /home/pppp/Pictures/wallpaper.jpg"
+exec --no-startup-id "slack"
+exec --no-startup-id "telegram-desktop"
 
 
 # i3-gaps specific
