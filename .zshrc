@@ -58,46 +58,46 @@ setopt sharehistory
 setopt extendedhistory
 
 # Customized shell prompt
-		
+
 autoload -U colors && colors
-function set-prompt() 
+function set-prompt()
 {
-	if [[ $KEYMAP = vicmd ]]; then
-		vi_mode="%{$fg_bold[red]%}N"
-	else
-		vi_mode="%{$fg[grey]%}%%"
-	fi
+  if [[ $KEYMAP = vicmd ]]; then
+    vi_mode="%{$fg_bold[red]%}N"
+  else
+    vi_mode="%{$fg[grey]%}%%"
+  fi
 
-	gitbranch=$(git branch | sed -n '/\* /s///p')
+  gitbranch=$(git branch 2> /dev/null | sed -n '/\* /s///p')
 
-	if [[ "$gitbranch" != "" ]]; then
-		diffinfo=$(git diff --stat | tail -n 1)
-		if [[ "$diffinfo" != "" ]]; then
-			fileschanged=$(echo $diffinfo | cut -d, -f1 | cut -d ' ' -f2)
-			if [[ $fileschanged != "" ]]; then
-				fileschanged="${fileschanged}f"
-			fi
-			insertions=$(echo $diffinfo | cut -d, -f2 | cut -d ' ' -f2)
-			if [[ $insertions != "" ]]; then
-				insertions=" +${insertions}"
-			fi
-			deletions=$(echo $diffinfo | cut -d, -f3 | cut -d ' ' -f2)
-			if [[ $deletions != "" ]]; then
-				deletions=" -${deletions}"
-			fi
-			diffinfo="(${fileschanged}${insertions}${deletions})"
-		fi
-		gitbranch="%{$fg[grey]%} ${gitbranch} ${diffinfo}%{$reset_color%}"
-	fi
+  if [[ "$gitbranch" != "" ]]; then
+    diffinfo=$(git diff --stat | tail -n 1)
+    if [[ "$diffinfo" != "" ]]; then
+      fileschanged=$(echo $diffinfo | cut -d, -f1 | cut -d ' ' -f2)
+      if [[ $fileschanged != "" ]]; then
+        fileschanged="${fileschanged}f"
+      fi
+      insertions=$(echo $diffinfo | cut -d, -f2 | cut -d ' ' -f2)
+      if [[ $insertions != "" ]]; then
+        insertions=" +${insertions}"
+      fi
+      deletions=$(echo $diffinfo | cut -d, -f3 | cut -d ' ' -f2)
+      if [[ $deletions != "" ]]; then
+        deletions=" -${deletions}"
+      fi
+      diffinfo="(${fileschanged}${insertions}${deletions})"
+    fi
+    gitbranch="%{$fg[grey]%} ${gitbranch} ${diffinfo}%{$reset_color%}"
+  fi
 
-	PROMPT="
+  PROMPT="
 %{$fg[black]$bg[blue]%}   %n@%m %{$reset_color%}%{$fg[blue]%}%{$reset_color%} %~ ${gitbranch}
  $vi_mode%{$reset_color%} "
 }
 
 function zle-line-init zle-keymap-select {
     set-prompt
-	zle reset-prompt
+  zle reset-prompt
 }
 
 
@@ -110,6 +110,8 @@ alias l='ls'
 alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
 alias ya="yaourt"
 alias notes="vim ~/Dropbox/notes/"
+alias um="rsync -r ~/modules/above_eighteen/ vagrant@172.16.0.2:/var/www/drupal7.local/sites/all/modules/above_eighteen/"
+
 
 WORDCHARS='*?[]~=&;!#$%^(){}<>'
 
