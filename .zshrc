@@ -58,9 +58,9 @@ setopt sharehistory
 setopt extendedhistory
 
 # Customized shell prompt
-    
+
 autoload -U colors && colors
-function set-prompt() 
+function set-prompt()
 {
   if [[ $KEYMAP = vicmd ]]; then
     vi_mode="%{$fg_bold[red]%}N"
@@ -68,7 +68,7 @@ function set-prompt()
     vi_mode="%{$fg[grey]%}%%"
   fi
 
-  gitbranch=$(git branch | sed -n '/\* /s///p')
+  gitbranch=$(git branch 2> /dev/null | sed -n '/\* /s///p')
 
   if [[ "$gitbranch" != "" ]]; then
     diffinfo=$(git diff --stat | tail -n 1)
