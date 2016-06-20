@@ -1,4 +1,0 @@
-
-vagrant/drupal
-
-mysql: dbname,username,password => drupal
