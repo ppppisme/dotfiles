@@ -1,0 +1,47 @@
+<?php
+/**
+ * @file
+ * Don't allow non-adult users to register. Requires field_birthday user field.
+ */
+
+/* Forms */
+require_once 'includes/above_eighteen.form.inc';
+/* Configuration page for admin */
+require_once 'includes/pages/above_eighteen.admin.inc';
+
+/**
+ * Quick help for this module.
+ */
+function above_eighteen_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#above_eighteen':
+      return '<p>' . t("Don't allow users under certain age to register.") . '</p>';
+  }
+}
+
+/**
+ * Alter registration form to add a validator for birthday field.
+ */
+function above_eighteen_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'user_register_form') {
+    $form['#validate'][] = 'above_eighteen_validate_age';
+  }
+}
+
+/**
+ * Create menu for module settings.
+ */
+function above_eighteen_menu() {
+  $items = array();
+
+  $items['admin/config/people/above_eighteen'] = array(
+    'title' => 'Above Eighteen settings',
+    'description' => 'Here you can change settings for Above Eighteen module',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('above_eighteen_admin_settings'),
+    'access arguments' => array('administer above_eighteen settings'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}

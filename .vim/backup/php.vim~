@@ -1,5 +1,4 @@
 
-set filetype=php
 let g:syntastic_php_checkers = ["php", "phpcs", "phpmd"]
 let g:syntastic_php_phpcs_args = "--standard=Drupal"
 

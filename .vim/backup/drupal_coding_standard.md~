@@ -1,0 +1,190 @@
+* Use US English spelling
+
+Indenting and whitespace
+========================
+* Indenting with 2 spaces, no tabs
+* No trailing spaces
+* Unix like line ending (`\n`)
+* End file with a single new line
+
+
+
+Operators
+=========
+* Binary operators should have spaces before and after
+
+* Unary operators should not have spaces around
+
+
+
+Control structures
+==================
+* Use `elseif` instead of `else if`
+* Space between control statement and parenthesis
+* Always use curly braces
+* Opening curly on the same line with control statement preceeding with a space
+
+	if (condition1 || condition2) {
+		action1;
+	}
+	elseif (condition3 && condition4) {
+		action2;
+	}
+	else {
+	defaultaction;
+	}
+
+
+	switch (condition) {
+	case 1:
+		action1;
+		break;
+
+	case 2:
+		action2;
+		break;
+
+	default:
+		defaultaction;
+	}
+
+
+	do {
+		actions;
+	} while ($condition);
+
+
+Alternate syntax:
+
+	<?php if (!empty($item)): ?>
+		<p><?php print $item; ?></p>
+	<?php endif; ?>
+
+	<?php foreach ($items as $item): ?>
+		<p><?php print $item; ?></p>
+	<?php endforeach; ?>
+
+
+
+Line length and wrapping
+========================
+* In general, line shouldn't be longer than 80 symbols
+	* Lines containing longer function names, function/class definitions, variable declarations, etc are allowed to exceed 80 characters
+	* Control structure conditions may exceed 80 characters, if they are simple to read and understand
+* Conditions should not be wrapped into multiple lines
+* Control structure conditions should also NOT attempt to win the Most Compact Condition In Least Lines Of Code Award™
+(Instead, it is recommended practice to split out and prepare the conditions separately, which also permits documenting the underlying reasons for the conditions)
+
+
+
+Function calls
+==============
+* No space between the function name and parenthesis
+* Space after comma in argument list
+* No space before semicolon
+
+	$var = foo($bar, $baz, $quux);
+
+or
+
+	$short         = foo($bar);
+	$long_variable = foo($baz);
+
+
+
+Function declarations
+=====================
+	function funstuff_system($field) {
+		$system["description"] = t("This module inserts funny text into posts randomly.");
+		return $system[$field];
+	}
+
+* Arguments with default values go at the end of the argument list
+* Always attempt to return a meaningful value from a function if one is appropriate
+
+
+Class constructor calls
+=======================
+* When calling class constructors with no arguments, always include parentheses
+
+
+
+Arrays
+======
+* Separate arrays items with space
+* Surround `=>` with spaces
+* Broke elements into new lines if line with array declaration is longer than 80
+symbols
+* Leave comma at the end of last item in array
+
+
+
+Quotes
+======
+* Use single quotes by default
+* If use variables or single quote in string - double quotes
+
+
+
+String concatenation
+====================
+* Use space around dot
+* When concatenate simple variables use double quotes and the variable inside
+* Surround `.=` with spaces
+
+
+
+Including code
+==============
+* Use `require_once()` if including unconditionally
+* Use `include_once()` if including conditionally
+* When including file from the same or parent directory start path with `./`
+* In Drupal 7.x and later versions, use DRUPAL_ROOT:
+	require_once DRUPAL_ROOT . '/' . variable_get('cache_inc', 'includes/cache.inc');
+
+
+
+PHP code tags
+=============
+* Always use `<?php ?>` to delimit PHP code
+
+
+
+Semicolons
+==========
+* Put semicolons at the end of code blocks
+
+
+
+Naming conventions
+==================
+* Lowercase, separate words with underscore
+* Use grouping/module prefix
+
+
+Constants
+---------
+* Uppercase, separate words with underscore
+* Module-specific constants should have prefix with module name
+* In drupal8 use `const` to define constants
+
+
+Global variables
+----------------
+* Starts with a single underscore, then module/theme name, then underscore
+
+
+Files
+------
+* All documentation should has `.txt` extension (lowercase), filename
+should be upper-cased
+
+
+
+Helper modules
+==============
+1. coder
+2. dreditor
+3. pareview
+4. coder sniffer
+5. grammar parser

@@ -1,0 +1,21 @@
+
+	if Vagrant.has_plugin?('vagrant-hostsupdater')
+		config.vm.hostname = 'site.local'
+
+		config.hostsupdater.aliases = ['site.local', 'example.site']
+	end
+
+
+	config.vm.provision 'chef_solo' do |chef|
+	// здесь мы объявляем настройки сайтов для nginx conf файла
+	chef.json = {
+	  'nginx-wrapper' => {
+	    'sites' => {
+	      'site.local' => {
+	          'root' => '/var/www/site.local',
+	          'server_name' => 'site.local',
+	          },
+	      },
+	    }
+	  }
+	end

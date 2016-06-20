@@ -1,0 +1,60 @@
+
+# скачиваем друпал (dl = download), переименовываем в drupal7
+drush dl drupal-7 --drupal-project-rename=drupal7
+
+# ну или самый новый друпал
+# drush dl drupal --drupal-project-rename=drupal
+
+cd drupal7
+
+# устанавливаем друпал + создаем базу данных. логин админа: admin, пароль будет
+# написан после установки
+drush site-install standard --db-url='mysql://root:root@localhost/drupal7_db' --site-name=Drupal7
+
+# или можно указать логин и пароль напрямую
+# drush site-install standard --account-name=admin --account-pass=admin --db-url='mysql://root:root@localhost/drupal7_db' --site-name=Drupal7
+
+# в моем случае: user name: admin  user password: TdbUfJXGro
+
+# перемещаем в корневую папку с сервером (мб можно было прямо там устанавливать, но тогда пришлось бы все под sudo делать)
+sudo cp * /var/www/drupal7.local/ -rf
+
+# даем права владения файлами серверу
+cd /var/www/drupal7.local/
+sudo chown www-data:www-data ./ -R
+
+
+# выключаем ненужные плагины (dis = disable). -y - без подтверждения
+drush dis -y color, comment, dashboard, overlay, shortcut, toolbar
+
+# удаляем ненужные плагины (pmu = project-manager uninstall)
+# drush pmu -y color, comment, dashboard, overlay, shortcut, toolbar
+
+
+# разрешаем текущему пользователю писать в папку с модулями (при условии, что текущий пользователь находится в группе сервера (www-data))
+sudo chmod 774 /var/www/drupal7.local/sites/all/modules/
+
+# скачиваем и устанавливаем плагины (en = enable).
+# имя модуля совпадает с названием скачиваемого архива.
+# поэтому я просто выдернул скриптом все названия из уже скачаных мной модулей
+drush en -y entitycache views elysia_cron imce diff title search_api module_filter delta devel token block_class views_bulk_operations transliteration entity libraries pathauto entity_view_mode imce_mkdir better_formats admin_menu jquery_update rabbit_hole features rules fpa entityreference field_group ctools imagecache_actions globalredirect strongarm ckeditor admin_views captcha
+
+
+# команды конфигурации из восьмого драша не работают с седьмым друпалом, поэтому 
+
+
+
+#
+# полезные команды
+# ===============
+#
+# drush status
+#
+# drush user-create username --mail="email@example.com" --password="password"
+# drush user-cancel username
+# drush user-password admin --password="new_pass"
+#
+# есть ли обнволения. -n использует no как ответы на все промты
+# drush up -n | grep available
+# drush up views
+# drush up drupal

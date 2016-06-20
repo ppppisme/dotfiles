@@ -1,0 +1,4 @@
+
+name = Above Eighteen
+description = Don't allow users under 18 to register
+core = 7.x

@@ -1,0 +1,204 @@
+Redirection stuff
+==========
+
+stdin  ―> 0
+stdout ―> 1
+stderr ―> 2
+
+`echo "hello world" 1> hello.txt`
+ ― ПЕРЕЗАПИСЫВАЕТ файл, а не дополняет!!! (или просто echo "hello world" > hello.txt)
+
+`echo "how are you" >> hello.txt`
+ ― дополняет файл, не переписывая его
+
+`ls jkspodkhpfdskh 2> error.txt`
+ ― запишет ошибку в файл error.txt
+
+
+`prog 1 | prog2`
+ ― берет output из prog1 и передает в input prog2
+
+`prog 1 && prog2`
+ ― если prog1 выполнилась успешно, то выполняем prog2
+
+
+`$(cat somefile)`
+ — returns output of command to stdout
+
+`<(cat somefile)`
+ — returns text from file
+ — example: `mail -s "this is subject" vladgor < message.txt`
+
+
+
+Permissions
+===========
+d|rwx|rwx|rwx
+0 123 456 789
+
+0 — file type. Can be:
+
+* - — regular file
+* d — directory
+* l — symbolic link
+* c or b — character or block device
+* p or s — interprocess communication file: pipe or socket
+
+123 — owner permissions for read/write/execute
+
+456 — owner group members permissions for read/write/execute
+
+789 — others permissions for read/write/execute
+
+
+`chmod [number][number][number] filename`
+ ― sets permissions for owner, owner group and others
+
+where number stand for:
+	7 (111) ― read/write/execute
+	6 (110) ― read/write
+	5 (101) ― read/execute
+	4 (100) ― read
+	3 (011) ― write/execute
+	2 (010) ― write
+	1 (001) ― execute
+	0 (000) ― no rights at all
+
+Example:
+`chmod 640 some_file` = -rw-r-----
+
+
+`chmod -R [number][number][number] directoryname`
+ ― sets permissions for directory and everything it contains
+
+`chown owner:group filename`
+ — set owner and group for file
+
+Change default file permissions:
+1. vim /etc/login.defs
+2. /UMASK
+3. change xor-mask to what we want
+
+
+User account management
+=======================
+Imortant files: `/etc/passwd`, `/etc/shadow` and `/etc/group`
+
+Read `man passwd`, `man shadow` and `man group` accordingly to get help with
+syntax of these files.
+
+`useradd -m username`
+ —  add new user and create his home directory
+
+`ls /etc/skel`
+ — skeleton of home directory
+
+`passwd username`
+ — set password for user
+
+`usermod -L username`
+ — lock user (add ! before user password hash in /etc/shadow)
+
+`usermod -U username`
+ — unlock user
+
+`deluser username`
+ —  delete user
+
+TIP: `man newuser`
+
+
+
+File system navigation
+==========
+`dirs -v`
+ — show stack of directories
+
+pushd __directory__`
+ — push __directory__ to stack
+ — example: `pushd .`
+
+`popd`
+ — pop directory from stack
+
+`~__number__`
+ — refer to directory __number__ from stack
+ — example: `ls ~1`
+
+
+
+Programs i'm afraid to forget
+==============
+
+NTFS-3G
+-------
+`yaourt -S ntfs-3g`
+ — read/write support for NTFS
+
+ZSH
+---
+`yaourt -S zsh-completions`
+ — add tab-completion for more programs
+
+Twitter & Jabber
+----------------
+`yaourt -S profanity`
+ — jabber
+
+`pip install rainbowstream`
+ — twitter
+
+GTK appearance & icons configuration
+--------------------------------------
+`yaourt -S lxappearance`
+
+FM
+--
+`yaourt -S ranger`
+ — cool cli file manager
+
+Theme
+-----
+`yaourt -S i3-gaps i3blocks rofi compton adwaita-dark-gtk2-git (or adwaita-x-dark-and-light-theme) deepin-icon-theme`
+ — quick install for my theme
+
+Music
+-----
+`mdp`
+ — music server
+
+`ncmpcpp`
+ — mpd client
+
+
+
+SSH proxy server
+================
+	systemctl start sshd.service
+	ssh -N -D 8080 localhost
+
+	proxy: socks, 127.0.0.1:8080
+
+
+
+Disk management
+======================================
+`lsblk`
+
+`du`
+
+`df`
+
+
+
+Misc
+======================================
+rsync
+
+pgrep
+
+fuser
+
+lsof
+
+sed
