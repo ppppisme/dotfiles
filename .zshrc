@@ -110,7 +110,6 @@ alias l='ls'
 alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
 alias ya="yaourt"
 alias notes="vim ~/Dropbox/notes/"
-alias um="rsync -r ~/modules/above_eighteen/ vagrant@172.16.0.2:/var/www/drupal7.local/sites/all/modules/above_eighteen/"
 
 
 WORDCHARS='*?[]~=&;!#$%^(){}<>'

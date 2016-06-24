@@ -6,3 +6,8 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
+
+augroup FILETYPE
+	autocmd!
+	autocmd BufWritePost *.module,*.inc silent !ctags -R --language-force=php
+augroup END

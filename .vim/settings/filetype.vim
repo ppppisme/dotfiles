@@ -12,6 +12,6 @@ augroup END
 
 augroup FILETYPE_ALIASES
 	autocmd!
-	autocmd BufReadPre *.module set filetype=php
+	autocmd BufReadPre *.module,*.inc set filetype=php
 	autocmd BufReadPre *.info set filetype=ini
 augroup END
