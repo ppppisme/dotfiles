@@ -61,7 +61,7 @@ inoremap <c-k> <esc>mpO<esc>0D`pa
 
 
 " ctrlp shortcuts
-nnoremap <leader>f :CtrlPFunky<cr>
+nnoremap <leader>f :CtrlPTag<cr>
 nnoremap <leader>m :CtrlPMRU<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 
