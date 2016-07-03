@@ -3,6 +3,7 @@
 
 export EDITOR=vim
 export PATH=$PATH:/home/vladgor/.gem/ruby/2.3.0/bin/
+export XDG_CONFIG_HOME=$HOME/.config
 
 # export EDITOR=vim
 # Lines configured by zsh-newuser-install
@@ -107,9 +108,11 @@ zle -N zle-keymap-select
 # Alias section
 alias ll='ls -lah'
 alias l='ls'
-alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
+alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be && sudo netctl start home'
 alias ya="yaourt"
 alias notes="vim ~/Dropbox/notes/"
+alias dirs="dirs -v"
+alias tmux="tmux -2"
 
 WORDCHARS='*?[]~=&;!#$%^(){}<>'
 

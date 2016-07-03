@@ -16,7 +16,8 @@ set $mod Mod4
 # is used in the bar {} block below. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 font pango:CtrlD 9
-# The font above is very space-efficient, that is, it looks good, sharp and
+# The font above is very space-efficient, that is, it
+# looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
@@ -213,7 +214,7 @@ bindsym Print exec --no-startup-id "scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-
 bindsym Shift+Print exec --no-startup-id "scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png && play ~/.i3/screenshot.mp3"
 
 # exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0"
-# exec --no-startup-id "compton -b -I 0.03 -O 0.03"
+exec --no-startup-id "compton -b -I 0.03 -O 0.03"
 exec --no-startup-id "mpd"
 exec --no-startup-id "xset m 01"
 exec --no-startup-id "xset r rate 250 25"
