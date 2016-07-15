@@ -109,7 +109,8 @@ alias ll='ls -lah'
 alias l='ls'
 alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
 alias ya="yaourt"
-alias notes="vim ~/Dropbox/notes/"
+alias notes="vim ~/notes/"
+alias vv="cd ~/vagrant/vagrant/ && vagrant up && vagrant ssh -- -t 'cd /var/www/drupal7.local/; /bin/bash'"
 
 
 WORDCHARS='*?[]~=&;!#$%^(){}<>'

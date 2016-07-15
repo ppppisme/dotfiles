@@ -1,4 +1,3 @@
-
 augroup FILETYPE
 	autocmd!
 	autocmd FileType cpp,c,hpp,h source ~/.vim/settings/filetype/cpp.vim
@@ -8,10 +7,11 @@ augroup FILETYPE
 	autocmd FileType html,css source ~/.vim/settings/filetype/htmlcss.vim
 	autocmd FileType text source ~/.vim/settings/filetype/text.vim
 	autocmd FileType markdown source ~/.vim/settings/filetype/markdown.vim
+	autocmd FileType css source ~/.vim/settings/filetype/css.vim
 augroup END
 
 augroup FILETYPE_ALIASES
 	autocmd!
-	autocmd BufReadPre *.module,*.inc set filetype=php
-	autocmd BufReadPre *.info set filetype=ini
+	autocmd BufRead *.module,*.inc,*.install,*.profile set filetype=php
+	autocmd BufRead *.info set filetype=dosini
 augroup END

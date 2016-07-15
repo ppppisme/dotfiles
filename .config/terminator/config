@@ -10,6 +10,7 @@
   title_transmit_bg_color = "#fb4934"
   title_transmit_fg_color = "#c5c8c6"
 [keybindings]
+  group_all = None
 [layouts]
   [[default]]
     [[[child1]]]

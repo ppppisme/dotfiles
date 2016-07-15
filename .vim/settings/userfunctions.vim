@@ -1,4 +1,3 @@
-
 function! StripTrailingWhitespace()
 	" Preparation: save last search, and cursor position.
 	let _s=@/

@@ -1,9 +1,9 @@
-
 " list of plugins {{{
 call plug#begin('~/.vim/plugged')
 
 " file system navigation
-Plug 'scrooloose/NERDTree'
+" Plug 'scrooloose/NERDTree'
+Plug 'tpope/vim-vinegar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'mileszs/ack.vim'
@@ -12,6 +12,7 @@ Plug 'mileszs/ack.vim'
 Plug 'scrooloose/syntastic'
 
 " git stuff
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " snippets
@@ -139,18 +140,6 @@ let g:syntastic_loc_list_height = 4
 
 
 "---
-"Airline
-"---
-" let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#syntastic#enabled = 1
-" let g:airline_detect_iminsert = 1
-" let g:airline#extensions#tagbar#flags = 'f'
-" let g:airline#extensions#tagbar#enabled = 1
-" let g:airline_section_z = "[0x%04B],%#__accent_bold# %l%#__restore__#/%v (%p%%)"
-
-
-"---
 "Ctrlp
 "---
 let g:ctrlp_map = '<C-P>'
@@ -209,15 +198,15 @@ let g:lightline = {
 			\ }
 
 function! LightLineModified()
- if &filetype == "help"
-     return ""
-  elseif &modified
-	  return "+"
-  elseif &modifiable
-	  return ""
-  else
-	  return ""
-  endif
+	if &filetype == "help"
+		return ""
+	elseif &modified
+		return "+"
+	elseif &modifiable
+		return ""
+	else
+		return ""
+	endif
 endfunction
 
 function! LightLineReadonly()

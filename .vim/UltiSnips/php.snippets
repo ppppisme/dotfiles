@@ -1,0 +1,31 @@
+snippet fu "Documented function" b
+/**
+ * ${4:function description}.
+ */
+function ${1:name}(\$${2:param}) {
+	${VISUAL}${3:return null;}
+}
+endsnippet
+
+snippet hook "Hook" b
+/**
+ * Implements hook_$1().
+ */
+function `!v expand("%:t:r")`_${1:hook_name}(\$${2:param}) {
+	${VISUAL}${3:body}
+}
+endsnippet
+
+snippet bf "File begin" b
+<?php
+/**
+ * @file
+ * ${1:File description}.
+ */
+endsnippet
+
+snippet doc "Doc" b
+/**
+ * $0.
+ */
+endsnippet

@@ -1,5 +1,3 @@
-
-
 if has("nvim")
 	" fixes clipboard issue
 	set pastetoggle=<f6>

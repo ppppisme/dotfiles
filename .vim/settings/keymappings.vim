@@ -1,7 +1,3 @@
-
-noremap <F4> :NERDTreeToggle<cr>
-inoremap <F4> <esc>:NERDTreeToggle<cr>
-
 " shifting between windows
 nnoremap <silent> <C-k> <C-w>k
 nnoremap <silent> <C-j> <C-w>j
@@ -12,7 +8,6 @@ nnoremap <silent> <C-l> <C-w>l
 nnoremap gV `[v`]
 
 nnoremap Y y$
-
 
 " break string in two
 nnoremap K i<cr><esc>k$l
