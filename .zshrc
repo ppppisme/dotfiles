@@ -2,6 +2,7 @@
 
 
 export EDITOR=vim
+export TERMINAL=termite
 export PATH=$PATH:/home/vladgor/.gem/ruby/2.3.0/bin/
 
 # export EDITOR=vim

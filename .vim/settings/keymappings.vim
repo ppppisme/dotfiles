@@ -70,3 +70,5 @@ vnoremap <leader>q :QuickRun<cr>
 nnoremap \ ,
 
 cmap w!! w !sudo tee > /dev/null %
+
+inoremap {<cr> {<cr>}<esc>O

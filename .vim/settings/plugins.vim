@@ -2,10 +2,8 @@
 call plug#begin('~/.vim/plugged')
 
 " file system navigation
-" Plug 'scrooloose/NERDTree'
 Plug 'tpope/vim-vinegar'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
 Plug 'mileszs/ack.vim'
 
 " linter
@@ -21,7 +19,6 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 
 " buffer navigation
-Plug 'szw/vim-ctrlspace'
 Plug 'tpope/vim-unimpaired'
 
 " decoration stuff
@@ -40,6 +37,7 @@ Plug 'ervandew/supertab'
 Plug 'davidhalter/jedi-vim'
 
 " text navigation
+Plug 'justinmk/vim-sneak'
 Plug 'thinca/vim-visualstar'
 
 " script runner
@@ -54,9 +52,6 @@ Plug 'michaeljsmith/vim-indent-object'
 
 " language support
 Plug 'sheerun/vim-polyglot'
-
-" php
-Plug 'shawncplus/phpcomplete.vim'
 
 " misc
 Plug 'tpope/vim-commentary'
@@ -92,30 +87,6 @@ let g:SuperTabDefaultCompletionType = "context"
 "Jedi
 "---
 let g:jedi#popup_on_dot = 0
-
-
-"---
-"CtrlSpace
-"---
-let g:ctrlspace_symbols = {
-			\ "cs":      "#",
-			\ "tab":     "TAB",
-			\ "all":     "ALL",
-			\ "file":    "FILE",
-			\ "tabs":    "-",
-			\ "c_tab":   "+",
-			\ "load":    "|::|",
-			\ "save":    "[::]",
-			\ "zoom":    "*",
-			\ "s_left":  "[",
-			\ "s_right": "]",
-			\ "bm":      "BM",
-			\ "help":    "?",
-			\ "iv":      "-",
-			\ "ia":      "*",
-			\ "im":      "+",
-			\ "dots":    "..."
-			\ }
 
 
 "---
@@ -176,8 +147,12 @@ augroup rainbow_parentheses
 	autocmd Syntax * RainbowParenthesesLoadSquare
 	autocmd Syntax * RainbowParenthesesLoadBraces
 augroup end
-"}}}
 
+
+"---
+"Sneak
+"---
+let g:sneak#streak = 1
 
 
 "---
@@ -188,9 +163,10 @@ let g:lightline = {
 			\ 'colorscheme': 'gruvbox',
 			\ 'active': {
 			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'filename' ] ]
+			\             [ 'filename', 'fugitive' ] ]
 			\ },
 			\ 'component_function': {
+			\   'fugitive': 'LightLineFugitive',
 			\   'filename': 'LightLineFilename'
 			\ },
 			\ 'separator': { 'left': '', 'right': '' },
@@ -219,8 +195,17 @@ function! LightLineReadonly()
 	endif
 endfunction
 
+function! LightLineFugitive()
+	if exists("*fugitive#head")
+		let branch = fugitive#head()
+		return branch !=# '' ? ' '.branch : ''
+	endif
+	return ''
+endfunction
+
 function! LightLineFilename()
 	return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
 				\ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
 				\ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
+"}}}
