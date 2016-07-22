@@ -8,6 +8,6 @@ setlocal softtabstop=2
 setlocal tabstop=2
 
 augroup FILETYPE
-	autocmd!
-	autocmd BufWritePost *.module,*.inc silent !ctags -R --language-force=php
+  autocmd!
+  autocmd BufWritePost *.module,*.inc silent !ctags -R --language-force=php
 augroup END

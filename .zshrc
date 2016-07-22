@@ -60,50 +60,7 @@ setopt extendedhistory
 
 # Customized shell prompt
 
-autoload -U colors && colors
-function set-prompt()
-{
-  if [[ $KEYMAP = vicmd ]]; then
-    vi_mode="%{$fg_bold[red]%}N"
-  else
-    vi_mode="%{$fg[grey]%}%%"
-  fi
-
-  gitbranch=$(git branch 2> /dev/null | sed -n '/\* /s///p')
-
-  if [[ "$gitbranch" != "" ]]; then
-    diffinfo=$(git diff --stat | tail -n 1)
-    if [[ "$diffinfo" != "" ]]; then
-      fileschanged=$(echo $diffinfo | cut -d, -f1 | cut -d ' ' -f2)
-      if [[ $fileschanged != "" ]]; then
-        fileschanged="${fileschanged}f"
-      fi
-      insertions=$(echo $diffinfo | cut -d, -f2 | cut -d ' ' -f2)
-      if [[ $insertions != "" ]]; then
-        insertions=" +${insertions}"
-      fi
-      deletions=$(echo $diffinfo | cut -d, -f3 | cut -d ' ' -f2)
-      if [[ $deletions != "" ]]; then
-        deletions=" -${deletions}"
-      fi
-      diffinfo="(${fileschanged}${insertions}${deletions})"
-    fi
-    gitbranch="%{$fg[grey]%} ${gitbranch} ${diffinfo}%{$reset_color%}"
-  fi
-
-  PROMPT="
-%{$fg[black]$bg[blue]%}   %n@%m %{$reset_color%}%{$fg[blue]%}%{$reset_color%} %~ ${gitbranch}
- $vi_mode%{$reset_color%} "
-}
-
-function zle-line-init zle-keymap-select {
-    set-prompt
-  zle reset-prompt
-}
-
-
-zle -N zle-line-init
-zle -N zle-keymap-select
+source ~/.zsh/themes/powerline.sh
 
 # Alias section
 alias ll='ls -lah'
@@ -111,7 +68,17 @@ alias l='ls'
 alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
 alias ya="yaourt"
 alias notes="vim ~/notes/"
+alias todo="vim ~/notes/todo.md"
 alias vv="cd ~/vagrant/vagrant/ && vagrant up && vagrant ssh -- -t 'cd /var/www/drupal7.local/; /bin/bash'"
+alias gs='git status'
+alias ga='git add .'
+alias gu='git add -u'
+alias gc='git commit'
+alias gl='git log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n""          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)" --all'
+alias gd='git diff HEAD'
+alias gd~='git diff HEAD~1'
+alias gita="git config --global user.name 'adci_contributor' --replace-all && git config --global user.email ak@adcillc.com --replace-all"
+alias gitv="git config --global user.name 'vladgor' --replace-all && git config --global user.email vladgorenkin@yandex.ru --replace-all"
 
 
 WORDCHARS='*?[]~=&;!#$%^(){}<>'

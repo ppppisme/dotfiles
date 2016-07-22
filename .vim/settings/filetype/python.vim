@@ -2,11 +2,6 @@
 nnoremap <buffer> <F10> :!python %<cr>
 inoremap <buffer> <F10> <esc>:!python %<cr>:startinsert<cr>
 
-setlocal completeopt-=preview
-"setlocal omnifunc=jedi#completions
-"let g:jedi#popup_on_dot = 0
-"let g:jedi#show_call_signatures = 2
-
 setlocal iskeyword-=#
 let g:syntastic_python_checkers = ['pyflakes']  " 'flake8',
 
