@@ -60,7 +60,7 @@ setopt extendedhistory
 
 # Customized shell prompt
 
-source ~/.zsh/themes/powerline.sh
+source ~/.zsh/themes/minimal.sh
 
 # Alias section
 alias ll='ls -lah'
