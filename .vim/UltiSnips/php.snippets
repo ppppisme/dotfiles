@@ -1,9 +1,6 @@
 snippet fu "Documented function" b
-/**
- * ${4:function description}.
- */
-function ${1:name}(\$${2:param}) {
-	${VISUAL}${3:return null;}
+function `!v split(expand("%:t:r"), '\.')[0]`_${1:hook_name}(${2:$param}) {
+	${VISUAL}${3}
 }
 endsnippet
 
@@ -11,7 +8,7 @@ snippet hook "Hook" b
 /**
  * Implements hook_$1().
  */
-function `!v expand("%:t:r")`_${1:hook_name}(\$${2:param}) {
+function `!v split(expand("%:t:r"), '\.')[0]`_${1:hook_name}(${2:$param}) {
 	${VISUAL}${3:body}
 }
 endsnippet
@@ -24,9 +21,17 @@ snippet bf "File begin" b
  */
 endsnippet
 
+snippet head "File head"
+<?php
+/**
+ * @file
+ * $0
+ */
+endsnippet
+
 snippet doc "Doc" b
 /**
- * $0.
+ * $0
  */
 endsnippet
 

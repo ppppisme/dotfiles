@@ -77,8 +77,8 @@ alias gc='git commit'
 alias gl='git log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n""          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)" --all'
 alias gd='git diff HEAD'
 alias gd~='git diff HEAD~1'
-alias gita="git config --global user.name 'adci_contributor' --replace-all && git config --global user.email ak@adcillc.com --replace-all"
-alias gitv="git config --global user.name 'vladgor' --replace-all && git config --global user.email vladgorenkin@yandex.ru --replace-all"
+alias gita="git config --local user.name 'adci_contributor' --replace-all && git config --local user.email ak@adcillc.com --replace-all"
+alias gitv="git config --local user.name 'vladgor' --replace-all && git config --local user.email vladgorenkin@yandex.ru --replace-all"
 
 
 WORDCHARS='*?[]~=&;!#$%^(){}<>'
