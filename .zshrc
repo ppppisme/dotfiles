@@ -66,11 +66,11 @@ source ~/.zsh/themes/minimal.sh
 alias ll='ls -lah'
 alias l='ls'
 alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
-alias ya="yaourt"
-alias notes="vim ~/notes/"
-alias todo="vim ~/notes/todo.md"
-alias v7="cd ~/vagrant/drupal7/ && vagrant up && vagrant ssh -- -t 'cd /var/www/drupal7.local/; /bin/bash'"
-alias v8="cd ~/vagrant/drupal8/ && vagrant up && vagrant ssh -- -t 'cd /var/www/drupal8.local/; /bin/bash'"
+alias ya='yaourt'
+alias notes='vim ~/notes/'
+alias todo='vim ~/notes/todo.md'
+alias v7='sh ~/.zsh/scripts/run_vagrant.sh drupal7'
+alias v8='sh ~/.zsh/scripts/run_vagrant.sh drupal8'
 alias gs='git status'
 alias ga='git add .'
 alias gu='git add -u'
@@ -82,7 +82,9 @@ alias gita="git config --local user.name 'adci_contributor' --replace-all && git
 alias gitv="git config --local user.name 'vladgor' --replace-all && git config --local user.email vladgorenkin@yandex.ru --replace-all"
 
 # Let's try nvim
-alias vim="nvim"
+# alias vim="nvim"
+#
+# Let's not try nvim
 
 
 WORDCHARS='*?[]~=&;!#$%^(){}<>'

@@ -45,7 +45,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.rofirc
 bindsym $mod+m exec --no-startup-id rofi -show window -config ~/.rofirc
 # bindsym $mod+d exec --no-startup-id dmenu_run
-# bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -114,6 +113,7 @@ set $tag9 "9: slack"
 set $tag0 "0: vim"
 
 assign [class="Slack"] →  $tag9
+assign [class="Termite-vagrant"] →  $tag7
 assign [class="Gimp"] →  $tag4
 
 # switch to workspace
@@ -222,6 +222,8 @@ exec --no-startup-id "xset r rate 250 25"
 exec --no-startup-id "feh --bg-tile /home/pppp/Pictures/wallpaper.jpg"
 exec --no-startup-id "slack"
 
+exec --no-startup-id "termite --class 'Termite-vagrant' --exec '/bin/zsh -c \"sh ~/.zsh/scripts/run_vagrant.sh drupal7\"'"
+exec --no-startup-id "termite --class 'Termite-vagrant' --exec '/bin/zsh -c \"sh ~/.zsh/scripts/run_vagrant.sh drupal8\"'"
 
 # i3-gaps specific
 gaps outer 15

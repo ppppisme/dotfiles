@@ -6,7 +6,7 @@ set exrc   " reads from .vimrc, .exrc and .gvimrc in the current directory
 " Doesn't work in neovim for some reason. So:
 if has('nvim')
   if filereadable('.vimrc')
-    source .vimrc
+    " source .vimrc
   endif
 endif
 set secure " disables shell and write commands in local .vimrc
