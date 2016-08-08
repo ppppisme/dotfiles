@@ -1,13 +1,14 @@
-if has("nvim")
-    " fixes clipboard issue
-    set pastetoggle=<f6>
-endif
-
 " turns syntax highlighting on
 syntax on
 filetype plugin indent on
 
 set exrc   " reads from .vimrc, .exrc and .gvimrc in the current directory
+" Doesn't work in neovim for some reason. So:
+if has('nvim')
+  if filereadable('.vimrc')
+    source .vimrc
+  endif
+endif
 set secure " disables shell and write commands in local .vimrc
 
 " updates content when ile is changed from the outside
@@ -19,23 +20,23 @@ set background=dark
 set t_Co=256
 
 if has("gui_running")
-    " turns off toolbar, menu and left scrollbar
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=L
+  " turns off toolbar, menu and left scrollbar
+  set guioptions-=T
+  set guioptions-=m
+  set guioptions-=L
 
-    set guioptions+=c   " use console dialogs instead of popup dialogs for simple choices
-    set guioptions+=b   " turns bottom scrollbar on
-    set guioptions-=e   " turns on text tabs
+  set guioptions+=c   " use console dialogs instead of popup dialogs for simple choices
+  set guioptions+=b   " turns bottom scrollbar on
+  set guioptions-=e   " turns on text tabs
 
-    " if (has("win32"))
-    " 	set renderoptions=type:directx
-    " endif
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11  " font for gui version
-    set cursorline   " highlights current line
-    " colorscheme gruvbox
-    " set background=dark
-    set nocursorline
+  " if (has("win32"))
+  "   set renderoptions=type:directx
+  " endif
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11  " font for gui version
+  set cursorline   " highlights current line
+  " colorscheme gruvbox
+  " set background=dark
+  set nocursorline
 endif
 
 set number   " shows line numbers
@@ -104,6 +105,8 @@ set completeopt=menuone,menu,longest   " sets complete menu options
 set list   " displays special symbols like eol or whitespace
 set listchars=tab:··,trail:_,eol:¬   " sets what symbols vim will show
 
+set pastetoggle=<leader>p
+
 set lazyredraw   " turns on lazy redraw on completing scripts
 
 " custom directories for storing backup, swap and undo files
@@ -115,12 +118,12 @@ set directory=~/.vim/swap/
 set undodir=~/.vim/undo/
 
 augroup common
-    autocmd!
-    " restores cursor position in file on load
-    autocmd BufReadPost *
-                \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                \   exe"normal g`\"" |
-                \ endif
-    " saves a document on lost focus
-    "autocmd FocusLost * :wa
+  autocmd!
+  " restores cursor position in file on load
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe"normal g`\"" |
+        \ endif
+  " saves a document on lost focus
+  "autocmd FocusLost * :wa
 augroup end

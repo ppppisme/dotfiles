@@ -69,7 +69,8 @@ alias rw='sudo modprobe -r rtl8723be && sudo modprobe rtl8723be'
 alias ya="yaourt"
 alias notes="vim ~/notes/"
 alias todo="vim ~/notes/todo.md"
-alias vv="cd ~/vagrant/vagrant/ && vagrant up && vagrant ssh -- -t 'cd /var/www/drupal7.local/; /bin/bash'"
+alias v7="cd ~/vagrant/drupal7/ && vagrant up && vagrant ssh -- -t 'cd /var/www/drupal7.local/; /bin/bash'"
+alias v8="cd ~/vagrant/drupal8/ && vagrant up && vagrant ssh -- -t 'cd /var/www/drupal8.local/; /bin/bash'"
 alias gs='git status'
 alias ga='git add .'
 alias gu='git add -u'
@@ -79,6 +80,9 @@ alias gd='git diff HEAD'
 alias gd~='git diff HEAD~1'
 alias gita="git config --local user.name 'adci_contributor' --replace-all && git config --local user.email ak@adcillc.com --replace-all"
 alias gitv="git config --local user.name 'vladgor' --replace-all && git config --local user.email vladgorenkin@yandex.ru --replace-all"
+
+# Let's try nvim
+alias vim="nvim"
 
 
 WORDCHARS='*?[]~=&;!#$%^(){}<>'

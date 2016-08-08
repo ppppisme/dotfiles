@@ -1,6 +1,3 @@
-"set tags+=$VIMRUNTIME\tags\cpp
-"set tags+=$VIMRUNTIME\tags\c
-
 autocmd FileType c,h,hpp au BufWinEnter * set filetype=cpp
 
 " highlights lines when it's longer than 80 symbols
@@ -8,10 +5,10 @@ autocmd FileType c,h,hpp au BufWinEnter * set filetype=cpp
 
 " cpp-tags stuff -------------- {{{
 function! UpdateTags()
-	:w
-	call xolox#misc#os#exec({'command': 'ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q --language-force=C++ .', 'async': 1})
-	execute":redraw!"
-	echohl StatusLine | echo"C/C++ tags updated" | echohl None
+  :w
+  call xolox#misc#os#exec({'command': 'ctags -R --sort=yes --c++-kinds=+p --fields=+ialS --extra=+q --language-force=C++ .', 'async': 1})
+  execute":redraw!"
+  echohl StatusLine | echo"C/C++ tags updated" | echohl None
 endfunction
 
 "au FileType c,h,cpp,hpp au BufWinEnter * exe"cscope add" . Cscope_Find_DB()

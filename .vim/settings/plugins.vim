@@ -13,7 +13,7 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" snippets
+" snippets 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
@@ -61,6 +61,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vladgor/metal-vim-rising'
+Plug 'junegunn/goyo.vim'
 
 " color schemes
 Plug 'morhetz/gruvbox'
@@ -141,11 +142,11 @@ let NERDTreeShowHidden = 1
 "Rainbow parentheses
 "---
 augroup rainbow_parentheses
-	autocmd!
-	autocmd VimEnter * RainbowParenthesesToggle
-	autocmd Syntax * RainbowParenthesesLoadRound
-	autocmd Syntax * RainbowParenthesesLoadSquare
-	autocmd Syntax * RainbowParenthesesLoadBraces
+  autocmd!
+  autocmd VimEnter * RainbowParenthesesToggle
+  autocmd Syntax * RainbowParenthesesLoadRound
+  autocmd Syntax * RainbowParenthesesLoadSquare
+  autocmd Syntax * RainbowParenthesesLoadBraces
 augroup end
 
 
@@ -160,52 +161,52 @@ let g:sneak#streak = 1
 "---
 
 let g:lightline = {
-			\ 'colorscheme': 'gruvbox',
-			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'filename', 'fugitive' ] ]
-			\ },
-			\ 'component_function': {
-			\   'fugitive': 'LightLineFugitive',
-			\   'filename': 'LightLineFilename'
-			\ },
-			\ 'separator': { 'left': '', 'right': '' },
-			\ 'subseparator': { 'left': '', 'right': '' }
-			\ }
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'filename', 'fugitive' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightLineFugitive',
+      \   'filename': 'LightLineFilename'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
 
 function! LightLineModified()
-	if &filetype == "help"
-		return ""
-	elseif &modified
-		return "+"
-	elseif &modifiable
-		return ""
-	else
-		return ""
-	endif
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
 endfunction
 
 function! LightLineReadonly()
-	if &filetype == "help"
-		return ""
-	elseif &readonly
-		return ""
-	else
-		return ""
-	endif
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return ""
+  else
+    return ""
+  endif
 endfunction
 
 function! LightLineFugitive()
-	if exists("*fugitive#head")
-		let branch = fugitive#head()
-		return branch !=# '' ? ' '.branch : ''
-	endif
-	return ''
+  if exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? ' '.branch : ''
+  endif
+  return ''
 endfunction
 
 function! LightLineFilename()
-	return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-				\ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-				\ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
 "}}}

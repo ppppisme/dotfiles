@@ -113,9 +113,8 @@ set $tag8 "8: telegram"
 set $tag9 "9: slack"
 set $tag0 "0: vim"
 
-
-assign [class="Slack"] → $tag9
-# assign [class="telegram-desktop"] → $tag8
+assign [class="Slack"] →  $tag9
+assign [class="Gimp"] →  $tag4
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
@@ -152,26 +151,26 @@ new_window none
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+  # same bindings, but for the arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 
@@ -181,31 +180,31 @@ focus_follows_mouse no
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        position top
-        status_command i3blocks
-        tray_output primary
-        # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-        font pango:CtrlD 9
+  position top
+  status_command i3blocks
+  tray_output primary
+  # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+  font pango:CtrlD 9
 
-        colors {
-            # gruvbox palette
+  colors {
+    # gruvbox palette
 
-            # dark theme
-            background #282828
-            statusline #d5c4a1
-            separator  #928374
+    # dark theme
+    background #282828
+    statusline #d5c4a1
+    separator  #928374
 
-            # light theme
-            # background #fbf1c7
-            # statusline #665c54
-            # separator  #928374
+    # light theme
+    # background #fbf1c7
+    # statusline #665c54
+    # separator  #928374
 
-            # Type             border  bg      font
-            focused_workspace  #282828 #282828 #b8bb26
-            active_workspace   #282828 #282828 #b8bb26
-            inactive_workspace #282828 #282828 #928374
-            urgent_workspace   #282828 #282828 #fb4834
-        }
+    # Type             border  bg      font
+    focused_workspace  #282828 #282828 #b8bb26
+    active_workspace   #282828 #282828 #b8bb26
+    inactive_workspace #282828 #282828 #928374
+    urgent_workspace   #282828 #282828 #fb4834
+  }
 }
 
 # locker bindsym
@@ -217,6 +216,7 @@ bindsym $mod+p exec --no-startup-id "physlock"
 # bindsym Shift+Print exec --no-startup-id "scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png && play ~/.i3/screenshot.mp3"
 
 # exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0"
+exec --no-startup-id "compton -c -I 0.075 -O 0.075 &"
 exec --no-startup-id "xset m 01"
 exec --no-startup-id "xset r rate 250 25"
 exec --no-startup-id "feh --bg-tile /home/pppp/Pictures/wallpaper.jpg"
