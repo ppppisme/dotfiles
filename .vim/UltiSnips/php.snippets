@@ -9,20 +9,13 @@ snippet hook "Hook" b
  * Implements hook_$1().
  */
 function `!v split(expand("%:t:r"), '\.')[0]`_${1:hook_name}(${2:$param}) {
-	${VISUAL}${3:body}
+	${VISUAL}${3}
 }
-endsnippet
-
-snippet bf "File begin" b
-<?php
-/**
- * @file
- * ${1:File description}.
- */
 endsnippet
 
 snippet head "File head"
 <?php
+
 /**
  * @file
  * $0
@@ -37,4 +30,14 @@ endsnippet
 
 snippet d "Debug function call"
 debug(${VISUAL}${0});
+endsnippet
+
+snippet m "Module name"
+`!v split(expand("%:t:r"), '\.')[0]`
+endsnippet
+
+snippet ine "If not empty - wrapper"
+if (!empty(${VISUAL})) {
+	${VISUAL}${0}
+}
 endsnippet

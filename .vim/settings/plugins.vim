@@ -101,6 +101,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-j>"
 "---
 "Syntastic
 "---
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_enable_balloons = 0
 let g:syntastic_enable_signs = 1
@@ -125,12 +126,6 @@ let g:ctrlp_custom_ignore = '\v\.(o|git|hg|svn)$'
 
 
 "---
-"GitGutter
-"---
-" let g:gitgutter_enabled = 1
-
-
-"---
 "NERDTree
 "---
 let NERDTreeQuitOnOpen = 1
@@ -143,12 +138,8 @@ let NERDTreeShowHidden = 1
 "---
 augroup rainbow_parentheses
   autocmd!
-  autocmd VimEnter * RainbowParenthesesToggle
-  autocmd Syntax * RainbowParenthesesLoadRound
-  autocmd Syntax * RainbowParenthesesLoadSquare
-  autocmd Syntax * RainbowParenthesesLoadBraces
+  autocmd VimEnter * RainbowParenthesesToggleAll
 augroup end
-
 
 "---
 "Sneak

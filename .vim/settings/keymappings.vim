@@ -59,6 +59,7 @@ inoremap <c-k> <esc>mpO<esc>0D`pa
 nnoremap <leader>f :CtrlPTag<cr>
 nnoremap <leader>m :CtrlPMRU<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>l :CtrlPLine<cr>
 
 " scratch window
 nnoremap gs :Sscratch<cr>

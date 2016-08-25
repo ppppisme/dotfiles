@@ -105,8 +105,6 @@ set completeopt=menuone,menu,longest   " sets complete menu options
 set list   " displays special symbols like eol or whitespace
 set listchars=tab:··,trail:_,eol:¬   " sets what symbols vim will show
 
-set pastetoggle=<leader>p
-
 set lazyredraw   " turns on lazy redraw on completing scripts
 
 " custom directories for storing backup, swap and undo files

@@ -80,6 +80,7 @@ alias gd='git diff HEAD'
 alias gd~='git diff HEAD~1'
 alias gita="git config --local user.name 'adci_contributor' --replace-all && git config --local user.email ak@adcillc.com --replace-all"
 alias gitv="git config --local user.name 'vladgor' --replace-all && git config --local user.email vladgorenkin@yandex.ru --replace-all"
+alias dev="ack '(TODO:|FIXME:|file_put_contents|debug|print_r|print|echo)' ./"
 
 # Let's try nvim
 # alias vim="nvim"
