@@ -3,7 +3,8 @@
 
 export EDITOR=vim
 export TERMINAL=termite
-export PATH=$PATH:/home/vladgor/.gem/ruby/2.3.0/bin/
+export PATH=$PATH:/home/pppp/.gem/ruby/2.3.0/bin/
+export PATH=$PATH:/home/pppp/.config/composer/vendor/bin/
 
 # export EDITOR=vim
 # Lines configured by zsh-newuser-install
@@ -86,7 +87,9 @@ alias dev="ack '(TODO:|FIXME:|file_put_contents|debug|print_r|print|echo)' ./"
 # alias vim="nvim"
 #
 # Let's not try nvim
-
+#
+# Let's try nvim
+alias vim="nvim"
 
 WORDCHARS='*?[]~=&;!#$%^(){}<>'
 

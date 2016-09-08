@@ -1,7 +1,3 @@
-" turns syntax highlighting on
-syntax on
-filetype plugin indent on
-
 set exrc   " reads from .vimrc, .exrc and .gvimrc in the current directory
 " Doesn't work in neovim for some reason. So:
 if has('nvim')
@@ -16,6 +12,7 @@ set autoread
 
 " current colorscheme
 colorscheme gruvbox
+let g:gruvbox_syntax_highlighting = 0
 set background=dark
 set t_Co=256
 
@@ -32,16 +29,13 @@ if has("gui_running")
   " if (has("win32"))
   "   set renderoptions=type:directx
   " endif
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11  " font for gui version
+  set guifont=CtrlD 11 " font for gui version
   set cursorline   " highlights current line
-  " colorscheme gruvbox
-  " set background=dark
   set nocursorline
 endif
 
 set number   " shows line numbers
 set hidden   " doesn't let unload buffer when it's closed
-let mapleader = ","   " remap <leader> key to comma
 
 set nowrap   " turns word wrapping off
 set textwidth=80   " max width of text inserted
@@ -125,3 +119,5 @@ augroup common
   " saves a document on lost focus
   "autocmd FocusLost * :wa
 augroup end
+
+let g:netrw_liststyle = 3

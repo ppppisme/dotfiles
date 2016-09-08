@@ -223,8 +223,8 @@ exec --no-startup-id "xset r rate 250 25"
 exec --no-startup-id "feh --bg-tile /home/pppp/Pictures/wallpaper.jpg"
 exec --no-startup-id "slack"
 
-exec --no-startup-id "termite --class 'Termite-vagrant' --exec '/bin/zsh -c \"sh ~/.zsh/scripts/run_vagrant.sh drupal7\"'"
-exec --no-startup-id "termite --class 'Termite-vagrant' --exec '/bin/zsh -c \"sh ~/.zsh/scripts/run_vagrant.sh drupal8\"'"
+# exec --no-startup-id "termite --class 'Termite-vagrant' --exec '/bin/zsh -c \"sh ~/.zsh/scripts/run_vagrant.sh drupal7\"'"
+# exec --no-startup-id "termite --class 'Termite-vagrant' --exec '/bin/zsh -c \"sh ~/.zsh/scripts/run_vagrant.sh drupal8\"'"
 
 # i3-gaps specific
 gaps outer 7

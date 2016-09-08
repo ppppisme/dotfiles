@@ -1,14 +1,17 @@
-snippet fu "Documented function" b
-function `!v split(expand("%:t:r"), '\.')[0]`_${1:hook_name}(${2:$param}) {
+snippet fu "Not documented function" b
+/**
+ * ${0}
+ */
+function `!v split(expand("%:t:r"), '\.')[0]`_${1}(${2}) {
 	${VISUAL}${3}
 }
 endsnippet
 
 snippet hook "Hook" b
 /**
- * Implements hook_$1().
+ * Implements hook_${1}().
  */
-function `!v split(expand("%:t:r"), '\.')[0]`_${1:hook_name}(${2:$param}) {
+function `!v split(expand("%:t:r"), '\.')[0]`_${1}(${2}) {
 	${VISUAL}${3}
 }
 endsnippet
@@ -18,13 +21,13 @@ snippet head "File head"
 
 /**
  * @file
- * $0
+ * ${0}
  */
 endsnippet
 
 snippet doc "Doc" b
 /**
- * $0
+ * ${0}
  */
 endsnippet
 
@@ -34,10 +37,4 @@ endsnippet
 
 snippet m "Module name"
 `!v split(expand("%:t:r"), '\.')[0]`
-endsnippet
-
-snippet ine "If not empty - wrapper"
-if (!empty(${VISUAL})) {
-	${VISUAL}${0}
-}
 endsnippet

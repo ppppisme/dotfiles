@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 " file system navigation
 Plug 'tpope/vim-vinegar'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
+Plug 'mhinz/vim-grepper'
 
 " linter
 Plug 'scrooloose/syntastic'
@@ -13,7 +13,7 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" snippets 
+" snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
@@ -23,21 +23,21 @@ Plug 'tpope/vim-unimpaired'
 
 " decoration stuff
 Plug 'itchyny/lightline.vim'
-Plug 'kien/rainbow_parentheses.vim'
 Plug 'myusuf3/numbers.vim'
 
 " organiser features
-Plug 'TaskList.vim'
 Plug 'duff/vim-scratch'
 
 " auto completion
 Plug 'ervandew/supertab'
+if has("nvim")
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 
 " python
 Plug 'davidhalter/jedi-vim'
 
 " text navigation
-Plug 'justinmk/vim-sneak'
 Plug 'thinca/vim-visualstar'
 
 " script runner
@@ -45,23 +45,18 @@ Plug 'thinca/vim-quickrun'
 
 " text objects
 Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-entire'
-Plug 'glts/vim-textobj-comment'
-Plug 'michaeljsmith/vim-indent-object'
 
 " language support
 Plug 'sheerun/vim-polyglot'
 
 " misc
 Plug 'tpope/vim-commentary'
-Plug 'Raimondi/delimitMate'
-Plug 'matchit.zip'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
+Plug 'matchit.zip'
 Plug 'vladgor/metal-vim-rising'
-Plug 'junegunn/goyo.vim'
 
 " color schemes
 Plug 'morhetz/gruvbox'
@@ -73,11 +68,23 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'tpope/vim-vividchalk'
 Plug 'w0ng/vim-hybrid'
 
+" new themes
+Plug 'AlessandroYorba/Sierra'
+Plug 'AlessandroYorba/Alduin'
+
 call plug#end()
 "}}}
 
 
 " plugins settings {{{
+"---
+"Grepper
+"---
+nnoremap <leader>g :Grepper<cr>
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+
+
 "---
 "SuperTab
 "---
@@ -88,6 +95,12 @@ let g:SuperTabDefaultCompletionType = "context"
 "Jedi
 "---
 let g:jedi#popup_on_dot = 0
+
+
+"---
+"deoplete
+"---
+let g:deoplete#enable_at_startup = 1
 
 
 "---
@@ -113,6 +126,13 @@ let g:syntastic_loc_list_height = 4
 
 
 "---
+"QuickRun
+"---
+nnoremap <leader>q :QuickRun<cr>
+vnoremap <leader>q :QuickRun<cr>
+
+
+"---
 "Ctrlp
 "---
 let g:ctrlp_map = '<C-P>'
@@ -124,27 +144,16 @@ let g:ctrlp_extensions = ['tag','mixed']
 let g:ctrlp_funky_multi_buffers = 1
 let g:ctrlp_custom_ignore = '\v\.(o|git|hg|svn)$'
 
-
-"---
-"NERDTree
-"---
-let NERDTreeQuitOnOpen = 1
-let NERDTreeChDirMode = 2
-let NERDTreeShowHidden = 1
+nnoremap <leader>f :CtrlPTag<cr>
+nnoremap <leader>m :CtrlPMRU<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>l :CtrlPLine<cr>
 
 
 "---
-"Rainbow parentheses
+"Scratch
 "---
-augroup rainbow_parentheses
-  autocmd!
-  autocmd VimEnter * RainbowParenthesesToggleAll
-augroup end
-
-"---
-"Sneak
-"---
-let g:sneak#streak = 1
+nnoremap gs :Sscratch<cr>
 
 
 "---

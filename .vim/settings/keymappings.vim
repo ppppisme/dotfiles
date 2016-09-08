@@ -54,20 +54,6 @@ nnoremap <leader>O mpO<esc>0D`p
 inoremap <c-j> <esc>mpo<esc>0D`pa
 inoremap <c-k> <esc>mpO<esc>0D`pa
 
-
-" ctrlp shortcuts
-nnoremap <leader>f :CtrlPTag<cr>
-nnoremap <leader>m :CtrlPMRU<cr>
-nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>l :CtrlPLine<cr>
-
-" scratch window
-nnoremap gs :Sscratch<cr>
-
-" quickrun
-nnoremap <leader>q :QuickRun<cr>
-vnoremap <leader>q :QuickRun<cr>
-
 nnoremap \ ,
 
 cmap w!! w !sudo tee > /dev/null %
