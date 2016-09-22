@@ -59,7 +59,7 @@ Plug 'matchit.zip'
 Plug 'vladgor/metal-vim-rising'
 
 " color schemes
-Plug 'morhetz/gruvbox'
+Plug 'vladgor/gruvbox'
 Plug 'chriskempson/base16-vim'
 Plug 'vladgor/itg_flat_vim'
 Plug 'chriskempson/vim-tomorrow-theme'
@@ -71,7 +71,7 @@ Plug 'w0ng/vim-hybrid'
 " new themes
 Plug 'AlessandroYorba/Sierra'
 Plug 'AlessandroYorba/Alduin'
-
+Plug 'jacoborus/tender.vim'
 call plug#end()
 "}}}
 

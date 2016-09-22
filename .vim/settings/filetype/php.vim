@@ -1,6 +1,8 @@
 let g:syntastic_php_checkers = ["php", "phpcs", "phpmd"]
 let g:syntastic_php_phpcs_args = "--standard=Drupal"
 
+set tags+=~/.tags/drupal750
+
 setlocal expandtab
 setlocal shiftwidth=2
 setlocal softtabstop=2
