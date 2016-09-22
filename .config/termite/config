@@ -32,9 +32,8 @@ filter_unmatched_urls = true
 #modify_other_keys = false
 
 [colors]
-#cursor = #dcdccc
-foreground = #c5c8c6
-foreground_bold = #c5c8c6
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
 background = #282828
 
 # 20% background transparency (requires a compositor)
