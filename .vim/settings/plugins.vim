@@ -1,3 +1,12 @@
+" install Plug if missing. taken from here:
+" https://www.reddit.com/r/vim/comments/54spzr/vim_config_portability/d84o661
+let pluginstall=system("[ -e ~/.vim/autoload/plug.vim ] ; echo $?")
+if pluginstall != 0
+  let temp=system("curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+  so ~/.vim/autoload/plug.vim
+endif
+
 " list of plugins {{{
 call plug#begin('~/.vim/plugged')
 
@@ -72,6 +81,9 @@ Plug 'w0ng/vim-hybrid'
 Plug 'AlessandroYorba/Sierra'
 Plug 'AlessandroYorba/Alduin'
 Plug 'jacoborus/tender.vim'
+
+Plug 'takac/vim-hardtime'
+
 call plug#end()
 "}}}
 
@@ -101,7 +113,6 @@ let g:jedi#popup_on_dot = 0
 "deoplete
 "---
 let g:deoplete#enable_at_startup = 1
-
 
 "---
 "UltiSnips
@@ -154,6 +165,13 @@ nnoremap <leader>l :CtrlPLine<cr>
 "Scratch
 "---
 nnoremap gs :Sscratch<cr>
+
+
+"---
+"Hardtime
+"---
+let g:hardtime_default_on = 1
+let g:hardtime_showmsg = 1
 
 
 "---

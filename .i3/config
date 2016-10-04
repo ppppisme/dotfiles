@@ -113,6 +113,8 @@ set $tag9 "9: slack"
 set $tag0 "0: vim"
 
 assign [class="Slack"] →  $tag9
+assign [class="telegram-desktop"] →  $tag8
+assign [class="Telegram"] →  $tag8
 assign [class="Termite-vagrant"] →  $tag7
 assign [class="Gimp"] →  $tag4
 
@@ -215,16 +217,15 @@ bindsym $mod+p exec --no-startup-id "physlock"
 # screenshot of focused window
 # bindsym Shift+Print exec --no-startup-id "scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png && play ~/.i3/screenshot.mp3"
 
-# exec "xrandr --output VGA1 --primary --auto --right-of eDP1 --screen 0"
 exec --no-startup-id "compton -I 0.075 -O 0.075 &"
 exec --no-startup-id "dunst"
 exec --no-startup-id "xset m 01"
 exec --no-startup-id "xset r rate 250 25"
-exec --no-startup-id "feh --bg-tile /home/pppp/Pictures/wallpaper.jpg"
+exec --no-startup-id "feh --bg-tile /home/pppp/Pictures/Z1xAr5i.png"
 exec --no-startup-id "slack"
 
-# exec --no-startup-id "termite --class 'Termite-vagrant' --exec '/bin/zsh -c \"sh ~/.zsh/scripts/run_vagrant.sh drupal7\"'"
-# exec --no-startup-id "termite --class 'Termite-vagrant' --exec '/bin/zsh -c \"sh ~/.zsh/scripts/run_vagrant.sh drupal8\"'"
+exec --no-startup-id "termite --class 'Termite-vagrant' --exec '/bin/zsh -c \"sh ~/.zsh/scripts/run_vagrant.sh golfmotion\"'"
+exec --no-startup-id "termite --class 'Termite-vagrant' --exec '/bin/zsh -c \"sh ~/.zsh/scripts/run_vagrant.sh skguniforms\"'"
 
 # i3-gaps specific
 gaps outer 7
