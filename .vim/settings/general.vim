@@ -38,6 +38,7 @@ set number   " shows line numbers
 set hidden   " doesn't let unload buffer when it's closed
 
 set nowrap   " turns word wrapping off
+set showbreak=->   " shows this symbol at the beginning of wrapped lines
 set textwidth=80   " max width of text inserted
 
 set history=50   " saves 50 lines in command line history

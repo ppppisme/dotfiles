@@ -17,6 +17,7 @@ Plug 'mhinz/vim-grepper'
 
 " linter
 Plug 'scrooloose/syntastic'
+" Plug 'w0rp/ale'
 
 " git stuff
 Plug 'tpope/vim-fugitive'
@@ -82,8 +83,6 @@ Plug 'AlessandroYorba/Sierra'
 Plug 'AlessandroYorba/Alduin'
 Plug 'jacoborus/tender.vim'
 
-Plug 'takac/vim-hardtime'
-
 call plug#end()
 "}}}
 
@@ -128,7 +127,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-j>"
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_enable_balloons = 0
-let g:syntastic_enable_signs = 1
+let g:syntastic_enable_signs = 0
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
@@ -168,11 +167,13 @@ nnoremap gs :Sscratch<cr>
 
 
 "---
-"Hardtime
+"Ale
 "---
-let g:hardtime_default_on = 1
-let g:hardtime_showmsg = 1
-
+let g:ale_linters = {
+\   'php': ['php', 'phpcs'],
+\}
+let g:ale_php_phpcs_standard = 'Drupal'
+let g:ale_sign_column_always = 1
 
 "---
 "Lightline
@@ -182,15 +183,22 @@ let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'filename', 'fugitive' ] ]
+      \             [ 'filename', 'fugitive' ] ],
       \ },
       \ 'component_function': {
       \   'fugitive': 'LightLineFugitive',
-      \   'filename': 'LightLineFilename'
+      \   'filename': 'LightLineFilename',
+      \   'ale': 'LightLineAle',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
+      \ 'subseparator': { 'left': '', 'right': '' },
       \ }
+
+function! LightLineAle()
+  let l:ale_status = ale#statusline#Status()
+
+  return l:ale_status !=? 'OK' ? l:ale_status : ''
+endfunction
 
 function! LightLineModified()
   if &filetype == "help"

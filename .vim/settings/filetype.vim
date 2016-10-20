@@ -12,6 +12,7 @@ augroup END
 
 augroup FILETYPE_ALIASES
   autocmd!
-  autocmd BufRead *.module,*.inc,*.install,*.profile set filetype=php
-  autocmd BufRead *.info set filetype=dosini
+  autocmd BufNewFile,BufRead *.module,*.inc,*.install,*.profile set filetype=php
+  autocmd BufNewFile,BufRead *.info set filetype=dosini
+  autocmd BufNewFile,BufRead *.tpl.php set filetype=phtml
 augroup END
