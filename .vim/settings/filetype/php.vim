@@ -15,3 +15,11 @@ augroup FILETYPE
   autocmd!
   autocmd BufWritePost *.module,*.inc silent !ctags -R --language-force=php
 augroup END
+
+call textobj#user#plugin('function', {
+      \   'code': {
+      \     'pattern': ['\v(^\/\*\*\n(\s*\*.+\n)+\s\*\/)?^function.+\n?\{', '\v^}.*\n(\s*\n)?'],
+      \     'select-a': 'af',
+      \     'select-i': 'if',
+      \   },
+      \ })

@@ -14,7 +14,9 @@ set autoread
 colorscheme gruvbox
 let g:gruvbox_syntax_highlighting = 0
 set background=dark
-set t_Co=256
+if !has('nvim')
+  set t_Co=256
+end
 
 if has("gui_running")
   " turns off toolbar, menu and left scrollbar
@@ -62,6 +64,7 @@ set cindent   " applies indentation rules for c
 set copyindent   " copy the previous indentation on autoindenting
 set backspace=indent,eol,start   " allow backspacing over everything in insert mode
 
+set path+=** " search files recursively
 
 set colorcolumn=80   " higlights specified column
 

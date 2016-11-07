@@ -1,15 +1,15 @@
-snippet fu "Not documented function" b
+snippet fu "Documented function" b
 /**
- * ${0}
+ * ${3}
  */
 function `!v split(expand("%:t:r"), '\.')[0]`_${1}(${2}) {
-	${VISUAL}${3}
+	${VISUAL}${4}
 }
 endsnippet
 
 snippet hook "Hook" b
 /**
- * Implements hook_${1}().
+ * Implements hook_$1().
  */
 function `!v split(expand("%:t:r"), '\.')[0]`_${1}(${2}) {
 	${VISUAL}${3}
