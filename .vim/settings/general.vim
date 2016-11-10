@@ -124,4 +124,10 @@ augroup common
   "autocmd FocusLost * :wa
 augroup end
 
+" tree-like netrw style
 let g:netrw_liststyle = 3
+
+" live substitution
+if exists('&inccommand')
+  set inccommand=split
+endif
