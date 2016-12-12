@@ -104,9 +104,17 @@ WORDCHARS='*?[]~=&;!#$%^(){}<>'
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 function sp {
+  # Concatenate parameters.
+  command=""
+  for a in "$@"
+  do
+    command+="$a "
+  done
+
   if [ -z "$1" ]; then
-    `termite &`
+    eval "termite &"
   else
-    `termite --exec "$1" $`
+    # TODO: focus on the parent termite window.
+    eval "termite --exec \"$command\" &"
   fi
 }
