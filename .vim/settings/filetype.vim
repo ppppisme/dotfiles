@@ -8,6 +8,7 @@ augroup FILETYPE
   autocmd FileType text source ~/.vim/settings/filetype/text.vim
   autocmd FileType markdown source ~/.vim/settings/filetype/markdown.vim
   autocmd FileType css source ~/.vim/settings/filetype/css.vim
+  autocmd FileType scss source ~/.vim/settings/filetype/scss.vim
 augroup END
 
 augroup FILETYPE_ALIASES

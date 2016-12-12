@@ -23,6 +23,9 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" tags
+Plug 'ludovicchabant/vim-gutentags'
+
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -78,10 +81,7 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'tpope/vim-vividchalk'
 Plug 'w0ng/vim-hybrid'
 
-" new themes
-Plug 'AlessandroYorba/Sierra'
-Plug 'AlessandroYorba/Alduin'
-Plug 'jacoborus/tender.vim'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 "}}}
@@ -89,7 +89,7 @@ call plug#end()
 
 " plugins settings {{{
 "---
-"Grepper
+" Grepper
 "---
 nnoremap <leader>g :Grepper<cr>
 nmap gs <plug>(GrepperOperator)
@@ -97,24 +97,25 @@ xmap gs <plug>(GrepperOperator)
 
 
 "---
-"SuperTab
+" SuperTab
 "---
 let g:SuperTabDefaultCompletionType = "context"
 
 
 "---
-"Jedi
+" Jedi
 "---
 let g:jedi#popup_on_dot = 0
 
 
 "---
-"deoplete
+" deoplete
 "---
 let g:deoplete#enable_at_startup = 1
 
+
 "---
-"UltiSnips
+" UltiSnips
 "---
 let g:UltiSnipsExpandTrigger = "<Tab>"
 let g:UltiSnipsJumpForwardTrigger = "<C-k>"
@@ -122,7 +123,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-j>"
 
 
 "---
-"Syntastic
+" Syntastic
 "---
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
@@ -136,14 +137,14 @@ let g:syntastic_loc_list_height = 4
 
 
 "---
-"QuickRun
+" QuickRun
 "---
 nnoremap <leader>q :QuickRun<cr>
 vnoremap <leader>q :QuickRun<cr>
 
 
 "---
-"Ctrlp
+" Ctrlp
 "---
 let g:ctrlp_map = '<C-P>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -161,13 +162,13 @@ nnoremap <leader>l :CtrlPLine<cr>
 
 
 "---
-"Scratch
+" Scratch
 "---
 nnoremap gs :Sscratch<cr>
 
 
 "---
-"Ale
+" Ale
 "---
 let g:ale_linters = {
 \   'php': ['php', 'phpcs'],
@@ -175,20 +176,35 @@ let g:ale_linters = {
 let g:ale_php_phpcs_standard = 'Drupal'
 let g:ale_sign_column_always = 1
 
-"---
-"Lightline
-"---
 
+"---
+" Highlightedyank
+"---
+let g:highlightedyank_highlight_duration = -1
+
+
+"---
+" Gutentags
+"---
+let g:gutentags_cache_dir = '~/.tags/'
+let g:gutentags_project_root = ['.gutctags']
+let g:gutentags_project_info = [{'type': 'php', 'file': 'index.php'}]
+
+
+"---
+" Lightline
+"---
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'filename', 'fugitive' ] ],
+      \             [ 'filename', 'fugitive', 'tags' ] ],
       \ },
       \ 'component_function': {
       \   'fugitive': 'LightLineFugitive',
       \   'filename': 'LightLineFilename',
       \   'ale': 'LightLineAle',
+      \   'tags': 'LightLineTags',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
@@ -198,6 +214,12 @@ function! LightLineAle()
   let l:ale_status = ale#statusline#Status()
 
   return l:ale_status !=? 'OK' ? l:ale_status : ''
+endfunction
+
+function! LightLineTags()
+  let l:tags = gutentags#statusline()
+
+  return l:tags
 endfunction
 
 function! LightLineModified()

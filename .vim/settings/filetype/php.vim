@@ -11,10 +11,10 @@ setlocal iskeyword+=$
 
 vnoremap <buffer> <leader>d "dyodebug(<c-r>d);<esc>$
 
-augroup FILETYPE
-  autocmd!
-  autocmd BufWritePost *.module,*.inc silent !ctags -R --language-force=php
-augroup END
+" augroup FILETYPE
+"   autocmd!
+"   autocmd BufWritePost *.module,*.inc silent !ctags -R --language-force=php
+" augroup END
 
 call textobj#user#plugin('function', {
       \   'code': {

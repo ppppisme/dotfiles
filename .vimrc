@@ -7,7 +7,6 @@ filetype plugin indent on
 
 let mapleader = ","
 
-
 source ~/.vim/settings/plugins.vim
 source ~/.vim/settings/general.vim
 source ~/.vim/settings/userfunctions.vim

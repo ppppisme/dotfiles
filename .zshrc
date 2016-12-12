@@ -1,6 +1,5 @@
 # don't forget to install zsh-completions!
 
-
 export EDITOR=vim
 export TERMINAL=termite
 export PATH=$PATH:/home/pppp/.gem/ruby/2.3.0/bin/
@@ -69,6 +68,10 @@ alias l='ls'
 alias ya='yaourt'
 alias notes='vim ~/notes/'
 alias todo='vim ~/notes/todo.md'
+
+# alias sp='termite &'  # sp = split
+
+# Git aliases
 alias gs='git status'
 alias ga='git add .'
 alias gu='git add -u'
@@ -78,6 +81,9 @@ alias gd='git diff HEAD'
 alias gd~='git diff HEAD~1'
 alias gita="git config --local user.name 'adci_contributor' --replace-all && git config --local user.email ak@adcillc.com --replace-all"
 alias gitv="git config --local user.name 'vladgor' --replace-all && git config --local user.email vladgorenkin@yandex.ru --replace-all"
+alias nah="git reset --hard && git clean -df"
+
+# Ack aliases
 alias dev="ack '(TODO:|FIXME:|file_put_contents\(|debug\(|print_r\()' ./"
 alias ack="ack --ignore-file=is:tags --pager 'less -r'"
 
@@ -96,3 +102,11 @@ WORDCHARS='*?[]~=&;!#$%^(){}<>'
 # Syntax higlighting
 # Must be at the end of this file
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+function sp {
+  if [ -z "$1" ]; then
+    `termite &`
+  else
+    `termite --exec "$1" $`
+  fi
+}

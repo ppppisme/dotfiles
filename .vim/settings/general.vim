@@ -17,6 +17,7 @@ set background=dark
 if !has('nvim')
   set t_Co=256
 end
+hi HighlightedyankRegion ctermbg=239 guibg=#504945
 
 if has("gui_running")
   " turns off toolbar, menu and left scrollbar
