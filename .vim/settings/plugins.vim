@@ -53,6 +53,9 @@ Plug 'davidhalter/jedi-vim'
 " text navigation
 Plug 'thinca/vim-visualstar'
 
+" debug
+Plug 'joonty/vdebug', { 'on': 'VdebugStart' }
+
 " script runner
 Plug 'thinca/vim-quickrun'
 
@@ -67,7 +70,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'matchit.zip'
 Plug 'vladgor/metal-vim-rising'
 
@@ -81,7 +84,9 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'tpope/vim-vividchalk'
 Plug 'w0ng/vim-hybrid'
 
+" to try
 Plug 'machakann/vim-highlightedyank'
+Plug 'itchyny/vim-cursorword'
 
 call plug#end()
 "}}}
@@ -190,6 +195,12 @@ let g:gutentags_cache_dir = '~/.tags/'
 let g:gutentags_project_root = ['.gutctags']
 let g:gutentags_project_info = [{'type': 'php', 'file': 'index.php'}]
 
+
+"---
+" Vdebug
+"---
+let g:vdebug_options = {}
+let g:vdebug_options['path_maps'] = {"/var/www/golfmotion.local": "/home/pppp/mnt/ssh/golfmotion"}
 
 "---
 " Lightline

@@ -82,7 +82,7 @@ set laststatus=2   " constantly displays status line
 set ruler   " constantly shows cursor position
 set rulerformat=%(%l,%c\ %p%%%)   " sets format of ruler
 
-set wildmenu   " nice autocompletion in command line
+set wildmode=list:longest " nice autocompletion in command line
 
 set whichwrap=<,>,[,],h,l   " doesn't stop cursor at the end of line
 

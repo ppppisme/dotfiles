@@ -7,6 +7,9 @@ nnoremap <silent> <C-l> <C-w>l
 " highlight last inserted text
 nnoremap gV `[v`]
 
+" automatically indent pasted text
+nnoremap p pmz`[v`]=`z
+
 nnoremap Y y$
 
 " break string in two
@@ -49,13 +52,14 @@ nnoremap <leader>stw :call StripTrailingWhitespace()<cr>
 inoremap <C-f> <C-x><C-f>
 
 " insert <cr> after and before current line
-nnoremap <leader>o mpo<esc>0D`p
-nnoremap <leader>O mpO<esc>0D`p
-inoremap <c-j> <esc>mpo<esc>0D`pa
-inoremap <c-k> <esc>mpO<esc>0D`pa
+nnoremap <leader>o mzo<esc>0D`z
+nnoremap <leader>O mzO<esc>0D`z
+inoremap <c-j> <esc>mzo<esc>0D`za
+inoremap <c-k> <esc>mzO<esc>0D`za
 
 nnoremap \ ,
 
 cmap w!! w !sudo tee > /dev/null %
 
-inoremap {<cr> {<cr>}<esc>O
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gcommit<cr>

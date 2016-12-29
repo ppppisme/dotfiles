@@ -63,13 +63,13 @@ setopt extendedhistory
 source ~/.zsh/themes/minimal.sh
 
 # Alias section
-alias ll='ls -lah'
+alias ll='ls -lAh'
 alias l='ls'
 alias ya='yaourt'
 alias notes='vim ~/notes/'
 alias todo='vim ~/notes/todo.md'
 
-# alias sp='termite &'  # sp = split
+alias :q=exit
 
 # Git aliases
 alias gs='git status'
