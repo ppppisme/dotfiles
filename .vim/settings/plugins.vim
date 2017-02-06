@@ -87,15 +87,6 @@ call plug#end()
 
 
 " plugins settings {{{
-
-"---
-" Grepper
-"---
-nnoremap <leader>g :Grepper<cr>
-nmap gs <plug>(GrepperOperator)
-xmap gs <plug>(GrepperOperator)
-
-
 "---
 " SuperTab
 "---
@@ -114,20 +105,6 @@ let g:deoplete#enable_at_startup = 1
 let g:UltiSnipsExpandTrigger = "<Tab>"
 let g:UltiSnipsJumpForwardTrigger = "<C-k>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-j>"
-
-
-"---
-" Syntastic
-"---
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_enable_balloons = 0
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let b:syntastic_mode = "active"
-let g:syntastic_loc_list_height = 4
 
 
 "---
@@ -152,7 +129,6 @@ let g:ctrlp_custom_ignore = '\v\.(o|git|hg|svn)$'
 nnoremap <leader>f :CtrlPTag<cr>
 nnoremap <leader>m :CtrlPMRU<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>l :CtrlPLine<cr>
 
 
 "---
