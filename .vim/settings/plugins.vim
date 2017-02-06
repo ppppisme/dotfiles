@@ -29,9 +29,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 
-" buffer navigation
-Plug 'tpope/vim-unimpaired'
-
 " decoration stuff
 Plug 'itchyny/lightline.vim'
 Plug 'myusuf3/numbers.vim'
