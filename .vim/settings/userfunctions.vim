@@ -9,3 +9,15 @@ function! StripTrailingWhitespace()
   let @/=_s
   call cursor(l, c)
 endfunction
+
+" Taken from here:
+" https://gist.github.com/manasthakur/5afd3166a14bbadc1dc0f42d070bd746
+function! Search()
+  let grep_term = input("Search for: ")
+  if !empty(grep_term)
+    execute 'silent! grep!' grep_term | copen
+  endif
+  redraw!
+endfunction
+
+command! Search call Search()

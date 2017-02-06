@@ -132,3 +132,8 @@ let g:netrw_liststyle = 3
 if exists('&inccommand')
   set inccommand=split
 endif
+
+" use ack for vimgrep
+if executable('ack')
+  set grepprg=ack
+endif

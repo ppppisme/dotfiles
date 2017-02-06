@@ -63,3 +63,6 @@ cmap w!! w !sudo tee > /dev/null %
 
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>
+
+nnoremap <leader>ss :Search<cr>
+nnoremap <leader>sw :silent! grep! <cword> \| copen<CR><C-l>

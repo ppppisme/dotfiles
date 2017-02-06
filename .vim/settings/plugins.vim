@@ -11,13 +11,11 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " file system navigation
-Plug 'tpope/vim-vinegar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
 
 " linter
-Plug 'scrooloose/syntastic'
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 
 " git stuff
 Plug 'tpope/vim-fugitive'
@@ -46,9 +44,6 @@ Plug 'ervandew/supertab'
 if has("nvim")
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
-
-" python
-Plug 'davidhalter/jedi-vim'
 
 " text navigation
 Plug 'thinca/vim-visualstar'
@@ -86,13 +81,13 @@ Plug 'w0ng/vim-hybrid'
 
 " to try
 Plug 'machakann/vim-highlightedyank'
-Plug 'itchyny/vim-cursorword'
 
 call plug#end()
 "}}}
 
 
 " plugins settings {{{
+
 "---
 " Grepper
 "---
@@ -105,12 +100,6 @@ xmap gs <plug>(GrepperOperator)
 " SuperTab
 "---
 let g:SuperTabDefaultCompletionType = "context"
-
-
-"---
-" Jedi
-"---
-let g:jedi#popup_on_dot = 0
 
 
 "---
@@ -180,6 +169,7 @@ let g:ale_linters = {
 \}
 let g:ale_php_phpcs_standard = 'Drupal'
 let g:ale_sign_column_always = 1
+let g:ale_set_quickfix = 1
 
 
 "---
@@ -208,7 +198,7 @@ let g:vdebug_options['path_maps'] = {"/var/www/golfmotion.local": "/home/pppp/mn
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
+      \   'left': [ [ 'mode', 'paste', 'ale' ],
       \             [ 'filename', 'fugitive', 'tags' ] ],
       \ },
       \ 'component_function': {

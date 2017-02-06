@@ -2,7 +2,7 @@
 
 export EDITOR=vim
 export TERMINAL=termite
-export PATH=$PATH:/home/pppp/.gem/ruby/2.3.0/bin/
+export PATH=$PATH:/home/pppp/.gem/ruby/2.4.0/bin/
 export PATH=$PATH:/home/pppp/.config/composer/vendor/bin/
 
 # export EDITOR=vim
@@ -60,7 +60,7 @@ setopt extendedhistory
 
 # Customized shell prompt
 
-source ~/.zsh/themes/minimal.sh
+source ~/.zsh/themes/minimal_hack.sh
 
 # Alias section
 alias ll='ls -lAh'
@@ -84,7 +84,6 @@ alias gitv="git config --local user.name 'vladgor' --replace-all && git config -
 alias nah="git reset --hard && git clean -df"
 
 # Ack aliases
-alias dev="ack '(TODO:|FIXME:|file_put_contents\(|debug\(|print_r\()' ./"
 alias ack="ack --ignore-file=is:tags --pager 'less -r'"
 
 # Let's try nvim
