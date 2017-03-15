@@ -138,11 +138,12 @@ nnoremap gs :Sscratch<cr>
 " Ale
 "---
 let g:ale_linters = {
-\   'php': ['php', 'phpcs'],
+\   'php': ['php', 'phpcs', 'php-md'],
+\   'scss': ['scss-lint']
 \}
 let g:ale_php_phpcs_standard = 'Drupal'
 let g:ale_sign_column_always = 1
-let g:ale_set_quickfix = 1
+let g:ale_sign_warning = '>>'
 
 
 "---
@@ -163,7 +164,7 @@ let g:gutentags_project_info = [{'type': 'php', 'file': 'index.php'}]
 " Vdebug
 "---
 let g:vdebug_options = {}
-let g:vdebug_options['path_maps'] = {"/var/www/golfmotion.local": "/home/pppp/mnt/ssh/golfmotion"}
+let g:vdebug_options['path_maps'] = {"/var/www/customwizard.local": "/home/pppp/mnt/ssh/customwizard"}
 
 "---
 " Lightline

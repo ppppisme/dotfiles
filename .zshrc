@@ -69,6 +69,7 @@ alias ya='yaourt'
 alias notes='vim ~/notes/'
 alias todo='vim ~/notes/todo.md'
 
+alias e=nvim
 alias :q=exit
 
 # Git aliases
@@ -76,11 +77,13 @@ alias gs='git status'
 alias ga='git add .'
 alias gu='git add -u'
 alias gc='git commit'
+alias gco='git checkout'
 alias gl='git log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n""          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)" --all'
 alias gd='git diff HEAD'
 alias gd~='git diff HEAD~1'
 alias gita="git config --local user.name 'adci_contributor' --replace-all && git config --local user.email ak@adcillc.com --replace-all"
 alias gitv="git config --local user.name 'vladgor' --replace-all && git config --local user.email vladgorenkin@yandex.ru --replace-all"
+alias gitd="git config --local user.name 'Denis Usov' --replace-all && git config --local user.email denis@skggroup.com.au --replace-all"
 alias nah="git reset --hard && git clean -df"
 
 # Ack aliases

@@ -103,13 +103,11 @@ set $tag4 "4: gimp"
 set $tag5 "5: misc"
 set $tag6 "6: misc"
 set $tag7 "7: vagrant"
-set $tag8 "8: telegram"
+set $tag8 "8: music"
 set $tag9 "9: slack"
 set $tag0 "0: vim"
 
 assign [class="Slack"] →  $tag9
-assign [class="telegram-desktop"] →  $tag8
-assign [class="Telegram"] →  $tag8
 assign [class="Termite-vagrant"] →  $tag7
 assign [class="Gimp"] →  $tag4
 
