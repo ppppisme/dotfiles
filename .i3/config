@@ -107,9 +107,10 @@ set $tag8 "8: music"
 set $tag9 "9: slack"
 set $tag0 "0: vim"
 
-assign [class="Slack"] →  $tag9
-assign [class="Termite-vagrant"] →  $tag7
-assign [class="Gimp"] →  $tag4
+assign [class="Slack"] → $tag9
+assign [class="Termite-vagrant"] → $tag7
+assign [class="Termite-work"] → $tag0
+assign [class="Gimp"] → $tag4
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
@@ -217,6 +218,7 @@ exec --no-startup-id "feh --bg-tile /home/pppp/Pictures/Z1xAr5i.png"
 exec --no-startup-id "slack"
 exec --no-startup-id "dropbox"
 exec --no-startup-id "setxkbmap -option caps:ctrl_modifier"
+exec --no-startup-id i3-msg 'exec google-chrome-stable https://3.basecamp.com/3444692/reports/progress'
 
 exec --no-startup-id "termite --class 'Termite-vagrant' --exec '/bin/zsh -c \"sh ~/.zsh/scripts/run_vagrant.sh customwizard\"'"
 
