@@ -123,3 +123,5 @@ function sp {
     eval "termite --exec \"$command\" &"
   fi
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

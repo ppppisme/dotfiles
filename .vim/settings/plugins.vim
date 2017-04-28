@@ -7,12 +7,12 @@ if pluginstall != 0
   so ~/.vim/autoload/plug.vim
 endif
 
-" list of plugins {{{
+" list of plugins 
 call plug#begin('~/.vim/plugged')
 
 " file system navigation
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mhinz/vim-grepper'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " linter
 Plug 'w0rp/ale'
@@ -29,18 +29,9 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 
-" decoration stuff
+" " decoration stuff
 Plug 'itchyny/lightline.vim'
 Plug 'myusuf3/numbers.vim'
-
-" organiser features
-Plug 'duff/vim-scratch'
-
-" auto completion
-Plug 'ervandew/supertab'
-if has("nvim")
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
 
 " text navigation
 Plug 'thinca/vim-visualstar'
@@ -51,22 +42,19 @@ Plug 'joonty/vdebug', { 'on': 'VdebugStart' }
 " script runner
 Plug 'thinca/vim-quickrun'
 
-" text objects
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
-
 " language support
 Plug 'sheerun/vim-polyglot'
 
-" misc
+" " misc
 Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'matchit.zip'
 Plug 'vladgor/metal-vim-rising'
 
-" color schemes
+" " color schemes
 Plug 'vladgor/gruvbox'
 Plug 'chriskempson/base16-vim'
 Plug 'vladgor/itg_flat_vim'
@@ -76,12 +64,7 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'tpope/vim-vividchalk'
 Plug 'w0ng/vim-hybrid'
 
-" to try
-Plug 'machakann/vim-highlightedyank'
-
 call plug#end()
-"}}}
-
 
 " plugins settings {{{
 "---
@@ -94,6 +77,26 @@ let g:SuperTabDefaultCompletionType = "context"
 " deoplete
 "---
 let g:deoplete#enable_at_startup = 1
+
+
+"---
+" fzf.vim
+"---
+let g:fzf_command_prefix = 'Fzf'
+let g:fzf_layout = { 'down': '~25%' }
+let g:fzf_colors =
+      \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Comment'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Comment'],
+      \ 'header':  ['fg', 'Comment'] }
 
 
 "---
@@ -112,23 +115,6 @@ vnoremap <leader>q :QuickRun<cr>
 
 
 "---
-" Ctrlp
-"---
-let g:ctrlp_map = '<C-P>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_cache_dir = '~/.vim/ctrlp/'
-let g:ctrlp_max_depth = 10
-let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_extensions = ['tag','mixed']
-let g:ctrlp_funky_multi_buffers = 1
-let g:ctrlp_custom_ignore = '\v\.(o|git|hg|svn)$'
-
-nnoremap <leader>f :CtrlPTag<cr>
-nnoremap <leader>m :CtrlPMRU<cr>
-nnoremap <leader>b :CtrlPBuffer<cr>
-
-
-"---
 " Scratch
 "---
 nnoremap gs :Sscratch<cr>
@@ -137,9 +123,11 @@ nnoremap gs :Sscratch<cr>
 "---
 " Ale
 "---
+" wow it's cpu consuming, so check only on save
+let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {
-\   'php': ['php', 'phpcs', 'php-md'],
-\   'scss': ['scss-lint']
+\   'php': ['php', 'phpcs', 'phpmd'],
+\   'scss': ['scsslint'],
 \}
 let g:ale_php_phpcs_standard = 'Drupal'
 let g:ale_sign_column_always = 1

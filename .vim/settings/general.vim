@@ -7,7 +7,7 @@ if has('nvim')
 endif
 set secure " disables shell and write commands in local .vimrc
 
-" updates content when ile is changed from the outside
+" updates content when file is changed from the outside
 set autoread
 
 " current colorscheme
@@ -29,9 +29,6 @@ if has("gui_running")
   set guioptions+=b   " turns bottom scrollbar on
   set guioptions-=e   " turns on text tabs
 
-  " if (has("win32"))
-  "   set renderoptions=type:directx
-  " endif
   set guifont=CtrlD 11 " font for gui version
   set cursorline   " highlights current line
   set nocursorline

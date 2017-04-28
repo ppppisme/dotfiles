@@ -96,16 +96,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspace names
-set $tag1 "1: local"
-set $tag2 "2: example"
-set $tag3 "3: man"
-set $tag4 "4: gimp"
-set $tag5 "5: misc"
-set $tag6 "6: misc"
-set $tag7 "7: vagrant"
-set $tag8 "8: music"
-set $tag9 "9: slack"
-set $tag0 "0: vim"
+set $tag1 "1"
+set $tag2 "2"
+set $tag3 "3"
+set $tag4 "4"
+set $tag5 "5"
+set $tag6 "6"
+set $tag7 "7"
+set $tag8 "8"
+set $tag9 "9"
+set $tag0 "0"
 
 assign [class="Slack"] → $tag9
 assign [class="Termite-vagrant"] → $tag7
@@ -210,11 +210,11 @@ bindsym $mod+p exec --no-startup-id "physlock"
 # screenshot of focused window
 # bindsym Shift+Print exec --no-startup-id "scrot -u ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png && play ~/.i3/screenshot.mp3"
 
-exec --no-startup-id "compton -I 0.075 -O 0.075 &"
+exec --no-startup-id "compton -I 0 -O 0 &"
 exec --no-startup-id "dunst"
 exec --no-startup-id "xset m 01"
 exec --no-startup-id "xset r rate 250 25"
-exec --no-startup-id "feh --bg-tile /home/pppp/Pictures/Z1xAr5i.png"
+exec --no-startup-id "feh --bg-scale /home/pppp/Pictures/suxlohnymu24izohhkw7hq7ftctjfkdgksyj0wamfajno3nx37ozrzwbtv1sipet.jpg"
 exec --no-startup-id "slack"
 exec --no-startup-id "dropbox"
 exec --no-startup-id "setxkbmap -option caps:ctrl_modifier"
