@@ -33,7 +33,7 @@ function! Search(...)
 endfunction
 
 function! SearchVisual()
-  call Search(escape(GetVisualSelection(), '.+*?=/\$^[](){}|'))
+  call Search('"' . escape(GetVisualSelection(), ".+*?=/$^[](){}|'\"") . '"')
 endfunction
 
 command! Search call Search()
