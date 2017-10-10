@@ -60,8 +60,6 @@ nnoremap <leader>ss :Search<cr>
 nnoremap <leader>sw :silent! grep! <cword> \| copen<CR><C-l>
 vnoremap <leader>sw :call SearchVisual()<cr>
 
-nnoremap <leader>* *``
-
 " fzf.vim
 nnoremap <c-p> :FzfFiles<cr>
 nnoremap <leader>b :FzfBuffers<cr>
