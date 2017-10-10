@@ -134,13 +134,23 @@ set laststatus=2   " constantly displays status line
 set noruler   " do not display the cursor position at the bottom right corner
 
 " statusbar format
-set statusline=
-set statusline+=%#StatusLine#
-set statusline+=\ \ \ \ %{StatusLineFugitive()}\ 
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m
-set statusline+=%=
-set statusline+=\ %y
-set statusline+=\ --\ 
-set statusline+=%{&fileencoding?&fileencoding:&encoding}\ 
+function! SetActiveStatusline()
+  setlocal statusline=
+  setlocal statusline+=%#TermCursor#
+  setlocal statusline+=\ \ \ \ %{StatusLineFugitive()}\ 
+  setlocal statusline+=%#SignColumn#
+  setlocal statusline+=\ %f
+  setlocal statusline+=\ %y
+endfunction
+
+function! SetBlurredStatusline()
+  setlocal statusline=
+  setlocal statusline+=%#Folded#
+  setlocal statusline+=\ \ \ \ %{StatusLineFugitive()}\ 
+  setlocal statusline+=%#LineNr#
+  setlocal statusline+=\ %f
+  setlocal statusline+=\ %y
+endfunction
+
+autocmd BufEnter,FocusGained,VimEnter,WinEnter * call SetActiveStatusline()
+autocmd FocusLost,WinLeave * call SetBlurredStatusline()
