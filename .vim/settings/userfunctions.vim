@@ -1,3 +1,11 @@
+function! StatusLineFugitive()
+  if exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? ' '.branch : ''
+  endif
+  return ''
+endfunction
+
 "Taken from here: http://stackoverflow.com/a/6271254
 function! GetVisualSelection()
   let [lnum1, col1] = getpos("'<")[1:2]

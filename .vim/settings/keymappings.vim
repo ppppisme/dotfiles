@@ -4,9 +4,6 @@ nnoremap <silent> <C-j> <C-w>j
 nnoremap <silent> <C-h> <C-w>h
 nnoremap <silent> <C-l> <C-w>l
 
-" highlight last inserted text
-nnoremap gV `[v`]
-
 " automatically indent pasted text
 nnoremap p pmz`[v`]=`z
 
@@ -48,9 +45,6 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 " clear trailing whitespaces
 nnoremap <leader>stw :call StripTrailingWhitespace()<cr>
 
-" complete whole filenames with a quicker shortcut key in insert mode
-inoremap <C-f> <C-x><C-f>
-
 " insert <cr> after and before current line
 nnoremap <leader>o mzo<esc>0D`z
 nnoremap <leader>O mzO<esc>0D`z
@@ -58,8 +52,6 @@ inoremap <c-j> <esc>mzo<esc>0D`za
 inoremap <c-k> <esc>mzO<esc>0D`za
 
 nnoremap \ ,
-
-cmap w!! w !sudo tee > /dev/null %
 
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gc :Gcommit<cr>

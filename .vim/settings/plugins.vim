@@ -29,8 +29,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 
-" " decoration stuff
-Plug 'itchyny/lightline.vim'
+" decoration stuff
 Plug 'myusuf3/numbers.vim'
 
 " text navigation
@@ -47,37 +46,20 @@ Plug 'sheerun/vim-polyglot'
 
 " " misc
 Plug 'tpope/vim-commentary'
-Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
-Plug 'matchit.zip'
+Plug 'vimscript/matchit.zip'
 Plug 'vladgor/metal-vim-rising'
 
 " " color schemes
 Plug 'vladgor/gruvbox'
-Plug 'chriskempson/base16-vim'
 Plug 'vladgor/itg_flat_vim'
 Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'wombat256.vim'
-Plug 'reedes/vim-colors-pencil'
 Plug 'tpope/vim-vividchalk'
 Plug 'w0ng/vim-hybrid'
 
 call plug#end()
-
-" plugins settings {{{
-"---
-" SuperTab
-"---
-let g:SuperTabDefaultCompletionType = "context"
-
-
-"---
-" deoplete
-"---
-let g:deoplete#enable_at_startup = 1
-
 
 "---
 " fzf.vim
@@ -115,12 +97,6 @@ vnoremap <leader>q :QuickRun<cr>
 
 
 "---
-" Scratch
-"---
-nnoremap gs :Sscratch<cr>
-
-
-"---
 " Ale
 "---
 " wow it's cpu consuming, so check only on save
@@ -135,12 +111,6 @@ let g:ale_sign_warning = '>>'
 
 
 "---
-" Highlightedyank
-"---
-let g:highlightedyank_highlight_duration = -1
-
-
-"---
 " Gutentags
 "---
 let g:gutentags_cache_dir = '~/.tags/'
@@ -152,72 +122,4 @@ let g:gutentags_project_info = [{'type': 'php', 'file': 'index.php'}]
 " Vdebug
 "---
 let g:vdebug_options = {}
-let g:vdebug_options['path_maps'] = {"/var/www/customwizard.local": "/home/pppp/mnt/ssh/customwizard"}
-
-"---
-" Lightline
-"---
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste', 'ale' ],
-      \             [ 'filename', 'fugitive', 'tags' ] ],
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'LightLineFugitive',
-      \   'filename': 'LightLineFilename',
-      \   'ale': 'LightLineAle',
-      \   'tags': 'LightLineTags',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
-      \ }
-
-function! LightLineAle()
-  let l:ale_status = ale#statusline#Status()
-
-  return l:ale_status !=? 'OK' ? l:ale_status : ''
-endfunction
-
-function! LightLineTags()
-  let l:tags = gutentags#statusline()
-
-  return l:tags
-endfunction
-
-function! LightLineModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
-endfunction
-
-function! LightLineReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
-    return ""
-  else
-    return ""
-  endif
-endfunction
-
-function! LightLineFugitive()
-  if exists("*fugitive#head")
-    let branch = fugitive#head()
-    return branch !=# '' ? ' '.branch : ''
-  endif
-  return ''
-endfunction
-
-function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
-"}}}
+let g:vdebug_options['path_maps'] = {"/var/www/mojohomes.local": "/home/pppp/mnt/ssh/mojohomes"}

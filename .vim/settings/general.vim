@@ -14,10 +14,10 @@ set autoread
 colorscheme gruvbox
 let g:gruvbox_syntax_highlighting = 0
 set background=dark
+
 if !has('nvim')
   set t_Co=256
 end
-hi HighlightedyankRegion ctermbg=239 guibg=#504945
 
 if has("gui_running")
   " turns off toolbar, menu and left scrollbar
@@ -39,7 +39,6 @@ set hidden   " doesn't let unload buffer when it's closed
 
 set nowrap   " turns word wrapping off
 set showbreak=->   " shows this symbol at the beginning of wrapped lines
-set textwidth=80   " max width of text inserted
 
 set history=50   " saves 50 lines in command line history
 
@@ -74,10 +73,6 @@ set smartcase   " be case sensitive only when there is at least one uppercase sy
 set visualbell   " blinks instead of beeping
 
 set showmatch   " highlights opening and closing brackets
-
-set laststatus=2   " constantly displays status line
-set ruler   " constantly shows cursor position
-set rulerformat=%(%l,%c\ %p%%%)   " sets format of ruler
 
 set wildmode=list:longest " nice autocompletion in command line
 
@@ -134,3 +129,18 @@ endif
 if executable('ack')
   set grepprg=ack
 endif
+
+set laststatus=2   " constantly displays status line
+set noruler   " do not display the cursor position at the bottom right corner
+
+" statusbar format
+set statusline=
+set statusline+=%#StatusLine#
+set statusline+=\ \ \ \ %{StatusLineFugitive()}\ 
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%=
+set statusline+=\ %y
+set statusline+=\ --\ 
+set statusline+=%{&fileencoding?&fileencoding:&encoding}\ 
