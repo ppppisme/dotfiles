@@ -181,12 +181,14 @@ bar {
   tray_output primary
   font pango:CtrlD 9
 
+  i3bar_command i3bar -t
+
   colors {
     # gruvbox palette
 
     # dark theme
-    background #282828
-    statusline #d5c4a1
+    background #28282800
+    statusline #504945
     separator  #928374
 
     # light theme
@@ -194,11 +196,11 @@ bar {
     # statusline #665c54
     # separator  #928374
 
-    # Type             border  bg      font
-    focused_workspace  #282828 #282828 #b8bb26
-    active_workspace   #282828 #282828 #b8bb26
-    inactive_workspace #282828 #282828 #928374
-    urgent_workspace   #282828 #282828 #fb4834
+    # Type             border    bg        font
+    focused_workspace  #28282800 #28282800 #b8bb26
+    active_workspace   #28282800 #28282800 #b8bb26
+    inactive_workspace #28282800 #28282800 #665c54
+    urgent_workspace   #28282800 #28282800 #fb4834
   }
 }
 
