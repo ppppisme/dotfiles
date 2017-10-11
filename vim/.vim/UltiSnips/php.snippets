@@ -1,0 +1,40 @@
+snippet fu "Documented function" b
+/**
+ * ${3}
+ */
+function `!v split(expand("%:t:r"), '\.')[0]`_${1}(${2}) {
+	${VISUAL}${4}
+}
+endsnippet
+
+snippet hook "Hook" b
+/**
+ * Implements hook_$1().
+ */
+function `!v split(expand("%:t:r"), '\.')[0]`_${1}(${2}) {
+	${VISUAL}${3}
+}
+endsnippet
+
+snippet head "File head"
+<?php
+
+/**
+ * @file
+ * ${0}
+ */
+endsnippet
+
+snippet doc "Doc" b
+/**
+ * ${0}
+ */
+endsnippet
+
+snippet d "Debug function call"
+debug(${VISUAL}${0});
+endsnippet
+
+snippet m "Module name"
+`!v split(expand("%:t:r"), '\.')[0]`
+endsnippet
