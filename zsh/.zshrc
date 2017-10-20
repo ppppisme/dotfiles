@@ -69,8 +69,6 @@ alias ya='yaourt'
 alias notes='vim ~/notes/'
 alias todo='vim ~/notes/todo.md'
 
-alias e=nvim
-
 # Git aliases
 alias gs='git status'
 alias ga='git add .'
@@ -92,12 +90,6 @@ alias ack="ack --ignore-file=is:tags --pager 'less -r'"
 alias :w="cd ~/mnt/ssh/customwizard/sites/all/modules/custom/gm_wizard"
 alias :t="cd ~/mnt/ssh/customwizard/sites/all/themes/customwizard/scss"
 
-# Let's try nvim
-# alias vim="nvim"
-#
-# Let's not try nvim
-#
-# Let's try nvim
 alias vim="nvim"
 
 WORDCHARS='*?[]~=&;!#$%^(){}<>'

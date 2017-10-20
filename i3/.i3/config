@@ -108,8 +108,6 @@ set $tag9 "9"
 set $tag0 "0"
 
 assign [class="Slack"] → $tag9
-assign [class="Termite-vagrant"] → $tag7
-assign [class="Termite-work"] → $tag0
 assign [class="Gimp"] → $tag4
 
 # switch to workspace
@@ -123,6 +121,14 @@ bindsym $mod+7 workspace $tag7
 bindsym $mod+8 workspace $tag8
 bindsym $mod+9 workspace $tag9
 bindsym $mod+0 workspace $tag0
+
+workspace $tag1 output VGA-1
+workspace $tag2 output HDMI-1
+workspace $tag3 output HDMI-1
+workspace $tag7 output HDMI-1
+workspace $tag8 output HDMI-1
+workspace $tag9 output HDMI-1
+workspace $tag0 output VGA-1
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $tag1
