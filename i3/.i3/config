@@ -213,13 +213,13 @@ bar {
 # locker bindsym
 bindsym $mod+p exec --no-startup-id "physlock"
 
-exec --no-startup-id "compton -f -i 0.85 -c &"
+exec --no-startup-id "compton -f -c &"
 exec --no-startup-id "dunst"
 exec --no-startup-id "xset m 01"
 exec --no-startup-id "xset r rate 250 25"
-exec --no-startup-id "feh --bg-scale /home/pppp/Pictures/wallpaper2.jpg"
-exec --no-startup-id "slack"
+exec --no-startup-id "feh --bg-scale /home/pppp/Pictures/wallhaven-379572.jpg"
 exec --no-startup-id "setxkbmap -option caps:ctrl_modifier"
+exec --no-startup-id "setxkbmap -model pc104 -layout us,ru -variant qwerty -option grp:alt_shift_toggle"
 
 # i3-gaps specific
 gaps outer 14
