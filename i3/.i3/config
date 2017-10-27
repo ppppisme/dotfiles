@@ -185,7 +185,7 @@ bar {
   position top
   status_command i3blocks
   tray_output primary
-  font pango:CtrlD 9
+  font pango:hack 6
 
   i3bar_command i3bar -t
 
@@ -195,7 +195,7 @@ bar {
     # dark theme
     background #28282800
     statusline #504945
-    separator  #928374
+    separator  #99999999
 
     # light theme
     # background #fbf1c7
@@ -203,8 +203,8 @@ bar {
     # separator  #928374
 
     # Type             border    bg        font
-    focused_workspace  #28282800 #28282800 #b8bb26
-    active_workspace   #28282800 #28282800 #b8bb26
+    focused_workspace  #28282800 #28282800 #98971a
+    active_workspace   #28282800 #28282800 #98971a
     inactive_workspace #28282800 #28282800 #665c54
     urgent_workspace   #28282800 #28282800 #fb4834
   }
@@ -217,13 +217,13 @@ exec --no-startup-id "compton -f -c &"
 exec --no-startup-id "dunst"
 exec --no-startup-id "xset m 01"
 exec --no-startup-id "xset r rate 250 25"
-exec --no-startup-id "feh --bg-scale /home/pppp/Pictures/wallhaven-379572.jpg"
+exec --no-startup-id "feh --bg-scale /home/pppp/Pictures/2k-cloud-fog-forest-wallpaper.jpg"
 exec --no-startup-id "setxkbmap -option caps:ctrl_modifier"
 exec --no-startup-id "setxkbmap -model pc104 -layout us,ru -variant qwerty -option grp:alt_shift_toggle"
 
 # i3-gaps specific
-gaps outer 14
-gaps inner 14
+gaps outer 28
+gaps inner 28
 # smart_gaps on
 smart_borders on
 for_window [class="^.*"] border pixel 3
