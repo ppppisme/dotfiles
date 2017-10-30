@@ -10,54 +10,54 @@ endif
 " list of plugins 
 call plug#begin('~/.vim/plugged')
 
-" file system navigation
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+  " file system navigation
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
 
-" linter
-Plug 'w0rp/ale'
+  " linter
+  Plug 'w0rp/ale'
 
-" git stuff
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+  " git stuff
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
 
-" tags
-Plug 'ludovicchabant/vim-gutentags'
+  " tags
+  Plug 'ludovicchabant/vim-gutentags'
 
-" snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'mattn/emmet-vim'
+  " snippets
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'mattn/emmet-vim'
 
-" decoration stuff
-Plug 'myusuf3/numbers.vim'
+  " decoration stuff
+  Plug 'myusuf3/numbers.vim'
 
-" text navigation
-Plug 'thinca/vim-visualstar'
+  " text navigation
+  Plug 'thinca/vim-visualstar'
 
-" debug
-Plug 'joonty/vdebug', { 'on': 'VdebugStart' }
+  " debug
+  Plug 'joonty/vdebug', { 'on': 'VdebugStart' }
 
-" script runner
-Plug 'thinca/vim-quickrun'
+  " script runner
+  Plug 'thinca/vim-quickrun'
 
-" language support
-Plug 'sheerun/vim-polyglot'
+  " language support
+  Plug 'sheerun/vim-polyglot'
 
-" " misc
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
-Plug 'vimscript/matchit.zip'
-Plug 'vladgor/metal-vim-rising'
+  " " misc
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'vimscript/matchit.zip'
+  Plug 'vladgor/metal-vim-rising'
 
-" " color schemes
-Plug 'vladgor/gruvbox'
-Plug 'vladgor/itg_flat_vim'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'tpope/vim-vividchalk'
-Plug 'w0ng/vim-hybrid'
+  " " color schemes
+  Plug 'vladgor/gruvbox'
+  Plug 'vladgor/itg_flat_vim'
+  Plug 'chriskempson/vim-tomorrow-theme'
+  Plug 'tpope/vim-vividchalk'
+  Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -79,6 +79,15 @@ let g:fzf_colors =
       \ 'marker':  ['fg', 'Keyword'],
       \ 'spinner': ['fg', 'Comment'],
       \ 'header':  ['fg', 'Comment'] }
+
+function! s:fzf_statusline()
+  " Override statusline as you like
+  setlocal statusline=%#TermCursor#
+  setlocal statusline+=\ \ \ \ fzf\ 
+  setlocal statusline+=%#SignColumn#
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 
 "---
