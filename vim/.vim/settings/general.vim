@@ -18,7 +18,7 @@ if has("gui_running")
   set guifont=CtrlD 11 " font for gui version
 endif
 
-set number   " shows line numbers
+set relativenumber   " shows line numbers
 set hidden   " doesn't let to unload buffer when it's closed
 set nowrap   " turns word wrapping off
 set showbreak=->   " shows this symbol at the beginning of wrapped lines

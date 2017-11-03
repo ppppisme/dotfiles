@@ -9,7 +9,6 @@ endif
 
 " list of plugins 
 call plug#begin('~/.vim/plugged')
-
   " file system navigation
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
@@ -30,7 +29,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/emmet-vim'
 
   " decoration stuff
-  Plug 'myusuf3/numbers.vim'
+  Plug 'AssailantLF/vim-active-numbers'
 
   " text navigation
   Plug 'thinca/vim-visualstar'
@@ -49,8 +48,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'vimscript/matchit.zip'
-  Plug 'vladgor/metal-vim-rising'
 
   " " color schemes
   Plug 'vladgor/gruvbox'
@@ -58,7 +55,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'chriskempson/vim-tomorrow-theme'
   Plug 'tpope/vim-vividchalk'
   Plug 'w0ng/vim-hybrid'
-
 call plug#end()
 
 "---
