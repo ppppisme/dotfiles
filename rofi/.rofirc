@@ -8,7 +8,7 @@ rofi.opacity: 		90
 rofi.hide-scrollbar:true
 rofi.line-margin:	7
 rofi.sidebar-mode: 	true
-rofi.font:			CtrlD 12
+rofi.font:			Hack 11
 
 
 rofi.color-normal: #282828, #bdae93, #282828, #282828, #83a598
