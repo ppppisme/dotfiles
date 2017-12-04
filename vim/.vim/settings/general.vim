@@ -1,4 +1,3 @@
-" current colorscheme
 colorscheme gruvbox
 let g:gruvbox_syntax_highlighting = 0
 set background=dark

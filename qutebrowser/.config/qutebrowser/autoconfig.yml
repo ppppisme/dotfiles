@@ -3,13 +3,6 @@
 
 config_version: 1
 global:
-  colors.downloads.bar.bg: '#282828'
-  colors.downloads.error.bg: '#cc241d'
-  colors.downloads.error.fg: '#3c3836'
-  colors.downloads.start.bg: '#458588'
-  colors.downloads.start.fg: '#3c3836'
-  colors.downloads.stop.bg: '#b8bb26'
-  colors.downloads.stop.fg: '#3c3836'
   colors.statusbar.command.bg: '#282828'
   colors.statusbar.insert.bg: '#b8bb26'
   colors.statusbar.insert.fg: '#504945'

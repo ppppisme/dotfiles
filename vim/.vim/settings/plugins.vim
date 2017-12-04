@@ -43,18 +43,20 @@ call plug#begin('~/.vim/plugged')
   " language support
   Plug 'sheerun/vim-polyglot'
 
-  " " misc
+  " misc
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'jiangmiao/auto-pairs'
 
-  " " color schemes
+  " color schemes
   Plug 'vladgor/gruvbox'
-  Plug 'vladgor/itg_flat_vim'
   Plug 'chriskempson/vim-tomorrow-theme'
   Plug 'tpope/vim-vividchalk'
   Plug 'w0ng/vim-hybrid'
+  Plug 'AlessandroYorba/Alduin'
+  Plug 'nanotech/jellybeans.vim'
+  Plug 'pbrisbin/vim-colors-off'
 call plug#end()
 
 "---
@@ -127,4 +129,4 @@ let g:gutentags_project_info = [{'type': 'php', 'file': 'index.php'}]
 " Vdebug
 "---
 let g:vdebug_options = {}
-let g:vdebug_options['path_maps'] = {"/var/www/mojohomes.local": "/home/pppp/mnt/ssh/mojohomes"}
+let g:vdebug_options['path_maps'] = {"/var/www/drupalvm/drupal/web": "/home/pppp/vagrant/pure/drupal/web"}
