@@ -1,7 +1,7 @@
 function! StatusLineFugitive()
   if exists("*fugitive#head")
     let branch = fugitive#head()
-    return branch !=# '' ? ' ' . branch : '[not git]'
+    return branch !=# '' ? ' ' . branch : ''
   endif
   return ''
 endfunction

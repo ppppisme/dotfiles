@@ -99,19 +99,21 @@ set noruler   " do not display the cursor position at the bottom right corner
 function! SetActiveStatusline()
   setlocal statusline=
   setlocal statusline+=%#TermCursor#
-  setlocal statusline+=\ \ \ \ %{StatusLineFugitive()}\ 
+  setlocal statusline+=\ :::\ 
   setlocal statusline+=%#SignColumn#
   setlocal statusline+=\ %f
   setlocal statusline+=\ %y
+  setlocal statusline+=%=%{StatusLineFugitive()}\ \ 
 endfunction
 
 function! SetBlurredStatusline()
   setlocal statusline=
   setlocal statusline+=%#Folded#
-  setlocal statusline+=\ \ \ \ %{StatusLineFugitive()}\ 
+  setlocal statusline+=\ :::\ 
   setlocal statusline+=%#LineNr#
   setlocal statusline+=\ %f
   setlocal statusline+=\ %y
+  setlocal statusline+=%=%{StatusLineFugitive()}\ \ 
 endfunction
 
 autocmd BufEnter,FocusGained,VimEnter,WinEnter * call SetActiveStatusline()
