@@ -21,8 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
 
   " snippets
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
+  Plug 'KeyboardFire/vim-minisnip'
   Plug 'mattn/emmet-vim'
 
   " decoration stuff
@@ -83,14 +82,6 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
-
-
-"---
-" UltiSnips
-"---
-let g:UltiSnipsExpandTrigger = "<Tab>"
-let g:UltiSnipsJumpForwardTrigger = "<C-k>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-j>"
 
 
 "---
