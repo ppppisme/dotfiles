@@ -75,8 +75,6 @@ augroup common
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \   exe"normal g`\"" |
         \ endif
-  " saves a document on lost focus
-  "autocmd FocusLost * :wa
 augroup end
 
 " tree-like netrw style

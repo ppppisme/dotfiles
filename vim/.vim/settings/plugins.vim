@@ -20,9 +20,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
 
-  " tags
-  Plug 'ludovicchabant/vim-gutentags'
-
   " snippets
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
@@ -115,14 +112,6 @@ let g:ale_linters = {
 let g:ale_php_phpcs_standard = 'Drupal'
 let g:ale_sign_column_always = 1
 let g:ale_sign_warning = '>>'
-
-
-"---
-" Gutentags
-"---
-let g:gutentags_cache_dir = '~/.tags/'
-let g:gutentags_project_root = ['.gutctags']
-let g:gutentags_project_info = [{'type': 'php', 'file': 'index.php'}]
 
 
 "---
