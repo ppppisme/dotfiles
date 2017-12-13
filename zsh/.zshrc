@@ -5,7 +5,6 @@ export TERMINAL=termite
 export PATH=$PATH:/home/pppp/.gem/ruby/2.4.0/bin/
 export PATH=$PATH:/home/pppp/.config/composer/vendor/bin/
 
-# export EDITOR=vim
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -65,8 +64,8 @@ source ~/.zsh/themes/minimal_hack.sh
 # Alias section
 alias ll='ls -lAh'
 alias l='ls'
-alias notes='vim ~/notes/'
-alias todo='vim ~/notes/work'
+alias notes='vim ~/notes/ -c ":cd ~/notes/"'
+alias work='vim ~/notes/work -c ":cd ~/notes/work/"'
 
 # Git aliases
 alias gs='git status'
