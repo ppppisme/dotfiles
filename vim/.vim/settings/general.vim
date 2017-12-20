@@ -96,9 +96,9 @@ set noruler   " do not display the cursor position at the bottom right corner
 " statusbar format
 function! SetActiveStatusline()
   setlocal statusline=
-  setlocal statusline+=%#TermCursor#
+  setlocal statusline+=%#StatusLinePrefix#
   setlocal statusline+=\ :::\ 
-  setlocal statusline+=%#SignColumn#
+  setlocal statusline+=%#StatusLine#
   setlocal statusline+=\ %f
   setlocal statusline+=\ %y
   setlocal statusline+=%=%{StatusLineFugitive()}\ \ 
@@ -106,9 +106,9 @@ endfunction
 
 function! SetBlurredStatusline()
   setlocal statusline=
-  setlocal statusline+=%#Folded#
+  setlocal statusline+=%#StatusLineNCPrefix#
   setlocal statusline+=\ :::\ 
-  setlocal statusline+=%#LineNr#
+  setlocal statusline+=%#StatusLineNC#
   setlocal statusline+=\ %f
   setlocal statusline+=\ %y
   setlocal statusline+=%=%{StatusLineFugitive()}\ \ 

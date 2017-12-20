@@ -51,7 +51,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-vividchalk'
   Plug 'w0ng/vim-hybrid'
   Plug 'AlessandroYorba/Alduin'
-  Plug 'nanotech/jellybeans.vim'
   Plug 'pbrisbin/vim-colors-off'
 call plug#end()
 
