@@ -14,8 +14,6 @@ nnoremap K i<cr><esc>k$l
 
 " editing and sourcing vimrc
 nnoremap <leader>vv :vi $MYVIMRC<cr>
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-noremap <leader>sv :source $MYVIMRC<cr>
 
 " getting over old habits
 inoremap jk <esc>

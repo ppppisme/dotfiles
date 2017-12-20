@@ -1,6 +1,5 @@
-colorscheme gruvbox
-let g:gruvbox_syntax_highlighting = 0
 set background=dark
+colorscheme gruvoff
 
 if !has('nvim')
   set t_Co=256
@@ -14,7 +13,7 @@ if has("gui_running")
   set guioptions+=c   " use console dialogs instead of popup dialogs for simple choices
   set guioptions+=b   " turns bottom scrollbar on
   set guioptions-=e   " turns on text tabs
-  set guifont=CtrlD 11 " font for gui version
+  set guifont=Hack\ 10 " font for gui version
 endif
 
 set relativenumber   " shows line numbers

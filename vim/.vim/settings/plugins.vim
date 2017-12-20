@@ -46,12 +46,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
 
   " color schemes
-  Plug 'vladgor/gruvbox'
-  Plug 'chriskempson/vim-tomorrow-theme'
-  Plug 'tpope/vim-vividchalk'
-  Plug 'w0ng/vim-hybrid'
-  Plug 'AlessandroYorba/Alduin'
-  Plug 'pbrisbin/vim-colors-off'
+  Plug 'vladgor/vim-gruvoff'
+  " Plug 'chriskempson/vim-tomorrow-theme'
+  " Plug 'tpope/vim-vividchalk'
+  " Plug 'w0ng/vim-hybrid'
+  " Plug 'AlessandroYorba/Alduin'
 call plug#end()
 
 "---
