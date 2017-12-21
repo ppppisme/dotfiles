@@ -7,8 +7,6 @@ nnoremap <silent> <C-l> <C-w>l
 " automatically indent pasted text
 nnoremap p pmz`[v`]=`z
 
-nnoremap Y y$
-
 " break string in two
 nnoremap K i<cr><esc>k$l
 
@@ -23,10 +21,6 @@ nnoremap <left> <nop>
 nnoremap <down> <nop>
 nnoremap <up> <nop>
 nnoremap <right> <nop>
-
-" use ctrl-p and ctrl-n in ex mode
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
 
 " handle regexp very magically
 nmap / /\v

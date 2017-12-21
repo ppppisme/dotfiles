@@ -6,63 +6,58 @@ if !has('nvim')
 end
 
 if has("gui_running")
-  " turns off toolbar, menu and left scrollbar
   set guioptions-=T
   set guioptions-=m
   set guioptions-=L
-  set guioptions+=c   " use console dialogs instead of popup dialogs for simple choices
-  set guioptions+=b   " turns bottom scrollbar on
-  set guioptions-=e   " turns on text tabs
-  set guifont=Hack\ 10 " font for gui version
+  set guioptions+=c
+  set guioptions+=b
+  set guioptions-=e
+  set guifont=CtrlD 11
 endif
 
-set relativenumber   " shows line numbers
-set hidden   " doesn't let to unload buffer when it's closed
-set nowrap   " turns word wrapping off
-set showbreak=->   " shows this symbol at the beginning of wrapped lines
-set history=50   " saves 50 lines in command line history
-set expandtab   " replaces tabulation with spaces
-"
-" smart tabbing that takes into account 'shiftwidth', 'tabstop'
-" and 'softtabstop' options
+set relativenumber
+set hidden
+set nowrap
+set showbreak=->
+set history=50
+set expandtab
 set smarttab
-set shiftround   " use multiple of shiftwidth when indenting with '<' and '>'
-set tabstop=2   " tabulation size
-set shiftwidth=2   " size of indentation when entering << or >>
-set autoindent   " takes indentation info from previous line
-set cpoptions+=I   " do not delete indentation from empty line when cursor is moved
-set cindent   " applies indentation rules for c
-set copyindent   " copy the previous indentation on autoindenting
+set shiftround
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set cpoptions+=I
+set cindent
+set copyindent
 
-set backspace=indent,eol,start   " allow backspacing over everything in insert mode
-set path+=** " search files recursively
-set colorcolumn=80   " higlights specified column
-set ignorecase   " ignores case when searching
-set hlsearch   " highlights search results
-set incsearch   " jumps to search results
-set smartcase   " be case sensitive only when there is at least one uppercase symbol in pattern
-set visualbell   " blinks instead of beeping
-set showmatch   " highlights opening and closing brackets
-set wildmode=list:longest " nice autocompletion in command line
-set autoread   " updates content when file is changed from the outside
-set whichwrap=<,>,[,],h,l   " doesn't stop cursor at the end of line
-set autowrite   " saves file when moving to another
-set encoding=utf8   " sets default encoding
-set termencoding=utf8   " sets terminal encoding
-set fileencodings=utf8,cp1251,koi8r   " sets list of possible encodings
-set showcmd   " turns on autocomplete in command line
-set showmode   " displays the current mode
-set undolevels=1024   " determines size of undo-history
-set virtualedit=all   " allows to move cursor in empty space
-set completeopt=menuone,menu,longest   " sets complete menu options
-set list   " displays special symbols like eol or whitespace
-set listchars=tab:··,trail:_,eol:¬   " sets what symbols vim will show
-set lazyredraw   " turns on lazy redraw on completing scripts
+set backspace=indent,eol,start
+set path+=**
+set colorcolumn=80
+set ignorecase
+set hlsearch
+set incsearch
+set smartcase
+set visualbell
+set showmatch
+set wildmode=list:longest
+set autoread
+set whichwrap=<,>,[,],h,l
+set autowrite
+set encoding=utf8
+set termencoding=utf8
+set fileencodings=utf8
+set showcmd
+set showmode
+set undolevels=1024
+set virtualedit=all
+set completeopt=menuone,menu,longest
+set list
+set listchars=tab:··,trail:_,eol:¬
+set lazyredraw
 
-" custom directories for storing backup, swap and undo files
 set backup
 set writebackup
-set undofile   " writes undo history in file
+set undofile
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
 set undodir=~/.vim/undo/
@@ -73,7 +68,6 @@ augroup common
   autocmd BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \   exe"normal g`\"" |
-        \ endif
 augroup end
 
 " tree-like netrw style
@@ -84,15 +78,13 @@ if exists('&inccommand')
   set inccommand=split
 endif
 
-" use ack for vimgrep
 if executable('ack')
   set grepprg=ack
 endif
 
-set laststatus=2   " constantly displays status line
-set noruler   " do not display the cursor position at the bottom right corner
+set laststatus=2
+set noruler
 
-" statusbar format
 function! SetActiveStatusline()
   setlocal statusline=
   setlocal statusline+=%#StatusLinePrefix#

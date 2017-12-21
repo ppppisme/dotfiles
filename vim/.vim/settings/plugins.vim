@@ -22,7 +22,6 @@ call plug#begin('~/.vim/plugged')
 
   " snippets
   Plug 'KeyboardFire/vim-minisnip'
-  Plug 'mattn/emmet-vim'
 
   " decoration stuff
   Plug 'AssailantLF/vim-active-numbers'
@@ -48,7 +47,6 @@ call plug#begin('~/.vim/plugged')
   " color schemes
   Plug 'vladgor/vim-gruvoff'
   " Plug 'chriskempson/vim-tomorrow-theme'
-  " Plug 'tpope/vim-vividchalk'
   " Plug 'w0ng/vim-hybrid'
   " Plug 'AlessandroYorba/Alduin'
 call plug#end()
