@@ -16,6 +16,7 @@ if has("gui_running")
 endif
 
 set relativenumber
+set number
 set hidden
 set nowrap
 set showbreak=->
