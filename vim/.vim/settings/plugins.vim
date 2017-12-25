@@ -38,6 +38,9 @@ call plug#begin('~/.vim/plugged')
   " language support
   Plug 'sheerun/vim-polyglot'
 
+  " project
+  Plug 'vladgor/vim-project-finder'
+
   " misc
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
