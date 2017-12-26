@@ -1,18 +1,17 @@
-
 autoload -U colors && colors
 function set-prompt()
 {
-  if [[ -z $(git diff --exit-code 2> /dev/null) ]] then
-    vi_mode="%{$fg[grey]%}:::"%{$reset_color%}
-  else
-    vi_mode="%{$fg[green]%}:::"%{$reset_color%} 
+  color=%{$fg[grey]%}
+  if [[ $(git diff --exit-code 2> /dev/null) ]] then
+    color=%{$fg[green]%}
   fi
 
   if [[ $KEYMAP = vicmd ]]; then
-    vi_mode="%{$fg_bold[red]%}:::"%{$reset_color%}
+    color=%{$fg_bold[red]%}
   fi
 
-  gitbranch=$(git branch 2> /dev/null | sed -n '/\* /s///p') 
+  gitbranch=$(git branch 2> /dev/null | sed -n '/\* /s///p')
+  vi_mode="$color:::"%{$reset_color%}
 
   PROMPT="
  $vi_mode %~ %{$fg[grey]%}$gitbranch%{$reset_color%}
@@ -20,8 +19,8 @@ function set-prompt()
 }
 
 function zle-line-init zle-keymap-select {
-set-prompt
-zle reset-prompt
+  set-prompt
+  zle reset-prompt
 }
 
 
