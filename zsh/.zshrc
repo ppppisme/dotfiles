@@ -64,8 +64,8 @@ source ~/.zsh/themes/minimal_hack.sh
 # Alias section
 alias ll='ls -lAh'
 alias l='ls'
-alias notes='vim ~/notes/ -c ":cd ~/notes/"'
-alias work='vim ~/notes/work -c ":cd ~/notes/work/"'
+alias notes='vim ~/notes/ -c "cd ~/notes/" -c "FzfFiles"'
+alias work='vim ~/notes/work -c "cd ~/notes/work/" -c "FzfFiles"'
 
 # Git aliases
 alias gs='git status'
@@ -103,7 +103,6 @@ function sp {
   if [ -z "$1" ]; then
     eval "termite &"
   else
-    # TODO: focus on the parent termite window.
     eval "termite --exec \"$command\" &"
   fi
 }
