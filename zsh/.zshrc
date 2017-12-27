@@ -58,8 +58,7 @@ setopt sharehistory
 setopt extendedhistory
 
 # Customized shell prompt
-
-source ~/.zsh/themes/minimal_hack.sh
+source ~/.zsh/themes/minimal.sh
 
 # Alias section
 alias ll='ls -lAh'
