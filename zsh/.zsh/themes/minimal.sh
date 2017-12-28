@@ -61,7 +61,7 @@ function set-prompt()
   done
 
   PROMPT="
-$PROMPT
+ $PROMPT
   "
 }
 
