@@ -21,7 +21,7 @@ function minimal_path()
 
 function minimal_git_branch()
 {
-  gitbranch=$(git branch 2> /dev/null | sed -n '/\* /s///p')
+  local gitbranch=$(git branch 2> /dev/null | sed -n '/\* /s///p')
 
   if [[ -z $gitbranch ]]; then
     echo ''
