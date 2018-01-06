@@ -22,7 +22,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
 
   " tags
-  Plug 'ludovicchabant/vim-gutentags'
+  " Plug 'ludovicchabant/vim-gutentags'
 
   " snippets
   Plug 'SirVer/ultisnips'

@@ -58,16 +58,9 @@ setopt completeinword
 setopt sharehistory
 setopt extendedhistory
 
-# Customized shell prompt
-
-source ~/.zsh/themes/minimal_hack.sh
-
 # Alias section
 alias ll='ls -lAh'
 alias l='ls'
-alias ya='yaourt'
-alias notes='vim ~/notes/'
-alias todo='vim ~/notes/todo.md'
 
 # Git aliases
 alias gs='git status'
@@ -86,9 +79,6 @@ alias nah="git reset --hard && git clean -df"
 
 # Ack aliases
 alias ack="ack --ignore-file=is:tags --pager 'less -r'"
-
-alias :w="cd ~/mnt/ssh/customwizard/sites/all/modules/custom/gm_wizard"
-alias :t="cd ~/mnt/ssh/customwizard/sites/all/themes/customwizard/scss"
 
 alias vim="nvim"
 
