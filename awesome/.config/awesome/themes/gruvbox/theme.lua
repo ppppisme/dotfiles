@@ -79,6 +79,10 @@ theme.taglist_squares_unsel = themes_path .. "gruvbox/taglist/squarez.png"
 --theme.taglist_squares_resize = "false"
 -- }}}
 
+-- {{{ Tasklist
+theme.tasklist_disable_icon = true
+-- }}}
+
 -- {{{ Layout
 theme.layout_tile       = themes_path .. "gruvbox/layouts/tile.png"
 theme.layout_tileleft   = themes_path .. "gruvbox/layouts/tileleft.png"
