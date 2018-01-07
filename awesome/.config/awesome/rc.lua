@@ -41,7 +41,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/gruvbox/theme.lua")
+local config_dir = gears.filesystem.get_configuration_dir()
+beautiful.init(config_dir .. "themes/gruvbox/theme.lua")
+awful.spawn.with_shell(config_dir .. "autorun.sh")
 
 -- This is used later as the default terminal and editor to run.
 terminal = os.getenv("TERMINAL") or "xterm"
@@ -298,23 +300,24 @@ globalkeys = gears.table.join(
     end,
     {description = "restore minimized", group = "client"}),
 
--- Prompt
-awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-  {description = "run prompt", group = "launcher"}),
+  -- Prompt
+  awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    {description = "run prompt", group = "launcher"}),
 
-awful.key({ modkey }, "x",
-  function ()
-    awful.prompt.run {
-      prompt       = "Run Lua code: ",
-      textbox      = awful.screen.focused().mypromptbox.widget,
-      exe_callback = awful.util.eval,
-      history_path = awful.util.get_cache_dir() .. "/history_eval"
-    }
-  end,
-  {description = "lua execute prompt", group = "awesome"}),
--- Menubar
-awful.key({ modkey }, "d", function() menubar.show() end,
-  {description = "show the menubar", group = "launcher"})
+  awful.key({ modkey }, "x",
+    function ()
+      awful.prompt.run {
+        prompt       = "Run Lua code: ",
+        textbox      = awful.screen.focused().mypromptbox.widget,
+        exe_callback = awful.util.eval,
+        history_path = awful.util.get_cache_dir() .. "/history_eval"
+      }
+    end,
+    {description = "lua execute prompt", group = "awesome"}),
+
+  -- Menubar
+  awful.key({ modkey }, "d", function() menubar.show() end,
+    {description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
