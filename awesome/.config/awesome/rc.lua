@@ -77,17 +77,15 @@ awful.layout.layouts = {
 -- }}}
 
 -- {{{ Helper functions
-local function client_menu_toggle_fn()
-  local instance = nil
-
-  return function ()
-    if instance and instance.wibox.visible then
-      instance:hide()
-      instance = nil
-    else
-      instance = awful.menu.clients({ theme = { width = 250 } })
+local function setTitlebar(client, s)
+    if s then
+        if client.titlebar == nil then
+            client:emit_signal("request::titlebars", "rules", {})
+        end
+        awful.titlebar.show(client)
+    else 
+        awful.titlebar.hide(client)
     end
-  end
 end
 -- }}}
 
@@ -99,10 +97,8 @@ mylauncher = awful.widget.launcher({})
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+menubar.show_categories = false
 -- }}}
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -143,7 +139,6 @@ local tasklist_buttons = gears.table.join(
       c:raise()
     end
   end),
-  awful.button({ }, 3, client_menu_toggle_fn()),
   awful.button({ }, 4, function ()
     awful.client.focus.byidx(1)
   end),
@@ -204,7 +199,6 @@ local tasklist_buttons = gears.table.join(
         s.mytasklist, -- Middle widget
         { -- Right widgets
           layout = wibox.layout.fixed.horizontal,
-          mykeyboardlayout,
           wibox.widget.systray(),
           mytextclock,
           s.mylayoutbox,
@@ -446,11 +440,6 @@ local tasklist_buttons = gears.table.join(
           }
       }, properties = { floating = true }},
 
-      -- Add titlebars to normal clients and dialogs
-      { rule_any = {type = { "normal", "dialog" }
-        }, properties = { titlebars_enabled = true }
-      },
-
       -- Set Firefox to always map on the tag named "2" on screen 1.
       -- { rule = { class = "Firefox" },
       --   properties = { screen = 1, tag = "2" } },
@@ -524,4 +513,22 @@ local tasklist_buttons = gears.table.join(
 
     client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
     client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+    -- Add titlebar to floating windows. Thanks, Niverton!
+    -- https://stackoverflow.com/a/44120615
+    client.connect_signal("property::floating", function(c)
+      setTitlebar(c, c.floating)
+    end)
+    client.connect_signal("manage", function(c) 
+      setTitlebar(c, c.floating or c.first_tag.layout == awful.layout.suit.floating)
+    end)
+    tag.connect_signal("property::layout", function(t)
+      for _, c in pairs(t:clients()) do
+        if t.layout == awful.layout.suit.floating then
+          setTitlebar(c, true)
+        else
+          setTitlebar(c, false)
+        end
+      end
+    end)
     -- }}}
