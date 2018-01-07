@@ -178,34 +178,35 @@ awful.screen.connect_for_each_screen(function(s)
       awful.button({ }, 3, function () awful.layout.inc(-1) end),
       awful.button({ }, 4, function () awful.layout.inc( 1) end),
     awful.button({ }, 5, function () awful.layout.inc(-1) end)))
-    -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
 
-    -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
+  -- Create a taglist widget
+  s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
 
-    -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+  -- Create a tasklist widget
+  s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
-    -- Add widgets to the wibox
-    s.mywibox:setup {
-      layout = wibox.layout.align.horizontal,
-      { -- Left widgets
-        layout = wibox.layout.fixed.horizontal,
-        mylauncher,
-        s.mytaglist,
-        s.mypromptbox,
-      },
-      s.mytasklist, -- Middle widget
-      { -- Right widgets
-        layout = wibox.layout.fixed.horizontal,
-        wibox.widget.systray(),
-        mytextclock,
-        s.mylayoutbox,
-      },
-    }
-  end)
-  -- }}}
+  -- Create the wibox
+  s.mywibox = awful.wibar({ position = "top", screen = s })
+
+  -- Add widgets to the wibox
+  s.mywibox:setup {
+    layout = wibox.layout.align.horizontal,
+    { -- Left widgets
+      layout = wibox.layout.fixed.horizontal,
+      mylauncher,
+      s.mytaglist,
+      s.mypromptbox,
+    },
+    s.mytasklist, -- Middle widget
+    { -- Right widgets
+      layout = wibox.layout.fixed.horizontal,
+      wibox.widget.systray(),
+      mytextclock,
+      s.mylayoutbox,
+    },
+  }
+end)
+-- }}}
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
