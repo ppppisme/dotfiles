@@ -72,6 +72,12 @@ theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
 -- }}}
 
+-- {{{
+theme.notification_width = dpi(250)
+theme.notification_font = 'hack 8'
+theme.notification_margin = dpi(50)
+-- }}}
+
 -- {{{ Icons
 -- {{{ Taglist
 theme.taglist_squares_sel   = themes_path .. "gruvbox/taglist/squarefz.png"
