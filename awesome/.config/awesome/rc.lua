@@ -402,6 +402,10 @@ awful.rules.rules = {
     }
   },
 
+  { rule = { class = "Slack" },
+    properties = { screen = 2, tag = "9" }
+  },
+
   -- Floating clients.
   { rule_any = {
       instance = {
