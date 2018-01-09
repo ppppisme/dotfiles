@@ -4,13 +4,13 @@
 --  Source theme is: zenburn --
 -------------------------------
 
-local themes_path = require("gears.filesystem").get_configuration_dir() .. 'themes/'
+local theme_path = require("gears.filesystem").get_configuration_dir() .. "themes/gruvbox"
 local dpi = require("beautiful.xresources").apply_dpi
 local naughty = require('naughty')
 
 -- {{{ Main
 local theme = {}
-theme.wallpaper = themes_path .. "gruvbox/gruvbox-background.jpg"
+theme.wallpaper = theme_path .. "/gruvbox-background.jpg"
 -- }}}
 
 -- {{{ Styles
@@ -87,8 +87,8 @@ naughty.config.presets.normal.margin         = dpi(20)
 
 -- {{{ Icons
 -- {{{ Taglist
-theme.taglist_squares_sel   = themes_path .. "gruvbox/taglist/squarefz.png"
-theme.taglist_squares_unsel = themes_path .. "gruvbox/taglist/squarez.png"
+theme.taglist_squares_sel   = theme_path .. "/taglist/squarefz.png"
+theme.taglist_squares_unsel = theme_path .. "/taglist/squarez.png"
 --theme.taglist_squares_resize = "false"
 -- }}}
 
@@ -97,50 +97,47 @@ theme.tasklist_disable_icon = true
 -- }}}
 
 -- {{{ Layout
-theme.layout_tile       = themes_path .. "gruvbox/layouts/tile.png"
-theme.layout_tileleft   = themes_path .. "gruvbox/layouts/tileleft.png"
-theme.layout_tilebottom = themes_path .. "gruvbox/layouts/tilebottom.png"
-theme.layout_tiletop    = themes_path .. "gruvbox/layouts/tiletop.png"
-theme.layout_fairv      = themes_path .. "gruvbox/layouts/fairv.png"
-theme.layout_fairh      = themes_path .. "gruvbox/layouts/fairh.png"
-theme.layout_spiral     = themes_path .. "gruvbox/layouts/spiral.png"
-theme.layout_dwindle    = themes_path .. "gruvbox/layouts/dwindle.png"
-theme.layout_max        = themes_path .. "gruvbox/layouts/max.png"
-theme.layout_fullscreen = themes_path .. "gruvbox/layouts/fullscreen.png"
-theme.layout_magnifier  = themes_path .. "gruvbox/layouts/magnifier.png"
-theme.layout_floating   = themes_path .. "gruvbox/layouts/floating.png"
-theme.layout_cornernw   = themes_path .. "gruvbox/layouts/cornernw.png"
-theme.layout_cornerne   = themes_path .. "gruvbox/layouts/cornerne.png"
-theme.layout_cornersw   = themes_path .. "gruvbox/layouts/cornersw.png"
-theme.layout_cornerse   = themes_path .. "gruvbox/layouts/cornerse.png"
+theme.layout_tile       = theme_path .. "/layouts/tile.png"
+theme.layout_tileleft   = theme_path .. "/layouts/tileleft.png"
+theme.layout_tilebottom = theme_path .. "/layouts/tilebottom.png"
+theme.layout_tiletop    = theme_path .. "/layouts/tiletop.png"
+theme.layout_fairv      = theme_path .. "/layouts/fairv.png"
+theme.layout_fairh      = theme_path .. "/layouts/fairh.png"
+theme.layout_spiral     = theme_path .. "/layouts/spiral.png"
+theme.layout_dwindle    = theme_path .. "/layouts/dwindle.png"
+theme.layout_max        = theme_path .. "/layouts/max.png"
+theme.layout_fullscreen = theme_path .. "/layouts/fullscreen.png"
+theme.layout_magnifier  = theme_path .. "/layouts/magnifier.png"
+theme.layout_floating   = theme_path .. "/layouts/floating.png"
+theme.layout_cornernw   = theme_path .. "/layouts/cornernw.png"
+theme.layout_cornerne   = theme_path .. "/layouts/cornerne.png"
+theme.layout_cornersw   = theme_path .. "/layouts/cornersw.png"
+theme.layout_cornerse   = theme_path .. "/layouts/cornerse.png"
 -- }}}
 
 -- {{{ Titlebar
-theme.titlebar_close_button_focus  = themes_path .. "gruvbox/titlebar/close_focus.png"
-theme.titlebar_close_button_normal = themes_path .. "gruvbox/titlebar/close_normal.png"
+theme.titlebar_close_button_focus  = theme_path .. "/titlebar/close_focus.png"
+theme.titlebar_close_button_normal = theme_path .. "/titlebar/close_normal.png"
 
-theme.titlebar_minimize_button_normal = themes_path .. "default/titlebar/minimize_normal.png"
-theme.titlebar_minimize_button_focus  = themes_path .. "default/titlebar/minimize_focus.png"
+theme.titlebar_ontop_button_focus_active  = theme_path .. "/titlebar/ontop_focus_active.png"
+theme.titlebar_ontop_button_normal_active = theme_path .. "/titlebar/ontop_normal_active.png"
+theme.titlebar_ontop_button_focus_inactive  = theme_path .. "/titlebar/ontop_focus_inactive.png"
+theme.titlebar_ontop_button_normal_inactive = theme_path .. "/titlebar/ontop_normal_inactive.png"
 
-theme.titlebar_ontop_button_focus_active  = themes_path .. "gruvbox/titlebar/ontop_focus_active.png"
-theme.titlebar_ontop_button_normal_active = themes_path .. "gruvbox/titlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_inactive  = themes_path .. "gruvbox/titlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_inactive = themes_path .. "gruvbox/titlebar/ontop_normal_inactive.png"
+theme.titlebar_sticky_button_focus_active  = theme_path .. "/titlebar/sticky_focus_active.png"
+theme.titlebar_sticky_button_normal_active = theme_path .. "/titlebar/sticky_normal_active.png"
+theme.titlebar_sticky_button_focus_inactive  = theme_path .. "/titlebar/sticky_focus_inactive.png"
+theme.titlebar_sticky_button_normal_inactive = theme_path .. "/titlebar/sticky_normal_inactive.png"
 
-theme.titlebar_sticky_button_focus_active  = themes_path .. "gruvbox/titlebar/sticky_focus_active.png"
-theme.titlebar_sticky_button_normal_active = themes_path .. "gruvbox/titlebar/sticky_normal_active.png"
-theme.titlebar_sticky_button_focus_inactive  = themes_path .. "gruvbox/titlebar/sticky_focus_inactive.png"
-theme.titlebar_sticky_button_normal_inactive = themes_path .. "gruvbox/titlebar/sticky_normal_inactive.png"
+theme.titlebar_floating_button_focus_active  = theme_path .. "/titlebar/floating_focus_active.png"
+theme.titlebar_floating_button_normal_active = theme_path .. "/titlebar/floating_normal_active.png"
+theme.titlebar_floating_button_focus_inactive  = theme_path .. "/titlebar/floating_focus_inactive.png"
+theme.titlebar_floating_button_normal_inactive = theme_path .. "/titlebar/floating_normal_inactive.png"
 
-theme.titlebar_floating_button_focus_active  = themes_path .. "gruvbox/titlebar/floating_focus_active.png"
-theme.titlebar_floating_button_normal_active = themes_path .. "gruvbox/titlebar/floating_normal_active.png"
-theme.titlebar_floating_button_focus_inactive  = themes_path .. "gruvbox/titlebar/floating_focus_inactive.png"
-theme.titlebar_floating_button_normal_inactive = themes_path .. "gruvbox/titlebar/floating_normal_inactive.png"
-
-theme.titlebar_maximized_button_focus_active  = themes_path .. "gruvbox/titlebar/maximized_focus_active.png"
-theme.titlebar_maximized_button_normal_active = themes_path .. "gruvbox/titlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_inactive  = themes_path .. "gruvbox/titlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_inactive = themes_path .. "gruvbox/titlebar/maximized_normal_inactive.png"
+theme.titlebar_maximized_button_focus_active  = theme_path .. "/titlebar/maximized_focus_active.png"
+theme.titlebar_maximized_button_normal_active = theme_path .. "/titlebar/maximized_normal_active.png"
+theme.titlebar_maximized_button_focus_inactive  = theme_path .. "/titlebar/maximized_focus_inactive.png"
+theme.titlebar_maximized_button_normal_inactive = theme_path .. "/titlebar/maximized_normal_inactive.png"
 -- }}}
 -- }}}
 
