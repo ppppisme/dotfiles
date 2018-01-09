@@ -201,7 +201,13 @@ awful.screen.connect_for_each_screen(function(s)
         widget = wibox.container.margin,
       },
       mytextclock,
-      s.mylayoutbox,
+      {
+        s.mylayoutbox,
+        top = 3,
+        bottom = 3,
+        right = 3,
+        widget = wibox.container.margin,
+      },
     },
   }
 end)
