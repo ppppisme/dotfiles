@@ -6,6 +6,7 @@
 
 local themes_path = require("gears.filesystem").get_configuration_dir() .. 'themes/'
 local dpi = require("beautiful.xresources").apply_dpi
+local naughty = require('naughty')
 
 -- {{{ Main
 local theme = {}
@@ -73,11 +74,15 @@ theme.menu_width     = dpi(100)
 -- }}}
 
 -- {{{ Notifications
-theme.notification_width        = dpi(250)
-theme.notification_font         = "hack italic " .. dpi(10)
-theme.notification_border_color = "#bdae93"
-theme.notification_fg           = "#3c3836"
-theme.notification_bg           = "#bdae93"
+theme.notification_width                     = dpi(250)
+theme.notification_font                      = "hack italic " .. dpi(10)
+theme.notification_fg                        = "#3c3836"
+theme.notification_bg                        = "#bdae93"
+
+-- Unfortunately, I couldn't find the way to override these 2 settings via
+-- beautiful variable.
+naughty.config.presets.normal.border_width   = 0
+naughty.config.presets.normal.margin         = dpi(20)
 -- }}}
 
 -- {{{ Icons
