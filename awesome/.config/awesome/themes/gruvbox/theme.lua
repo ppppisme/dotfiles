@@ -27,7 +27,7 @@ theme.bg_systray = theme.bg_normal
 
 -- {{{ Borders
 theme.useless_gap   = dpi(10)
-theme.border_width  = dpi(2)
+theme.border_width  = dpi(3)
 theme.border_normal = "#3c3936"
 theme.border_focus  = "#fb4834"
 theme.border_marked = "#292d2e"
@@ -72,11 +72,12 @@ theme.menu_height    = dpi(15)
 theme.menu_width     = dpi(100)
 -- }}}
 
--- {{{
-theme.notification_width    = dpi(250)
-theme.notification_font     = "hack " .. dpi(11)
-theme.notification_margin   = dpi(50)
-theme.notification_fg       = "#bdae93"
+-- {{{ Notifications
+theme.notification_width        = dpi(250)
+theme.notification_font         = "hack italic " .. dpi(10)
+theme.notification_border_color = "#bdae93"
+theme.notification_fg           = "#3c3836"
+theme.notification_bg           = "#bdae93"
 -- }}}
 
 -- {{{ Icons
