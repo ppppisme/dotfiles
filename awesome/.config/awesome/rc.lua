@@ -284,6 +284,9 @@ globalkeys = gears.table.join(
   awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
     {description = "select previous", group = "layout"}),
 
+  awful.key({ modkey            }, "p", function () awful.spawn.with_shell('physlock')      end,
+    {description = "select previous", group = "layout"}),
+
   awful.key({ modkey, "Control" }, "n",
     function ()
       local c = awful.client.restore()
