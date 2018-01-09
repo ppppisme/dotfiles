@@ -13,7 +13,7 @@ theme.wallpaper = themes_path .. "gruvbox/gruvbox-background.jpg"
 -- }}}
 
 -- {{{ Styles
-theme.font       = "hack 7"
+theme.font       = "hack " .. dpi(9)
 
 -- {{{ Colors
 theme.fg_normal  = "#665c54"
