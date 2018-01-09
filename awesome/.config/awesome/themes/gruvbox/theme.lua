@@ -13,15 +13,15 @@ theme.wallpaper = themes_path .. "gruvbox/gruvbox-background.jpg"
 -- }}}
 
 -- {{{ Styles
-theme.font       = "hack " .. dpi(9)
+theme.font       = "hack " .. dpi(8)
 
 -- {{{ Colors
-theme.fg_normal  = "#665c54"
-theme.fg_focus   = "#a89984"
+theme.fg_normal  = "#bdae93"
+theme.fg_focus   = "#b8bb26"
 theme.fg_urgent  = "#fb4934"
 theme.bg_normal  = "#282828"
 theme.bg_focus   = "#1E2320"
-theme.bg_urgent  = "#900000"
+theme.bg_urgent  = "#cc241d"
 theme.bg_systray = theme.bg_normal
 -- }}}
 
@@ -68,14 +68,15 @@ theme.mouse_finder_color = "#fb4934"
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_height = dpi(15)
-theme.menu_width  = dpi(100)
+theme.menu_height    = dpi(15)
+theme.menu_width     = dpi(100)
 -- }}}
 
 -- {{{
-theme.notification_width = dpi(250)
-theme.notification_font = 'hack 8'
-theme.notification_margin = dpi(50)
+theme.notification_width    = dpi(250)
+theme.notification_font     = "hack " .. dpi(11)
+theme.notification_margin   = dpi(50)
+theme.notification_fg       = "#bdae93"
 -- }}}
 
 -- {{{ Icons
