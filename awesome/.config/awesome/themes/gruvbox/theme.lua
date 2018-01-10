@@ -81,8 +81,10 @@ theme.notification_bg                        = "#bdae93"
 
 -- Unfortunately, I couldn't find the way to override these 2 settings via
 -- beautiful variable.
-naughty.config.presets.normal.border_width   = 0
-naughty.config.presets.normal.margin         = dpi(20)
+naughty.config.presets.normal.border_width   = dpi(10)
+naughty.config.presets.normal.border_color   = "#bdae93"
+naughty.config.presets.normal.margin         = dpi(5)
+naughty.config.presets.normal.icon_size      = dpi(64)
 -- }}}
 
 -- {{{ Icons
