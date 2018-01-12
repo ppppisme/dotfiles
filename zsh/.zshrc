@@ -106,4 +106,8 @@ function sp {
   fi
 }
 
+function up {
+  eval "cd ~/vagrant/$1 && vagrant up && vagrant ssh"
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
