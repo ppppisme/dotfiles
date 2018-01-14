@@ -1,3 +1,26 @@
+--
+-- Titlebar manager
+--
+-- Show titlebar only for floating clients.
+-- Initial script author: Niverton (https://stackoverflow.com/a/44120615). Thank
+-- you Niverton!
+
+-- Copyright (C) 2018 pppp
+-- 
+-- This program is free software: you can redistribute it and/or modify it
+-- under the terms of the GNU General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option)
+-- any later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+-- FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+-- more details.
+-- 
+-- You should have received a copy of the GNU General Public License along with
+-- this program.  If not, see <https://www.gnu.org/licenses/>.
+--
+
 -- {{{ Helper functions
 local function setTitlebar(awful, client, s)
   if s then
@@ -11,8 +34,6 @@ local function setTitlebar(awful, client, s)
 end
 -- }}}
 
--- Add titlebar to floating windows. Thanks, Niverton!
--- https://stackoverflow.com/a/44120615
 local function init(awful, client, tag)
   client.connect_signal("property::floating", function(c)
     setTitlebar(awful, c, c.floating)
