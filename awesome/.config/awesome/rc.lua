@@ -51,16 +51,16 @@ beautiful.init(config_dir .. "themes/gruvbox/theme.lua")
 awful.spawn.with_shell(config_dir .. "autorun.sh")
 
 -- This is used later as the default terminal and editor to run.
-terminal = os.getenv("TERMINAL") or "xterm"
-editor = os.getenv("EDITOR") or "nano"
-editor_cmd = terminal .. " -e " .. editor
+local terminal = os.getenv("TERMINAL") or "xterm"
+local editor = os.getenv("EDITOR") or "nano"
+local editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
+local modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -85,9 +85,9 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-mymainmenu = awful.menu()
+local mymainmenu = awful.menu()
 
-mylauncher = awful.widget.launcher({})
+local mylauncher = awful.widget.launcher({})
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -96,7 +96,7 @@ menubar.show_categories = false
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+local mytextclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -199,16 +199,16 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.horizontal,
       {
         wibox.widget.systray(),
-        top = 3,
-        bottom = 3,
+        top = 5,
+        bottom = 5,
         widget = wibox.container.margin,
       },
       mytextclock,
       {
         s.mylayoutbox,
-        top = 3,
-        bottom = 3,
-        right = 3,
+        top = 5,
+        bottom = 5,
+        right = 5,
         widget = wibox.container.margin,
       },
     },
@@ -223,7 +223,7 @@ root.buttons(gears.table.join(
 -- }}}
 
 -- {{{ Key bindings
-globalkeys = gears.table.join(
+local globalkeys = gears.table.join(
   awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
     {description="show help", group="awesome"}),
   awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -319,7 +319,7 @@ globalkeys = gears.table.join(
     {description = "show the menubar", group = "launcher"})
 )
 
-clientkeys = gears.table.join(
+local clientkeys = gears.table.join(
   awful.key({ modkey,           }, "f",
     function (c)
       c.fullscreen = not c.fullscreen
@@ -392,7 +392,7 @@ for i = 1, 10 do
     )
 end
 
-clientbuttons = gears.table.join(
+local clientbuttons = gears.table.join(
   awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
   awful.button({ modkey }, 1, awful.mouse.client.move),
   awful.button({ modkey }, 3, awful.mouse.client.resize))
