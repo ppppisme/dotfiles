@@ -44,11 +44,12 @@ do
 end
 -- }}}
 
+awful.spawn.with_shell(config_dir .. "autorun.sh")
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 local config_dir = gears.filesystem.get_configuration_dir()
 beautiful.init(config_dir .. "themes/gruvbox/theme.lua")
-awful.spawn.with_shell(config_dir .. "autorun.sh")
 
 -- This is used later as the default terminal and editor to run.
 local terminal = os.getenv("TERMINAL") or "xterm"
@@ -70,13 +71,13 @@ awful.layout.layouts = {
   awful.layout.suit.tile.top,
   awful.layout.suit.spiral,
   awful.layout.suit.spiral.dwindle,
-  awful.layout.suit.fair,
-  awful.layout.suit.fair.horizontal,
+  -- awful.layout.suit.fair,
+  -- awful.layout.suit.fair.horizontal,
   awful.layout.suit.floating,
   awful.layout.suit.max,
-  awful.layout.suit.max.fullscreen,
-  awful.layout.suit.magnifier,
-  awful.layout.suit.corner.nw,
+  -- awful.layout.suit.max.fullscreen,
+  -- awful.layout.suit.magnifier,
+  -- awful.layout.suit.corner.nw,
   -- awful.layout.suit.corner.ne,
   -- awful.layout.suit.corner.sw,
   -- awful.layout.suit.corner.se,
