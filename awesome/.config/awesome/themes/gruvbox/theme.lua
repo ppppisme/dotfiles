@@ -14,7 +14,7 @@ theme.wallpaper = theme_path .. "/gruvbox-background.jpg"
 -- }}}
 
 -- {{{ Styles
-theme.font       = "hack " .. dpi(8)
+theme.font       = "hack " .. dpi(5)
 
 -- {{{ Colors
 theme.fg_normal  = "#bdae93"
@@ -38,6 +38,12 @@ theme.border_marked = "#292d2e"
 theme.titlebar_bg_focus  = "#3f3f3f"
 theme.titlebar_bg_normal = "#3f3f3f"
 -- }}}
+
+
+-- {{{ Systray
+theme.systray_icon_spacing = dpi(10)
+-- }}}
+
 
 -- There are other variable sets
 -- overriding the default one when
@@ -75,7 +81,7 @@ theme.menu_width     = dpi(100)
 
 -- {{{ Notifications
 theme.notification_width                     = dpi(250)
-theme.notification_font                      = "hack italic " .. dpi(10)
+theme.notification_font                      = "hack italic " .. dpi(6)
 theme.notification_fg                        = "#3c3836"
 theme.notification_bg                        = "#bdae93"
 
