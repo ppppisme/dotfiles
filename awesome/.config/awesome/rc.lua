@@ -44,11 +44,11 @@ do
 end
 -- }}}
 
+local config_dir = gears.filesystem.get_configuration_dir()
 awful.spawn.with_shell(config_dir .. "autorun.sh")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-local config_dir = gears.filesystem.get_configuration_dir()
 beautiful.init(config_dir .. "themes/gruvbox/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
