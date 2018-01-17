@@ -14,7 +14,7 @@ theme.wallpaper = theme_path .. "/gruvbox-background.jpg"
 -- }}}
 
 -- {{{ Styles
-theme.font       = "hack " .. dpi(5)
+theme.font       = "hack " .. (18 - dpi(9))
 
 -- {{{ Colors
 theme.fg_normal  = "#bdae93"
@@ -81,7 +81,7 @@ theme.menu_width     = dpi(100)
 
 -- {{{ Notifications
 theme.notification_width                     = dpi(250)
-theme.notification_font                      = "hack italic " .. dpi(6)
+theme.notification_font                      = "hack italic " .. (19 - dpi(9))
 theme.notification_fg                        = "#3c3836"
 theme.notification_bg                        = "#bdae93"
 
