@@ -95,11 +95,6 @@ vnoremap <leader>q :QuickRun<cr>
 "---
 " wow it's cpu consuming, so check only on save
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {
-\   'php': ['php', 'phpcs', 'phpmd'],
-\   'scss': ['scsslint'],
-\}
-let g:ale_php_phpcs_standard = 'Drupal'
 let g:ale_sign_column_always = 1
 let g:ale_sign_warning = '>>'
 
@@ -108,4 +103,4 @@ let g:ale_sign_warning = '>>'
 " Vdebug
 "---
 let g:vdebug_options = {}
-let g:vdebug_options['path_maps'] = {"/var/www/drupalvm/drupal/web": "/home/pppp/vagrant/pure/drupal/web"}
+let g:vdebug_options['path_maps'] = {"/var/www/drupalvm/drupal/web": "/home/pppp/vagrant/adci/drupal/web"}
