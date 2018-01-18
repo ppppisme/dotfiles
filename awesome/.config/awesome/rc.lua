@@ -44,8 +44,6 @@ beautiful.init(config_dir .. "themes/gruvbox/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 local terminal = os.getenv("TERMINAL") or "xterm"
-local editor = os.getenv("EDITOR") or "nano"
-local editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -270,17 +268,6 @@ local globalkeys = gears.table.join(
   awful.key({ modkey            }, "p", function () awful.spawn.with_shell('physlock')      end,
     {description = "select previous", group = "layout"}),
 
-  awful.key({ modkey, "Control" }, "n",
-    function ()
-      local c = awful.client.restore()
-      -- Focus restored client
-      if c then
-        client.focus = c
-        c:raise()
-      end
-    end,
-    {description = "restore minimized", group = "client"}),
-
   -- Prompt
   awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
     {description = "run prompt", group = "launcher"}),
@@ -315,35 +302,8 @@ local clientkeys = gears.table.join(
   awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
     {description = "move to master", group = "client"}),
   awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
-    {description = "move to screen", group = "client"}),
-  awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-    {description = "toggle keep on top", group = "client"}),
-  awful.key({ modkey,           }, "n",
-    function (c)
-      -- The client currently has the input focus, so it cannot be
-      -- minimized, since minimized clients can't have the focus.
-      c.minimized = true
-    end ,
-    {description = "minimize", group = "client"}),
-  awful.key({ modkey,           }, "m",
-    function (c)
-      c.maximized = not c.maximized
-      c:raise()
-    end ,
-    {description = "(un)maximize", group = "client"}),
-  awful.key({ modkey, "Control" }, "m",
-    function (c)
-      c.maximized_vertical = not c.maximized_vertical
-      c:raise()
-    end ,
-    {description = "(un)maximize vertically", group = "client"}),
-  awful.key({ modkey, "Shift"   }, "m",
-    function (c)
-      c.maximized_horizontal = not c.maximized_horizontal
-      c:raise()
-    end ,
-    {description = "(un)maximize horizontally", group = "client"})
-  )
+    {description = "move to screen", group = "client"})
+)
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
