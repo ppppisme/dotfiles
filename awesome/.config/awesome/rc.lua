@@ -140,6 +140,18 @@ local function set_wallpaper(s)
   end
 end
 
+local function wrap_widget(widget, margin)
+  local output = { widget }
+
+  output.widget = wibox.container.margin
+  output.top = margin[1] or 0
+  output.right = margin[2] or 0
+  output.bottom = margin[3] or output.top
+  output.left = margin[4] or output.right
+
+  return output
+end
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -182,34 +194,15 @@ awful.screen.connect_for_each_screen(function(s)
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
       s.mypromptbox,
-      s.mytaglist,
+      wrap_widget(s.mytaglist, { 0, 5 }),
     },
     s.mytasklist, -- Middle widget
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      {
-        wibox.widget.systray(),
-        top = 5,
-        bottom = 5,
-        widget = wibox.container.margin,
-      },
-      {
-        batterywidget,
-        left = 8,
-        widget = wibox.container.margin,
-      },
-      {
-        mytextclock,
-        left = 8,
-        widget = wibox.container.margin,
-      },
-      {
-        s.mylayoutbox,
-        top = 5,
-        bottom = 5,
-        right = 5,
-        widget = wibox.container.margin,
-      },
+      wrap_widget(wibox.widget.systray(), { 5, 0, 5 }),
+      wrap_widget(batterywidget, { 0, 0, 0, 7 }),
+      wrap_widget(mytextclock, { 0, 0, 0, 8 }),
+      wrap_widget(s.mylayoutbox, { 5, 5, 5, 0 }),
     },
   }
 end)
