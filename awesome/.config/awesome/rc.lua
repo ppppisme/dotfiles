@@ -76,9 +76,6 @@ awful.layout.layouts = {
 -- }}}
 
 -- {{{ Menu
--- Create a launcher widget and a main menu
-local mymainmenu = awful.menu()
-
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 menubar.show_categories = false
@@ -217,12 +214,6 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 -- }}}
 
--- {{{ Mouse bindings
-root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end)
-  ))
--- }}}
-
 -- {{{ Key bindings
 local globalkeys = gears.table.join(
   awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -244,8 +235,6 @@ local globalkeys = gears.table.join(
     end,
     {description = "focus previous by index", group = "client"}
     ),
-  awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-    {description = "show main menu", group = "awesome"}),
 
   -- Layout manipulation
   awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
