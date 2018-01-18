@@ -79,8 +79,6 @@ awful.layout.layouts = {
 -- Create a launcher widget and a main menu
 local mymainmenu = awful.menu()
 
-local mylauncher = awful.widget.launcher({})
-
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 menubar.show_categories = false
@@ -186,7 +184,6 @@ awful.screen.connect_for_each_screen(function(s)
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
       s.mypromptbox,
-      mylauncher,
       s.mytaglist,
     },
     s.mytasklist, -- Middle widget
