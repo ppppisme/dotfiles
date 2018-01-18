@@ -15,7 +15,7 @@ theme.wallpaper = theme_path .. "/gruvbox-background.jpg"
 -- }}}
 
 -- {{{ Styles
-theme.font       = "hack " .. (8 + dpi(1))
+theme.font       = "hack " .. (8 + dpi(0.2))
 
 naughty.notify({text = tostring(get_dpi())})
 naughty.notify({text = tostring(dpi(9))})
@@ -85,7 +85,7 @@ theme.menu_width     = dpi(100)
 
 -- {{{ Notifications
 theme.notification_width                     = dpi(250)
-theme.notification_font                      = "hack italic " .. (9 + dpi(1))
+theme.notification_font                      = "hack italic " .. (9 + dpi(0.2))
 theme.notification_fg                        = "#3c3836"
 theme.notification_bg                        = "#bdae93"
 
