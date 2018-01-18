@@ -6,6 +6,7 @@
 
 local theme_path = require("gears.filesystem").get_configuration_dir() .. "themes/gruvbox"
 local dpi = require("beautiful.xresources").apply_dpi
+local get_dpi = require("beautiful.xresources").get_dpi
 local naughty = require('naughty')
 
 -- {{{ Main
@@ -14,7 +15,10 @@ theme.wallpaper = theme_path .. "/gruvbox-background.jpg"
 -- }}}
 
 -- {{{ Styles
-theme.font       = "hack " .. dpi(5)
+theme.font       = "hack " .. (8 + dpi(1))
+
+naughty.notify({text = tostring(get_dpi())})
+naughty.notify({text = tostring(dpi(9))})
 
 -- {{{ Colors
 theme.fg_normal  = "#bdae93"
@@ -81,7 +85,7 @@ theme.menu_width     = dpi(100)
 
 -- {{{ Notifications
 theme.notification_width                     = dpi(250)
-theme.notification_font                      = "hack italic " .. dpi(6)
+theme.notification_font                      = "hack italic " .. (9 + dpi(1))
 theme.notification_fg                        = "#3c3836"
 theme.notification_bg                        = "#bdae93"
 
