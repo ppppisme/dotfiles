@@ -33,14 +33,16 @@ theme.bg_systray = theme.bg_normal
 -- {{{ Borders
 theme.useless_gap   = dpi(10)
 theme.border_width  = dpi(3)
-theme.border_normal = "#3c3936"
+theme.border_normal = "#282828"
 theme.border_focus  = "#fb4834"
 theme.border_marked = "#292d2e"
 -- }}}
 
 -- {{{ Titlebars
-theme.titlebar_bg_focus  = "#3f3f3f"
-theme.titlebar_bg_normal = "#3f3f3f"
+theme.titlebar_fg_focus  = "#3c3836"
+theme.titlebar_bg_focus  = "#fb4834"
+theme.titlebar_fg_normal = "#665c54"
+theme.titlebar_bg_normal = "#282828"
 -- }}}
 
 
