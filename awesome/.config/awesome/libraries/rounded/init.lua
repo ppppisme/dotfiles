@@ -32,11 +32,6 @@ local function init(client, radius, gears, beautiful)
     client.shape_clip = shape_clip._native
   end
 
-  client.connect_signal("property::position", function (c)
-    if not c.fullscreen then
-      apply_rounded_corners(c, radius, gears, beautiful)
-    end
-  end)
   client.connect_signal("property::geometry", function (c)
     if not c.fullscreen then
       apply_rounded_corners(c, radius, gears, beautiful)
