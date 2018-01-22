@@ -17,9 +17,6 @@ theme.wallpaper = theme_path .. "/gruvbox-background.jpg"
 -- {{{ Styles
 theme.font       = "hack " .. (8 + dpi(0.2))
 
-naughty.notify({text = tostring(get_dpi())})
-naughty.notify({text = tostring(dpi(9))})
-
 -- {{{ Colors
 theme.fg_normal  = "#bdae93"
 theme.fg_focus   = "#b8bb26"
@@ -33,7 +30,7 @@ theme.bg_systray = theme.bg_normal
 -- {{{ Borders
 theme.useless_gap   = dpi(10)
 theme.border_width  = dpi(3)
-theme.border_normal = "#282828"
+theme.border_normal = "#504945"
 theme.border_focus  = "#fb4834"
 theme.border_marked = "#292d2e"
 -- }}}
@@ -41,8 +38,8 @@ theme.border_marked = "#292d2e"
 -- {{{ Titlebars
 theme.titlebar_fg_focus  = "#3c3836"
 theme.titlebar_bg_focus  = "#fb4834"
-theme.titlebar_fg_normal = "#665c54"
-theme.titlebar_bg_normal = "#282828"
+theme.titlebar_fg_normal = "#7c6f64"
+theme.titlebar_bg_normal = "#504945"
 -- }}}
 
 
