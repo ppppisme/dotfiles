@@ -2,8 +2,14 @@
 -- Rounded
 --
 -- Make borders of all clients round.
+--
 -- Initial script author: actionless
--- (https://github.com/awesomeWM/awesome/issues/920). Thank you, actionless!
+-- (https://github.com/actionless/awesome_config/blob/devel/config/signals.lua).
+-- Thank you, actionless!
+--
+-- NOTE: do not forget to turn off borders for clients as they are not
+-- compatible with this script, otherwise it will be clipped. You can still set
+-- the `beautiful` variables though, this script will use them.
 
 -- Copyright (C) 2018 pppp
 --
@@ -21,25 +27,55 @@
 -- this program.  If not, see <https://www.gnu.org/licenses/>.
 --
 
-local function init(client, radius, gears, beautiful)
-  local function apply_rounded_corners(client, radius, gears, beautiful)
-    local border_width = beautiful.border_width
-    local border_radius = radius or beautiful.border_radius
+local function init(client, radius, gears, beautiful, cairo)
+  local function apply_shape(c, shape, outer_shape_args, inner_shape_args)
+    local geo = c:geometry()
 
-    gears.surface.apply_shape_bounding(client, gears.shape.rounded_rect, border_radius)
-    local geometry = client:geometry()
-    local shape_clip = gears.surface.load_from_shape(geometry.width - border_width * 2, geometry.height - border_width * 2, gears.shape.rounded_rect, nil, nil, border_radius)
-    client.shape_clip = shape_clip._native
+    local border = beautiful.border_width
+    local titlebar_height = border
+
+    local img = cairo.ImageSurface(cairo.Format.A1, geo.width, geo.height)
+    local cr = cairo.Context(img)
+
+    cr:set_operator(cairo.Operator.CLEAR)
+    cr:set_source_rgba(0,0,0,1)
+    cr:paint()
+    cr:set_operator(cairo.Operator.SOURCE)
+    cr:set_source_rgba(1,1,1,1)
+
+    shape(cr, geo.width, geo.height, outer_shape_args)
+    cr:fill()
+    c.shape_bounding = img._native
+
+    cr:set_operator(cairo.Operator.CLEAR)
+    cr:set_source_rgba(0,0,0,1)
+    cr:paint()
+    cr:set_operator(cairo.Operator.SOURCE)
+    cr:set_source_rgba(1,1,1,1)
+
+    gears.shape.transform(shape):translate(
+      border, titlebar_height
+      )(
+      cr,
+      geo.width - border * 2,
+      geo.height - titlebar_height - border,
+      inner_shape_args)
+    cr:fill()
+    c.shape_clip = img._native
+
+    img:finish()
   end
 
   client.connect_signal("property::geometry", function (c)
     if not c.fullscreen then
-      apply_rounded_corners(c, radius, gears, beautiful)
+      local border_radius = radius or beautiful.border_radius
+      apply_shape(c, gears.shape.rounded_rect, border_radius, border_radius)
     end
   end)
   client.connect_signal("property::size", function (c)
     if not c.fullscreen then
-      apply_rounded_corners(c, radius, gears, beautiful)
+      local border_radius = radius or beautiful.border_radius
+      apply_shape(c, gears.shape.rounded_rect, border_radius, border_radius)
     end
   end)
 

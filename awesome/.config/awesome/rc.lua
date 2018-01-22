@@ -5,13 +5,14 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
+local cairo = require('lgi').cairo
 
 -- Custom libraries
 local titlebar_manager = require("libraries/titlebar_manager")
 titlebar_manager.init(awful, client, tag)
 
 local rounded = require("libraries/rounded")
-rounded.init(client, nil, gears, beautiful)
+rounded.init(client, nil, gears, beautiful, cairo)
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -351,8 +352,7 @@ root.keys(globalkeys)
 awful.rules.rules = {
   -- All clients will match this rule.
   { rule = { },
-    properties = { border_width = beautiful.border_width,
-      border_color = beautiful.border_normal,
+    properties = { border_color = beautiful.border_normal,
       focus = awful.client.focus.filter,
       raise = true,
       keys = clientkeys,
