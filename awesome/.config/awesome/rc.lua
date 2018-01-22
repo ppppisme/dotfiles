@@ -160,22 +160,45 @@ end
 screen.connect_signal("property::geometry", set_wallpaper)
 
 local mytags = {
-  {
-    {
-      name = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"},
-      layout = { awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[8] },
-      keybinding = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"},
+  { -- 1 screen configuration
+    { -- 1st screen
+      name = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+      layout = {
+        awful.layout.layouts[1], -- 0
+        awful.layout.layouts[1], -- 1
+        awful.layout.layouts[1], -- 2
+        awful.layout.layouts[1], -- 3
+        awful.layout.layouts[1], -- 4
+        awful.layout.layouts[1], -- 5
+        awful.layout.layouts[1], -- 6
+        awful.layout.layouts[1], -- 7
+        awful.layout.layouts[1], -- 8
+        awful.layout.layouts[8], -- 9
+      },
+      keybinding = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" },
     }
   },
-  {
-    {
+  { -- 2 screens configuration
+    { -- 1st screen
       name = { "0", "1", "4" },
-      layout = { awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[6] },
+      layout = {
+        awful.layout.layouts[1], -- 0
+        awful.layout.layouts[1], -- 1
+        awful.layout.layouts[7], -- 4
+      },
       keybinding = { "0", "1", "4" },
     },
-    {
+    { -- 2nd screen
       name = { "2", "3", "5", "6", "7", "8", "9" },
-      layout = { awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[8] },
+      layout = {
+        awful.layout.layouts[1], -- 2
+        awful.layout.layouts[1], -- 3
+        awful.layout.layouts[1], -- 5
+        awful.layout.layouts[1], -- 6
+        awful.layout.layouts[1], -- 7
+        awful.layout.layouts[1], -- 8
+        awful.layout.layouts[8], -- 9
+      },
       keybinding = { "2", "3", "5", "6", "7", "8", "9" },
     },
   },
