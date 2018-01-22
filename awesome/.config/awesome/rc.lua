@@ -142,6 +142,12 @@ local function set_wallpaper(s)
   end
 end
 
+local function tablelength(T)
+  local count = 0
+  for _ in pairs(T) do count = count + 1 end
+  return count
+end
+
 local function wrap_widget(widget, margin)
   local output = { widget }
 
@@ -157,12 +163,35 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+local mytags = {
+  {
+    name = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"},
+    layout = { awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[8] },
+    keybinding = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"},
+  },
+  {
+    {
+      name = { "0", "1", "4" },
+      layout = { awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[6] },
+      keybinding = { "0", "1", "4" },
+    },
+    {
+      name = { "2", "3", "5", "6", "7", "8", "9" },
+      layout = { awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[8] },
+      keybinding = { "2", "3", "5", "6", "7", "8", "9" },
+    },
+  },
+}
+
+mytags = mytags[screen.count()]
+
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
   set_wallpaper(s)
 
   -- Each screen has its own tag table.
-  awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }, s, awful.layout.layouts[1])
+  local screen_index = s.index
+  awful.tag(mytags[screen_index].name, s, mytags[screen_index].layout)
 
   -- Open the last tag (which should be called '0')
   awful.tag.viewidx(9, s)
@@ -309,33 +338,36 @@ local clientkeys = gears.table.join(
     {description = "move to screen", group = "client"})
 )
 
--- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it work on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 10 do
-  globalkeys = gears.table.join(globalkeys,
-    -- View tag only.
-    awful.key({ modkey }, "#" .. i + 9,
-      function ()
-        local screen = awful.screen.focused()
-        local tag = screen.tags[i]
-        if tag then
-          tag:view_only()
-        end
-      end,
-      {description = "view tag #"..i, group = "tag"}),
-    -- Move client to tag.
-    awful.key({ modkey, "Shift" }, "#" .. i + 9,
-      function ()
-        if client.focus then
-          local tag = client.focus.screen.tags[i]
+-- Bind keys to tags.
+for screen_index, s in pairs(mytags) do -- for each screen
+  for i = 1, tablelength(s.name), 1 do -- for each tag
+    globalkeys = gears.table.join(globalkeys,
+      -- View tag only.
+      awful.key({ modkey }, s.keybinding[i],
+        function ()
+          awful.screen.focus(screen_index)
+          local screen = screen[screen_index]
+          local tag = screen.tags[i]
           if tag then
-            client.focus:move_to_tag(tag)
+            tag:view_only()
           end
-        end
-      end,
-      {description = "move focused client to tag #"..i, group = "tag"})
-    )
+        end,
+        {}),
+      -- Move client to tag.
+      awful.key({ modkey, "Shift" }, s.keybinding[i],
+        function ()
+          local c = client.focus
+          if not c then
+            return
+          end
+
+          local target_screen = screen[screen_index]
+          c:move_to_screen(screen_index)
+          c:move_to_tag(target_screen.tags[i])
+        end,
+        {})
+      )
+  end
 end
 
 local clientbuttons = gears.table.join(
