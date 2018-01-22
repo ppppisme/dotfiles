@@ -270,7 +270,7 @@ local globalkeys = gears.table.join(
     {description = "select previous", group = "layout"}),
 
   awful.key({ modkey            }, "p", function () awful.spawn.with_shell('physlock')      end,
-    {description = "select previous", group = "layout"}),
+    {description = "lock screen", group = "layout"}),
 
   -- Prompt
   awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
