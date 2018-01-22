@@ -33,6 +33,8 @@ theme.border_width  = dpi(3)
 theme.border_normal = "#504945"
 theme.border_focus  = "#fb4834"
 theme.border_marked = "#292d2e"
+theme.border_radius  = dpi(1)
+
 -- }}}
 
 -- {{{ Titlebars
