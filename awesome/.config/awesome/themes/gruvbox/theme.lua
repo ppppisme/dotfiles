@@ -37,6 +37,7 @@ theme.border_radius = dpi(3)
 -- }}}
 
 -- {{{ Titlebars
+theme.titlebar_font      = "hack bold italic "  .. (8 + dpi(0.2))
 theme.titlebar_fg_focus  = "#3c3836"
 theme.titlebar_bg_focus  = "#fb4834"
 theme.titlebar_fg_normal = "#7c6f64"
