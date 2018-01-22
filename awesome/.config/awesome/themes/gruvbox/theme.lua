@@ -6,7 +6,6 @@
 
 local theme_path = require("gears.filesystem").get_configuration_dir() .. "themes/gruvbox"
 local dpi = require("beautiful.xresources").apply_dpi
-local get_dpi = require("beautiful.xresources").get_dpi
 local naughty = require('naughty')
 
 -- {{{ Main
