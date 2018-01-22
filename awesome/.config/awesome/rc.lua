@@ -11,9 +11,6 @@ local cairo = require('lgi').cairo
 local titlebar_manager = require("libraries/titlebar_manager")
 titlebar_manager.init(awful, client, tag)
 
-local rounded = require("libraries/rounded")
-rounded.init(client, nil, gears, beautiful, cairo)
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -386,7 +383,8 @@ root.keys(globalkeys)
 awful.rules.rules = {
   -- All clients will match this rule.
   { rule = { },
-    properties = { border_color = beautiful.border_normal,
+    properties = { border_width = beautiful.border_width,
+      border_color = beautiful.border_normal,
       focus = awful.client.focus.filter,
       raise = true,
       keys = clientkeys,
@@ -491,4 +489,10 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+-- Rounded corners
+client.connect_signal("manage",
+  function(c)
+    c.shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, beautiful.border_radius) end
+  end)
 -- }}}
