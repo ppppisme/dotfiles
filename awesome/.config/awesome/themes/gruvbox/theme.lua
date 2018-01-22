@@ -106,6 +106,7 @@ theme.taglist_squares_unsel = theme_path .. "/taglist/squarez.png"
 -- }}}
 
 -- {{{ Tasklist
+theme.tasklist_font = "hack bold italic "  .. (8 + dpi(0.2))
 theme.tasklist_disable_icon = true
 -- }}}
 

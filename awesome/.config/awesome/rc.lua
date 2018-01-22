@@ -5,7 +5,6 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
-local cairo = require('lgi').cairo
 
 -- Custom libraries
 local titlebar_manager = require("libraries/titlebar_manager")
@@ -463,7 +462,6 @@ client.connect_signal("request::titlebars", function(c)
 
   local titlebar = awful.titlebar.widget.titlewidget(c)
   titlebar.font = beautiful.titlebar_font
-
   awful.titlebar(c) : setup {
     { -- Left
       {
