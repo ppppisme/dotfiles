@@ -165,9 +165,11 @@ screen.connect_signal("property::geometry", set_wallpaper)
 
 local mytags = {
   {
-    name = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"},
-    layout = { awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[8] },
-    keybinding = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"},
+    {
+      name = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"},
+      layout = { awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[8] },
+      keybinding = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"},
+    }
   },
   {
     {
