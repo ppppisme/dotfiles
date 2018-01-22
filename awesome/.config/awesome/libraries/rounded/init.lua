@@ -26,9 +26,9 @@ local function init(client, radius, gears, beautiful)
     local border_width = beautiful.border_width
     local border_radius = radius or beautiful.border_radius
 
-    gears.surface.apply_shape_bounding(client, gears.shape.rounded_rect, border_radius * 2)
+    gears.surface.apply_shape_bounding(client, gears.shape.rounded_rect, border_radius)
     local geometry = client:geometry()
-    local shape_clip = gears.surface.load_from_shape(geometry.width - border_width * 2, geometry.height - border_width * 2, gears.shape.rounded_rect, nil, nil, border_radius * 2)
+    local shape_clip = gears.surface.load_from_shape(geometry.width - border_width * 2, geometry.height - border_width * 2, gears.shape.rounded_rect, nil, nil, border_radius)
     client.shape_clip = shape_clip._native
   end
 
