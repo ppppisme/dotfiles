@@ -8,7 +8,7 @@ local menubar = require("menubar")
 
 -- Custom libraries
 local titlebar_manager = require("libraries/titlebar_manager")
-titlebar_manager.init(awful, client, tag)
+local tagged = require("libraries/tagged")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -138,12 +138,6 @@ local function set_wallpaper(s)
   end
 end
 
-local function tablelength(T)
-  local count = 0
-  for _ in pairs(T) do count = count + 1 end
-  return count
-end
-
 local function wrap_widget(widget, margin)
   local output = { widget }
 
@@ -204,15 +198,12 @@ local mytags = {
   },
 }
 
-mytags = mytags[screen.count()]
+-- Init i3wm-like tags navigation.
+tagged:init(mytags, screen, awful, gears, client)
 
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
   set_wallpaper(s)
-
-  -- Each screen has its own tag table.
-  local screen_index = s.index
-  awful.tag(mytags[screen_index].name, s, mytags[screen_index].layout)
 
   -- Open the last tag (which should be called '0')
   awful.tag.viewidx(9, s)
@@ -359,42 +350,13 @@ local clientkeys = gears.table.join(
     {description = "move to screen", group = "client"})
 )
 
--- Bind keys to tags.
-for screen_index, s in pairs(mytags) do -- for each screen
-  for i = 1, tablelength(s.name), 1 do -- for each tag
-    globalkeys = gears.table.join(globalkeys,
-      -- View tag only.
-      awful.key({ modkey }, s.keybinding[i],
-        function ()
-          awful.screen.focus(screen_index)
-          local screen = screen[screen_index]
-          local tag = screen.tags[i]
-          if tag then
-            tag:view_only()
-          end
-        end,
-        {}),
-      -- Move client to tag.
-      awful.key({ modkey, "Shift" }, s.keybinding[i],
-        function ()
-          local c = client.focus
-          if not c then
-            return
-          end
-
-          local target_screen = screen[screen_index]
-          c:move_to_screen(screen_index)
-          c:move_to_tag(target_screen.tags[i])
-        end,
-        {})
-      )
-  end
-end
-
 local clientbuttons = gears.table.join(
   awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
   awful.button({ modkey }, 1, awful.mouse.client.move),
   awful.button({ modkey }, 3, awful.mouse.client.resize))
+
+-- Add i3wm-like navigation key bindings.
+globalkeys = gears.table.join(globalkeys, tagged:get_keybindings(modkey))
 
 -- Set keys
 root.keys(globalkeys)
@@ -466,6 +428,9 @@ client.connect_signal("manage", function (c)
     awful.placement.no_offscreen(c)
   end
 end)
+
+-- Add a tittlebar only to floating clients.
+titlebar_manager.init(awful, client, tag)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
