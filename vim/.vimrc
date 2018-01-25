@@ -1,8 +1,4 @@
-﻿if !has('nvim')
-  set nocompatible
-endif
-
-syntax on
+﻿syntax on
 filetype plugin indent on
 
 let mapleader = ","

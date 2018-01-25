@@ -1,4 +1,3 @@
-let g:ale_php_phpmd_ruleset = 'cleancode,codesize,design,unusedcode'
 let g:ale_php_phpcs_standard = 'Drupal'
 
 setlocal expandtab
