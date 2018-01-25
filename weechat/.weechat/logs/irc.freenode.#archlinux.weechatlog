@@ -1,0 +1,147 @@
+2018-01-23 13:02:05	-->	ppppis (~pppp@host-92-124-155-152.pppoe.omsknet.ru) has joined #archlinux
+2018-01-23 13:02:05	--	Topic for #archlinux is "Welcome to Arch Linux, Good Luck: https://archlinux.org | Rules: https://goo.gl/XWFreH | Pastebins: https://ptpb.pw https://gist.github.com https://bpaste.net | Become an official Arch Tester: https://goo.gl/48qpvG | Don't cower -u every second"
+2018-01-23 13:02:05	--	Topic set by jelle (~weechat@archlinux/developer/jelle) on Fri, 29 Dec 2017 04:36:52
+2018-01-23 13:02:05	--	Channel #archlinux: 1687 nicks (1 op, 0 voices, 1686 normals)
+2018-01-23 13:02:06	--	Channel created on Sun, 15 Feb 2004 11:08:31
+2018-01-23 13:02:07	-->	JimmySteve (~JimmyStev@66.115.78.149) has joined #archlinux
+2018-01-23 13:02:32	<--	bwayne (~arach@2601:840:8300:2ea0:5ee0:c5ff:fe08:9db4) has quit
+2018-01-23 13:04:00	-->	ppppis (~pppp@176.62.73.122) has joined #archlinux
+2018-01-23 13:04:00	--	Topic for #archlinux is "Welcome to Arch Linux, Good Luck: https://archlinux.org | Rules: https://goo.gl/XWFreH | Pastebins: https://ptpb.pw https://gist.github.com https://bpaste.net | Become an official Arch Tester: https://goo.gl/48qpvG | Don't cower -u every second"
+2018-01-23 13:04:00	--	Topic set by jelle (~weechat@archlinux/developer/jelle) on Fri, 29 Dec 2017 04:36:52
+2018-01-23 13:04:02	--	Channel #archlinux: 1689 nicks (1 op, 0 voices, 1688 normals)
+2018-01-23 13:04:02	--	Channel created on Sun, 15 Feb 2004 11:08:31
+2018-01-23 13:05:28	-->	elek2ronik (~elek2roni@2602:306:cdab:faa0:f631:ed32:e4bd:8f88) has joined #archlinux
+2018-01-23 13:05:44	-->	Cosmonaut (~Cosmonaut@unaffiliated/tendies) has joined #archlinux
+2018-01-23 13:08:04	-->	_chaky_ (~chaky@gateway/tor-sasl/chaky) has joined #archlinux
+2018-01-23 13:08:09	-->	kts (~kts@103.52.14.211) has joined #archlinux
+2018-01-23 13:08:36	<--	dave0x6d (uid190567@gateway/web/irccloud.com/x-aomhpwjovjzhccgr) has quit (Quit: Connection closed for inactivity)
+2018-01-23 13:08:42	<--	thevishy (~thevishy@49.207.57.132) has quit (Quit: thevishy)
+2018-01-23 13:09:10	<--	GI_Jack (~GI_Jack@pdpc/supporter/active/gi-jack) has quit (Remote host closed the connection)
+2018-01-23 13:09:56	<--	chaky (~chaky@gateway/tor-sasl/chaky) has quit (Remote host closed the connection)
+2018-01-23 13:10:04	--	_chaky_ is now known as chaky
+2018-01-23 13:10:37	-->	gulzar (~gulzar@14.139.123.36) has joined #archlinux
+2018-01-23 13:10:49	-->	N3vYn (~micke@83.223.21.178) has joined #archlinux
+2018-01-23 13:10:51	<--	bwayne (~arach@2601:840:8300:2ea0:5ee0:c5ff:fe08:9db4) has quit (Ping timeout: 265 seconds)
+2018-01-23 13:11:59	<--	Cosmonaut (~Cosmonaut@unaffiliated/tendies) has quit (Ping timeout: 248 seconds)
+2018-01-23 13:13:03	-->	YuanModu (~YuanModu@31.206.218.67) has joined #archlinux
+2018-01-23 13:17:05	<--	troys (~troys@23-24-139-177-static.hfc.comcastbusiness.net) has quit (Quit: Bye)
+2018-01-23 13:17:55	-->	ravior (~crapitea@38.132.111.173) has joined #archlinux
+2018-01-23 13:19:06	-->	audiofile (uid234041@gateway/web/irccloud.com/x-zurgvopifrfpnavt) has joined #archlinux
+2018-01-23 13:19:16	-->	_asti_ (~support@domain.vrn.ru) has joined #archlinux
+2018-01-23 13:19:41	<--	realbadhorse (~realuname@27.106.65.139) has quit (Quit: WeeChat 2.0.1)
+2018-01-23 13:22:02	-->	azarus (~azarus@unaffiliated/azarus) has joined #archlinux
+2018-01-23 13:24:48	<--	armando (~armando@c-24-130-254-155.hsd1.ca.comcast.net) has quit (Ping timeout: 248 seconds)
+2018-01-23 13:25:32	<--	elek2ronik (~elek2roni@2602:306:cdab:faa0:f631:ed32:e4bd:8f88) has quit (Quit: Leaving)
+2018-01-23 13:25:41	<--	lvkm (~lvkm@p5B32DEBC.dip0.t-ipconnect.de) has quit (Ping timeout: 276 seconds)
+2018-01-23 13:25:50	<--	buzo (~quassel@unaffiliated/buzo) has quit (Ping timeout: 265 seconds)
+2018-01-23 13:27:28	-->	lvkm (~lvkm@p5B32DEBC.dip0.t-ipconnect.de) has joined #archlinux
+2018-01-23 13:27:35	<--	sku1d (~sku1d@78.46.199.146) has quit (Ping timeout: 240 seconds)
+2018-01-23 13:27:49	-->	sydney_untangle (~sydney@supertux/sydney) has joined #archlinux
+2018-01-23 13:28:18	-->	misty5 (~pokemongi@gateway/tor-sasl/pokemongirl) has joined #archlinux
+2018-01-23 13:28:48	-->	sku1d (~sku1d@78.46.199.146) has joined #archlinux
+2018-01-23 13:30:09	-->	gulzar_ (~gulzar@14.139.123.36) has joined #archlinux
+2018-01-23 13:30:11	<--	gulzar (~gulzar@14.139.123.36) has quit (Read error: Connection reset by peer)
+2018-01-23 13:31:12	<--	kts (~kts@103.52.14.211) has quit (Quit: Konversation terminated!)
+2018-01-23 13:31:41	-->	doubtful (~abhigenie@dyn-160-39-40-211.dyn.columbia.edu) has joined #archlinux
+2018-01-23 13:31:55	-->	well_laid_lawn (~Jean-luc@60-240-127-228.tpgi.com.au) has joined #archlinux
+2018-01-23 13:32:16	<--	haZ- (~haZ-@unaffiliated/haz-) has quit (Read error: Connection reset by peer)
+2018-01-23 13:32:39	-->	haZ- (~haZ-@unaffiliated/haz-) has joined #archlinux
+2018-01-23 13:33:14	-->	noEntry (~admin@chipotle054.startdedicated.de) has joined #archlinux
+2018-01-23 13:33:28	<--	haZ- (~haZ-@unaffiliated/haz-) has quit (Max SendQ exceeded)
+2018-01-23 13:33:50	-->	haZ- (~haZ-@unaffiliated/haz-) has joined #archlinux
+2018-01-23 13:34:04	--	piiE is now known as piie
+2018-01-23 13:34:11	<--	jg0 (~jg@202.136.19.50) has quit (Ping timeout: 256 seconds)
+2018-01-23 13:34:33	-->	vlatkoB (~IRC_clien@unaffiliated/vlatkob) has joined #archlinux
+2018-01-23 13:35:29	-->	woshty (~woshty@unaffiliated/woshty) has joined #archlinux
+2018-01-23 13:36:04	-->	kiao2938 (~mj@46.128.254.61.dynamic.cablesurf.de) has joined #archlinux
+2018-01-23 13:36:09	-->	Pupnik- (~Pupnik@2001:44b8:41c4:ba00:de4b:12fa:8add:639a) has joined #archlinux
+2018-01-23 13:36:52	<--	abramovich (~abramovic@gateway/tor-sasl/abramovich) has left #archlinux
+2018-01-23 13:37:04	-->	zako (~zako@2.139.25.254) has joined #archlinux
+2018-01-23 13:37:08	<--	taiyu (~taiyu@unaffiliated/taiyu) has quit (Read error: Connection reset by peer)
+2018-01-23 13:38:37	-->	smirky (~smirky@15.203.233.87) has joined #archlinux
+2018-01-23 13:38:39	<--	sklv (~sklv@gateway/tor-sasl/sklv) has quit (Quit: quit)
+2018-01-23 13:39:20	<--	frenchbeard (~Nope@80.12.27.137) has quit (Ping timeout: 260 seconds)
+2018-01-23 13:41:12	<--	Marc3l (~Marc3l@unaffiliated/marc3l) has quit (Quit: ZNC - http://znc.in)
+2018-01-23 13:42:45	-->	taiyu (~taiyu@unaffiliated/taiyu) has joined #archlinux
+2018-01-23 13:42:50	<--	wuji2016 (~Thunderbi@117.136.100.33) has quit (Ping timeout: 260 seconds)
+2018-01-23 13:43:22	-->	outsidecontext (~outsideco@2a02:810b:c340:1a44:79e3:4324:bca7:35a5) has joined #archlinux
+2018-01-23 13:43:32	<--	languitar (~languitar@2a01:4f8:d16:5340::120) has quit (Quit: I'm done ;))
+2018-01-23 13:44:53	<--	krystianbajno (~crystianb@host-89-229-181-121.dynamic.mm.pl) has quit (Remote host closed the connection)
+2018-01-23 13:46:00	<--	Purec (~Purec@unaffiliated/purec) has quit (Ping timeout: 246 seconds)
+2018-01-23 13:46:10	-->	sigmundv__ (~sigmundv@31.200.183.177.threembb.ie) has joined #archlinux
+2018-01-23 13:46:13	<--	paradoxspiral (~ParadoxSp@2a01:4f8:d16:3445::2) has quit (Quit: WeeChat 1.9.1)
+2018-01-23 13:46:34	-->	GAZDOWN (quassel@nat/redhat/x-skvxevtmraelrpxb) has joined #archlinux
+2018-01-23 13:47:42	<--	igo95862 (~igo95862@2601:646:8780:b87d::30c7) has quit (Quit: igo95862)
+2018-01-23 13:48:20	-->	C5OK5Y (~C5OK5Y@ip-86-49-25-27.net.upcbroadband.cz) has joined #archlinux
+2018-01-23 13:48:27	-->	RedCat27 (~redcat@gateway/tor-sasl/redcat27) has joined #archlinux
+2018-01-23 13:48:55	<--	rob`` (~rob@78.47.41.108) has quit (Ping timeout: 256 seconds)
+2018-01-23 13:49:02	<--	Hobbyboy (Hobbyboy@gateway/shell/panicbnc/x-zjojynvwqfvphckn) has quit (Ping timeout: 265 seconds)
+2018-01-23 13:51:00	<--	halfwit (~Halfwit@unaffiliated/halfwit) has quit (Ping timeout: 268 seconds)
+2018-01-23 13:51:09	-->	halfwit (~Halfwit@unaffiliated/halfwit) has joined #archlinux
+2018-01-23 13:51:10	-->	vuoto (~vuoto@80.71.142.118) has joined #archlinux
+2018-01-23 13:51:20	-->	paininabox (~dustin@host-72-174-17-78.msl-mt.client.bresnan.net) has joined #archlinux
+2018-01-23 13:51:41	-->	languitar (~languitar@2a01:4f8:d16:5340::120) has joined #archlinux
+2018-01-23 13:52:25	-->	taiyu_ (~taiyu@unaffiliated/taiyu) has joined #archlinux
+2018-01-23 13:52:54	<--	AnySomebody (~horst@p20030070CE6E8E010A9E01FFFED038BB.dip0.t-ipconnect.de) has left #archlinux
+2018-01-23 13:54:03	<--	taiyu (~taiyu@unaffiliated/taiyu) has quit (Ping timeout: 246 seconds)
+2018-01-23 13:54:06	-->	Hobbyboy (Hobbyboy@gateway/shell/panicbnc/x-wqswuduummrpmuxt) has joined #archlinux
+2018-01-23 13:54:35	<--	robattila256 (~robattila@S0106f0f24908d2a3.vf.shawcable.net) has quit (Ping timeout: 256 seconds)
+2018-01-23 13:55:05	<--	zalt (~lambda443@unaffiliated/lambda443) has quit (Ping timeout: 260 seconds)
+2018-01-23 13:56:05	<--	vuoto (~vuoto@80.71.142.118) has quit (Remote host closed the connection)
+2018-01-23 13:56:15	--	al2o3-cr is now known as c5h8no4na
+2018-01-23 13:56:17	-->	rob`` (~rob@rmartinjak.de) has joined #archlinux
+2018-01-23 13:56:23	-->	vuoto (~vuoto@80.71.142.118) has joined #archlinux
+2018-01-23 13:57:07	ilmostro	!ptpb
+2018-01-23 13:57:07	phrik	“<command> 2>&1 | curl -F c=@- https://ptpb.pw” OR “curl -F c=@path/to/a/file https://ptpb.pw” OR install community/pbpst
+2018-01-23 13:58:23	-->	wuji2016 (~Thunderbi@117.136.100.177) has joined #archlinux
+2018-01-23 13:59:42	-->	bbdgl (~Thunderbi@2a05:a1c7:1:b101:45d7:45c8:2996:7aa1) has joined #archlinux
+2018-01-23 13:59:57	<--	_skycoltninja (skycoltnin@gateway/vpn/privateinternetaccess/skycoltninja) has quit (Ping timeout: 240 seconds)
+2018-01-23 14:00:01	<--	sdothum (~znc@108.63.121.9) has quit (Quit: ZNC 1.6.5 - http://znc.in)
+2018-01-23 14:00:17	-->	vertor (~vertor@unaffiliated/vertor) has joined #archlinux
+2018-01-23 14:00:21	-->	utack (~utack@2a02:810a:8380:f3a4:428d:5cff:fee4:be71) has joined #archlinux
+2018-01-23 14:00:45	-->	sdothum (~znc@108.63.121.9) has joined #archlinux
+2018-01-23 14:01:39	gunix	La
+2018-01-23 14:01:54	-->	GAZDOWN_ (quassel@nat/redhat/x-ajbcgejldmsjnjgo) has joined #archlinux
+2018-01-25 09:53:43	-->	ppppis (~pppp@host-92-124-155-152.pppoe.omsknet.ru) has joined #archlinux
+2018-01-25 09:53:43	--	Topic for #archlinux is "Welcome to Arch Linux, Good Luck: https://archlinux.org | Rules: https://goo.gl/XWFreH | Pastebins: https://ptpb.pw https://gist.github.com https://bpaste.net | Become an official Arch Tester: https://goo.gl/48qpvG | Don't cower -u every second"
+2018-01-25 09:53:43	--	Topic set by jelle (~weechat@archlinux/developer/jelle) on Fri, 29 Dec 2017 04:36:52
+2018-01-25 09:53:43	--	Channel #archlinux: 1692 nicks (1 op, 0 voices, 1691 normals)
+2018-01-25 09:53:45	--	Channel created on Sun, 15 Feb 2004 11:08:31
+2018-01-25 09:53:54	-->	jottr_ has joined #archlinux
+2018-01-25 09:55:13	-->	govg has joined #archlinux
+2018-01-25 09:55:21	-->	discoveryr has joined #archlinux
+2018-01-25 09:55:23	discoveryr	same issue still :(
+2018-01-25 09:55:30	k01101011	command ps -aef | grep accountsservice)
+2018-01-25 09:55:50	k01101011	config file will be ignored if accountsservice is running on your system
+2018-01-25 09:56:32	discoveryr	k01101011: it is running
+2018-01-25 09:57:23	discoveryr	do I kill the service?
+2018-01-25 09:57:31	<--	the-pete has quit (Ping timeout: 256 seconds)
+2018-01-25 09:57:58	coderobe	tried grepping your /etc folder for your old username to see if it turns up in any config files?
+2018-01-25 09:57:58	k01101011	if you have users setup in your lightdm conf then you have to disable account services , thats my last idea lol 
+2018-01-25 09:58:09	coderobe	(+ other config locations like $HOME/.config)
+2018-01-25 09:58:15	-->	taiyu has joined #archlinux
+2018-01-25 09:58:18	<--	jottr_ has quit (Ping timeout: 240 seconds)
+2018-01-25 09:59:38	-->	realbadhorse has joined #archlinux
+2018-01-25 09:59:48	discoveryr	/var/lib/AccountsService/users
+2018-01-25 09:59:56	discoveryr	Maybe something to do with those files in ther
+2018-01-25 10:00:50	-->	bnw has joined #archlinux
+2018-01-25 10:02:19	-->	erdave has joined #archlinux
+2018-01-25 10:02:27	<--	johns276 has quit (Quit: I am so done.....)
+2018-01-25 10:02:55	erdave	damn, what happened with the GIT integration in dolphin? :O
+2018-01-25 10:03:02	realbadhorse	im not able to go beyond 60fps in any of my games/bench applications even though ingame vsync is turned off, im assuming it is forced by proprietary nvidia drivers by default?
+2018-01-25 10:03:08	realbadhorse	how do i turn it off?
+2018-01-25 10:04:20	MoziM	you're using arch for gaming?
+2018-01-25 10:04:48	realbadhorse	well it can be.. only csgo
+2018-01-25 10:05:45	<--	gregfrankenstein has quit (Quit: leaving)
+2018-01-25 10:05:54	occultus	jelle: ping
+2018-01-25 10:05:56	-->	j12t has joined #archlinux
+2018-01-25 10:06:09	-->	AstroBadger has joined #archlinux
+2018-01-25 10:06:38	-->	Raed|Mobile has joined #archlinux
+2018-01-25 10:07:09	<--	j12t has quit (Remote host closed the connection)
+2018-01-25 10:09:39	erdave	And ffmpegthumbnailer does not appear on my previews option (I have installed the respective package already)
+2018-01-25 10:11:24	<--	ninedotnine has quit (Read error: Connection reset by peer)
+2018-01-25 10:11:55	-->	ninedotnine has joined #archlinux
+2018-01-25 10:12:24	-->	hringriin_ has joined #archlinux
+2018-01-25 10:15:11	-->	wesclemens has joined #archlinux
+2018-01-25 10:15:27	<--	hringriin has quit (Ping timeout: 248 seconds)
+2018-01-25 10:15:28	--	hringriin_ is now known as hringriin
