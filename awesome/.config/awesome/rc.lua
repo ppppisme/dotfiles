@@ -205,11 +205,6 @@ awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
   set_wallpaper(s)
 
-  -- Open the last tag (which should be called '0')
-  awful.tag.viewidx(9, s)
-
-  -- Create a promptbox for each screen
-  s.mypromptbox = awful.widget.prompt()
   -- Create an imagebox widget which will contain an icon indicating which layout we're using.
   -- We need one layoutbox per screen.
   s.mylayoutbox = awful.widget.layoutbox(s)
@@ -236,7 +231,6 @@ awful.screen.connect_for_each_screen(function(s)
     layout = wibox.layout.align.horizontal,
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
-      s.mypromptbox,
       wrap_widget(s.mytaglist, { 0, 5 }),
     },
     s.mytasklist, -- Middle widget
@@ -313,22 +307,7 @@ local globalkeys = gears.table.join(
   awful.key({ modkey            }, "p", function () awful.spawn.with_shell('physlock')      end,
     {description = "lock screen", group = "layout"}),
 
-  -- Prompt
-  awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-    {description = "run prompt", group = "launcher"}),
-
-  awful.key({ modkey }, "x",
-    function ()
-      awful.prompt.run {
-        prompt       = "Run Lua code: ",
-        textbox      = awful.screen.focused().mypromptbox.widget,
-        exe_callback = awful.util.eval,
-        history_path = awful.util.get_cache_dir() .. "/history_eval"
-      }
-    end,
-    {description = "lua execute prompt", group = "awesome"}),
-
-  -- Menubar
+-- Menubar
   awful.key({ modkey }, "d", function() menubar.show() end,
     {description = "show the menubar", group = "launcher"})
 )
