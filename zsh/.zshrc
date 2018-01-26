@@ -107,7 +107,7 @@ function sp {
 }
 
 function up {
-  eval "cd ~/vagrant/$1 && vagrant up && vagrant ssh"
+  eval "nohup sudo -i > /dev/null && cd ~/vagrant/$1 && vagrant up && vagrant ssh"
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
