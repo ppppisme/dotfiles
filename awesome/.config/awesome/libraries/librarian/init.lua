@@ -3,6 +3,18 @@ local gears = require("gears")
 local naughty = require("naughty")
 
 return {
+  __libraries = { },
+
+  __has_item = function(table, wanted_item)
+    for _, item in pairs(table) do
+      if (item == wanted_item) then
+        return true
+      end
+    end
+
+    return false
+  end,
+
   __download = function(self, library_name, notification)
     local config_dir = gears.filesystem.get_configuration_dir()
     local command ="git clone https://github.com/" .. library_name .. ".git"
@@ -40,7 +52,39 @@ return {
     return exists(config_dir .. "libraries/" .. library_name .. "/init.lua")
   end,
 
+  clean = function(self)
+    naughty.notify({
+        title = "Librarian",
+        text = "Removing not used libraries...",
+      })
+
+    local config_dir = gears.filesystem.get_configuration_dir()
+
+    local find_command = "cd " .. config_dir .. "libraries && "
+    find_command = find_command .. "find -mindepth 2 -maxdepth 2 -type d"
+
+    -- make a list of directories
+    awful.spawn.easy_async_with_shell(find_command, function(stdout)
+      local directories_list = stdout:gsub("%./", "")
+
+      for directory in directories_list:gmatch("(.-)%c") do
+        local is_registered = false
+
+        if (not self:__has_item(self.__libraries, directory)) then
+          local remove_command = "rm -rf " .. config_dir .. "libraries/" .. directory
+          naughty.notify({
+              title = "Librarian",
+              text = remove_command,
+            })
+          awful.spawn(remove_command)
+        end
+      end
+    end)
+  end,
+
   require = function(self, library_name)
+    table.insert(self.__libraries, library_name)
+
     if (not self:is_installed(library_name)) then
       local notification = naughty.notify({
           title = "Librarian",
