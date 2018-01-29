@@ -54,7 +54,6 @@ return {
 
     local config_dir = gears.filesystem.get_configuration_dir()
     local author = string.match(library_name, "[^/]+")
-
     package.path = config_dir .. "libraries/" .. author .. "/?/init.lua;" .. package.path
     package.path = config_dir .. "libraries/" .. author .. "/?.lua;" .. package.path
 
