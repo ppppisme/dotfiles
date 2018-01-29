@@ -3,13 +3,6 @@ local gears = require("gears")
 local naughty = require("naughty")
 
 return {
-  -- @see http://lua-users.org/wiki/SplitJoin
-  __split = function(str, pat)
-    local tbl={}
-    str:gsub(pat,function(x) tbl[#tbl+1]=x end)
-    return tbl
-  end,
-
   __download = function(self, library_name, notification)
     local config_dir = gears.filesystem.get_configuration_dir()
     local command ="git clone https://github.com/" .. library_name .. ".git"
