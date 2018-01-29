@@ -43,7 +43,7 @@ return {
     end
 
     local config_dir = gears.filesystem.get_configuration_dir()
-    return exists(config_dir .. "libraries/" .. library_name .. "/")
+    return exists(config_dir .. "libraries/" .. library_name .. "/init.lua")
   end,
 
   require = function(self, library_name)
