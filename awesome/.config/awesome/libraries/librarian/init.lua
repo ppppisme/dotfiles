@@ -36,6 +36,7 @@ return {
     end
 
     local config_dir = gears.filesystem.get_configuration_dir()
+
     return exists(config_dir .. "libraries/" .. library_name .. "/init.lua")
   end,
 
@@ -50,6 +51,12 @@ return {
 
       return nil
     end
+
+    local config_dir = gears.filesystem.get_configuration_dir()
+    local author = string.match(library_name, "[^/]+")
+
+    package.path = config_dir .. "libraries/" .. author .. "/?/init.lua;" .. package.path
+    package.path = config_dir .. "libraries/" .. author .. "/?.lua;" .. package.path
 
     return require('libraries/' .. library_name)
   end,
