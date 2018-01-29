@@ -7,8 +7,65 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 
 -- Custom libraries
--- local floatbar = require("libraries/floatbar")
-local tagged = require("libraries/tagged")
+local librarian = require("libraries/librarian")
+
+local floatbar = librarian:require("vladgor/awesome-floatbar")
+local tagged = librarian:require("vladgor/awesome-tagged")
+
+if (librarian:is_installed("vladgor/awesome-floatbar")) then
+  -- Add a tittlebar only to floating clients.
+  floatbar:init(awful, client, tag)
+end
+
+-- Init i3wm-like tags navigation.
+if (librarian:is_installed("vladgor/awesome-tagged")) then
+  local mytags = {
+    { -- 1 screen configuration
+      { -- 1st screen
+        name = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+        layout = {
+          awful.layout.suit.tile,     -- 0
+          awful.layout.suit.tile,     -- 1
+          awful.layout.suit.tile,     -- 2
+          awful.layout.suit.tile,     -- 3
+          awful.layout.suit.floating, -- 4
+          awful.layout.suit.tile,     -- 5
+          awful.layout.suit.tile,     -- 6
+          awful.layout.suit.tile,     -- 7
+          awful.layout.suit.tile,     -- 8
+          awful.layout.suit.max, -- 9
+        },
+        keybinding = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+      }
+    },
+    { -- 2 screens configuration
+      { -- 1st screen
+        name = { "0", "1", "4" },
+        layout = {
+          awful.layout.suit.tile,     -- 0
+          awful.layout.suit.tile,     -- 1
+          awful.layout.suit.floating, -- 4
+        },
+        keybinding = { "0", "1", "4" },
+      },
+      { -- 2nd screen
+        name = { "2", "3", "5", "6", "7", "8", "9" },
+        layout = {
+          awful.layout.suit.tile, -- 2
+          awful.layout.suit.tile, -- 3
+          awful.layout.suit.tile, -- 5
+          awful.layout.suit.tile, -- 6
+          awful.layout.suit.tile, -- 7
+          awful.layout.suit.tile, -- 8
+          awful.layout.suit.max,  -- 9
+        },
+        keybinding = { "2", "3", "5", "6", "7", "8", "9" },
+      },
+    },
+  }
+
+  tagged:init(mytags, screen, awful, gears, client)
+end
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -153,54 +210,6 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
-local mytags = {
-  { -- 1 screen configuration
-    { -- 1st screen
-      name = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" },
-      layout = {
-        awful.layout.layouts[1], -- 0
-        awful.layout.layouts[1], -- 1
-        awful.layout.layouts[1], -- 2
-        awful.layout.layouts[1], -- 3
-        awful.layout.layouts[1], -- 4
-        awful.layout.layouts[1], -- 5
-        awful.layout.layouts[1], -- 6
-        awful.layout.layouts[1], -- 7
-        awful.layout.layouts[1], -- 8
-        awful.layout.layouts[8], -- 9
-      },
-      keybinding = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" },
-    }
-  },
-  { -- 2 screens configuration
-    { -- 1st screen
-      name = { "0", "1", "4" },
-      layout = {
-        awful.layout.layouts[1], -- 0
-        awful.layout.layouts[1], -- 1
-        awful.layout.layouts[7], -- 4
-      },
-      keybinding = { "0", "1", "4" },
-    },
-    { -- 2nd screen
-      name = { "2", "3", "5", "6", "7", "8", "9" },
-      layout = {
-        awful.layout.layouts[1], -- 2
-        awful.layout.layouts[1], -- 3
-        awful.layout.layouts[1], -- 5
-        awful.layout.layouts[1], -- 6
-        awful.layout.layouts[1], -- 7
-        awful.layout.layouts[1], -- 8
-        awful.layout.layouts[8], -- 9
-      },
-      keybinding = { "2", "3", "5", "6", "7", "8", "9" },
-    },
-  },
-}
-
--- Init i3wm-like tags navigation.
-tagged:init(mytags, screen, awful, gears, client)
-
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
   set_wallpaper(s)
@@ -312,6 +321,12 @@ local globalkeys = gears.table.join(
     {description = "show the menubar", group = "launcher"})
 )
 
+
+-- Add i3wm-like navigation key bindings.
+if (librarian:is_installed("vladgor/awesome-tagged")) then
+  globalkeys = gears.table.join(globalkeys, tagged:get_keybindings(modkey))
+end
+
 local clientkeys = gears.table.join(
   awful.key({ modkey,           }, "f",
     function (c)
@@ -333,9 +348,6 @@ local clientbuttons = gears.table.join(
   awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
   awful.button({ modkey }, 1, awful.mouse.client.move),
   awful.button({ modkey }, 3, awful.mouse.client.resize))
-
--- Add i3wm-like navigation key bindings.
-globalkeys = gears.table.join(globalkeys, tagged:get_keybindings(modkey))
 
 -- Set keys
 root.keys(globalkeys)
@@ -408,9 +420,6 @@ client.connect_signal("manage", function (c)
   end
 end)
 
--- Add a tittlebar only to floating clients.
--- floatbar:init(awful, client, tag)
-
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
   -- buttons for the titlebar
@@ -462,9 +471,3 @@ client.connect_signal("manage",
     c.shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, beautiful.border_radius) end
   end)
 -- }}}
-
-local librarian = require("libraries/librarian")
-librarian:init(awful, naughty, gears)
-local floatbar = librarian:require('vladgor/awesome-floatbar')
-
-floatbar:init(awful, client, tag)
