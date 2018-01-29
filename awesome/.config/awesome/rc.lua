@@ -7,7 +7,7 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 
 -- Custom libraries
-local floatbar = require("libraries/floatbar")
+-- local floatbar = require("libraries/floatbar")
 local tagged = require("libraries/tagged")
 
 -- {{{ Error handling
@@ -409,7 +409,7 @@ client.connect_signal("manage", function (c)
 end)
 
 -- Add a tittlebar only to floating clients.
-floatbar:init(awful, client, tag)
+-- floatbar:init(awful, client, tag)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
@@ -462,3 +462,9 @@ client.connect_signal("manage",
     c.shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, beautiful.border_radius) end
   end)
 -- }}}
+
+local librarian = require("libraries/librarian")
+librarian:init(awful, naughty, gears)
+local floatbar = librarian:require('vladgor/awesome-floatbar')
+
+floatbar:init(awful, client, tag)
