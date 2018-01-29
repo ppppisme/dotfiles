@@ -431,15 +431,7 @@ client.connect_signal("request::titlebars", function(c)
   titlebar.font = beautiful.titlebar_font
   awful.titlebar(c) : setup {
     { -- Left
-      {
-        awful.titlebar.widget.iconwidget(c),
-        buttons = buttons,
-        layout  = wibox.layout.fixed.horizontal
-      },
-      bottom = 8,
-      top = 2,
-      left = 5,
-      widget = wibox.container.margin,
+      layout  = wibox.layout.fixed.horizontal
     },
     { -- Middle
       { -- Title
