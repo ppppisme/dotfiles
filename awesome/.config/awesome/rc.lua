@@ -12,8 +12,8 @@ local librarian = require("libraries/librarian")
 local floatbar = librarian:require("vladgor/awesome-floatbar")
 local tagged = librarian:require("vladgor/awesome-tagged")
 
+-- Add a tittlebar only to floating clients.
 if (librarian:is_installed("vladgor/awesome-floatbar")) then
-  -- Add a tittlebar only to floating clients.
   floatbar:init(awful, client, tag)
 end
 
