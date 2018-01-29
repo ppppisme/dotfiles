@@ -1,3 +1,7 @@
+local awful = require("awful")
+local gears = require("gears")
+local naughty = require("naughty")
+
 return {
   -- @see http://lua-users.org/wiki/SplitJoin
   __split = function(str, pat)
@@ -6,17 +10,29 @@ return {
     return tbl
   end,
 
-  __download = function(self, library_name)
-    local config_dir = self.gears.filesystem.get_configuration_dir()
-    local command ="git clone https://www.github.com/" .. library_name
-    command = command .. ' ' .. config_dir .. "libraries/" .. library_name .. "/"
+  __download = function(self, library_name, notification)
+    local config_dir = gears.filesystem.get_configuration_dir()
+    local command ="git clone https://github.com/" .. library_name .. ".git"
+    command = command .. " " .. config_dir .. "libraries/" .. library_name .. "/"
 
-    -- doing this synchronously, because we need to download the library before
-    -- sourcing and returning it
-    os.execute(command)
+    awful.spawn.easy_async(command, function(stdout, stderr, reason, exit_code)
+      if (exit_code ~= 0) then
+        naughty.notify({
+            preset = naughty.config.presets.critical,
+            title = "Librarian",
+            text = stderr,
+          })
+      end
+
+      if (notification == nil) then
+        return
+      end
+
+      naughty.destroy(notification)
+    end)
   end,
 
-  installed = function(self, library_name)
+  is_installed = function(self, library_name)
     -- @see https://stackoverflow.com/a/40195356
     local exists = function (file)
       local ok, err, code = os.rename(file, file)
@@ -26,22 +42,22 @@ return {
       return ok
     end
 
-    local config_dir = self.gears.filesystem.get_configuration_dir()
+    local config_dir = gears.filesystem.get_configuration_dir()
     return exists(config_dir .. "libraries/" .. library_name .. "/")
   end,
 
   require = function(self, library_name)
-    if (not self:installed(library_name)) then
-      self.naughty.notify({ text = "Installing " .. library_name .. " library. Please, wait..." })
-      self:__download(library_name)
+    if (not self:is_installed(library_name)) then
+      local notification = naughty.notify({
+          title = "Librarian",
+          text = "Installing " .. library_name .. " library. This message will disappear when the process is done.",
+          timeout = 0,
+        })
+      self:__download(library_name, notification)
+
+      return nil
     end
 
     return require('libraries/' .. library_name)
-  end,
-
-  init = function(self, awful, naughty, gears)
-    self.awful = awful;
-    self.naughty = naughty
-    self.gears = gears
   end,
 }
