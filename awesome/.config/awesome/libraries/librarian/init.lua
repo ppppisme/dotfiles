@@ -70,11 +70,11 @@ return {
       for directory in directories_list:gmatch("(.-)%c") do
         local is_registered = false
 
-        if (not self:__has_item(self.__libraries, directory)) then
+        if (not self.__has_item(self.__libraries, directory)) then
           local remove_command = "rm -rf " .. config_dir .. "libraries/" .. directory
           naughty.notify({
               title = "Librarian",
-              text = remove_command,
+              text = "Removing " .. directory .. "...",
             })
           awful.spawn(remove_command)
         end
