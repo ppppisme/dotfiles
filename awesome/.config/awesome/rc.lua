@@ -8,6 +8,9 @@ local menubar = require("menubar")
 
 -- Custom libraries
 local librarian = require("libraries/librarian")
+librarian:init({
+    verbose = true,
+  })
 
 local floatbar = librarian:require("vladgor/awesome-floatbar")
 local tagged = librarian:require("vladgor/awesome-tagged")
@@ -315,6 +318,9 @@ local globalkeys = gears.table.join(
 
   awful.key({ modkey            }, "p", function () awful.spawn.with_shell('physlock')      end,
     {description = "lock screen", group = "layout"}),
+  awful.key({ modkey            }, "c", function () librarian:clean()                       end,
+    {description = "lock screen", group = "layout"}),
+
 
 -- Menubar
   awful.key({ modkey }, "d", function() menubar.show() end,
