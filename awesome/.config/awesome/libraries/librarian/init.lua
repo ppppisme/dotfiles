@@ -5,7 +5,24 @@ local naughty = require("naughty")
 return {
   __libraries = { },
 
-  __has_item = function(table, wanted_item)
+  __spawn_synchronously = function(self, command)
+    local handle = io.popen(command)
+    local output = handle:read("*all")
+    output = output:gsub("%c$", "")
+    handle:close()
+
+    return output
+  end,
+
+  __dir_is_empty = function(self, dir_path)
+    return self:__spawn_synchronously("ls -A " .. dir_path) == ""
+  end,
+
+  __remove_file_or_dir = function(self, path)
+    os.execute("rm -rf " .. path)
+  end,
+
+  __has_item = function(self, table, wanted_item)
     for _, item in pairs(table) do
       if (item == wanted_item) then
         return true
@@ -58,25 +75,27 @@ return {
         text = "Removing not used libraries...",
       })
 
-    local config_dir = gears.filesystem.get_configuration_dir()
+    local libraries_dir = gears.filesystem.get_configuration_dir() .. "libraries/"
 
-    local find_command = "cd " .. config_dir .. "libraries && "
+    local find_command = "cd " .. libraries_dir .. " && "
     find_command = find_command .. "find -mindepth 2 -maxdepth 2 -type d"
 
-    -- make a list of directories
     awful.spawn.easy_async_with_shell(find_command, function(stdout)
-      local directories_list = stdout:gsub("%./", "")
+      -- Remove preceding './'s
+      local dir_list = stdout:gsub("%./", "")
 
-      for directory in directories_list:gmatch("(.-)%c") do
-        local is_registered = false
-
-        if (not self.__has_item(self.__libraries, directory)) then
-          local remove_command = "rm -rf " .. config_dir .. "libraries/" .. directory
+      for dir in dir_list:gmatch("(.-)%c") do
+        if (not self:__has_item(self.__libraries, dir)) then
           naughty.notify({
               title = "Librarian",
-              text = "Removing " .. directory .. "...",
+              text = "Removing " .. dir .. "...",
             })
-          awful.spawn(remove_command)
+          self:__remove_file_or_dir(libraries_dir .. dir)
+
+          local parent_dir = libraries_dir .. dir:gsub("[^/]+$", "")
+          if (self:__dir_is_empty(parent_dir)) then
+            self:__remove_file_or_dir(parent_dir)
+          end
         end
       end
     end)
