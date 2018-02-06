@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
 
   " snippets
-  Plug 'KeyboardFire/vim-minisnip'
+  Plug 'joereynolds/vim-minisnip'
 
   " decoration stuff
   Plug 'AssailantLF/vim-active-numbers'
