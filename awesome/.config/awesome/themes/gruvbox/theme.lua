@@ -9,22 +9,80 @@ local dpi = require("beautiful.xresources").apply_dpi
 local naughty = require('naughty')
 local gears = require('gears')
 
+local palette = {
+    red = {
+        dark  = "#cc241d",
+        light = "#fb4934",
+    },
+    green = {
+        dark  = "#98971a",
+        light = "#b8bb26",
+    },
+    yellow = {
+        dark  = "#d79921",
+        light = "#fabd2f",
+    },
+    blue = {
+        dark  = "#458588",
+        light = "#83a598",
+    },
+    purple = {
+        dark  = "#b16286",
+        light = "#d3869b",
+    },
+    aqua = {
+        dark  = "#689d6a",
+        light = "#8ec07c",
+    },
+    orange = {
+        dark  = "#d65d0e",
+        light = "#fe8019",
+    },
+    gray = {
+        dark  = "#928374",
+        light = "#a89984",
+    },
+    black = {
+        bg0_h = "#1d2021",
+        bg0   = "#282828",
+        bg0_s = "#32302f",
+        bg1   = "#3c3836",
+        bg2   = "#504945",
+        bg3   = "#665c54",
+        bg4   = "#7c6f64",
+    },
+    white = {
+        fg0   = "#fbf1c7",
+        fg1   = "#ebdbb2",
+        fg2   = "#d5c4a1",
+        fg3   = "#bdae93",
+        fg4   = "#a89984",
+    },
+}
+
+local colors = {
+    accent = palette.green.light,
+    background = palette.black.bg1,
+    text = palette.white.fg3,
+    urgent = palette.red.light
+}
+
 -- {{{ Main
 local theme = {}
-theme.wallpaper = gears.color("#3c3836")
+theme.wallpaper = gears.color(colors.background)
 -- }}}
 
 -- {{{ Styles
 theme.font       = "hack " .. (8 + dpi(0.2))
 
 -- {{{ Colors
-theme.fg_normal  = "#bdae93"
-theme.fg_focus   = "#b8bb26"
-theme.fg_urgent  = "#fb4934"
-theme.bg_normal  = "#3c3836"
-theme.bg_focus   = "#1d2021"
-theme.bg_urgent  = "#cc241d"
-theme.bg_systray = theme.bg_normal
+theme.fg_normal  = colors.text
+theme.fg_focus   = colors.accent
+theme.fg_urgent  = colors.urgent
+theme.bg_normal  = colors.background
+theme.bg_focus   = colors.background
+theme.bg_urgent  = colors.background
+theme.bg_systray = colors.background
 -- }}}
 
 -- {{{ Borders
@@ -101,17 +159,18 @@ naughty.config.presets.normal.icon_size      = dpi(64)
 
 -- {{{ Icons
 -- {{{ Taglist
-theme.taglist_bg_focus = "#3c3836"
+theme.taglist_bg_focus = colors.background
+theme.taglist_bg_normal = colors.background
 theme.taglist_squares_sel   = theme_path .. "/taglist/squarefz.png"
 theme.taglist_squares_unsel = theme_path .. "/taglist/squarez.png"
 --theme.taglist_squares_resize = "false"
 -- }}}
 
 -- {{{ Tasklist
+theme.tasklist_bg_focus = colors.background
 theme.tasklist_font = "hack italic "  .. (8 + dpi(0.2))
 theme.tasklist_font_focus = "hack bold italic "  .. (8 + dpi(0.2))
 theme.tasklist_disable_icon = true
-theme.tasklist_bg_focus = "#3c3836"
 -- }}}
 
 -- {{{ Layout
