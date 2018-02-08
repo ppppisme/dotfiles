@@ -8,20 +8,22 @@ local menubar = require("menubar")
 
 -- Custom libraries
 local librarian = require("libraries/librarian")
-librarian:init({
+librarian.init({
     verbose = true,
   })
 
-local floatbar = librarian:require("vladgor/awesome-floatbar")
-local tagged = librarian:require("vladgor/awesome-tagged")
+local floatbar = librarian.require("vladgor/awesome-floatbar")
+local tagged = librarian.require("vladgor/awesome-tagged")
+
+librarian.clean()
 
 -- Add a tittlebar only to floating clients.
-if (librarian:is_installed("vladgor/awesome-floatbar")) then
+if (librarian.is_installed("vladgor/awesome-floatbar")) then
   floatbar:init(awful, client, tag)
 end
 
 -- Init i3wm-like tags navigation.
-if (librarian:is_installed("vladgor/awesome-tagged")) then
+if (librarian.is_installed("vladgor/awesome-tagged")) then
   local mytags = {
     { -- 1 screen configuration
       { -- 1st screen
@@ -189,12 +191,7 @@ local tasklist_buttons = gears.table.join(
 local function set_wallpaper(s)
   -- Wallpaper
   if beautiful.wallpaper then
-    local wallpaper = beautiful.wallpaper
-    -- If wallpaper is a function, call it with the screen
-    if type(wallpaper) == "function" then
-      wallpaper = wallpaper(s)
-    end
-    gears.wallpaper.tiled(wallpaper, s)
+    gears.wallpaper.set(beautiful.wallpaper)
   end
 end
 
@@ -318,9 +315,8 @@ local globalkeys = gears.table.join(
 
   awful.key({ modkey            }, "p", function () awful.spawn.with_shell('physlock')      end,
     {description = "lock screen", group = "layout"}),
-  awful.key({ modkey            }, "c", function () librarian:clean()                       end,
+  awful.key({ modkey            }, "c", function () librarian.update_all()                  end,
     {description = "lock screen", group = "layout"}),
-
 
 -- Menubar
   awful.key({ modkey }, "d", function() menubar.show() end,
@@ -329,7 +325,7 @@ local globalkeys = gears.table.join(
 
 
 -- Add i3wm-like navigation key bindings.
-if (librarian:is_installed("vladgor/awesome-tagged")) then
+if (librarian.is_installed("vladgor/awesome-tagged")) then
   globalkeys = gears.table.join(globalkeys, tagged:get_keybindings(modkey))
 end
 

@@ -7,10 +7,11 @@
 local theme_path = require("gears.filesystem").get_configuration_dir() .. "themes/gruvbox"
 local dpi = require("beautiful.xresources").apply_dpi
 local naughty = require('naughty')
+local gears = require('gears')
 
 -- {{{ Main
 local theme = {}
-theme.wallpaper = theme_path .. "/gruvbox-background.jpg"
+theme.wallpaper = gears.color("#3c3836")
 -- }}}
 
 -- {{{ Styles
