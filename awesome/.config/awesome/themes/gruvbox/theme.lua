@@ -67,13 +67,15 @@ local colors = {
     urgent = palette.red.light
 }
 
+local font = "hack"
+
 -- {{{ Main
 local theme = {}
 theme.wallpaper = gears.color(colors.background)
 -- }}}
 
 -- {{{ Styles
-theme.font       = "hack " .. (8 + dpi(0.2))
+theme.font       = font .. " " .. (8 + dpi(0.2))
 
 -- {{{ Colors
 theme.fg_normal  = colors.text
@@ -92,11 +94,10 @@ theme.border_normal = "#504945"
 theme.border_focus  = "#a89984"
 theme.border_marked = "#292d2e"
 theme.border_radius = dpi(3)
-
 -- }}}
 
 -- {{{ Titlebars
-theme.titlebar_font      = "hack bold italic "  .. (8 + dpi(0.2))
+theme.titlebar_font      = font .. " bold italic "  .. (8 + dpi(0.2))
 theme.titlebar_fg_focus  = "#3c3836"
 theme.titlebar_bg_focus  = "#a89984"
 theme.titlebar_fg_normal = "#7c6f64"
@@ -145,7 +146,7 @@ theme.menu_width     = dpi(100)
 
 -- {{{ Notifications
 theme.notification_width                     = dpi(250)
-theme.notification_font                      = "hack italic " .. (9 + dpi(0.2))
+theme.notification_font                      = font .. " italic " .. (9 + dpi(0.2))
 theme.notification_fg                        = "#3c3836"
 theme.notification_bg                        = "#bdae93"
 
@@ -168,8 +169,8 @@ theme.taglist_squares_unsel = theme_path .. "/taglist/squarez.png"
 
 -- {{{ Tasklist
 theme.tasklist_bg_focus = colors.background
-theme.tasklist_font = "hack italic "  .. (8 + dpi(0.2))
-theme.tasklist_font_focus = "hack bold italic "  .. (8 + dpi(0.2))
+theme.tasklist_font = font .. " italic "  .. (8 + dpi(0.2))
+theme.tasklist_font_focus = font .. " bold italic "  .. (8 + dpi(0.2))
 theme.tasklist_disable_icon = true
 -- }}}
 
