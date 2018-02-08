@@ -63,7 +63,7 @@ local palette = {
 local colors = {
     accent = palette.green.light,
     background = palette.black.bg1,
-    text = palette.white.fg3,
+    text = palette.white.fg4,
     urgent = palette.red.light
 }
 
