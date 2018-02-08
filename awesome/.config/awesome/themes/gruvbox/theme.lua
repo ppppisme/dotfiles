@@ -21,7 +21,7 @@ theme.font       = "hack " .. (8 + dpi(0.2))
 theme.fg_normal  = "#bdae93"
 theme.fg_focus   = "#b8bb26"
 theme.fg_urgent  = "#fb4934"
-theme.bg_normal  = "#282828"
+theme.bg_normal  = "#3c3836"
 theme.bg_focus   = "#1d2021"
 theme.bg_urgent  = "#cc241d"
 theme.bg_systray = theme.bg_normal
@@ -101,6 +101,7 @@ naughty.config.presets.normal.icon_size      = dpi(64)
 
 -- {{{ Icons
 -- {{{ Taglist
+theme.taglist_bg_focus = "#3c3836"
 theme.taglist_squares_sel   = theme_path .. "/taglist/squarefz.png"
 theme.taglist_squares_unsel = theme_path .. "/taglist/squarez.png"
 --theme.taglist_squares_resize = "false"
@@ -110,6 +111,7 @@ theme.taglist_squares_unsel = theme_path .. "/taglist/squarez.png"
 theme.tasklist_font = "hack italic "  .. (8 + dpi(0.2))
 theme.tasklist_font_focus = "hack bold italic "  .. (8 + dpi(0.2))
 theme.tasklist_disable_icon = true
+theme.tasklist_bg_focus = "#3c3836"
 -- }}}
 
 -- {{{ Layout
