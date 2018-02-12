@@ -12,15 +12,11 @@ librarian.init({
     verbose = true,
   })
 
-local floatbar = librarian.require("vladgor/awesome-floatbar")
-local tagged = librarian.require("vladgor/awesome-tagged")
-
-librarian.clean()
-
 -- Add a tittlebar only to floating clients.
-if (librarian.is_installed("vladgor/awesome-floatbar")) then
+librarian.require_async("vladgor/awesome-floatbar", {}, function(floatbar)
   floatbar:init(awful, client, tag)
-end
+end)
+local tagged = librarian.require("vladgor/awesome-tagged")
 
 -- Init i3wm-like tags navigation.
 if (librarian.is_installed("vladgor/awesome-tagged")) then
