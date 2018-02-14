@@ -10,6 +10,7 @@ local menubar = require("menubar")
 local librarian = require("libraries/librarian")
 librarian.init({
     verbose = true,
+    libraries_dir = "libraries/",
   })
 
 -- Add a tittlebar only to floating clients.
