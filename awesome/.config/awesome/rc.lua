@@ -7,7 +7,7 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 
 -- Custom libraries
-local librarian = require("libraries/librarian")
+local librarian = require("librarian")
 librarian.init({
     verbose = true,
     libraries_dir = "libraries/",
