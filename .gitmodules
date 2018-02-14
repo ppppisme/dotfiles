@@ -2,5 +2,5 @@
 	path = zsh/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule "awesome/.config/awesome/libraries/librarian"]
-	path = awesome/.config/awesome/libraries/librarian
+	path = awesome/.config/awesome/librarian
 	url = https://github.com/vladgor/awesome-librarian
