@@ -14,9 +14,11 @@ librarian.init({
   })
 
 -- Add a tittlebar only to floating clients.
-librarian.require_async("vladgor/awesome-floatbar", {}, function(floatbar)
-  floatbar.init()
-end)
+librarian.require_async("vladgor/awesome-floatbar", {
+    do_after = function(floatbar)
+      floatbar.init()
+    end,
+  })
 local tagged = librarian.require("vladgor/awesome-tagged")
 
 -- Init i3wm-like tags navigation.
