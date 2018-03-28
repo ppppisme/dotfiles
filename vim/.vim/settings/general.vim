@@ -56,6 +56,8 @@ set list
 set listchars=tab:··,trail:_,eol:¬
 set lazyredraw
 
+set updatetime=100
+
 set backup
 set writebackup
 set undofile
