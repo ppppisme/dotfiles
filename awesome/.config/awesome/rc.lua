@@ -68,7 +68,7 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
     },
   }
 
-  tagged:init(mytags, screen, awful, gears, client)
+  tagged.init(mytags)
 end
 
 -- {{{ Error handling
@@ -325,7 +325,7 @@ local globalkeys = gears.table.join(
 
 -- Add i3wm-like navigation key bindings.
 if (librarian.is_installed("vladgor/awesome-tagged")) then
-  globalkeys = gears.table.join(globalkeys, tagged:get_keybindings(modkey))
+  globalkeys = gears.table.join(globalkeys, tagged.get_keybindings(modkey))
 end
 
 local clientkeys = gears.table.join(
