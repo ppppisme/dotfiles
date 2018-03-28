@@ -44,26 +44,26 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
     },
     { -- 2 screens configuration
       { -- 1st screen
-        name = { "0", "1", "4" },
+        name = { "0", "2", "3", "4", "7", "8", "9" },
         layout = {
           awful.layout.suit.tile,     -- 0
-          awful.layout.suit.tile,     -- 1
+          awful.layout.suit.tile,     -- 2
+          awful.layout.suit.tile,     -- 3
           awful.layout.suit.floating, -- 4
+          awful.layout.suit.tile,     -- 7
+          awful.layout.suit.tile,     -- 8
+          awful.layout.suit.max,      -- 9
         },
-        keybinding = { "0", "1", "4" },
+        keybinding = { "0", "2", "3", "4", "7", "8", "9"},
       },
       { -- 2nd screen
-        name = { "2", "3", "5", "6", "7", "8", "9" },
+        name = { "1", "5", "6" },
         layout = {
-          awful.layout.suit.tile, -- 2
-          awful.layout.suit.tile, -- 3
+          awful.layout.suit.tile, -- 1
           awful.layout.suit.tile, -- 5
           awful.layout.suit.tile, -- 6
-          awful.layout.suit.tile, -- 7
-          awful.layout.suit.tile, -- 8
-          awful.layout.suit.max,  -- 9
         },
-        keybinding = { "2", "3", "5", "6", "7", "8", "9" },
+        keybinding = { "1", "5", "6", "7" },
       },
     },
   }
@@ -371,7 +371,7 @@ awful.rules.rules = {
   },
 
   { rule = { class = "Slack" },
-    properties = { screen = 2, tag = "9" }
+    properties = { screen = 1, tag = "9" }
   },
 
   -- Floating clients.
