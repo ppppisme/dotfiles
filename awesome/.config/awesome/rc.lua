@@ -25,45 +25,33 @@ local tagged = librarian.require("vladgor/awesome-tagged")
 if (librarian.is_installed("vladgor/awesome-tagged")) then
   local mytags = {
     { -- 1 screen configuration
-      { -- 1st screen
-        name = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" },
-        layout = {
-          awful.layout.suit.tile,     -- 0
-          awful.layout.suit.tile,     -- 1
-          awful.layout.suit.tile,     -- 2
-          awful.layout.suit.tile,     -- 3
-          awful.layout.suit.floating, -- 4
-          awful.layout.suit.tile,     -- 5
-          awful.layout.suit.tile,     -- 6
-          awful.layout.suit.tile,     -- 7
-          awful.layout.suit.tile,     -- 8
-          awful.layout.suit.max, -- 9
-        },
-        keybinding = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+      {
+        { name = "0", layout = awful.layout.suit.tile, keybinding = "0", },
+        { name = "1", layout = awful.layout.suit.tile, keybinding = "1", },
+        { name = "2", layout = awful.layout.suit.tile, keybinding = "2", },
+        { name = "3", layout = awful.layout.suit.tile, keybinding = "3", },
+        { name = "4", layout = awful.layout.suit.floating, keybinding = "4", },
+        { name = "5", layout = awful.layout.suit.tile, keybinding = "5", },
+        { name = "6", layout = awful.layout.suit.tile, keybinding = "6", },
+        { name = "7", layout = awful.layout.suit.tile, keybinding = "7", },
+        { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
+        { name = "9", layout = awful.layout.suit.max, keybinding = "9", },
       }
     },
     { -- 2 screens configuration
       { -- 1st screen
-        name = { "0", "2", "3", "4", "7", "8", "9" },
-        layout = {
-          awful.layout.suit.tile,     -- 0
-          awful.layout.suit.tile,     -- 2
-          awful.layout.suit.tile,     -- 3
-          awful.layout.suit.floating, -- 4
-          awful.layout.suit.tile,     -- 7
-          awful.layout.suit.tile,     -- 8
-          awful.layout.suit.max,      -- 9
-        },
-        keybinding = { "0", "2", "3", "4", "7", "8", "9"},
+        { name = "0", layout = awful.layout.suit.tile, keybinding = "0", },
+        { name = "2", layout = awful.layout.suit.tile, keybinding = "2", },
+        { name = "3", layout = awful.layout.suit.tile, keybinding = "3", },
+        { name = "4", layout = awful.layout.suit.floating, keybinding = "4", },
+        { name = "7", layout = awful.layout.suit.tile, keybinding = "7", },
+        { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
+        { name = "9", layout = awful.layout.suit.max, keybinding = "9", },
       },
       { -- 2nd screen
-        name = { "1", "5", "6" },
-        layout = {
-          awful.layout.suit.tile, -- 1
-          awful.layout.suit.tile, -- 5
-          awful.layout.suit.tile, -- 6
-        },
-        keybinding = { "1", "5", "6", "7" },
+        { name = "1", layout = awful.layout.suit.tile, keybinding = "1", },
+        { name = "5", layout = awful.layout.suit.tile, keybinding = "5", },
+        { name = "6", layout = awful.layout.suit.tile, keybinding = "6", },
       },
     },
   }
