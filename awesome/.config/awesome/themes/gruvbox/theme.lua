@@ -71,7 +71,10 @@ local font = "hack"
 
 -- {{{ Main
 local theme = {}
-theme.wallpaper = gears.color(colors.background)
+-- For solid color wallpaper
+-- theme.wallpaper = gears.color(colors.background)
+
+theme.wallpaper = theme_path .. '/bg.png'
 -- }}}
 
 -- {{{ Styles
