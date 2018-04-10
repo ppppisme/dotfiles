@@ -182,14 +182,31 @@ local function set_wallpaper(s)
   end
 end
 
-local function wrap_widget(widget, margin)
-  local output = { widget }
+local function wrap_widget(widget, margin, background)
+  local output = { 
+    widget = wibox.container.margin,
+    widget,
+  }
 
-  output.widget = wibox.container.margin
   output.top = margin[1] or 0
   output.right = margin[2] or 0
   output.bottom = margin[3] or output.top
   output.left = margin[4] or output.right
+
+  if background then
+    output = {
+      widget = wibox.container.background,
+      bg = background,
+      output,
+    }
+
+    output = {
+      widget = wibox.container.margin,
+      left = 5,
+      right = 5,
+      output,
+    }
+  end
 
   return output
 end
@@ -217,27 +234,28 @@ awful.screen.connect_for_each_screen(function(s)
   s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
   -- Create the wibox
-  s.mywibox = awful.wibar({ position = "top", screen = s })
+  s.mywibox = awful.wibar({ position = "top", screen = s, height = 60 })
 
   -- Create a batery widget
   local batterywidget = awful.widget.watch('bash -c "acpi | cut -d, -f 2"', 20)
 
   -- Add widgets to the wibox
-  s.mywibox:setup {
+  local background_color = beautiful.wibar_items_bg or '#ff0000'
+  s.mywibox:setup(wrap_widget({
     layout = wibox.layout.align.horizontal,
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
-      wrap_widget(s.mytaglist, { 0, 5 }),
+      wrap_widget(s.mytaglist, { 5, 10 }, background_color),
     },
     s.mytasklist, -- Middle widget
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      wrap_widget(wibox.widget.systray(), { 5, 0, 5 }),
-      wrap_widget(batterywidget, { 0, 0, 0, 7 }),
-      wrap_widget(mytextclock, { 0, 0, 0, 8 }),
-      wrap_widget(s.mylayoutbox, { 5, 5, 5, 0 }),
+      wrap_widget(wibox.widget.systray(), { 5, 10 }),
+      wrap_widget(batterywidget, { 5, 10 }, background_color),
+      wrap_widget(mytextclock, { 5, 10 }, background_color),
+      wrap_widget(s.mylayoutbox, { 5, 10, }, background_color),
     },
-  }
+  }, {12, 5}))
 end)
 -- }}}
 

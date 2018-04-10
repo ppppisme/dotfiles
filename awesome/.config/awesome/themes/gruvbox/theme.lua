@@ -75,7 +75,7 @@ theme.wallpaper = gears.color(colors.background)
 -- }}}
 
 -- {{{ Styles
-theme.font       = font .. " " .. (8 + dpi(0.2))
+theme.font       = font .. " " .. (12 + dpi(0.2))
 
 -- {{{ Colors
 theme.fg_normal  = colors.text
@@ -97,7 +97,7 @@ theme.border_radius = dpi(3)
 -- }}}
 
 -- {{{ Titlebars
-theme.titlebar_font      = font .. " bold italic "  .. (8 + dpi(0.2))
+theme.titlebar_font      = font .. " bold italic "  .. (12 + dpi(0.2))
 theme.titlebar_fg_focus  = "#3c3836"
 theme.titlebar_bg_focus  = "#a89984"
 theme.titlebar_fg_normal = "#7c6f64"
@@ -146,7 +146,7 @@ theme.menu_width     = dpi(100)
 
 -- {{{ Notifications
 theme.notification_width                     = dpi(250)
-theme.notification_font                      = font .. " italic " .. (9 + dpi(0.2))
+theme.notification_font                      = font .. " italic " .. (13 + dpi(0.2))
 theme.notification_fg                        = "#3c3836"
 theme.notification_bg                        = "#bdae93"
 
@@ -169,8 +169,8 @@ theme.taglist_squares_unsel = theme_path .. "/taglist/squarez.png"
 
 -- {{{ Tasklist
 theme.tasklist_bg_focus = colors.background
-theme.tasklist_font = font .. " italic "  .. (8 + dpi(0.2))
-theme.tasklist_font_focus = font .. " bold italic "  .. (8 + dpi(0.2))
+theme.tasklist_font = font .. " italic "  .. (12 + dpi(0.2))
+theme.tasklist_font_focus = font .. " bold italic "  .. (12 + dpi(0.2))
 theme.tasklist_disable_icon = true
 -- }}}
 
@@ -218,6 +218,8 @@ theme.titlebar_maximized_button_focus_inactive  = theme_path .. "/titlebar/maxim
 theme.titlebar_maximized_button_normal_inactive = theme_path .. "/titlebar/maximized_normal_inactive.png"
 -- }}}
 -- }}}
+
+theme.wibar_items_bg = palette.black.bg0
 
 return theme
 
