@@ -58,6 +58,7 @@ local palette = {
         fg3   = "#bdae93",
         fg4   = "#a89984",
     },
+    transparent = "#ffffff00"
 }
 
 local colors = {
@@ -222,6 +223,7 @@ theme.titlebar_maximized_button_normal_inactive = theme_path .. "/titlebar/maxim
 -- }}}
 -- }}}
 
+theme.wibar_bg = palette.transparent
 theme.wibar_height = 60
 theme.wibar_items_bg = palette.black.bg0
 
