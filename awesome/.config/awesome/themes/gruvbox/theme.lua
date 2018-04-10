@@ -75,7 +75,7 @@ local theme = {}
 -- For solid color wallpaper
 -- theme.wallpaper = gears.color(colors.background)
 
-theme.wallpaper = theme_path .. '/bg.png'
+theme.wallpaper = theme_path .. '/bg.jpg'
 -- }}}
 
 -- {{{ Styles
