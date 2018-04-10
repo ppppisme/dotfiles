@@ -237,7 +237,7 @@ awful.screen.connect_for_each_screen(function(s)
   s.mywibox = awful.wibar({ position = "top", screen = s, height = 60 })
 
   -- Create a batery widget
-  local batterywidget = awful.widget.watch('bash -c "acpi | cut -d, -f 2"', 20)
+  local batterywidget = awful.widget.watch('bash -c "acpi | cut -d, -f 2 | tr -d \'[:space:]\'"', 20)
 
   -- Add widgets to the wibox
   local background_color = beautiful.wibar_items_bg or '#ff0000'
