@@ -234,7 +234,7 @@ awful.screen.connect_for_each_screen(function(s)
   s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
   -- Create the wibox
-  s.mywibox = awful.wibar({ position = "top", screen = s, height = 60 })
+  s.mywibox = awful.wibar({ position = "top", screen = s })
 
   -- Create a batery widget
   local batterywidget = awful.widget.watch('bash -c "acpi | cut -d, -f 2 | tr -d \'[:space:]\'"', 20)
@@ -253,7 +253,7 @@ awful.screen.connect_for_each_screen(function(s)
       wrap_widget(wibox.widget.systray(), { 5, 10 }),
       wrap_widget(batterywidget, { 5, 10 }, background_color),
       wrap_widget(mytextclock, { 5, 10 }, background_color),
-      wrap_widget(s.mylayoutbox, { 5, 10, }, background_color),
+      wrap_widget(s.mylayoutbox, { 8, 10, }, background_color),
     },
   }, {12, 5}))
 end)

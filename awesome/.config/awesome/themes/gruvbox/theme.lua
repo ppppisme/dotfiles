@@ -219,6 +219,7 @@ theme.titlebar_maximized_button_normal_inactive = theme_path .. "/titlebar/maxim
 -- }}}
 -- }}}
 
+theme.wibar_height = 60
 theme.wibar_items_bg = palette.black.bg0
 
 return theme
