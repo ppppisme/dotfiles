@@ -245,15 +245,12 @@ awful.screen.connect_for_each_screen(function(s)
     layout = wibox.layout.align.horizontal,
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
-      wrap_widget(s.mytaglist, { 5, 10 }, background_color),
-    },
-    s.mytasklist, -- Middle widget
-    { -- Right widgets
-      layout = wibox.layout.fixed.horizontal,
-      wrap_widget(wibox.widget.systray(), { 5, 10 }),
-      wrap_widget(batterywidget, { 5, 10 }, background_color),
-      wrap_widget(mytextclock, { 5, 10 }, background_color),
       wrap_widget(s.mylayoutbox, { 8, 10, }, background_color),
+      wrap_widget(s.mytaglist, { 5, 10 }, background_color),
+      layout = wibox.layout.fixed.horizontal,
+      wrap_widget(mytextclock, { 5, 10 }, background_color),
+      wrap_widget(batterywidget, { 5, 10 }, background_color),
+      wrap_widget(wibox.widget.systray(), { 5, 10 }),
     },
   }, {12, 5}))
 end)
