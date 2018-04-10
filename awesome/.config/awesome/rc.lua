@@ -240,7 +240,7 @@ awful.screen.connect_for_each_screen(function(s)
   local batterywidget = awful.widget.watch('bash -c "acpi | cut -d, -f 2 | tr -d \'[:space:]\'"', 20)
 
   -- Add widgets to the wibox
-  local background_color = beautiful.wibar_items_bg or '#ff0000'
+  local background_color = beautiful.wibar_items_bg or nil
   s.mywibox:setup(wrap_widget({
     layout = wibox.layout.align.horizontal,
     { -- Left widgets
