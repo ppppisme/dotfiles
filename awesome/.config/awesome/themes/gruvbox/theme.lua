@@ -66,7 +66,8 @@ local colors = {
     background = palette.black.bg0,
     text = palette.white.fg4,
     inactive_text = palette.black.bg2,
-    urgent = palette.red.light
+    urgent = palette.red.light,
+    transparent = palette.transparent,
 }
 
 local font = "hack"
@@ -89,7 +90,7 @@ theme.fg_urgent  = colors.urgent
 theme.bg_normal  = colors.background
 theme.bg_focus   = colors.background
 theme.bg_urgent  = colors.background
-theme.bg_systray = colors.background
+theme.bg_systray = colors.transparent
 -- }}}
 
 -- {{{ Borders
@@ -150,11 +151,11 @@ theme.menu_width     = dpi(100)
 -- }}}
 
 -- {{{ Notifications
-theme.notification_width                     = dpi(250)
-theme.notification_font                      = font .. " italic " .. (13 + dpi(0.2))
-theme.notification_margin                    = dpi(2)
-theme.notification_fg                        = "#3c3836"
-theme.notification_bg                        = "#bdae93"
+theme.notification_width    = dpi(250)
+theme.notification_font     = font .. " italic " .. (13 + dpi(0.2))
+theme.notification_margin   = dpi(2)
+theme.notification_fg       = "#3c3836"
+theme.notification_bg       = "#bdae93"
 
 -- Unfortunately, I couldn't find the way to override these 2 settings via
 -- beautiful variable.
@@ -226,7 +227,7 @@ theme.titlebar_maximized_button_normal_inactive = theme_path .. "/titlebar/maxim
 -- }}}
 -- }}}
 
-theme.wibar_bg = palette.transparent
+theme.wibar_bg = colors.transparent
 theme.wibar_height = 60
 theme.wibar_items_bg = colors.background
 
