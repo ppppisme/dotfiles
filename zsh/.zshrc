@@ -63,8 +63,8 @@ source ~/.zsh/themes/minimal.sh
 # Alias section
 alias ll='ls -lAh'
 alias l='ls'
-alias notes='vim ~/notes/ -c "cd ~/notes/" -c "FzfFiles"'
-alias work='vim ~/notes/work -c "cd ~/notes/work/" -c "FzfFiles"'
+alias notes='vim ~/var/notes/ -c "cd ~/var/notes/" -c "FzfFiles"'
+alias work='vim ~/var/notes/work -c "cd ~/var/notes/work/" -c "FzfFiles"'
 
 # Git aliases
 alias gs='git status'
@@ -90,21 +90,6 @@ WORDCHARS='*?[]~=&;!#$%^(){}<>'
 # Syntax higlighting
 # Must be at the end of this file
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-function sp {
-  # Concatenate parameters.
-  command=""
-  for a in "$@"
-  do
-    command+="$a "
-  done
-
-  if [ -z "$1" ]; then
-    eval "termite &"
-  else
-    eval "termite --exec \"$command\" &"
-  fi
-}
 
 function up {
   eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant up && vagrant ssh"
