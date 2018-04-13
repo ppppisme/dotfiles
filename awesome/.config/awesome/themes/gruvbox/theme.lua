@@ -63,8 +63,9 @@ local palette = {
 
 local colors = {
     accent = palette.green.light,
-    background = palette.black.bg1,
+    background = palette.black.bg0,
     text = palette.white.fg4,
+    inactive_text = palette.black.bg2,
     urgent = palette.red.light
 }
 
@@ -151,6 +152,7 @@ theme.menu_width     = dpi(100)
 -- {{{ Notifications
 theme.notification_width                     = dpi(250)
 theme.notification_font                      = font .. " italic " .. (13 + dpi(0.2))
+theme.notification_margin                    = dpi(2)
 theme.notification_fg                        = "#3c3836"
 theme.notification_bg                        = "#bdae93"
 
@@ -164,11 +166,12 @@ naughty.config.presets.normal.icon_size      = dpi(64)
 
 -- {{{ Icons
 -- {{{ Taglist
+theme.taglist_fg_focus = colors.accent
 theme.taglist_bg_focus = colors.background
+theme.taglist_fg_occupied = colors.text
+theme.taglist_fg_empty = colors.inactive_text
 theme.taglist_bg_normal = colors.background
-theme.taglist_squares_sel   = theme_path .. "/taglist/squarefz.png"
-theme.taglist_squares_unsel = theme_path .. "/taglist/squarez.png"
---theme.taglist_squares_resize = "false"
+theme.taglist_spacing = dpi(10)
 -- }}}
 
 -- {{{ Tasklist
@@ -225,7 +228,7 @@ theme.titlebar_maximized_button_normal_inactive = theme_path .. "/titlebar/maxim
 
 theme.wibar_bg = palette.transparent
 theme.wibar_height = 60
-theme.wibar_items_bg = palette.black.bg0
+theme.wibar_items_bg = colors.background
 
 return theme
 
