@@ -90,7 +90,6 @@ theme.fg_urgent  = colors.urgent
 theme.bg_normal  = colors.background
 theme.bg_focus   = colors.background
 theme.bg_urgent  = colors.background
-theme.bg_systray = colors.transparent
 -- }}}
 
 -- {{{ Borders
@@ -109,12 +108,6 @@ theme.titlebar_bg_focus  = "#a89984"
 theme.titlebar_fg_normal = "#7c6f64"
 theme.titlebar_bg_normal = "#504945"
 -- }}}
-
-
--- {{{ Systray
-theme.systray_icon_spacing = dpi(10)
--- }}}
-
 
 -- There are other variable sets
 -- overriding the default one when
