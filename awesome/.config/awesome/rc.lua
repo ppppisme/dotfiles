@@ -428,6 +428,7 @@ client.connect_signal("manage", function (c)
   end
 end)
 
+awful.titlebar.enable_tooltip = false
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
   -- buttons for the titlebar
