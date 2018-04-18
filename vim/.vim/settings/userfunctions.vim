@@ -1,12 +1,12 @@
 function! StatusLineFugitive()
   if exists("*fugitive#head")
     let branch = fugitive#head()
-    return branch !=# '' ? ' ' . branch : ''
+    return branch !=# '' ? '⊥ ' . branch : ''
   endif
   return ''
 endfunction
 
-"Taken from here: http://stackoverflow.com/a/6271254
+" Taken from here: http://stackoverflow.com/a/6271254
 function! GetVisualSelection()
   let [lnum1, col1] = getpos("'<")[1:2]
   let [lnum2, col2] = getpos("'>")[1:2]
@@ -43,5 +43,14 @@ function! SearchVisual()
   call Search("'" . escape(GetVisualSelection(), ".+*?=/$^[](){}|'\"") . "'")
 endfunction
 
+" Taken from here: https://stackoverflow.com/a/9464929
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 command! Search call Search()
 command! SearchVisual call SearchVisual()
+command! GetSyntax call SynStack()
