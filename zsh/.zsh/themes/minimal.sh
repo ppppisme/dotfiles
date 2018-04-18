@@ -28,7 +28,7 @@ function minimal_git_branch()
     exit
   fi
 
-  echo "%{$fg[grey]%}$gitbranch%{$reset_color%}"
+  echo "%F{15}$gitbranch%{$reset_color%}"
 }
 
 function minimal_vim_running()
