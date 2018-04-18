@@ -2,7 +2,7 @@ autoload -U colors && colors
 
 function minimal_indicator()
 {
-  local color="%{$fg[grey]%}"
+  local color="%F{8}"
   if [[ $(git diff --exit-code 2> /dev/null) ]] then
     color="%{$fg[green]%}"
   fi
