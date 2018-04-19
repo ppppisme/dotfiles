@@ -1,5 +1,3 @@
-# don't forget to install zsh-completions!
-
 export EDITOR=nvim
 export TERMINAL=kitty
 export PATH=$PATH:/home/pppp/.gem/ruby/2.4.0/bin/

@@ -11,7 +11,7 @@ function minimal_indicator()
     color="%{$fg_bold[red]%}"
   fi
 
-  echo "$color:::%{$reset_color%}"
+  echo "$color:::%{$reset_color%}%f"
 }
 
 function minimal_path()
@@ -28,7 +28,7 @@ function minimal_git_branch()
     exit
   fi
 
-  echo "%F{15}$gitbranch%{$reset_color%}"
+  echo "%F{15}$gitbranch% %f"
 }
 
 function minimal_vim_running()
