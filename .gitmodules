@@ -4,3 +4,6 @@
 [submodule "awesome/.config/awesome/libraries/librarian"]
 	path = awesome/.config/awesome/librarian
 	url = https://github.com/vladgor/awesome-librarian
+[submodule "st/src/st"]
+	path = st/src/st
+	url = https://github.com/vladgor/st
