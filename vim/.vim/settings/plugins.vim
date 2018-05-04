@@ -7,7 +7,6 @@ if pluginstall != 0
   so ~/.vim/autoload/plug.vim
 endif
 
-" list of plugins 
 call plug#begin('~/.vim/plugged')
   " file system navigation
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -23,17 +22,11 @@ call plug#begin('~/.vim/plugged')
   " snippets
   Plug 'joereynolds/vim-minisnip'
 
-  " decoration stuff
-  Plug 'AssailantLF/vim-active-numbers'
-
   " text navigation
   Plug 'thinca/vim-visualstar'
 
   " debug
   Plug 'joonty/vdebug', { 'on': 'VdebugStart' }
-
-  " script runner
-  Plug 'thinca/vim-quickrun'
 
   " language support
   Plug 'sheerun/vim-polyglot'
@@ -49,9 +42,6 @@ call plug#begin('~/.vim/plugged')
 
   " color schemes
   Plug 'vladgor/vim-gruvoff'
-  " Plug 'chriskempson/vim-tomorrow-theme'
-  " Plug 'w0ng/vim-hybrid'
-  " Plug 'AlessandroYorba/Alduin'
 call plug#end()
 
 "---
@@ -81,13 +71,6 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
-
-
-"---
-" QuickRun
-"---
-nnoremap <leader>q :QuickRun<cr>
-vnoremap <leader>q :QuickRun<cr>
 
 
 "---

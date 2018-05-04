@@ -12,10 +12,9 @@ if has("gui_running")
   set guioptions+=c
   set guioptions+=b
   set guioptions-=e
-  set guifont=CtrlD 11
+  set guifont=Hack\ 12
 endif
 
-set relativenumber
 set number
 set hidden
 set nowrap
@@ -38,7 +37,7 @@ set ignorecase
 set hlsearch
 set incsearch
 set smartcase
-set visualbell
+set visualbell t_vb=
 set showmatch
 set wildmode=list:longest
 set autoread
