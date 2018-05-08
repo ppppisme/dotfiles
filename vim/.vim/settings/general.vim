@@ -15,7 +15,6 @@ if has("gui_running")
   set guifont=Hack\ 12
 endif
 
-set number
 set hidden
 set nowrap
 set showbreak=->
