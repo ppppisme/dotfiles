@@ -35,8 +35,12 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
         { name = "6", layout = awful.layout.suit.tile, keybinding = "6", },
         { name = "7", layout = awful.layout.suit.tile, keybinding = "7", },
         { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
-        { name = "9", layout = awful.layout.suit.max, keybinding = "9", },
-      }
+        { name = "9", layout = awful.layout.suit.max, keybinding = "9",
+          clients = {
+            class = { "Slack", "TelegramDesktop", "Skype" }
+          },
+        },
+      },
     },
     { -- 2 screens configuration
       { -- 1st screen
@@ -369,10 +373,6 @@ awful.rules.rules = {
     }
   },
 
-  { rule = { class = "Slack" },
-    properties = { screen = 1, tag = "9" }
-  },
-
   -- Floating clients.
   { rule_any = {
       instance = {
@@ -398,11 +398,11 @@ awful.rules.rules = {
         "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
       }
   }, properties = { floating = true }},
-
-  -- Set Firefox to always map on the tag named "2" on screen 1.
-  -- { rule = { class = "Firefox" },
-  --   properties = { screen = 1, tag = "2" } },
 }
+
+if (librarian.is_installed("vladgor/awesome-tagged")) then
+  awful.rules.rules = gears.table.join(awful.rules.rules, tagged.get_rules())
+end
 -- }}}
 
 -- {{{ Signals
