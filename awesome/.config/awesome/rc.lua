@@ -30,7 +30,11 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
         { name = "1", layout = awful.layout.suit.tile, keybinding = "1", },
         { name = "2", layout = awful.layout.suit.tile, keybinding = "2", },
         { name = "3", layout = awful.layout.suit.tile, keybinding = "3", },
-        { name = "4", layout = awful.layout.suit.floating, keybinding = "4", },
+        { name = "4", layout = awful.layout.suit.floating, keybinding = "4",
+          clients = {
+            class = { "Gimp" }
+          }
+        },
         { name = "5", layout = awful.layout.suit.tile, keybinding = "5", },
         { name = "6", layout = awful.layout.suit.tile, keybinding = "6", },
         { name = "7", layout = awful.layout.suit.tile, keybinding = "7", },
@@ -185,7 +189,7 @@ local function set_wallpaper(s)
 end
 
 local function wrap_widget(widget, margin, background)
-  local output = { 
+  local output = {
     widget = wibox.container.margin,
     widget,
   }
