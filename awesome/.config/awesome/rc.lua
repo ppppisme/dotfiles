@@ -54,7 +54,11 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
         { name = "4", layout = awful.layout.suit.floating, keybinding = "4", },
         { name = "7", layout = awful.layout.suit.tile, keybinding = "7", },
         { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
-        { name = "9", layout = awful.layout.suit.max, keybinding = "9", },
+        { name = "9", layout = awful.layout.suit.max, keybinding = "9",
+          clients = {
+            class = { "Slack", "TelegramDesktop", "Skype" }
+          },
+        },
       },
       { -- 2nd screen
         { name = "1", layout = awful.layout.suit.tile, keybinding = "1", },
