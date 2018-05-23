@@ -221,6 +221,23 @@ local function wrap_widget(widget, margin, background)
   return output
 end
 
+local function add_icon(widget, icon, spacing)
+  return {
+    layout = wibox.layout.fixed.horizontal,
+    {
+      widget = wibox.container.margin,
+      right = spacing,
+      {
+        widget = wibox.widget.textbox,
+        markup = icon,
+        align  = 'center',
+        valign = 'center',
+      },
+    },
+    widget,
+  }
+end
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -257,8 +274,8 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.horizontal,
       wrap_widget(s.mylayoutbox, { 8, 10, }, background_color),
       wrap_widget(s.mytaglist, { 5, 10 }, background_color),
-      wrap_widget(mytextclock, { 5, 10 }, background_color),
-      wrap_widget(batterywidget, { 5, 10 }, background_color),
+      wrap_widget(add_icon(mytextclock, "", 2), { 5, 10 }, background_color),
+      wrap_widget(add_icon(batterywidget, "", 10), { 5, 10 }, background_color),
     },
   }, {12, 5}))
 end)
