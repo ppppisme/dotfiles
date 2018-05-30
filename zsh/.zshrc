@@ -1,5 +1,6 @@
 export EDITOR=nvim
 export TERMINAL=termite
+export PATH=/home/pppp/.bin/:$PATH
 export PATH=$PATH:/home/pppp/.gem/ruby/2.4.0/bin/
 export PATH=$PATH:/home/pppp/.config/composer/vendor/bin/
 
