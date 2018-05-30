@@ -53,20 +53,40 @@ palette = {
 
 theme_variation = 'dark' # light or dark
 theme = {
-    'bg':     palette['black']['bg0'] if theme_variation == 'dark' else palette['white']['fg1'],
-    'fg':     palette['white']['fg1'] if theme_variation == 'dark' else palette['black']['bg0'],
-    'red':    palette['red'][theme_variation],
-    'green':  palette['green'][theme_variation],
-    'yellow': palette['yellow'][theme_variation],
-    'blue':   palette['blue'][theme_variation],
-    'purple': palette['purple'][theme_variation],
-    'aqua':   palette['aqua'][theme_variation],
-    'orange': palette['orange'][theme_variation],
+    'bg':        palette['black']['bg0'] if theme_variation == 'dark' else palette['white']['fg1'],
+    'fg':        palette['white']['fg1'] if theme_variation == 'dark' else palette['black']['bg0'],
+    'subtle_bg': palette['black']['bg1'] if theme_variation == 'dark' else palette['white']['fg3'],
+    'subtle_fg': palette['white']['fg3'] if theme_variation == 'dark' else palette['black']['bg1'],
+    'red':       palette['red'][theme_variation],
+    'green':     palette['green'][theme_variation],
+    'yellow':    palette['yellow'][theme_variation],
+    'blue':      palette['blue'][theme_variation],
+    'purple':    palette['purple'][theme_variation],
+    'aqua':      palette['aqua'][theme_variation],
+    'orange':    palette['orange'][theme_variation],
 }
 
+c.colors.completion.fg = theme['fg']
+c.colors.completion.even.bg = theme['bg']
+c.colors.completion.odd.bg = theme['bg']
+c.colors.completion.match.fg = theme['aqua']
+c.colors.completion.item.selected.bg = theme['subtle_bg']
+c.colors.completion.item.selected.fg = theme['subtle_fg']
+c.colors.completion.item.selected.border.bottom = theme['subtle_bg']
+c.colors.completion.item.selected.border.top = theme['subtle_bg']
+c.colors.completion.category.bg = theme['subtle_bg']
+c.colors.completion.category.fg = theme['subtle_fg']
+c.colors.completion.category.border.bottom = theme['bg']
+c.colors.completion.category.border.top = theme['bg']
+c.colors.completion.scrollbar.bg = theme['bg']
+c.colors.completion.scrollbar.fg = theme['subtle_bg']
+
 c.colors.statusbar.command.bg = theme['bg']
-c.colors.statusbar.insert.bg = theme['fg']
-c.colors.statusbar.insert.fg = theme['bg']
+c.colors.statusbar.command.fg = theme['fg']
+c.colors.statusbar.insert.bg = theme['bg']
+c.colors.statusbar.insert.fg = theme['green']
+c.colors.statusbar.caret.bg = theme['bg']
+c.colors.statusbar.caret.fg = theme['aqua']
 c.colors.statusbar.normal.bg = theme['bg']
 c.colors.statusbar.normal.fg = theme['fg']
 c.colors.statusbar.url.error.fg = theme['red']
@@ -75,6 +95,7 @@ c.colors.statusbar.url.hover.fg = theme['yellow']
 c.colors.statusbar.url.success.http.fg = theme['green']
 c.colors.statusbar.url.success.https.fg = theme['purple']
 c.colors.statusbar.url.warn.fg = theme['yellow']
+
 c.colors.tabs.bar.bg = '#504945'
 c.colors.tabs.even.bg = '#504945'
 c.colors.tabs.even.fg = '#a89984'
