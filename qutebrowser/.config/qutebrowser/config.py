@@ -55,8 +55,8 @@ theme_variation = 'dark' # light or dark
 theme = {
     'bg':        palette['black']['bg0'] if theme_variation == 'dark' else palette['white']['fg1'],
     'fg':        palette['white']['fg1'] if theme_variation == 'dark' else palette['black']['bg0'],
-    'subtle_bg': palette['black']['bg1'] if theme_variation == 'dark' else palette['white']['fg3'],
-    'subtle_fg': palette['white']['fg3'] if theme_variation == 'dark' else palette['black']['bg1'],
+    'subtle_bg': palette['black']['bg2'] if theme_variation == 'dark' else palette['white']['fg3'],
+    'subtle_fg': palette['white']['fg3'] if theme_variation == 'dark' else palette['black']['bg2'],
     'red':       palette['red'][theme_variation],
     'green':     palette['green'][theme_variation],
     'yellow':    palette['yellow'][theme_variation],
@@ -96,18 +96,25 @@ c.colors.statusbar.url.success.http.fg = theme['green']
 c.colors.statusbar.url.success.https.fg = theme['purple']
 c.colors.statusbar.url.warn.fg = theme['yellow']
 
-c.colors.tabs.bar.bg = '#504945'
-c.colors.tabs.even.bg = '#504945'
-c.colors.tabs.even.fg = '#a89984'
+c.colors.tabs.bar.bg = theme['subtle_bg']
+c.colors.tabs.even.bg = theme['subtle_bg']
+c.colors.tabs.even.fg = theme['subtle_fg']
 c.colors.tabs.indicator.error = '#fb4934'
 c.colors.tabs.indicator.start = '#83a598'
 c.colors.tabs.indicator.stop = '#98971a'
-c.colors.tabs.odd.bg = '#504945'
-c.colors.tabs.odd.fg = '#a89984'
+c.colors.tabs.odd.bg = theme['subtle_bg']
+c.colors.tabs.odd.fg = theme['subtle_fg']
 c.colors.tabs.selected.even.bg = theme['bg']
 c.colors.tabs.selected.even.fg = theme['fg']
 c.colors.tabs.selected.odd.bg = theme['bg']
 c.colors.tabs.selected.odd.fg = theme['fg']
+
+c.colors.messages.info.bg = theme['aqua']
+c.colors.messages.info.fg = theme['bg']
+c.colors.messages.warning.bg = theme['yellow']
+c.colors.messages.warning.fg = theme['bg']
+c.colors.messages.error.bg = theme['red']
+c.colors.messages.error.fg = theme['fg']
 
 # Statusbar
 c.statusbar.hide = False
