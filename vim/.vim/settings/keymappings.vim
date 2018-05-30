@@ -37,12 +37,6 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 " clear trailing whitespaces
 nnoremap <leader>stw :call StripTrailingWhitespace()<cr>
 
-" insert <cr> after and before current line
-nnoremap <leader>o mzo<esc>0D`z
-nnoremap <leader>O mzO<esc>0D`z
-inoremap <c-j> <esc>mzo<esc>0D`za
-inoremap <c-k> <esc>mzO<esc>0D`za
-
 nnoremap \ ,
 
 nnoremap <leader>gs :Gstatus<cr>
@@ -54,6 +48,5 @@ vnoremap <leader>sw :call SearchVisual()<cr>
 
 " fzf.vim
 nnoremap <c-p> :FzfFiles<cr>
-nnoremap <leader>b :FzfBuffers<cr>
 nnoremap <leader>f :FzfTags<cr>
 nnoremap <leader>m :FzfHistory<cr>
