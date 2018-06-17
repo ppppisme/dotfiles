@@ -82,6 +82,9 @@ alias ack="ack --ignore-file=is:tags --pager 'less -r'"
 
 alias vim="nvim"
 
+# Misc
+alias wt="curl wttr.in/omsk"
+
 WORDCHARS='*?[]~=&;!#$%^(){}<>'
 
 # Plugins section
