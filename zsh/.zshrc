@@ -122,7 +122,6 @@ function br {
     return
   fi
 
-  echo 'Trying alternative way of changing brightness'
   max_brightness=`head -1 /sys/class/backlight/intel_backlight/max_brightness`
   sudo tee /sys/class/backlight/intel_backlight/brightness <<< $(( $max_brightness / 100 * $1 )) > /dev/null
 }
