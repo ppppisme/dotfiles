@@ -35,7 +35,7 @@ function minimal_vim_running()
 {
   # If vim is running in background -- show indicator.
   if [[ $(jobs | grep -E 'nvim|vim|vi') ]]; then
-    echo "%{$fg_bold[yellow]%}vim%{$reset_color%}"
+    echo "%F{15}:: vim% %f"
     exit
   fi
 
