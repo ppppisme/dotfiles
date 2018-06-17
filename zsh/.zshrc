@@ -94,4 +94,9 @@ function up {
   eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant up && vagrant ssh"
 }
 
+# Brightness
+function br {
+  xbacklight -set $1
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
