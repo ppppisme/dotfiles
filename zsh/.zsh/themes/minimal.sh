@@ -31,9 +31,9 @@ function minimal_git_branch()
   echo "%F{15}$gitbranch% %f"
 }
 
+# If vim is running in background -- show indicator.
 function minimal_vim_running()
 {
-  # If vim is running in background -- show indicator.
   if [[ $(jobs | grep -E 'nvim|vim|vi') ]]; then
     echo "%F{15}:: vim% %f"
     exit
