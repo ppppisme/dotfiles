@@ -1,10 +1,6 @@
 set background=dark
 colorscheme gruvoff
 
-if !has('nvim')
-  set t_Co=256
-end
-
 if has("gui_running")
   set guioptions-=T
   set guioptions-=m
@@ -30,7 +26,6 @@ set cindent
 set copyindent
 
 set backspace=indent,eol,start
-set path+=**
 set colorcolumn=80
 set ignorecase
 set hlsearch
@@ -40,12 +35,10 @@ set visualbell t_vb=
 set showmatch
 set wildmode=list:longest
 set autoread
-set whichwrap=<,>,[,],h,l
 set autowrite
 set encoding=utf8
 set termencoding=utf8
 set fileencodings=utf8
-set showcmd
 set showmode
 set undolevels=1024
 set virtualedit=all

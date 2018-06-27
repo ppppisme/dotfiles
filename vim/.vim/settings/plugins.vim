@@ -1,8 +1,8 @@
 " install Plug if missing. taken from here:
 " https://www.reddit.com/r/vim/comments/54spzr/vim_config_portability/d84o661
-let pluginstall=system("[ -e ~/.vim/autoload/plug.vim ] ; echo $?")
+let pluginstall = system("[ -e ~/.vim/autoload/plug.vim ] ; echo $?")
 if pluginstall != 0
-  let temp=system("curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+  let temp = system("curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
   so ~/.vim/autoload/plug.vim
 endif
@@ -73,8 +73,8 @@ let g:fzf_colors =
 function! s:fzf_statusline()
   " Override statusline as you like
   setlocal statusline=%#TermCursor#
-  setlocal statusline+=\ \ \ \ fzf\ 
-  setlocal statusline+=%#SignColumn#
+  setlocal statusline+=\ fzf\ 
+  setlocal statusline+=%#StatusLine#
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
