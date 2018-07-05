@@ -93,7 +93,7 @@ theme.bg_urgent  = colors.background
 -- }}}
 
 -- {{{ Borders
-theme.useless_gap   = dpi(20)
+theme.useless_gap   = dpi(10)
 theme.border_width  = dpi(0)
 theme.border_normal = "#504945"
 theme.border_focus  = "#a89984"
