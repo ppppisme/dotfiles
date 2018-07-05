@@ -499,8 +499,15 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- Rounded corners
-client.connect_signal("manage",
-  function(c)
+client.connect_signal("manage", function(c)
     c.shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, beautiful.border_radius) end
+  end)
+
+client.connect_signal("property::fullscreen", function(c) -- luacheck: globals client
+    if c.fullscreen then
+      c.shape = function(cr, w, h) gears.shape.rectangle(cr, w, h, beautiful.border_radius) end
+    else
+      c.shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, beautiful.border_radius) end
+    end
   end)
 -- }}}
