@@ -103,10 +103,10 @@ theme.border_radius = dpi(6)
 
 -- {{{ Titlebars
 theme.titlebar_font      = font .. " bold italic "  .. (font_size + dpi(0.2))
-theme.titlebar_fg_focus  = "#3c3836"
-theme.titlebar_bg_focus  = "#a89984"
-theme.titlebar_fg_normal = "#7c6f64"
-theme.titlebar_bg_normal = "#504945"
+theme.titlebar_fg_focus  = "#7c6f64"
+theme.titlebar_bg_focus  = "#282828"
+theme.titlebar_fg_normal = "#504945"
+theme.titlebar_bg_normal = "#282828"
 -- }}}
 
 -- There are other variable sets
