@@ -70,6 +70,7 @@ local colors = {
 }
 
 local font = "hack"
+local font_size = 8
 
 -- {{{ Main
 local theme = {}
@@ -80,7 +81,7 @@ theme.wallpaper = theme_path .. '/bg.jpg'
 -- }}}
 
 -- {{{ Styles
-theme.font       = font .. " " .. (12 + dpi(0.2))
+theme.font       = font .. " " .. (font_size + dpi(0.2))
 
 -- {{{ Colors
 theme.fg_normal  = colors.text
@@ -93,15 +94,15 @@ theme.bg_urgent  = colors.background
 
 -- {{{ Borders
 theme.useless_gap   = dpi(20)
-theme.border_width  = dpi(4)
+theme.border_width  = dpi(0)
 theme.border_normal = "#504945"
 theme.border_focus  = "#a89984"
 theme.border_marked = "#292d2e"
-theme.border_radius = dpi(3)
+theme.border_radius = dpi(6)
 -- }}}
 
 -- {{{ Titlebars
-theme.titlebar_font      = font .. " bold italic "  .. (12 + dpi(0.2))
+theme.titlebar_font      = font .. " bold italic "  .. (font_size + dpi(0.2))
 theme.titlebar_fg_focus  = "#3c3836"
 theme.titlebar_bg_focus  = "#a89984"
 theme.titlebar_fg_normal = "#7c6f64"
@@ -144,7 +145,7 @@ theme.menu_width     = dpi(100)
 
 -- {{{ Notifications
 theme.notification_width    = dpi(250)
-theme.notification_font     = font .. " italic " .. (13 + dpi(0.2))
+theme.notification_font     = font .. " italic " .. (font_size + 1 + dpi(0.2))
 theme.notification_margin   = dpi(2)
 theme.notification_fg       = "#3c3836"
 theme.notification_bg       = "#bdae93"
@@ -169,8 +170,8 @@ theme.taglist_spacing = dpi(10)
 
 -- {{{ Tasklist
 theme.tasklist_bg_focus = colors.background
-theme.tasklist_font = font .. " italic "  .. (12 + dpi(0.2))
-theme.tasklist_font_focus = font .. " bold italic "  .. (12 + dpi(0.2))
+theme.tasklist_font = font .. " italic "  .. (font_size + dpi(0.2))
+theme.tasklist_font_focus = font .. " bold italic "  .. (font_size + dpi(0.2))
 theme.tasklist_disable_icon = true
 -- }}}
 

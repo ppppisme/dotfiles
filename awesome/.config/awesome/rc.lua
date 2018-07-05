@@ -13,6 +13,12 @@ librarian.init({
     libraries_dir = "libraries/",
   })
 
+librarian.require("vladgor/awesome-fuzzy", {
+    do_after = function(fuzzy)
+      fuzzy.init()
+    end
+  })
+
 -- Add a tittlebar only to floating clients.
 librarian.require_async("vladgor/awesome-floatbar", {
     do_after = function(floatbar)
@@ -387,7 +393,8 @@ root.keys(globalkeys)
 awful.rules.rules = {
   -- All clients will match this rule.
   { rule = { },
-    properties = { border_width = beautiful.border_width,
+    properties = { 
+      border_width = beautiful.border_width,
       border_color = beautiful.border_normal,
       focus = awful.client.focus.filter,
       raise = true,
