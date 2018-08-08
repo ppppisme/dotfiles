@@ -93,8 +93,16 @@ WORDCHARS='*?[]~=&;!#$%^(){}<>'
 # Must be at the end of this file
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+function go {
+  eval "cd ~/src/work/$1/drupal"
+}
+
 function up {
-  eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant up && vagrant ssh"
+  eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant up && vagrant ssh -c 'sudo systemctl restart nginx'"
+}
+
+function down {
+  eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant halt"
 }
 
 # Brightness
