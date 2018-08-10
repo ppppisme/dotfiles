@@ -246,7 +246,6 @@ end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
-
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
   set_wallpaper(s)
@@ -286,6 +285,15 @@ awful.screen.connect_for_each_screen(function(s)
   }, {12, 5}))
 end)
 -- }}}
+
+local function unminimize_on_current_tag()
+  local t = awful.screen.focused().selected_tag
+  if not t then return end
+
+  for _, client in pairs(t:clients()) do
+    client.minimized = false
+  end
+end
 
 -- {{{ Key bindings
 local globalkeys = gears.table.join(
@@ -350,6 +358,8 @@ local globalkeys = gears.table.join(
     {description = "lock screen", group = "layout"}),
   awful.key({ modkey            }, "c", function () librarian.update_all()                  end,
     {description = "lock screen", group = "layout"}),
+  awful.key({ modkey            }, "m", function () unminimize_on_current_tag()             end,
+    {description = "uniminize all clients on current tag", group = "layout"}),
 
 -- Menubar
   awful.key({ modkey }, "d", function() menubar.show() end,
