@@ -87,18 +87,15 @@ alias wt="curl wttr.in/omsk"
 
 WORDCHARS='*?[]~=&;!#$%^(){}<>'
 
-# Plugins section
-
-# Syntax higlighting
-# Must be at the end of this file
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 function go {
   eval "cd ~/src/work/$1/drupal"
 }
 
 function up {
-  eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant up && vagrant ssh -c 'sudo systemctl restart nginx'"
+  cd_command="cd /var/www/drupalvm/drupal/docroot 2> /dev/null || cd /var/www/drupalvm/drupal/web 2> /dev/null || cd /var/www/drupalvm/drupal 2> /dev/null"
+  ssh_command="sudo systemctl restart nginx && $cd_command && /bin/bash"
+
+  eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant up && vagrant ssh -c '$ssh_command'"
 }
 
 function down {
