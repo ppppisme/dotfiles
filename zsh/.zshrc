@@ -88,7 +88,7 @@ alias wt="curl wttr.in/omsk"
 WORDCHARS='*?[]~=&;!#$%^(){}<>'
 
 function go {
-  eval "cd ~/src/work/$1/drupal"
+  eval "cd ~/src/work/$1/drupal/docroot 2> /dev/null || cd ~/src/work/$1/drupal/web 2> /dev/null || cd ~/src/work/$1/drupal 2> /dev/null"
 }
 
 function up {
