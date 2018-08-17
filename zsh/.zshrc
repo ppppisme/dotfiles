@@ -67,15 +67,19 @@ alias work='vim ~/var/notes/work -c "cd ~/var/notes/work/" -c "FzfFiles"'
 
 # Git aliases
 alias gs='git status'
-alias ga='git add .'
-alias gu='git add -u'
 alias gc='git commit'
+alias gca='git commit --amend'
 alias gco='git checkout'
 alias gm='git merge'
 alias gl='git log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n""          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)" --all'
 alias gd='git diff --color=always | less -r'
 alias gd~='git diff HEAD~ --color=always | less -r'
+alias gp='git pull --ff-only'
 alias nah="git reset --hard && git clean -df"
+
+function gdh {
+  git diff $1 HEAD
+}
 
 # Ack aliases
 alias ack="ack --ignore-file=is:tags --pager 'less -r'"
