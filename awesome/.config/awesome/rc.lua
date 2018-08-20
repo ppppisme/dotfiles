@@ -6,17 +6,13 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 
+local config_dir = gears.filesystem.get_configuration_dir()
+
 -- Custom libraries
 local librarian = require("librarian")
 librarian.init({
     verbose = true,
-    libraries_dir = "libraries/",
-  })
-
-librarian.require("vladgor/awesome-fuzzy", {
-    do_after = function(fuzzy)
-      fuzzy.init()
-    end
+    libraries_dir = config_dir .. "/libraries/",
   })
 
 -- Add a tittlebar only to floating clients.
@@ -102,7 +98,6 @@ do
 end
 -- }}}
 
-local config_dir = gears.filesystem.get_configuration_dir()
 awful.spawn.with_shell(config_dir .. "autorun.sh")
 
 -- {{{ Variable definitions
