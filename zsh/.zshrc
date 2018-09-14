@@ -92,18 +92,45 @@ alias wt="curl wttr.in/omsk"
 WORDCHARS='*?[]~=&;!#$%^(){}<>'
 
 function go {
-  eval "cd ~/src/work/$1/drupal/docroot 2> /dev/null || cd ~/src/work/$1/drupal/web 2> /dev/null || cd ~/src/work/$1/drupal 2> /dev/null"
+  eval "cd ~/src/work/$1/drupal/docroot 2> /dev/null || cd ~/src/work/$1/drupal/web 2> /dev/null || cd ~/src/work/$1/drupal 2> /dev/null || cd ~/src/work/$1"
 }
 
 function up {
-  cd_command="cd /var/www/drupalvm/drupal/docroot 2> /dev/null || cd /var/www/drupalvm/drupal/web 2> /dev/null || cd /var/www/drupalvm/drupal 2> /dev/null"
-  ssh_command="sudo systemctl restart nginx && $cd_command && /bin/bash"
+  current_dir=`pwd`
+  cd ~/src/work/$1
 
-  eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant up && vagrant ssh -c '$ssh_command'"
+  if [ -f ".lando.yml" ]; then
+    lando start
+
+    return
+  fi
+
+  if [ -f "Vagrantfile" ]; then
+    cd_command="cd /var/www/drupalvm/drupal/docroot 2> /dev/null || cd /var/www/drupalvm/drupal/web 2> /dev/null || cd /var/www/drupalvm/drupal 2> /dev/null"
+    ssh_command="sudo systemctl restart nginx && $cd_command && /bin/bash"
+
+    eval "nohup sudo -i > /dev/null && vagrant up && vagrant ssh -c '$ssh_command'"
+
+    return
+  fi
+
+  cd `pwd`
 }
 
 function down {
-  eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant halt"
+  cd ~/src/work/$1
+
+  if [ -f "Vagrantfile" ]; then
+    eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant halt"
+
+    return
+  fi
+
+  if [ -f ".lando.yml" ]; then
+    lando stop
+
+    return
+  fi
 }
 
 # Brightness
