@@ -15,7 +15,7 @@ librarian.init({
 
 librarian.require("vladgor/awesome-fuzzy", {
     do_after = function(fuzzy)
-      fuzzy.init()
+      -- fuzzy.init()
     end
   })
 
@@ -42,12 +42,16 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
           }
         },
         { name = "5", layout = awful.layout.suit.tile, keybinding = "5", },
-        { name = "6", layout = awful.layout.suit.tile, keybinding = "6", },
+        { name = "6", layout = awful.layout.suit.floating, keybinding = "6",
+          clients = {
+            class = { "steam.exe", "Wine", "Lutris", "Steam" },
+          },
+        },
         { name = "7", layout = awful.layout.suit.tile, keybinding = "7", },
         { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
         { name = "9", layout = awful.layout.suit.max, keybinding = "9",
           clients = {
-            class = { "Slack", "TelegramDesktop", "Skype" }
+            class = { "Slack", "TelegramDesktop", "Skype", "discord" },
           },
         },
       },
@@ -62,7 +66,7 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
         { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
         { name = "9", layout = awful.layout.suit.max, keybinding = "9",
           clients = {
-            class = { "Slack", "TelegramDesktop", "Skype" }
+            class = { "Slack", "TelegramDesktop", "Skype", "discord" }
           },
         },
       },
