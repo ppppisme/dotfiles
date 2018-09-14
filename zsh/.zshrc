@@ -67,15 +67,19 @@ alias work='vim ~/var/notes/work -c "cd ~/var/notes/work/" -c "FzfFiles"'
 
 # Git aliases
 alias gs='git status'
-alias ga='git add .'
-alias gu='git add -u'
 alias gc='git commit'
+alias gca='git commit --amend'
 alias gco='git checkout'
 alias gm='git merge'
 alias gl='git log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n""          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)" --all'
 alias gd='git diff --color=always | less -r'
 alias gd~='git diff HEAD~ --color=always | less -r'
+alias gp='git pull --ff-only'
 alias nah="git reset --hard && git clean -df"
+
+function gdh {
+  git diff $1 HEAD
+}
 
 # Ack aliases
 alias ack="ack --ignore-file=is:tags --pager 'less -r'"
@@ -88,18 +92,45 @@ alias wt="curl wttr.in/omsk"
 WORDCHARS='*?[]~=&;!#$%^(){}<>'
 
 function go {
-  eval "cd ~/src/work/$1/drupal/docroot 2> /dev/null || cd ~/src/work/$1/drupal/web 2> /dev/null || cd ~/src/work/$1/drupal 2> /dev/null"
+  eval "cd ~/src/work/$1/drupal/docroot 2> /dev/null || cd ~/src/work/$1/drupal/web 2> /dev/null || cd ~/src/work/$1/drupal 2> /dev/null || cd ~/src/work/$1"
 }
 
 function up {
-  cd_command="cd /var/www/drupalvm/drupal/docroot 2> /dev/null || cd /var/www/drupalvm/drupal/web 2> /dev/null || cd /var/www/drupalvm/drupal 2> /dev/null"
-  ssh_command="sudo systemctl restart nginx && $cd_command && /bin/bash"
+  current_dir=`pwd`
+  cd ~/src/work/$1
 
-  eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant up && vagrant ssh -c '$ssh_command'"
+  if [ -f ".lando.yml" ]; then
+    lando start
+
+    return
+  fi
+
+  if [ -f "Vagrantfile" ]; then
+    cd_command="cd /var/www/drupalvm/drupal/docroot 2> /dev/null || cd /var/www/drupalvm/drupal/web 2> /dev/null || cd /var/www/drupalvm/drupal 2> /dev/null"
+    ssh_command="sudo systemctl restart nginx && $cd_command && /bin/bash"
+
+    eval "nohup sudo -i > /dev/null && vagrant up && vagrant ssh -c '$ssh_command'"
+
+    return
+  fi
+
+  cd `pwd`
 }
 
 function down {
-  eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant halt"
+  cd ~/src/work/$1
+
+  if [ -f "Vagrantfile" ]; then
+    eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant halt"
+
+    return
+  fi
+
+  if [ -f ".lando.yml" ]; then
+    lando stop
+
+    return
+  fi
 }
 
 # Brightness

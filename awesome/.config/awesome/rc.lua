@@ -6,6 +6,8 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 
+local config_dir = gears.filesystem.get_configuration_dir()
+
 -- Custom libraries
 local librarian = require("librarian")
 librarian.init({
@@ -106,7 +108,6 @@ do
 end
 -- }}}
 
-local config_dir = gears.filesystem.get_configuration_dir()
 awful.spawn.with_shell(config_dir .. "autorun.sh")
 
 -- {{{ Variable definitions
