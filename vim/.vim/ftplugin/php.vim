@@ -1,6 +1,12 @@
 let g:phpactorInitialCwd=FindProject('.git')
-nnoremap g] :call phpactor#GotoDefinition()<cr>
+nnoremap <buffer> g] :call phpactor#GotoDefinition()<cr>
 autocmd FileType php setlocal omnifunc=phpactor#Complete
+
+let g:ale_fixers = {
+      \   'php': [
+      \       'php_cs_fixer',
+      \   ],
+      \}
 
 let g:ale_php_phpmd_executable = 'phpmd'
 let g:ale_php_phpmd_ruleset = 'unusedcode,cleancode,codesize'
