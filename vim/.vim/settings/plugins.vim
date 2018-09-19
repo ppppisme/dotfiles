@@ -31,6 +31,9 @@ call plug#begin('~/.vim/plugged')
   " language support
   Plug 'sheerun/vim-polyglot'
 
+  " php
+  Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+
   " project
   Plug 'vladgor/vim-project-finder'
 
@@ -57,7 +60,7 @@ let g:gitgutter_sign_column_always = '|'
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_layout = { 'down': '~25%' }
 let g:fzf_colors =
-      \ { 'fg':      ['fg', 'Normal'],
+      \ {'fg':     ['fg', 'Normal'],
       \ 'bg':      ['bg', 'Normal'],
       \ 'hl':      ['fg', 'Comment'],
       \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
