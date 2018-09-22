@@ -1,165 +1,44 @@
-export EDITOR=nvim
-export TERMINAL=termite
-export PATH=/home/pppp/.bin/:$PATH
-export PATH=$PATH:/home/pppp/.gem/ruby/2.4.0/bin/
-export PATH=$PATH:/home/pppp/.config/composer/vendor/bin/
+[ -f ~/.zsh/local.sh ] && source ~/.zsh/local.sh || source ~/.zsh/local.default.sh
 
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
-setopt notify
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
-setopt hist_reduce_blanks
-setopt extended_history
-unsetopt appendhistory beep
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/vladgor/.zshrc'
-
+# init completion engine
 autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+compinit -i -d "~/.zsh/tmp/"
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+setopt list_rows_first
 
-bindkey -v
+# keys
+WORDCHARS='*?[]~=&;!#$%^(){}<>'
 export KEYTIMEOUT=1
+bindkey -v
 
-# Use vim cli mode
 bindkey '^P' up-history
 bindkey '^N' down-history
-#
-# # backspace and ^h working even after
-# # returning from command mode
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-#
-# # ctrl-w removed word backwards
 bindkey '^w' backward-kill-word
-# # ctrl-r starts searching history backward
 bindkey '^r' history-incremental-search-backward
-
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
-# No cd anymore
-setopt autocd
+HISTFILE=~/.zsh/tmp/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
 
-setopt extended_glob
-
-setopt interactive_comments
-
-# Tab-completion from both ends of word
 setopt completeinword
-
-# One history for all open shells
-setopt sharehistory
+setopt always_to_end
+setopt menu_complete
 setopt extendedhistory
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+unsetopt beep
+unsetopt no_hup
+unsetopt flow_control
 
-# Customized shell prompt
+# theme
 source ~/.zsh/themes/minimal.sh
 
-# Alias section
-alias ll='ls -lAh'
-alias l='ls'
-alias notes='vim ~/var/notes/ -c "cd ~/var/notes/" -c "FzfFiles"'
-alias work='vim ~/var/notes/work -c "cd ~/var/notes/work/" -c "FzfFiles"'
-
-# Git aliases
-alias gs='git status'
-alias gc='git commit'
-alias gca='git commit --amend'
-alias gco='git checkout'
-alias gm='git merge'
-alias gl='git log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n""          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)" --all'
-alias gd='git diff --color=always | less -r'
-alias gd~='git diff HEAD~ --color=always | less -r'
-alias gp='git pull --ff-only'
-alias nah="git reset --hard && git clean -df"
-
-function gdh {
-  git diff $1 HEAD
-}
-
-# Ack aliases
-alias ack="ack --ignore-file=is:tags --pager 'less -r'"
-
-alias vim="nvim"
-
-# Misc
-alias wt="curl wttr.in/omsk"
-
-WORDCHARS='*?[]~=&;!#$%^(){}<>'
-
-function go {
-  eval "cd ~/src/work/$1/drupal/docroot 2> /dev/null || cd ~/src/work/$1/drupal/web 2> /dev/null || cd ~/src/work/$1/drupal 2> /dev/null || cd ~/src/work/$1"
-}
-
-function up {
-  current_dir=`pwd`
-  cd ~/src/work/$1
-
-  if [ -f ".lando.yml" ]; then
-    lando start
-
-    return
-  fi
-
-  if [ -f "Vagrantfile" ]; then
-    cd_command="cd /var/www/drupalvm/drupal/docroot 2> /dev/null || cd /var/www/drupalvm/drupal/web 2> /dev/null || cd /var/www/drupalvm/drupal 2> /dev/null"
-    ssh_command="sudo systemctl restart nginx && $cd_command && /bin/bash"
-
-    eval "nohup sudo -i > /dev/null && vagrant up && vagrant ssh -c '$ssh_command'"
-
-    return
-  fi
-
-  cd `pwd`
-}
-
-function down {
-  cd ~/src/work/$1
-
-  if [ -f "Vagrantfile" ]; then
-    eval "nohup sudo -i > /dev/null && cd ~/src/work/$1 && vagrant halt"
-
-    return
-  fi
-
-  if [ -f ".lando.yml" ]; then
-    lando stop
-
-    return
-  fi
-}
-
-# Brightness
-function br {
-  if [ -z $1 ]; then
-    echo -e "\033[0;31mNo brightness level provided\033[0m"
-
-    return
-  fi
-
-  xbacklight -set $1 2> /dev/null
-
-  if [ $? -eq 0 ]; then
-    return
-  fi
-
-  if [ ! -f /sys/class/backlight/intel_backlight/brightness ]; then
-    echo -e "\033[0;31mFailed to change brightness\033[0m"
-
-    return
-  fi
-  if [ ! -f /sys/class/backlight/intel_backlight/max_brightness ]; then
-    echo -e "\033[0;31mFailed to change brightness\033[0m"
-
-    return
-  fi
-
-  max_brightness=`head -1 /sys/class/backlight/intel_backlight/max_brightness`
-  sudo tee /sys/class/backlight/intel_backlight/brightness <<< $(( $max_brightness / 100 * $1 )) > /dev/null
-}
+# includes
+source ~/.zsh/aliases.sh
+source ~/.zsh/functions.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
