@@ -65,6 +65,7 @@ theme = {
     'aqua':      palette['aqua'][theme_variation],
     'orange':    palette['orange'][theme_variation],
 }
+font_size = '8pt'
 
 c.colors.completion.fg = theme['fg']
 c.colors.completion.even.bg = theme['bg']
@@ -134,6 +135,20 @@ c.tabs.new_position.unrelated = 'last'
 c.tabs.padding: { 'bottom': 15, 'left': 5, 'right': 5, 'top': 15 }
 c.tabs.position = 'top'
 c.tabs.show = 'always'
+
+# Fonts
+c.fonts.monospace = 'Hack'
+c.fonts.completion.entry = font_size + ' monospace'
+c.fonts.completion.category = 'bold ' + font_size + ' monospace'
+c.fonts.downloads = font_size + ' monospace'
+c.fonts.hints = 'bold ' + font_size + ' monospace'
+c.fonts.keyhint = font_size + ' monospace'
+c.fonts.messages.error = font_size + ' monospace'
+c.fonts.messages.info = font_size + ' monospace'
+c.fonts.messages.warning = font_size + ' monospace'
+c.fonts.prompts = font_size + ' monospace'
+c.fonts.statusbar = font_size + ' monospace'
+c.fonts.tabs = font_size + ' monospace'
 
 # Misc
 c.zoom.default = '110%'
