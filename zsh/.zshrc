@@ -2,7 +2,7 @@
 
 # init completion engine
 autoload -Uz compinit
-compinit -i -d "~/.zsh/tmp/"
+compinit -d ~/.zsh/tmp/completion-cache
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt list_rows_first
@@ -19,7 +19,7 @@ bindkey '^r' history-incremental-search-backward
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
-HISTFILE=~/.zsh/tmp/.histfile
+HISTFILE=~/.zsh/tmp/history
 HISTSIZE=10000
 SAVEHIST=10000
 

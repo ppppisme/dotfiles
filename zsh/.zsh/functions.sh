@@ -1,5 +1,5 @@
 # Go to project
-# TODO: 
+# TODO:
 # * check different folders and go to the first occurence
 # * add autocompletion
 function go {
