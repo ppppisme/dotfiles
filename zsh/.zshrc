@@ -1,10 +1,17 @@
 [ -f ~/.zsh/local.sh ] && source ~/.zsh/local.sh || source ~/.zsh/local.default.sh
 
+GOTO_DIRS=( \
+  "$HOME/src/work" \
+  "$HOME/mnt/media/music/library"
+)
+
 # init completion engine
+fpath=(~/.zsh/fpath $fpath)
+
 autoload -Uz compinit
 compinit -d ~/.zsh/tmp/completion-cache
 zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# zstyle ':completion:*' matcher-list 'r:|?=** m:{a-z\-}={A-Z\_}'
 setopt list_rows_first
 
 # keys

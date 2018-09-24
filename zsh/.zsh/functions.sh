@@ -2,8 +2,10 @@
 # TODO:
 # * check different folders and go to the first occurence
 # * add autocompletion
-function go {
-  cd ~/src/work/$1
+function goto {
+  for dir in $GOTO_DIRS; do
+    cd "$dir/$1" 2> /dev/null && return
+  done
 }
 
 # Adjust brightness
