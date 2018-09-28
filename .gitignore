@@ -17,4 +17,5 @@ qutebrowser/.config/qutebrowser/
 fonts/.fonts/.uuid
 
 zsh/.zsh/local.sh
-zsh/.zsh/tmp
+zsh/.zsh/tmp/*
+!zsh/.zsh/tmp/.gitkeep
