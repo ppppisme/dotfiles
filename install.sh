@@ -28,7 +28,8 @@ $installer tor
 $installer audacity helm lmms supercollider
 
 # browsers
-$installer qutebrowser chromium firefox
+$installer qutebrowser
+$installer chromium firefox
 
 # communication
 $installer weechat telegram-desktop
