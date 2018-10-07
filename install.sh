@@ -1,23 +1,40 @@
 #!/bin/bash
 
-# Applicable for arch linux only.
+installer="sudo pacman -S"
 
-installer="sudo pacman"
+# base
+$installer awesome neovim git stow zsh xclip xorg-xinit
 
-$installer -S awesome
-$installer -S neovim
-$installer -S termite
-$installer -S zsh
+# development
+$installer ack ctags dbeaver zeal
 
-# vim
-stow vim
-mkdir ~/.vim/{backup,swap,undo}
+# graphics
+$installer feh gimp inkscape scrot
+
+# gaming
+$installer nvidia steam steam-native-runtime lutris
+
+# sound
+$installer alsa-utils pavucontrol pulseaudio-alsa
+
+# video
+$installer mpv youtube-dl
+$installer kdenlive obs
+
+# privacy
+$installer tor
+
+# music
+$installer audacity helm lmms supercollider
+
+# browsers
+$installer qutebrowser chromium firefox
+
+# communication
+$installer weechat telegram-desktop
+
+# appearance
+$installer compton lxappearance materia-gtk-theme
 
 # misc
-$installer -S alsa-utils
-$installer -S pavucontrol
-$installer -S acpi
-$installer -S xclip
-$installer -S feh
-
-$installer -S materia-gtk-theme
+$installer acpi deluge sshfs htop physlock redshift unzip ranger
