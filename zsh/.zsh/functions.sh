@@ -46,3 +46,7 @@ function up {
   $TERMINAL -e $SHELL -c "gulp" & disown
   $TERMINAL -e $SHELL -c "php -S localhost:8000 -t ./public" & disown
 }
+
+function play {
+  mpv --no-vid --volume $1 --gapless-audio "$2"
+}
