@@ -24,6 +24,10 @@ $installer kdenlive obs
 # privacy
 $installer tor
 
+# documents
+$installer zathura
+$installer libreoffice
+
 # music
 $installer audacity helm lmms supercollider
 
