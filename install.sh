@@ -9,7 +9,9 @@ $installer awesome neovim git stow zsh xclip xorg-xinit
 $installer ack ctags dbeaver zeal
 
 # graphics
-$installer feh gimp inkscape scrot
+$installer feh
+$installer sxiv
+$installer gimp inkscape scrot
 
 # gaming
 $installer nvidia steam steam-native-runtime lutris
@@ -19,6 +21,7 @@ $installer alsa-utils pavucontrol pulseaudio-alsa
 
 # video
 $installer mpv youtube-dl
+$installer mpsyt
 $installer kdenlive obs
 
 # privacy
@@ -29,7 +32,10 @@ $installer zathura
 $installer libreoffice
 
 # music
-$installer audacity helm lmms supercollider
+$installer lmms
+$installer helm
+$installer supercollider
+$installer audacity
 
 # browsers
 $installer qutebrowser
