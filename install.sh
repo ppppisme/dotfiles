@@ -21,7 +21,7 @@ $installer alsa-utils pavucontrol pulseaudio-alsa
 
 # video
 $installer mpv youtube-dl
-$installer mpsyt
+$installer mps-youtube
 $installer kdenlive obs
 
 # privacy
