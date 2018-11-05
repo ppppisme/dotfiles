@@ -1,4 +1,7 @@
-# Vim
+# trick myself
+alias feh=sxiv
+
+# vim
 alias vim="nvim"
 alias notes='vim ~/var/notes/ -c "cd ~/var/notes/" -c "FzfFiles"'
 alias work='vim ~/var/notes/work -c "cd ~/var/notes/work/" -c "FzfFiles"'
