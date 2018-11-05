@@ -22,7 +22,7 @@ librarian.require_async("ppppisme/fuzzy", {
     do_after = function(fuzzy)
       fuzzy.init {}
 
-      local source = require("fuzzy.source.app")
+      local source = require("fuzzy.source.path")
       local launcher = require("fuzzy.launcher.run")
       launcher.init { terminal = terminal }
 
@@ -89,7 +89,11 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
       { -- 2nd screen
         { name = "1", layout = awful.layout.suit.tile, keybinding = "1", },
         { name = "5", layout = awful.layout.suit.tile, keybinding = "5", },
-        { name = "6", layout = awful.layout.suit.tile, keybinding = "6", },
+        { name = "6", layout = awful.layout.suit.floating, keybinding = "6",
+          clients = {
+            class = { "steam.exe", "Wine", "Lutris", "Steam" },
+          },
+        },
       },
     },
   }
@@ -161,31 +165,6 @@ local taglist_buttons = gears.table.join(
   end),
   awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
   awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
-)
-
-local tasklist_buttons = gears.table.join(
-  awful.button({ }, 1, function (c)
-    if c == client.focus then -- luacheck: globals client
-      c.minimized = true
-    else
-      -- Without this, the following
-      -- :isvisible() makes no sense
-      c.minimized = false
-      if not c:isvisible() and c.first_tag then
-        c.first_tag:view_only()
-      end
-      -- This will also un-minimize
-      -- the client, if needed
-      client.focus = c -- luacheck: globals client
-      c:raise()
-    end
-  end),
-  awful.button({ }, 4, function ()
-    awful.client.focus.byidx(1)
-  end),
-  awful.button({ }, 5, function ()
-    awful.client.focus.byidx(-1)
-  end)
 )
 
 local function set_wallpaper(s)
@@ -265,8 +244,7 @@ awful.screen.connect_for_each_screen(function(s)
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
 
-  -- Create a tasklist widget
-  s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
+  s.systray = wibox.widget.systray()
 
   -- Create the wibox
   s.mywibox = awful.wibar({ position = "bottom", screen = s })
