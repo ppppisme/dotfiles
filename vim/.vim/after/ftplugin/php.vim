@@ -1,10 +1,7 @@
 let g:phpactorInitialCwd=FindProject('.git')
 nnoremap <buffer> g] :call phpactor#GotoDefinition()<cr>
 
-augroup PHP
-  autocmd!
-  autocmd FileType php setlocal omnifunc=phpactor#Complete
-augroup END
+setlocal omnifunc=phpactor#Complete
 
 let g:ale_fixers = {
       \   'php': [
