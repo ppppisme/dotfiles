@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Controller\{{++}};
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Routing\Annotation\Route;
+
+final class {{++}}Controller
+{
+    public function __construct({{++}})
+    {
+       {{++}}
+    }
+
+    /**
+     * @Route("/{{++}}", name="{{++}}")
+     * @Template()
+     */
+    public function __invoke({{++}})
+    {
+       {{++}}
+    }
+}
