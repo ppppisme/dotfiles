@@ -43,7 +43,7 @@ nnoremap <leader>ss :Search<cr>
 nnoremap <leader>sw :silent! grep! <cword> \| copen<CR><C-l>
 vnoremap <leader>sw :call SearchVisual()<cr>
 
-cnoremap ee e <C-r>=expand('%:h')<cr>/
+nnoremap <leader>e :e <C-r>=expand('%:h')<cr>/
 
 " fzf.vim
 nnoremap <c-p> :FzfFiles<cr>
