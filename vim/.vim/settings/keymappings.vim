@@ -4,9 +4,6 @@ nnoremap <silent> <C-j> <C-w>j
 nnoremap <silent> <C-h> <C-w>h
 nnoremap <silent> <C-l> <C-w>l
 
-" automatically indent pasted text
-nnoremap p pmz`[v`]=`z
-
 " break string in two
 nnoremap K i<cr><esc>k$l
 
@@ -45,6 +42,8 @@ nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>ss :Search<cr>
 nnoremap <leader>sw :silent! grep! <cword> \| copen<CR><C-l>
 vnoremap <leader>sw :call SearchVisual()<cr>
+
+cnoremap ee <C-r>=expand('%:h')<cr>/
 
 " fzf.vim
 nnoremap <c-p> :FzfFiles<cr>
