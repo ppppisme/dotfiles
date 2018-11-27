@@ -24,6 +24,7 @@ set autoindent
 set cpoptions+=I
 set cindent
 set copyindent
+set cinkeys=
 
 set backspace=indent,eol,start
 set colorcolumn=80
