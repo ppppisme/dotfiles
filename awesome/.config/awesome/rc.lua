@@ -23,12 +23,16 @@ librarian.require_async("ppppisme/fuzzy", {
       fuzzy.init {}
 
       local source = require("fuzzy.source.path")
+      local source2 = require("fuzzy.source.lutris")
       local launcher = require("fuzzy.launcher.run")
+      local launcher2 = require("fuzzy.launcher.lutris")
       launcher.init { terminal = terminal }
 
       root.keys(gears.table.join( -- luacheck: globals root
           root.keys(),  -- luacheck: globals root
           awful.key({ modkey }, "d", function () fuzzy.show({ source = source, launcher = launcher }) end,
+            {description = "toggle fuzzy window", group = "app"}),
+          awful.key({ modkey }, "s", function () fuzzy.show({ source = source2, launcher = launcher2 }) end,
             {description = "toggle fuzzy window", group = "app"})
           )
         )
@@ -61,13 +65,14 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
         { name = "6", layout = awful.layout.suit.floating, keybinding = "6",
           clients = {
             class = { "steam.exe", "Wine", "Lutris", "Steam" },
+            name = { "Steam" },
           },
         },
         { name = "7", layout = awful.layout.suit.tile, keybinding = "7", },
         { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
         { name = "9", layout = awful.layout.suit.max, keybinding = "9",
           clients = {
-            class = { "Slack", "TelegramDesktop", "Skype", "discord" },
+            class = { "TelegramDesktop", "Skype", "discord" },
           },
         },
       },
@@ -76,22 +81,23 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
       { -- 1st screen
         { name = "0", layout = awful.layout.suit.tile, keybinding = "0", },
         { name = "2", layout = awful.layout.suit.tile, keybinding = "2", },
-        { name = "3", layout = awful.layout.suit.tile, keybinding = "3", },
-        { name = "4", layout = awful.layout.suit.floating, keybinding = "4", },
         { name = "7", layout = awful.layout.suit.tile, keybinding = "7", },
         { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
         { name = "9", layout = awful.layout.suit.max, keybinding = "9",
           clients = {
-            class = { "Slack", "TelegramDesktop", "Skype", "discord" }
+            class = { "TelegramDesktop", "Skype", "discord" }
           },
         },
       },
       { -- 2nd screen
         { name = "1", layout = awful.layout.suit.tile, keybinding = "1", },
+        { name = "3", layout = awful.layout.suit.tile, keybinding = "3", },
+        { name = "4", layout = awful.layout.suit.floating, keybinding = "4", },
         { name = "5", layout = awful.layout.suit.tile, keybinding = "5", },
         { name = "6", layout = awful.layout.suit.floating, keybinding = "6",
           clients = {
             class = { "steam.exe", "Wine", "Lutris", "Steam" },
+            name = { "Steam" },
           },
         },
       },
@@ -258,10 +264,10 @@ awful.screen.connect_for_each_screen(function(s)
     layout = wibox.layout.align.horizontal,
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
-      wrap_widget(s.mylayoutbox, { 8, 10, }, background_color),
-      wrap_widget(s.mytaglist, { 5, 10 }, background_color),
-      wrap_widget(add_icon(mytextclock, "", 2), { 5, 10 }, background_color),
-      wrap_widget(add_icon(batterywidget, "", 10), { 5, 10 }, background_color),
+      wrap_widget(s.mylayoutbox, { 8, 12, }, background_color),
+      wrap_widget(s.mytaglist, { 8, 12 }, background_color),
+      wrap_widget(add_icon(mytextclock, "", 2), { 8, 12 }, background_color),
+      wrap_widget(add_icon(batterywidget, "", 10), { 8, 12 }, background_color),
     },
   }, {12, 5}))
 end)
@@ -323,7 +329,7 @@ local globalkeys = gears.table.join(
     {description = "increase master width factor", group = "layout"}),
   awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
     {description = "decrease master width factor", group = "layout"}),
-  awful.key({ modkey, "Shift"   }, "h",     function () awful.client.relative_move({ x = -5 }) end,
+  awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
     {description = "increase the number of master clients", group = "layout"}),
   awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
     {description = "decrease the number of master clients", group = "layout"}),
