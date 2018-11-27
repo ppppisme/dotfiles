@@ -1,5 +1,9 @@
 let g:phpactorInitialCwd=FindProject('.git')
-nnoremap <buffer> g] :call phpactor#GotoDefinition()<cr>
+
+nnoremap <buffer>g] :call phpactor#GotoDefinition()<cr>
+nnoremap <buffer><leader>rr :call phpactor#ContextMenu()<cr>
+nnoremap <buffer><leader>rt :call phpactor#Transform()<cr>
+vnoremap <buffer><leader>re :call phpactor#ExtractMethod()<cr>
 
 setlocal omnifunc=phpactor#Complete
 
