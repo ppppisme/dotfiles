@@ -24,4 +24,3 @@ function gdh {
 
 # Misc
 alias wt="curl wttr.in/omsk"
-
