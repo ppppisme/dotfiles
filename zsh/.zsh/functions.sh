@@ -48,5 +48,6 @@ function up {
 }
 
 function play {
-  mpv --no-vid --volume $1 --gapless-audio "$2"
+  [[ $2 ]] && volume=$2 || volume=50
+  mpv --no-vid --volume $volume --gapless-audio "$1"
 }
