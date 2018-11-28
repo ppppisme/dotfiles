@@ -28,9 +28,6 @@ call plug#begin('~/.vim/plugged')
   " debug
   Plug 'joonty/vdebug', { 'on': 'VdebugStart' }
 
-  " language support
-  Plug 'sheerun/vim-polyglot'
-
   " php
   Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
@@ -97,8 +94,3 @@ let g:ale_sign_warning = '>>'
 "---
 let g:vdebug_options = {}
 let g:vdebug_options['path_maps'] = {"/var/www/drupalvm/drupal/web": "/home/pppp/vagrant/adci/drupal/web"}
-
-"---
-" Polyglot
-"---
-let g:polyglot_disabled = ['yaml']
