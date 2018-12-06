@@ -28,7 +28,7 @@ $installer kdenlive obs
 $installer tor
 
 # documents
-$installer zathura
+$installer zathura zathura-pdf-poppler
 $installer libreoffice
 
 # music
