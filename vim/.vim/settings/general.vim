@@ -1,6 +1,10 @@
 set background=dark
 colorscheme gruvoff
 
+if has('nvim')
+  set guicursor=
+endif
+
 if has("gui_running")
   set guioptions-=T
   set guioptions-=m
