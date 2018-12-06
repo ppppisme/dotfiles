@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
 
   " git stuff
   Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
+  Plug 'mhinz/vim-signify'
 
   " snippets
   Plug 'joereynolds/vim-minisnip'
@@ -44,12 +44,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'vladgor/vim-gruvoff'
 call plug#end()
 
-let g:gitgutter_sign_added = '|'
-let g:gitgutter_sign_modified = '|'
-let g:gitgutter_sign_removed = '|'
-let g:gitgutter_sign_removed_first_line = '|'
-let g:gitgutter_sign_modified_removed = '|'
-let g:gitgutter_sign_column_always = '|'
+"---
+" signify
+"---
+let g:signify_vcs_list = ['git']
+let g:signify_sign_add = '|'
+let g:signify_sign_change = '|'
+let g:signify_sign_delete = '|'
+let g:signify_sign_changedelete = '|'
+let g:signify_sign_delete_first_line = '|'
 
 "---
 " fzf.vim
@@ -81,16 +84,17 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 
 "---
-" Ale
+" ale
 "---
 " wow it's cpu consuming, so check only on save
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
 let g:ale_sign_warning = '>>'
+let g:ale_fix_on_save = 1
 
 
 "---
-" Vdebug
+" vdebug
 "---
 let g:vdebug_options = {}
 let g:vdebug_options['path_maps'] = {"/var/www/drupalvm/drupal/web": "/home/pppp/vagrant/adci/drupal/web"}
