@@ -16,7 +16,7 @@ let b:twigMatchWords = [
             \ ['for', 'endfor'],
             \ ['macro', 'endmacro'],
             \ ['if', 'elseif', 'else', 'endif'],
-            \ ['set', 'endset']
+            \ ['set', 'endset'],
             \ ['embed', 'endembed']
             \]
 for s:element in b:twigMatchWords
@@ -31,8 +31,8 @@ for s:element in b:twigMatchWords
     let b:match_words .= ',' . s:pattern
 endfor
 
-if exists("b:did_ftplugin_twig")
-  let b:undo_ftplugin .= "|setlocal comments< formatoptions<"
-else
-  let b:undo_ftplugin = "setlocal comments< formatoptions<"
-endif
+" if exists("b:did_ftplugin_twig")
+"   let b:undo_ftplugin .= "|setlocal comments< formatoptions<"
+" else
+"   let b:undo_ftplugin = "setlocal comments< formatoptions<"
+" endif
