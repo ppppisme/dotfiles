@@ -106,3 +106,6 @@ endfunction
 
 autocmd BufEnter,FocusGained,VimEnter,WinEnter * call SetActiveStatusline()
 autocmd FocusLost,WinLeave * call SetBlurredStatusline()
+
+" highlight merge conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
