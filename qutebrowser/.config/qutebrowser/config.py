@@ -135,6 +135,7 @@ c.tabs.new_position.unrelated = 'last'
 c.tabs.padding: { 'bottom': 15, 'left': 5, 'right': 5, 'top': 15 }
 c.tabs.position = 'top'
 c.tabs.show = 'always'
+c.tabs.title.format = '{index}: {title}'
 
 # Fonts
 c.fonts.monospace = 'Hack'
