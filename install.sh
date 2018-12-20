@@ -33,7 +33,7 @@ $installer libreoffice
 
 # music
 $installer lmms
-$installer helm
+$installer helm dexed fabla
 $installer supercollider
 $installer audacity
 
