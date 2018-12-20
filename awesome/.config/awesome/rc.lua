@@ -72,7 +72,7 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
         { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
         { name = "9", layout = awful.layout.suit.max, keybinding = "9",
           clients = {
-            class = { "TelegramDesktop", "Skype", "discord" },
+            class = { "TelegramDesktop", "Skype", "discord", "Riot" },
           },
         },
       },
@@ -85,7 +85,7 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
         { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
         { name = "9", layout = awful.layout.suit.max, keybinding = "9",
           clients = {
-            class = { "TelegramDesktop", "Skype", "discord" }
+            class = { "TelegramDesktop", "Skype", "discord", "Riot" }
           },
         },
       },
@@ -96,7 +96,7 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
         { name = "5", layout = awful.layout.suit.tile, keybinding = "5", },
         { name = "6", layout = awful.layout.suit.floating, keybinding = "6",
           clients = {
-            class = { "steam.exe", "Wine", "Lutris", "Steam" },
+            class = { "steam.exe", "Wine", "Lutris", "Steam", "elitedangerous64.exe" },
             name = { "Steam" },
           },
         },
