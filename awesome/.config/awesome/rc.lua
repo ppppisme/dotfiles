@@ -3,6 +3,7 @@ local awful = require("awful")
 require("awful.autofocus")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
+local os = require("os")
 
 local config_dir = gears.filesystem.get_configuration_dir()
 
@@ -166,6 +167,14 @@ local function unminimize_on_current_tag()
   end
 end
 
+local function show_status()
+  local status_message = ":: " .. os.date('%X, %x') .. "\n"
+  awful.spawn.easy_async_with_shell('bash -c "acpi | cut -d, -f 2 | tr -d \'[:space:]\'"', function(stdout, _, _, _)
+    status_message = status_message .. ":: " .. stdout:gsub("%c$", "")
+    naughty.notify { text = status_message }
+  end)
+end
+
 -- {{{ Key bindings
 local globalkeys = gears.table.join(
   root.keys(), -- luacheck: globals root
@@ -229,9 +238,11 @@ local globalkeys = gears.table.join(
   awful.key({ modkey            }, "p", function () awful.spawn.with_shell('physlock')      end,
     {description = "lock screen", group = "layout"}),
   awful.key({ modkey            }, "c", function () librarian.update_all()                  end,
-    {description = "lock screen", group = "layout"}),
+    {description = "update all libraries", group = "librarian"}),
   awful.key({ modkey            }, "m", function () unminimize_on_current_tag()             end,
-    {description = "uniminize all clients on current tag", group = "layout"})
+    {description = "uniminize all clients on current tag", group = "client"}),
+  awful.key({ modkey            }, "n", function () show_status()                           end,
+    {description = "show current status", group = "awesome"})
 )
 
 -- Add i3wm-like navigation key bindings.
