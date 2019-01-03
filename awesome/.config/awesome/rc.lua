@@ -24,8 +24,10 @@ librarian.require_async("ppppisme/fuzzy", {
 
       local source = require("fuzzy.source.path")
       local source2 = require("fuzzy.source.lutris")
+      local source3 = require("fuzzy.source.client")
       local launcher = require("fuzzy.launcher.run")
       local launcher2 = require("fuzzy.launcher.lutris")
+      local launcher3 = require("fuzzy.launcher.client")
       launcher.init { terminal = terminal }
 
       root.keys(gears.table.join( -- luacheck: globals root
@@ -33,6 +35,8 @@ librarian.require_async("ppppisme/fuzzy", {
           awful.key({ modkey }, "d", function () fuzzy.show({ source = source, launcher = launcher }) end,
             {description = "toggle fuzzy window", group = "app"}),
           awful.key({ modkey }, "s", function () fuzzy.show({ source = source2, launcher = launcher2 }) end,
+            {description = "toggle fuzzy window", group = "app"}),
+          awful.key({ modkey }, "c", function () fuzzy.show({ source = source3, launcher = launcher3 }) end,
             {description = "toggle fuzzy window", group = "app"})
           )
         )
@@ -237,8 +241,6 @@ local globalkeys = gears.table.join(
 
   awful.key({ modkey            }, "p", function () awful.spawn.with_shell('physlock')      end,
     {description = "lock screen", group = "layout"}),
-  awful.key({ modkey            }, "c", function () librarian.update_all()                  end,
-    {description = "update all libraries", group = "librarian"}),
   awful.key({ modkey            }, "m", function () unminimize_on_current_tag()             end,
     {description = "uniminize all clients on current tag", group = "client"}),
   awful.key({ modkey            }, "n", function () show_status()                           end,
