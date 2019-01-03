@@ -99,18 +99,18 @@ theme.mouse_finder_color = "#fb4934"
 theme.menu_height    = dpi(15)
 theme.menu_width     = dpi(100)
 
-theme.notification_width    = dpi(250)
-theme.notification_font     = font .. " italic " .. (font_size + 1 + dpi(0.2))
+theme.notification_width    = dpi(200)
+theme.notification_font     = font .. " " .. font_size
 theme.notification_margin   = dpi(2)
-theme.notification_fg       = colors.background
-theme.notification_bg       = colors.text
+theme.notification_fg       = colors.text
+theme.notification_bg       = colors.background
 
 -- Unfortunately, I couldn't find the way to override these 2 settings via
 -- beautiful variable.
-naughty.config.presets.normal.border_width   = dpi(10)
-naughty.config.presets.normal.border_color   = colors.text
-naughty.config.presets.normal.margin         = dpi(5)
-naughty.config.presets.normal.icon_size      = dpi(64)
+naughty.config.presets.normal.border_width   = dpi(7)
+naughty.config.presets.normal.border_color   = colors.background
+naughty.config.presets.normal.margin         = dpi(10)
+naughty.config.presets.normal.icon_size      = 0
 -- }}}
 
 return theme
