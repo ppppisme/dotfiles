@@ -1,7 +1,6 @@
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
-local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 
@@ -39,12 +38,6 @@ librarian.require_async("ppppisme/fuzzy", {
     end
   })
 
--- Add a tittlebar only to floating clients.
-librarian.require_async("vladgor/awesome-floatbar", {
-    do_after = function(floatbar)
-      floatbar.init()
-    end,
-  })
 local tagged = librarian.require("vladgor/awesome-tagged")
 
 -- Init i3wm-like tags navigation.
@@ -141,37 +134,10 @@ beautiful.init(config_dir .. "themes/" .. theme  .. "/theme.lua")
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
   awful.layout.suit.tile,
-  awful.layout.suit.tile.left,
-  awful.layout.suit.tile.bottom,
-  awful.layout.suit.tile.top,
-  awful.layout.suit.spiral,
-  awful.layout.suit.spiral.dwindle,
   awful.layout.suit.floating,
   awful.layout.suit.max,
 }
 -- }}}
-
--- {{{ Wibar
--- Create a textclock widget
-local mytextclock = wibox.widget.textclock()
-
--- Create a wibox for each screen and add it
-local taglist_buttons = gears.table.join(
-  awful.button({ }, 1, function(t) t:view_only() end),
-  awful.button({ modkey }, 1, function(t)
-    if client.focus then -- luacheck: globals client
-      client.focus:move_to_tag(t) -- luacheck: globals client
-    end
-  end),
-  awful.button({ }, 3, awful.tag.viewtoggle),
-  awful.button({ modkey }, 3, function(t)
-    if client.focus then -- luacheck: globals client
-      client.focus:toggle_tag(t) -- luacheck: globals client
-    end
-  end),
-  awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-  awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
-)
 
 local function set_wallpaper(s)
   -- Wallpaper
@@ -186,92 +152,10 @@ local function set_wallpaper(s)
   end
 end
 
-local function wrap_widget(widget, margin, background)
-  local output = {
-    widget = wibox.container.margin,
-    widget,
-  }
-
-  output.top = margin[1] or 0
-  output.right = margin[2] or 0
-  output.bottom = margin[3] or output.top
-  output.left = margin[4] or output.right
-
-  if background then
-    output = {
-      widget = wibox.container.background,
-      bg = background,
-      output,
-    }
-
-    output = {
-      widget = wibox.container.margin,
-      left = 5,
-      right = 5,
-      output,
-    }
-  end
-
-  return output
-end
-
-local function add_icon(widget, icon, spacing)
-  return {
-    layout = wibox.layout.fixed.horizontal,
-    {
-      widget = wibox.container.margin,
-      right = spacing,
-      {
-        widget = wibox.widget.textbox,
-        markup = icon,
-        align  = 'center',
-        valign = 'center',
-      },
-    },
-    widget,
-  }
-end
-
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper) -- luacheck: globals screen
 awful.screen.connect_for_each_screen(function(s)
-  -- Wallpaper
   set_wallpaper(s)
-
-  -- Create an imagebox widget which will contain an icon indicating which layout we're using.
-  -- We need one layoutbox per screen.
-  s.mylayoutbox = awful.widget.layoutbox(s)
-  s.mylayoutbox:buttons(gears.table.join(
-      awful.button({ }, 1, function () awful.layout.inc( 1) end),
-      awful.button({ }, 3, function () awful.layout.inc(-1) end),
-      awful.button({ }, 4, function () awful.layout.inc( 1) end),
-    awful.button({ }, 5, function () awful.layout.inc(-1) end)))
-
-  -- Create a taglist widget
-  s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
-
-  s.systray = wibox.widget.systray()
-
-  -- Create the wibox
-  s.mywibox = awful.wibar({ position = "bottom", screen = s })
-
-  -- Create a batery widget
-  local batterywidget = awful.widget.watch('bash -c "acpi | cut -d, -f 2 | tr -d \'[:space:]\'"', 20)
-
-  -- Add widgets to the wibox
-  local background_color = beautiful.wibar_items_bg or nil
-  s.mywibox:setup(wrap_widget({
-    layout = wibox.layout.align.horizontal,
-    { -- Left widgets
-      layout = wibox.layout.fixed.horizontal,
-      wrap_widget(s.mylayoutbox, { 8, 12, }, background_color),
-      wrap_widget(s.mytaglist, { 8, 12 }, background_color),
-      wrap_widget(add_icon(mytextclock, "", 2), { 8, 12 }, background_color),
-      wrap_widget(add_icon(batterywidget, "", 10), { 8, 12 }, background_color),
-    },
-  }, {12, 5}))
 end)
--- }}}
 
 local function unminimize_on_current_tag()
   local t = awful.screen.focused().selected_tag
@@ -350,7 +234,6 @@ local globalkeys = gears.table.join(
     {description = "uniminize all clients on current tag", group = "layout"})
 )
 
-
 -- Add i3wm-like navigation key bindings.
 if (librarian.is_installed("vladgor/awesome-tagged")) then
   globalkeys = gears.table.join(globalkeys, tagged.get_keybindings(modkey))
@@ -414,50 +297,6 @@ client.connect_signal("manage", function (c) -- luacheck: globals client
     -- Prevent clients from being unreachable after screen count changes.
     awful.placement.no_offscreen(c)
   end
-end)
-
-awful.titlebar.enable_tooltip = false
-
--- Add a titlebar if titlebars_enabled is set to true in the rules.
-client.connect_signal("request::titlebars", function(c) -- luacheck: globals client
-  -- buttons for the titlebar
-  local buttons = gears.table.join(
-    awful.button({ }, 1, function()
-      client.focus = c -- luacheck: globals client
-      c:raise()
-      awful.mouse.client.move(c)
-    end),
-    awful.button({ }, 3, function()
-      client.focus = c -- luacheck: globals client
-      c:raise()
-      awful.mouse.client.resize(c)
-    end)
-    )
-
-  local titlebar = awful.titlebar.widget.titlewidget(c)
-  titlebar.font = beautiful.titlebar_font
-  awful.titlebar(c) : setup {
-    { -- Left
-      layout  = wibox.layout.fixed.horizontal
-    },
-    { -- Middle
-      { -- Title
-        align  = "center",
-        widget = titlebar,
-      },
-      buttons = buttons,
-      layout  = wibox.layout.flex.horizontal
-    },
-    { -- Right
-      awful.titlebar.widget.ontopbutton    (c),
-      awful.titlebar.widget.floatingbutton (c),
-      awful.titlebar.widget.stickybutton   (c),
-      awful.titlebar.widget.maximizedbutton(c),
-      awful.titlebar.widget.closebutton    (c),
-      layout = wibox.layout.fixed.horizontal()
-    },
-    layout = wibox.layout.align.horizontal
-  }
 end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end) -- luacheck: globals client
