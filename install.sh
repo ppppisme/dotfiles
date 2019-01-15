@@ -23,7 +23,7 @@ $installer jack2 cadence a2jmidid
 # video
 $installer mpv youtube-dl
 $installer mps-youtube
-$installer kdenlive obs
+$installer kdenlive obs breeze-icons
 
 # privacy
 $installer tor
@@ -48,5 +48,8 @@ $installer weechat telegram-desktop
 # appearance
 $installer compton lxappearance materia-gtk-theme
 
+# alternative kernel
+$installer linux-zen linux-zen-headers
+
 # misc
-$installer acpi deluge sshfs htop physlock redshift unzip ranger
+$installer acpi deluge sshfs htop physlock redshift unzip fff
