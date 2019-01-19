@@ -138,7 +138,10 @@ c.tabs.show = 'always'
 c.tabs.title.format = '{index}: {title}'
 
 # Fonts
-c.fonts.monospace = 'Hack'
+
+font = 'Hack'
+
+c.fonts.monospace = font
 c.fonts.completion.entry = font_size + ' monospace'
 c.fonts.completion.category = 'bold ' + font_size + ' monospace'
 c.fonts.downloads = font_size + ' monospace'
@@ -150,6 +153,13 @@ c.fonts.messages.warning = font_size + ' monospace'
 c.fonts.prompts = font_size + ' monospace'
 c.fonts.statusbar = font_size + ' monospace'
 c.fonts.tabs = font_size + ' monospace'
+
+c.fonts.web.family.standard = font
+c.fonts.web.family.fixed = font
+c.fonts.web.family.serif = font
+c.fonts.web.family.sans_serif = font
+c.fonts.web.family.cursive = font
+c.fonts.web.family.fantasy = font
 
 # Misc
 c.zoom.default = '110%'
