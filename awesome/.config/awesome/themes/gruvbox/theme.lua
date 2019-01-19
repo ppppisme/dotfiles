@@ -72,7 +72,7 @@ local colors = {
     transparent = palette.transparent,
 }
 
-local font = "Hack"
+local font = "ttyp0"
 local font_size = 8
 
 local theme = {}
