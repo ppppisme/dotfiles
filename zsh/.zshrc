@@ -9,15 +9,19 @@ GOTO_DIRS=( \
 fpath=(~/.zsh/fpath $fpath)
 
 autoload -Uz compinit
+zmodload zsh/complist
+
 compinit -d ~/.zsh/tmp/completion-cache
 zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'r:|?=** m:{a-z\-}={A-Z\_}'
 setopt list_rows_first
 
 # keys
 WORDCHARS='*?[]~=&;!#$%^(){}<>'
 export KEYTIMEOUT=1
 bindkey -v
+
+bindkey -M menuselect '^P' expand-or-complete
+bindkey -M menuselect '^N' reverse-menu-complete
 
 bindkey '^P' up-history
 bindkey '^N' down-history
