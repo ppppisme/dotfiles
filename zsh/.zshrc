@@ -11,7 +11,7 @@ fpath=(~/.zsh/fpath $fpath)
 autoload -Uz compinit
 compinit -d ~/.zsh/tmp/completion-cache
 zstyle ':completion:*' menu select
-# zstyle ':completion:*' matcher-list 'r:|?=** m:{a-z\-}={A-Z\_}'
+zstyle ':completion:*' matcher-list 'r:|?=** m:{a-z\-}={A-Z\_}'
 setopt list_rows_first
 
 # keys
@@ -32,7 +32,6 @@ SAVEHIST=10000
 
 setopt completeinword
 setopt always_to_end
-setopt menu_complete
 setopt extendedhistory
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
