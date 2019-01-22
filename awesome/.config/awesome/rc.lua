@@ -5,6 +5,8 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local os = require("os")
 
+local utils = require("utils")
+
 local config_dir = gears.filesystem.get_configuration_dir()
 
 local modkey = "Mod4"
