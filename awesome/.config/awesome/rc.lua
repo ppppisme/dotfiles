@@ -13,6 +13,9 @@ local modkey = "Mod4"
 local terminal = os.getenv("TERMINAL") or "xterm"
 local theme = "gruvbox"
 
+-- reset key bindings
+root.keys({}) -- luacheck: globals root
+
 -- Custom libraries
 local librarian = require("librarian")
 librarian.init({
@@ -47,30 +50,38 @@ librarian.require_async("ppppisme/fuzzy", {
 
 local tagged = librarian.require("vladgor/awesome-tagged")
 
--- Init i3wm-like tags navigation.
 if (librarian.is_installed("vladgor/awesome-tagged")) then
+  local tagged_keys = {}
+
+  for i = 0, 10 do
+    tagged_keys[i] = {
+      view = {{ modkey }, tostring(i)},
+      move_to = {{ modkey, "Shift" }, tostring(i)},
+    }
+  end
+
   local mytags = {
     { -- 1 screen configuration
       {
-        { name = "0", layout = awful.layout.suit.tile, keybinding = "0", },
-        { name = "1", layout = awful.layout.suit.tile, keybinding = "1", },
-        { name = "2", layout = awful.layout.suit.tile, keybinding = "2", },
-        { name = "3", layout = awful.layout.suit.tile, keybinding = "3", },
-        { name = "4", layout = awful.layout.suit.floating, keybinding = "4",
+        { name = "0", layout = awful.layout.suit.tile, keys = tagged_keys[0], },
+        { name = "1", layout = awful.layout.suit.tile, keys = tagged_keys[1], },
+        { name = "2", layout = awful.layout.suit.tile, keys = tagged_keys[2], },
+        { name = "3", layout = awful.layout.suit.tile, keys = tagged_keys[3], },
+        { name = "4", layout = awful.layout.suit.floating, keys = tagged_keys[4],
           clients = {
             class = { "Gimp" }
           }
         },
-        { name = "5", layout = awful.layout.suit.tile, keybinding = "5", },
-        { name = "6", layout = awful.layout.suit.floating, keybinding = "6",
+        { name = "5", layout = awful.layout.suit.tile, keys = tagged_keys[5], },
+        { name = "6", layout = awful.layout.suit.floating, keys = tagged_keys[6],
           clients = {
             class = { "steam.exe", "Wine", "Lutris", "Steam" },
             name = { "Steam" },
           },
         },
-        { name = "7", layout = awful.layout.suit.tile, keybinding = "7", },
-        { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
-        { name = "9", layout = awful.layout.suit.max, keybinding = "9",
+        { name = "7", layout = awful.layout.suit.tile, keys = tagged_keys[7], },
+        { name = "8", layout = awful.layout.suit.tile, keys = tagged_keys[8], },
+        { name = "9", layout = awful.layout.suit.max, keys = tagged_keys[9],
           clients = {
             class = { "TelegramDesktop", "Skype", "discord", "Riot" },
           },
@@ -79,22 +90,22 @@ if (librarian.is_installed("vladgor/awesome-tagged")) then
     },
     { -- 2 screens configuration
       { -- 1st screen
-        { name = "0", layout = awful.layout.suit.tile, keybinding = "0", },
-        { name = "2", layout = awful.layout.suit.tile, keybinding = "2", },
-        { name = "7", layout = awful.layout.suit.tile, keybinding = "7", },
-        { name = "8", layout = awful.layout.suit.tile, keybinding = "8", },
-        { name = "9", layout = awful.layout.suit.max, keybinding = "9",
+        { name = "0", layout = awful.layout.suit.tile, keys = tagged_keys[0], },
+        { name = "2", layout = awful.layout.suit.tile, keys = tagged_keys[2], },
+        { name = "7", layout = awful.layout.suit.tile, keys = tagged_keys[7], },
+        { name = "8", layout = awful.layout.suit.tile, keys = tagged_keys[8], },
+        { name = "9", layout = awful.layout.suit.max, keys = tagged_keys[9],
           clients = {
             class = { "TelegramDesktop", "Skype", "discord", "Riot" }
           },
         },
       },
       { -- 2nd screen
-        { name = "1", layout = awful.layout.suit.tile, keybinding = "1", },
-        { name = "3", layout = awful.layout.suit.tile, keybinding = "3", },
-        { name = "4", layout = awful.layout.suit.floating, keybinding = "4", },
-        { name = "5", layout = awful.layout.suit.tile, keybinding = "5", },
-        { name = "6", layout = awful.layout.suit.floating, keybinding = "6",
+        { name = "1", layout = awful.layout.suit.tile, keys = tagged_keys[1], },
+        { name = "3", layout = awful.layout.suit.tile, keys = tagged_keys[3], },
+        { name = "4", layout = awful.layout.suit.floating, keys = tagged_keys[4], },
+        { name = "5", layout = awful.layout.suit.tile, keys = tagged_keys[5], },
+        { name = "6", layout = awful.layout.suit.floating, keys = tagged_keys[6],
           clients = {
             class = { "steam.exe", "Wine", "Lutris", "Steam", "elitedangerous64.exe" },
             name = { "Steam" },
@@ -249,11 +260,6 @@ local globalkeys = gears.table.join(
     {description = "show current status", group = "awesome"})
 )
 
--- Add i3wm-like navigation key bindings.
-if (librarian.is_installed("vladgor/awesome-tagged")) then
-  globalkeys = gears.table.join(globalkeys, tagged.get_keybindings(modkey))
-end
-
 local clientkeys = gears.table.join(
   awful.key({ modkey,           }, "f",
     function (c)
@@ -297,10 +303,6 @@ awful.rules.rules = {
     }
   },
 }
-
-if (librarian.is_installed("vladgor/awesome-tagged")) then
-  awful.rules.rules = gears.table.join(awful.rules.rules, tagged.get_rules())
-end
 -- }}}
 
 -- {{{ Signals
