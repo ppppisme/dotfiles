@@ -14,7 +14,7 @@ $installer sxiv
 $installer gimp inkscape scrot
 
 # gaming
-$installer nvidia-dkms steam steam-native-runtime lutris lib32-virtualgl lib32-nvidia390xx-utils lib32-mesa-libgl
+$installer nvidia-dkms steam steam-native-runtime lutris lib32-virtualgl lib32-nvidia-utils lib32-mesa-libgl
 
 # sound
 $installer alsa-utils pavucontrol pulseaudio-alsa
