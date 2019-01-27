@@ -13,6 +13,18 @@ local modkey = "Mod4"
 local terminal = os.getenv("TERMINAL") or "xterm"
 local theme = "gruvbox"
 
+-- {{{ Variable definitions
+-- Themes define colours, icons, font and wallpapers.
+beautiful.init(config_dir .. "themes/" .. theme  .. "/theme.lua")
+
+-- Table of layouts to cover with awful.layout.inc, order matters.
+awful.layout.layouts = {
+  awful.layout.suit.tile,
+  awful.layout.suit.floating,
+  awful.layout.suit.max,
+}
+-- }}}
+
 -- reset key bindings
 root.keys({}) -- luacheck: globals root
 
@@ -20,10 +32,10 @@ root.keys({}) -- luacheck: globals root
 local librarian = require("librarian")
 librarian.init({
     verbose = true,
-    libraries_dir = "libraries/",
+    libraries_dir = config_dir .. "/libraries/",
   })
 
-librarian.require_async("ppppisme/fuzzy", {
+librarian.require("ppppisme/fuzzy", {
     do_after = function(fuzzy)
       fuzzy.init {}
 
@@ -144,18 +156,6 @@ end
 -- }}}
 
 awful.spawn.with_shell(config_dir .. "autorun.sh")
-
--- {{{ Variable definitions
--- Themes define colours, icons, font and wallpapers.
-beautiful.init(config_dir .. "themes/" .. theme  .. "/theme.lua")
-
--- Table of layouts to cover with awful.layout.inc, order matters.
-awful.layout.layouts = {
-  awful.layout.suit.tile,
-  awful.layout.suit.floating,
-  awful.layout.suit.max,
-}
--- }}}
 
 local function set_wallpaper(s)
   -- Wallpaper
