@@ -39,12 +39,7 @@ function br {
 
 # Bring up a project
 function up {
-  current_dir=`pwd`
-  cd ~/src/work/$1
-
-  [[ `systemctl is-active postgresql.service` == "active" ]] || sudo systemctl start postgresql.service
-  $TERMINAL -e $SHELL -c "yarn watch" & disown
-  $TERMINAL -e $SHELL -c "php -S localhost:8000 -t ./public" & disown
+  cd ~/src/work/$1 && ./start.sh
 }
 
 function play {
