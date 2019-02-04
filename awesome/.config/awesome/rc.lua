@@ -10,7 +10,7 @@ local utils = require("utils")
 local config_dir = gears.filesystem.get_configuration_dir()
 
 local modkey = "Mod4"
-local terminal = os.getenv("TERMINAL") or "xterm"
+local terminal = os.getenv("TERMINAL") or "st"
 local theme = "gruvbox"
 
 -- {{{ Variable definitions
