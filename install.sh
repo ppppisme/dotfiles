@@ -33,7 +33,7 @@ $installer zathura zathura-pdf-poppler
 $installer libreoffice
 
 # music
-$installer lmms
+$installer lmms ardour
 $installer helm dexed fabla
 $installer supercollider
 $installer audacity
