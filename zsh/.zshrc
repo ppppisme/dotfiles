@@ -48,6 +48,7 @@ unsetopt flow_control
 source ~/.zsh/themes/minimal.sh
 
 # includes
+source ~/.zsh/variables.sh
 source ~/.zsh/aliases.sh
 source ~/.zsh/functions.sh
 
