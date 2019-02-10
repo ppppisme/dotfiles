@@ -4,8 +4,18 @@ https://wiki.archlinux.org/index.php/Gamepad#Joystick_not_working_in_FNA/SDL_bas
 
 # Do not minimize SDL based application on focus loss
 
-export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
+`export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0`
 
 # On "parted" fuck ups
 
 it's possible to recover disk partition table using "testdisk" utility
+
+# Ardoud -- memory limit
+
+`sudo -e /etc/security/limits.conf`
+
+add
+
+`@audio - memlock unlimited`
+
+and then add user to audio group
