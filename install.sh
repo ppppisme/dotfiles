@@ -18,7 +18,7 @@ $installer nvidia-dkms steam steam-native-runtime lutris lib32-virtualgl lib32-n
 
 # sound
 $installer alsa-utils pavucontrol pulseaudio-alsa
-$installer jack2 cadence a2jmidid
+$installer jack2 cadence a2jmidid pulseaudio-jack
 
 # video
 $installer mpv youtube-dl
