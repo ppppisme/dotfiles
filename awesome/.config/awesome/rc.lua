@@ -1,3 +1,5 @@
+require("autorun")
+
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
@@ -154,8 +156,6 @@ do
   end)
 end
 -- }}}
-
-awful.spawn.with_shell(config_dir .. "autorun.sh")
 
 local function set_wallpaper(s)
   -- Wallpaper
