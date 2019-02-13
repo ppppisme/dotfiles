@@ -1,5 +1,6 @@
 export EDITOR=nvim
 export TERMINAL=st
 export BROWSER=qutebrowser
-export PATH=/home/pppp/.bin/:$PATH
-export PATH=$PATH:/home/pppp/.config/composer/vendor/bin/
+export PATH=$HOME/bin/:$PATH
+export PATH=$PATH:$HOME/.config/composer/vendor/bin/
+export PATH=$PATH:$HOME/.config/composer/vendor/bin/
