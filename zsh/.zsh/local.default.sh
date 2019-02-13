@@ -3,4 +3,3 @@ export TERMINAL=st
 export BROWSER=qutebrowser
 export PATH=$HOME/bin/:$PATH
 export PATH=$PATH:$HOME/.config/composer/vendor/bin/
-export PATH=$PATH:$HOME/.config/composer/vendor/bin/
