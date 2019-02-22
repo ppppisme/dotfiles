@@ -77,7 +77,7 @@ local font_size = 8
 
 local theme = {}
 
-theme.wallpaper = theme_path .. '/wal.jpg'
+theme.wallpaper = theme_path .. '/wallpapers/01.png'
 theme.font       = font .. " " .. (font_size + dpi(0.2))
 
 theme.fg_normal  = colors.text
