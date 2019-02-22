@@ -25,4 +25,5 @@ function gdh {
 }
 
 # Misc
+alias scrot="maim -s | xclip -selection clipboard -t image/png"
 alias wt="curl wttr.in/omsk"
