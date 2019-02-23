@@ -14,7 +14,8 @@ vim/.vim/autoload/plug.vim.old
 qutebrowser/.config/qutebrowser/
 !qutebrowser/.config/qutebrowser/config.py
 
-fonts/.fonts/.uuid
+fonts/.local/share/fonts/.uuid
+fonts/.local/share/fonts/**/.uuid
 
 zsh/.zsh/local.sh
 zsh/.zsh/tmp/*
