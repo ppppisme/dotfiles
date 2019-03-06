@@ -52,4 +52,4 @@ $installer compton lxappearance materia-gtk-theme
 $installer linux-zen linux-zen-headers
 
 # misc
-$installer acpi deluge sshfs htop physlock redshift unzip fff
+$installer acpi deluge sshfs htop physlock redshift unzip fff gbdfed bitwarden-bin
