@@ -52,6 +52,8 @@ set list
 set listchars=tab:··,trail:_,eol:¬
 set lazyredraw
 
+set spelllang=en,ru
+
 set updatetime=100
 
 set backup
