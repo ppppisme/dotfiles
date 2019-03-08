@@ -288,8 +288,7 @@ root.keys(globalkeys) -- luacheck: globals root
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
-awful.rules.rules = {
-  -- All clients will match this rule.
+gears.table.join(awful.rules.rules,
   { rule = { },
     properties = {
       border_width = beautiful.border_width,
@@ -301,8 +300,8 @@ awful.rules.rules = {
       screen = awful.screen.preferred,
       placement = awful.placement.no_overlap+awful.placement.no_offscreen
     }
-  },
-}
+  }
+)
 -- }}}
 
 -- {{{ Signals
