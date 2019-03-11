@@ -40,7 +40,7 @@ $installer audacity
 
 # browsers
 $installer qutebrowser
-$installer chromium firefox
+$installer ungoogled-chromium firefox
 
 # communication
 $installer weechat telegram-desktop
