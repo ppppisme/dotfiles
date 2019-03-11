@@ -1,0 +1,33 @@
+# proxy 
+use-proxy yes
+proxy-type socks5
+proxy localhost:9050
+
+browser qutebrowser
+reload-threads 5
+feed-sort-order lastupdated
+
+# colors
+color background          white    black
+color listnormal          white    black
+color listfocus           white    color8  bold
+color listnormal_unread   color15  black
+color listfocus_unread    color15  color8  bold
+color info                white    color8  bold
+color article             white    black
+
+# bindings
+unbind-key g
+bind-key g home
+unbind-key G
+bind-key G end
+
+unbind-key h
+unbind-key j
+unbind-key k
+unbind-key l
+
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
