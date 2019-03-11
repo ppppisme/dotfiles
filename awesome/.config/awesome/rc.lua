@@ -37,7 +37,7 @@ librarian.init({
     libraries_dir = config_dir .. "/libraries/",
   })
 
-librarian.require("ppppisme/fuzzy", {
+librarian.require("scisssssssors/fuzzy", {
     do_after = function(fuzzy)
       fuzzy.init {}
 
@@ -62,9 +62,9 @@ librarian.require("ppppisme/fuzzy", {
     end
   })
 
-local tagged = librarian.require("vladgor/awesome-tagged")
+local tagged = librarian.require("scisssssssors/awesome-tagged")
 
-if (librarian.is_installed("vladgor/awesome-tagged")) then
+if (librarian.is_installed("scisssssssors/awesome-tagged")) then
   local tagged_keys = {}
 
   for i = 0, 10 do
