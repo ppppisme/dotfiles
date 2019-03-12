@@ -104,7 +104,12 @@ if (librarian.is_installed("scisssssssors/awesome-tagged")) then
     },
     { -- 2 screens configuration
       { -- 1st screen
-        { name = "0", layout = awful.layout.suit.tile, keys = tagged_keys[0], },
+        { name = "0", layout = awful.layout.suit.tile, keys = tagged_keys[0],
+          force_clients = true,
+          clients = {
+            class = { "st-project" },
+          },
+        },
         { name = "2", layout = awful.layout.suit.tile, keys = tagged_keys[2], },
         { name = "7", layout = awful.layout.suit.tile, keys = tagged_keys[7], },
         { name = "8", layout = awful.layout.suit.tile, keys = tagged_keys[8], },
@@ -115,7 +120,11 @@ if (librarian.is_installed("scisssssssors/awesome-tagged")) then
         },
       },
       { -- 2nd screen
-        { name = "1", layout = awful.layout.suit.tile, keys = tagged_keys[1], },
+        { name = "1", layout = awful.layout.suit.max, keys = tagged_keys[1],
+          clients = {
+            class = { "Chromium" },
+          },
+        },
         { name = "3", layout = awful.layout.suit.tile, keys = tagged_keys[3], },
         { name = "4", layout = awful.layout.suit.floating, keys = tagged_keys[4], },
         { name = "5", layout = awful.layout.suit.tile, keys = tagged_keys[5], },
