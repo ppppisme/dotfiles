@@ -3,7 +3,7 @@ use-proxy yes
 proxy-type socks5
 proxy localhost:9050
 
-browser qutebrowser
+browser xdg-open
 reload-threads 5
 feed-sort-order lastupdated
 
