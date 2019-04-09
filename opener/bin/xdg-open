@@ -5,12 +5,17 @@
   exit 0
 }
 
+[[ "$1" =~ ^https?://www.reddit.com ]] && {
+  "rtv" "$1" "--monochrome"
+  exit 0
+}
+
 [[ "$1" =~ ^https?:// ]] && {
   nohup "qutebrowser" "$1" &>/dev/null &
   exit 0
 }
 
-[[ "$1" =~ .pdf$ ]] && {
+[[ "$1" =~ .(pdf|PDF)$ ]] && {
   nohup "zathura" "$1" &>/dev/null &
   exit 0
 }
