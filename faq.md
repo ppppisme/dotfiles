@@ -58,3 +58,9 @@ add
 `@audio - memlock unlimited`
 
 and then add user to audio group
+
+# ext4 SSD optimization
+
+run
+
+`sudo systemctl enable fstrim.timer && sudo systemctl start fstrim.timer`
