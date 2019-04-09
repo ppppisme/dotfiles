@@ -23,7 +23,7 @@ $installer jack2 cadence a2jmidid pulseaudio-jack
 # video
 $installer mpv youtube-dl
 $installer mps-youtube
-$installer kdenlive obs breeze-icons
+$installer olivia obs breeze-icons
 
 # privacy
 $installer tor
@@ -52,4 +52,4 @@ $installer compton lxappearance materia-gtk-theme
 $installer linux-zen linux-zen-headers
 
 # misc
-$installer acpi deluge sshfs htop physlock redshift unzip fff gbdfed bitwarden-bin
+$installer acpi deluge sshfs htop physlock redshift unzip fff gbdfed bitwarden-bin rtv
