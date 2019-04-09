@@ -40,5 +40,10 @@
   exit 0
 }
 
+[[ "$1" =~ .(txt)$ ]] && {
+  nohup "gvim" "$1" &>/dev/null &
+  exit 0
+}
+
 echo "No application found for this filetype"
 exit 1
