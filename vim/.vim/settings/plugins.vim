@@ -38,7 +38,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
-  Plug 'jiangmiao/auto-pairs'
 
   " color schemes
   Plug 'vladgor/vim-gruvoff'
@@ -91,7 +90,6 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
 let g:ale_sign_warning = '>>'
 let g:ale_fix_on_save = 1
-
 
 "---
 " vdebug
