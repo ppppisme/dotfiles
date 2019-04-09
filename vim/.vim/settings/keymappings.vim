@@ -13,10 +13,6 @@ nmap ? ?\v
 nmap <space> :
 nnoremap \ ,
 
-inoremap ( ()<c-o>h
-inoremap { {}<c-o>h
-inoremap [ []<c-o>h
-
 nnoremap <leader>e :e <C-r>=expand('%:h')<cr>/
 nnoremap <leader><space> :nohlsearch<CR>
 
