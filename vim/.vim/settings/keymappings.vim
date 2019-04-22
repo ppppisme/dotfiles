@@ -28,3 +28,5 @@ vnoremap <leader>sw :call SearchVisual()<cr>
 
 nnoremap <c-p> :FzfFiles<cr>
 nnoremap <leader>m :FzfHistory<cr>
+
+nnoremap <leader><leader> :e ~/.vim/minisnip/_
