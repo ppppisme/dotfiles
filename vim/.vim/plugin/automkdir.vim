@@ -26,6 +26,10 @@ endfunction
 function! EnsureDirExists ()
   let required_dir = expand("%:h")
   if !isdirectory(required_dir)
+    if required_dir =~ '\v.*fugitive\:.*'
+      return
+    endif
+
     call AskQuit("Parent directory '" . required_dir . "' doesn't exist.",
           \       "&Create it\nor &Quit?", 2)
 
