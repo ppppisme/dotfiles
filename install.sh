@@ -26,7 +26,7 @@ $installer mps-youtube
 $installer olivia obs breeze-icons
 
 # privacy
-$installer tor
+$installer tor torsocks
 
 # documents
 $installer zathura zathura-pdf-poppler
