@@ -20,7 +20,7 @@
   exit 0
 }
 
-[[ "$1" =~ .(ogg|flac|mp3)$ ]] && {
+[[ "$1" =~ .(ogg|flac|mp3|wav)$ ]] && {
   mpv "$1" --volume 50 --gapless-audio
   exit 0
 }
@@ -30,7 +30,7 @@
   exit 0
 }
 
-[[ "$1" =~ .(xlsx|xls|doc|docx|ppt|pptx)$ ]] && {
+[[ "$1" =~ .(xlsx|xls|doc|docx|ppt|pptx|csv)$ ]] && {
   nohup "libreoffice" "$1" &>/dev/null &
   exit 0
 }
