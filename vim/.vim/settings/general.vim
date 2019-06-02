@@ -30,6 +30,7 @@ set cindent
 set copyindent
 set cinkeys=
 
+set pastetoggle=<F2>
 set backspace=indent,eol,start
 set colorcolumn=80
 set ignorecase
