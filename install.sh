@@ -43,7 +43,7 @@ $installer qutebrowser
 $installer ungoogled-chromium firefox
 
 # communication
-$installer weechat telegram-desktop
+$installer irssi telegram-desktop
 
 # appearance
 $installer compton lxappearance materia-gtk-theme
