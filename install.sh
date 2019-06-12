@@ -51,5 +51,8 @@ $installer compton lxappearance materia-gtk-theme
 # alternative kernel
 $installer linux-zen linux-zen-headers
 
+# power management
+$installer powertop tlp
+
 # misc
 $installer acpi deluge sshfs htop physlock redshift unzip fff gbdfed bitwarden-bin rtv
