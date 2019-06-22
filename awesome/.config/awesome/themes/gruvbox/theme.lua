@@ -116,4 +116,15 @@ naughty.config.presets.normal.margin         = dpi(10)
 naughty.config.presets.normal.icon_size      = 0
 -- }}}
 
+theme.fuzzy_fg = colors.text
+theme.fuzzy_fg_muted = colors.background_light
+theme.fuzzy_border_color = colors.focus
+theme.fuzzy_border_width = 8
+theme.fuzzy_margin = { 20, 20, 10, 20 }
+theme.fuzzy_prompt_spacing = 20
+theme.fuzzy_prompt = "<b>::</b> "
+theme.fuzzy_items_margin = 16
+theme.fuzzy_image_size = 32
+theme.fuzzy_image_spacing = 16
+
 return theme

@@ -39,23 +39,67 @@ librarian.init({
 
 librarian.require("scisssssssors/fuzzy", {
     do_after = function(fuzzy)
-      fuzzy.init {}
+      local fuzzy_processors = require("fuzzy.processor")
+      local fuzzy_sources = require("fuzzy.source")
+      local fuzzy_handlers = require("fuzzy.handler")
+      local cache = require("fuzzy.cache.memory")
+      local lutris = require("plugins.fuzzy.lutris")
 
-      local source = require("fuzzy.source.path")
-      local source2 = require("fuzzy.source.lutris")
-      local source3 = require("fuzzy.source.client")
-      local launcher = require("fuzzy.launcher.run")
-      local launcher2 = require("fuzzy.launcher.lutris")
-      local launcher3 = require("fuzzy.launcher.client")
-      launcher.init { terminal = terminal }
+      fuzzy.init({
+        box_options = {
+          lines = 10
+        }
+      })
+
+      local processors = {
+        {
+          callback = fuzzy_processors.fuzzy,
+          options = { attr = "title", },
+        },
+        {
+          callback = function (list, input, options)
+            if #list < 100 then
+              return list
+            end
+
+            return fuzzy_processors.threshold(list, input, options)
+          end,
+          options = { attr = "data.fuzzy_score", threshold = 0.8, },
+        },
+        {
+          callback = fuzzy_processors.unique,
+          options = { attr = "title", },
+        },
+        {
+          callback = fuzzy_processors.sort,
+          options = { attr = "data.fuzzy_score", order = "DESC", },
+        },
+      }
 
       root.keys(gears.table.join( -- luacheck: globals root
           root.keys(),  -- luacheck: globals root
-          awful.key({ modkey }, "d", function () fuzzy.show({ source = source, launcher = launcher }) end,
+          awful.key({ modkey }, "d", function () fuzzy.show(
+            {
+              cache = cache.get_or_set,
+              source = fuzzy_sources.path,
+              handler = fuzzy_handlers.spawn,
+              processors = processors,
+            }) end,
             {description = "toggle fuzzy window", group = "app"}),
-          awful.key({ modkey }, "s", function () fuzzy.show({ source = source2, launcher = launcher2 }) end,
+          awful.key({ modkey }, "s", function () fuzzy.show(
+            {
+              cache = cache.get_or_set,
+              source = lutris.source,
+              handler = lutris.handler,
+              processors = processors
+            }) end,
             {description = "toggle fuzzy window", group = "app"}),
-          awful.key({ modkey }, "c", function () fuzzy.show({ source = source3, launcher = launcher3 }) end,
+          awful.key({ modkey }, "c", function () fuzzy.show(
+            {
+              source = fuzzy_sources.client,
+              handler = fuzzy_handlers.jump_to,
+              processors = processors,
+            }) end,
             {description = "toggle fuzzy window", group = "app"})
           )
         )
