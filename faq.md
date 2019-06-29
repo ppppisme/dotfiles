@@ -72,3 +72,17 @@ run
 
 install dash and link it to /usr/bin/sh to make shell scripts execution much
 faster
+
+# Do not autosuspend on closed lid
+
+Edit /etc/systemd/logind.conf and make sure you have,
+
+```
+HandleLidSwitch=ignore
+```
+
+Then, you'll want to reload logind.conf to make your changes go into effect:
+
+```
+systemctl restart systemd-logind
+```
