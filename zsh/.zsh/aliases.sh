@@ -4,7 +4,7 @@ alias feh=sxiv
 alias f=fff
 
 # vim
-alias vim="nvim"
+alias vim=nvim
 alias notes='vim ~/var/notes/ -c "cd ~/var/notes/" -c "FzfFiles"'
 alias work='vim ~/var/notes/work -c "cd ~/var/notes/work/" -c "FzfFiles"'
 
@@ -25,5 +25,6 @@ function gdh {
 }
 
 # Misc
-alias scrot="maim -s | xclip -selection clipboard -t image/png"
-alias wt="curl wttr.in/omsk"
+alias scrot='maim -s | xclip -selection clipboard -t image/png'
+alias wt='curl wttr.in'
+alias dc=docker-compose
