@@ -65,7 +65,7 @@ theme = {
     'aqua':      palette['aqua'][theme_variation],
     'orange':    palette['orange'][theme_variation],
 }
-font_size = '8pt'
+font_size = '16pt'
 
 c.colors.completion.fg = theme['fg']
 c.colors.completion.even.bg = theme['bg']
@@ -135,11 +135,11 @@ c.tabs.new_position.unrelated = 'last'
 c.tabs.padding: { 'bottom': 15, 'left': 5, 'right': 5, 'top': 15 }
 c.tabs.position = 'top'
 c.tabs.show = 'always'
-c.tabs.title.format = '{index}: {title}'
+c.tabs.title.format = '{index}: {current_title}'
 
 # Fonts
 
-font = 'Hack'
+font = 'ttyp0'
 
 c.fonts.monospace = font
 c.fonts.completion.entry = font_size + ' monospace'
@@ -163,3 +163,4 @@ c.fonts.web.family.fantasy = font
 
 # Misc
 c.zoom.default = '110%'
+c.url.searchengines = { 'DEFAULT': 'https://search.scissssssso.rs/?q={}' }
