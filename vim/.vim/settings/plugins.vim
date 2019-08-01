@@ -25,9 +25,6 @@ call plug#begin('~/.vim/plugged')
   " text navigation
   Plug 'thinca/vim-visualstar'
 
-  " debug
-  Plug 'joonty/vdebug', { 'on': 'VdebugStart' }
-
   " php
   Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
@@ -81,7 +78,6 @@ endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
-
 "---
 " ale
 "---
@@ -90,9 +86,3 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_column_always = 1
 let g:ale_sign_warning = '>>'
 let g:ale_fix_on_save = 1
-
-"---
-" vdebug
-"---
-let g:vdebug_options = {}
-let g:vdebug_options['path_maps'] = {"/var/www/drupalvm/drupal/web": "/home/pppp/vagrant/adci/drupal/web"}
