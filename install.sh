@@ -43,7 +43,8 @@ $installer qutebrowser
 $installer ungoogled-chromium firefox
 
 # communication
-$installer irssi telegram-desktop
+$installer irssi perl-glib-object-introspection perl-html-parser
+$installer telegram-desktop
 
 # appearance
 $installer compton lxappearance materia-gtk-theme
