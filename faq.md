@@ -86,3 +86,11 @@ Then, you'll want to reload logind.conf to make your changes go into effect:
 ```
 systemctl restart systemd-logind
 ```
+
+# Trick mobile internet operator so it's possible to use usb-modem
+
+Use command on the device behind router
+
+`sudo sysctl net.ipv4.ip_default_ttl=65`
+
+65 is default TTL + 1
