@@ -6,7 +6,7 @@ installer="sudo pacman -S"
 $installer awesome neovim git stow zsh xclip xorg-xinit
 
 # development
-$installer ack ctags dbeaver zeal
+$installer ack ctags dbeaver zeal fd
 
 # graphics
 $installer feh
