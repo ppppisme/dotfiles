@@ -217,7 +217,7 @@ local function set_wallpaper(s)
   end
 
   if type(beautiful.wallpaper) == "string" then
-    gears.wallpaper.maximized(beautiful.wallpaper, s)
+    gears.wallpaper.tiled(beautiful.wallpaper, s)
   else
     gears.wallpaper.set(beautiful.wallpaper)
   end
