@@ -94,7 +94,6 @@ function! SetActiveStatusline()
   setlocal statusline+=%#StatusLine#
   setlocal statusline+=\ %f
   setlocal statusline+=\ %y
-  setlocal statusline+=%=%{StatusLineFugitive()}\ \ 
 endfunction
 
 function! SetBlurredStatusline()
@@ -104,7 +103,6 @@ function! SetBlurredStatusline()
   setlocal statusline+=%#StatusLineNC#
   setlocal statusline+=\ %f
   setlocal statusline+=\ %y
-  setlocal statusline+=%=%{StatusLineFugitive()}\ \ 
 endfunction
 
 autocmd BufEnter,FocusGained,VimEnter,WinEnter * call SetActiveStatusline()
