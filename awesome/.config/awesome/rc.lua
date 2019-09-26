@@ -47,14 +47,18 @@ librarian.require("scisssssssors/fuzzy", {
 
       fuzzy.init({
         box_options = {
-          lines = 10
-        }
+          lines = 10,
+        },
       })
 
       local processors = {
         {
+          callback = fuzzy_processors.unique,
+          options = { attr = function (item) return item.title end, },
+        },
+        {
           callback = fuzzy_processors.fuzzy,
-          options = { attr = "title", },
+          options = { attr = function (item) return item.title end, },
         },
         {
           callback = function (list, input, options)
@@ -64,23 +68,23 @@ librarian.require("scisssssssors/fuzzy", {
 
             return fuzzy_processors.threshold(list, input, options)
           end,
-          options = { attr = "data.fuzzy_score", threshold = 0.8, },
+          options = { attr = function (item) return item.data.fuzzy_score end, threshold = 0.9, },
         },
         {
-          callback = fuzzy_processors.unique,
-          options = { attr = "title", },
+          callback = fuzzy_processors.limit,
+          options = { limit = 50, },
         },
         {
           callback = fuzzy_processors.sort,
-          options = { attr = "data.fuzzy_score", order = "DESC", },
+          options = { attr = function (item) return item.data.fuzzy_score end, order = "DESC", },
         },
       }
 
       root.keys(gears.table.join( -- luacheck: globals root
-          root.keys(),  -- luacheck: globals root
+          root.keys(), -- luacheck: globals root
           awful.key({ modkey }, "d", function () fuzzy.show(
             {
-              cache = cache.get_or_set,
+              cache = { storage = cache, key = "path" },
               source = fuzzy_sources.path,
               handler = fuzzy_handlers.spawn,
               processors = processors,
@@ -88,10 +92,17 @@ librarian.require("scisssssssors/fuzzy", {
             {description = "toggle fuzzy window", group = "app"}),
           awful.key({ modkey }, "s", function () fuzzy.show(
             {
-              cache = cache.get_or_set,
+              cache = { storage = cache, key = "lutris" },
               source = lutris.source,
               handler = lutris.handler,
               processors = processors
+            }) end,
+            {description = "toggle fuzzy window", group = "app"}),
+          awful.key({ modkey }, "u", function () fuzzy.show(
+            {
+              source = fuzzy_sources.client_options,
+              handler = fuzzy_handlers.callback,
+              processors = processors,
             }) end,
             {description = "toggle fuzzy window", group = "app"}),
           awful.key({ modkey }, "c", function () fuzzy.show(
@@ -99,6 +110,11 @@ librarian.require("scisssssssors/fuzzy", {
               source = fuzzy_sources.client,
               handler = fuzzy_handlers.jump_to,
               processors = processors,
+              box_options = {
+                on_change = function (item)
+                  fuzzy_handlers.jump_to(item)
+                end,
+              },
             }) end,
             {description = "toggle fuzzy window", group = "app"})
           )
