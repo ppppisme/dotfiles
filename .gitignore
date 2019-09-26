@@ -16,6 +16,7 @@ qutebrowser/.config/qutebrowser/
 
 fonts/.local/share/fonts/.uuid
 fonts/.local/share/fonts/**/.uuid
+fonts/.local/share/fonts/local
 
 zsh/.zsh/local.sh
 zsh/.zsh/tmp/*
