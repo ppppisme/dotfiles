@@ -9,6 +9,7 @@ local os = require("os")
 
 local utils = require("utils")
 
+local hostname = utils.get_hostname()
 local config_dir = gears.filesystem.get_configuration_dir()
 
 local modkey = "Mod4"
@@ -17,7 +18,20 @@ local theme = "gruvbox"
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(config_dir .. "themes/" .. theme  .. "/theme.lua")
+local theme_base_dir = config_dir .. "themes/" .. theme
+
+local theme_files = {
+  theme_base_dir .. "-" .. hostname .. "/theme.lua",
+  theme_base_dir .. "/theme.lua",
+}
+
+for _, theme_file in pairs(theme_files) do
+  if utils.file_exists(theme_file) then
+    beautiful.init(theme_file)
+
+    break
+  end
+end
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -170,7 +184,15 @@ if (librarian.is_installed("scisssssssors/awesome-tagged")) then
             class = { "st-project" },
           },
         },
+        { name = "1", layout = awful.layout.suit.max, keys = tagged_keys[1],
+          clients = {
+            class = { "Chromium" },
+          },
+        },
         { name = "2", layout = awful.layout.suit.tile, keys = tagged_keys[2], },
+        { name = "3", layout = awful.layout.suit.tile, keys = tagged_keys[3], },
+        { name = "4", layout = awful.layout.suit.floating, keys = tagged_keys[4], },
+        { name = "5", layout = awful.layout.suit.tile, keys = tagged_keys[5], },
         { name = "7", layout = awful.layout.suit.tile, keys = tagged_keys[7], },
         { name = "8", layout = awful.layout.suit.tile, keys = tagged_keys[8], },
         { name = "9", layout = awful.layout.suit.max, keys = tagged_keys[9],
@@ -180,14 +202,6 @@ if (librarian.is_installed("scisssssssors/awesome-tagged")) then
         },
       },
       { -- 2nd screen
-        { name = "1", layout = awful.layout.suit.max, keys = tagged_keys[1],
-          clients = {
-            class = { "Chromium" },
-          },
-        },
-        { name = "3", layout = awful.layout.suit.tile, keys = tagged_keys[3], },
-        { name = "4", layout = awful.layout.suit.floating, keys = tagged_keys[4], },
-        { name = "5", layout = awful.layout.suit.tile, keys = tagged_keys[5], },
         { name = "6", layout = awful.layout.suit.floating, keys = tagged_keys[6],
           clients = {
             class = { "steam.exe", "Wine", "Lutris", "Steam", "elitedangerous64.exe" },
