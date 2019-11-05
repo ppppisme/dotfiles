@@ -1,5 +1,4 @@
 #!/bin/bash
-
 installer="sudo pacman -S"
 
 # base
@@ -54,6 +53,9 @@ $installer linux-zen linux-zen-headers
 
 # power management
 $installer powertop tlp
+
+# fonts
+$installer terminus-font-otb
 
 # misc
 $installer acpi deluge sshfs htop physlock redshift unzip fff gbdfed bitwarden-bin rtv
