@@ -6,6 +6,7 @@ require("awful.autofocus")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local os = require("os")
+local wibox = require("wibox")
 
 local utils = require("utils")
 
@@ -256,6 +257,26 @@ end
 screen.connect_signal("property::geometry", set_wallpaper) -- luacheck: globals screen
 awful.screen.connect_for_each_screen(function(s)
   set_wallpaper(s)
+
+  s.mytaglist = awful.widget.taglist {
+    screen  = s,
+    filter = awful.widget.taglist.filter.all,
+    widget_template = {
+        {
+            right = s.geometry.width / #s.tags,
+            widget = wibox.container.margin
+        },
+        id     = 'background_role',
+        widget = wibox.container.background,
+    },
+  }
+
+  s.mywibox = awful.wibar({ position = "top", screen = s, opacity = 0.5, height = 5, bg = '#00000000' })
+
+  s.mywibox:setup {
+    layout = wibox.layout.stack,
+    s.mytaglist,
+  }
 end)
 
 local function unminimize_on_current_tag()

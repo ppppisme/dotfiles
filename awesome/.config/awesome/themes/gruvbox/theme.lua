@@ -68,7 +68,7 @@ local colors = {
     focus = palette.gray.light,
     text = palette.white.fg4,
     inactive_text = palette.black.bg2,
-    urgent = palette.red.light,
+    urgent = palette.red.dark,
     transparent = palette.transparent,
 }
 
@@ -104,6 +104,9 @@ theme.notification_font     = font .. " " .. font_size
 theme.notification_margin   = dpi(2)
 theme.notification_fg       = colors.text
 theme.notification_bg       = colors.background
+
+theme.taglist_bg_focus      = colors.background
+theme.taglist_bg_urgent     = colors.urgent
 
 -- Unfortunately, I couldn't find the way to override these 2 settings via
 -- beautiful variable.
