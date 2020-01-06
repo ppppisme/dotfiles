@@ -17,6 +17,9 @@ let g:ale_php_phpmd_executable = 'phpmd'
 let g:ale_php_phpmd_ruleset = 'unusedcode,cleancode,codesize'
 let g:ale_php_phpmd_suffixes = 'php,module,inc,theme,install,profile,theme'
 
+let g:ale_php_phpcs_use_global = 0
+let g:ale_php_cs_fixer_use_global = 1
+
 setlocal expandtab
 setlocal shiftwidth=4
 setlocal softtabstop=4
