@@ -151,61 +151,70 @@ if (librarian.is_installed("scisssssssors/awesome-tagged")) then
   local mytags = {
     { -- 1 screen configuration
       {
-        { name = "0", layout = awful.layout.suit.tile, keys = tagged_keys[0], },
-        { name = "1", layout = awful.layout.suit.tile, keys = tagged_keys[1], },
-        { name = "2", layout = awful.layout.suit.tile, keys = tagged_keys[2], },
-        { name = "3", layout = awful.layout.suit.tile, keys = tagged_keys[3], },
-        { name = "4", layout = awful.layout.suit.floating, keys = tagged_keys[4],
-          clients = {
-            class = { "Gimp" }
-          }
-        },
-        { name = "5", layout = awful.layout.suit.tile, keys = tagged_keys[5], },
-        { name = "6", layout = awful.layout.suit.floating, keys = tagged_keys[6],
-          clients = {
-            class = { "steam.exe", "Wine", "Lutris", "Steam" },
-            name = { "Steam" },
+        wallpaper = beautiful.wallpaper,
+        tags = {
+          { name = "0", layout = awful.layout.suit.tile, keys = tagged_keys[0], },
+          { name = "1", layout = awful.layout.suit.tile, keys = tagged_keys[1], },
+          { name = "2", layout = awful.layout.suit.tile, keys = tagged_keys[2], },
+          { name = "3", layout = awful.layout.suit.tile, keys = tagged_keys[3], },
+          { name = "4", layout = awful.layout.suit.floating, keys = tagged_keys[4],
+            clients = {
+              class = { "Gimp" }
+            }
           },
-        },
-        { name = "7", layout = awful.layout.suit.tile, keys = tagged_keys[7], },
-        { name = "8", layout = awful.layout.suit.tile, keys = tagged_keys[8], },
-        { name = "9", layout = awful.layout.suit.max, keys = tagged_keys[9],
-          clients = {
-            class = { "TelegramDesktop", "Skype", "discord", "Riot" },
+          { name = "5", layout = awful.layout.suit.tile, keys = tagged_keys[5], },
+          { name = "6", layout = awful.layout.suit.floating, keys = tagged_keys[6],
+            clients = {
+              class = { "steam.exe", "Wine", "Lutris", "Steam" },
+              name = { "Steam" },
+            },
+          },
+          { name = "7", layout = awful.layout.suit.tile, keys = tagged_keys[7], },
+          { name = "8", layout = awful.layout.suit.tile, keys = tagged_keys[8], },
+          { name = "9", layout = awful.layout.suit.max, keys = tagged_keys[9],
+            clients = {
+              class = { "TelegramDesktop", "Skype", "discord", "Riot" },
+            },
           },
         },
       },
     },
     { -- 2 screens configuration
       { -- 1st screen
-        { name = "0", layout = awful.layout.suit.tile, keys = tagged_keys[0],
-          force_clients = true,
-          clients = {
-            class = { "st-project" },
+        wallpaper = beautiful.wallpaper,
+        tags = {
+          { name = "0", layout = awful.layout.suit.tile, keys = tagged_keys[0],
+            force_clients = true,
+            clients = {
+              class = { "st-project" },
+            },
           },
-        },
-        { name = "1", layout = awful.layout.suit.max, keys = tagged_keys[1],
-          clients = {
-            class = { "Chromium" },
+          { name = "1", layout = awful.layout.suit.max, keys = tagged_keys[1],
+            clients = {
+              class = { "Chromium" },
+            },
           },
-        },
-        { name = "2", layout = awful.layout.suit.tile, keys = tagged_keys[2], },
-        { name = "3", layout = awful.layout.suit.tile, keys = tagged_keys[3], },
-        { name = "4", layout = awful.layout.suit.floating, keys = tagged_keys[4], },
-        { name = "5", layout = awful.layout.suit.tile, keys = tagged_keys[5], },
-        { name = "7", layout = awful.layout.suit.tile, keys = tagged_keys[7], },
-        { name = "8", layout = awful.layout.suit.tile, keys = tagged_keys[8], },
-        { name = "9", layout = awful.layout.suit.max, keys = tagged_keys[9],
-          clients = {
-            class = { "TelegramDesktop", "Skype", "discord", "Riot" }
+          { name = "2", layout = awful.layout.suit.tile, keys = tagged_keys[2], },
+          { name = "3", layout = awful.layout.suit.tile, keys = tagged_keys[3], },
+          { name = "4", layout = awful.layout.suit.floating, keys = tagged_keys[4], },
+          { name = "5", layout = awful.layout.suit.tile, keys = tagged_keys[5], },
+          { name = "7", layout = awful.layout.suit.tile, keys = tagged_keys[7], },
+          { name = "8", layout = awful.layout.suit.tile, keys = tagged_keys[8], },
+          { name = "9", layout = awful.layout.suit.max, keys = tagged_keys[9],
+            clients = {
+              class = { "TelegramDesktop", "Skype", "discord", "Riot" }
+            },
           },
         },
       },
       { -- 2nd screen
-        { name = "6", layout = awful.layout.suit.floating, keys = tagged_keys[6],
-          clients = {
-            class = { "steam.exe", "Wine", "Lutris", "Steam", "elitedangerous64.exe" },
-            name = { "Steam" },
+        wallpaper = beautiful.wallpaper,
+        tags = {
+          { name = "6", layout = awful.layout.suit.floating, keys = tagged_keys[6],
+            clients = {
+              class = { "steam.exe", "Wine", "Lutris", "Steam", "elitedangerous64.exe" },
+              name = { "Steam" },
+            },
           },
         },
       },
@@ -373,6 +382,22 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end) -- luacheck: globals client
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end) -- luacheck: globals client
+
+gears.timer {
+  timeout = 60 * 60 * 2,
+  autostart = true,
+  callback = function ()
+    naughty.notify { text = 'Закапай глаза' }
+  end
+}
+
+gears.timer {
+  timeout = 60 * 60 * 1,
+  autostart = true,
+  callback = function ()
+    naughty.notify { text = 'Разомнись' }
+  end
+}
 
 -- Rounded corners
 -- client.connect_signal("manage", function(c)
