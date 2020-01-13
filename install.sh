@@ -1,16 +1,79 @@
-#!/bin/bash
-installer="sudo pacman -S"
+#!/usr/bin/sh
 
-# base
-$installer awesome neovim git stow zsh xclip xorg-xinit
+installer="sudo pikaur -S --needed --noconfirm"
+
+prompt() {
+  printf '%s ' "$1"
+  read -r yn
+
+  case $yn in
+    [Yy]|"" ) eval "$2"; return;;
+    [Nn]* ) return;;
+  esac
+}
+
+action () {
+  printf ':: %s' "$2"
+  eval "$1" 1> /dev/null
+  echo '... Done.'
+}
+
+install_package () {
+  $installer "$@" 2> /dev/null
+}
+
+install_qutebrowser () {
+  action 'install_package qutebrowser' 'Install qutebrowser'
+
+  action 'stow qutebrowser -R' 'Deploy qutebrowser config'
+  action \
+    'sudo xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop' \
+    'Set qutebrowser as default browser'
+}
+
+install_awesomewm () {
+  action 'install_package awesome' 'Install awesomewm'
+  action 'stow awesome -R' 'Deploy awesomewm config'
+}
+
+install_neovim () {
+  action 'install_package neovim' 'Install neovim'
+  action 'stow vim -R' 'Deploy neovim config'
+}
+
+install_zsh () {
+  action 'install_package zsh' 'Install zsh'
+  action 'stow vim -R' 'Deploy zsh config'
+}
+
+install_x () {
+  action 'install_package xorg xorg-xinit' 'Install X11'
+}
+
+action 'install_package stow' 'Install stow'
+install_neovim
+install_x
+install_awesomewm
+install_qutebrowser
+action 'install_package git' 'Install git'
+install_zsh
+action 'install_package xclip' 'Install xclip'
+
+exit
+
+prompt 'Install qutebrowser? [Y/n]' install_qutebrowser
+echo
+prompt 'Install awesomewm? [Y/n]' install_awesomewm
+echo
+prompt 'Install neovim? [Y/n]' install_neovim
 
 # development
 $installer ack ctags dbeaver zeal fd
 
 # graphics
-$installer feh
 $installer sxiv
-$installer gimp inkscape scrot
+$installer maim
+$installer gimp inkscape
 
 # gaming
 $installer nvidia-dkms steam steam-native-runtime lutris lib32-virtualgl lib32-nvidia-utils lib32-mesa-libgl
@@ -38,7 +101,6 @@ $installer supercollider
 $installer audacity
 
 # browsers
-$installer qutebrowser
 $installer ungoogled-chromium firefox
 
 # communication
