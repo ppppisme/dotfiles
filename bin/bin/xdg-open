@@ -1,52 +1,55 @@
 #!/bin/bash
 
-[[ "$1" =~ ^https?://www.youtube.com ]] && {
-  nohup "mpv" "$1" --volume 50 &>/dev/null &
+subject=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+
+deattach_and_run()
+{
+  eval nohup "$1" &> /dev/null &
+}
+
+[[ "$subject" =~ ^https?://www.youtube.com ]] && {
+  deattach_and_run "mpv '$1' --volume 50"
+
   exit 0
 }
 
-[[ "$1" =~ ^https?://www.reddit.com ]] && {
-  "rtv" "$1" "--monochrome"
+[[ "$subject" =~ ^https?:// ]] && {
+  deattach_and_run "qutebrowser '$1'"
   exit 0
 }
 
-[[ "$1" =~ ^https?:// ]] && {
-  nohup "qutebrowser" "$1" &>/dev/null &
+[[ "$subject" =~ .pdf$ ]] && {
+  deattach_and_run "zathura '$1'"
   exit 0
 }
 
-[[ "$1" =~ .(pdf|PDF)$ ]] && {
-  nohup "zathura" "$1" &>/dev/null &
+[[ "$subject" =~ .(ogg|flac|mp3|wav)$ ]] && {
+  mpv "'$1'" --volume=50 --gapless-audio
   exit 0
 }
 
-[[ "$1" =~ .(ogg|flac|mp3|wav)$ ]] && {
-  mpv "$1" --volume 50 --gapless-audio
+[[ "$subject" =~ .(mp4|webm|mkv)$ ]] && {
+  deattach_and_run "mpv '$1' --volume=50"
   exit 0
 }
 
-[[ "$1" =~ .(mp4|webm|mkv)$ ]] && {
-  nohup "mpv" "$1" --volume 50 &>/dev/null &
+[[ "$subject" =~ .(xlsx|xls|doc|docx|ppt|pptx|csv)$ ]] && {
+  deattach_and_run "libreoffice '$1'"
   exit 0
 }
 
-[[ "$1" =~ .(xlsx|xls|doc|docx|ppt|pptx|csv)$ ]] && {
-  nohup "libreoffice" "$1" &>/dev/null &
+[[ "$subject" =~ .(png|jpeg|jpg)$ ]] && {
+  deattach_and_run "sxiv '$1'"
   exit 0
 }
 
-[[ "$1" =~ .(png|jpeg|jpg)$ ]] && {
-  nohup "sxiv" "$1" &>/dev/null &
+[[ "$subject" =~ .(txt)$ ]] && {
+  deattach_and_run "gvim '$1'"
   exit 0
 }
 
-[[ "$1" =~ .(txt)$ ]] && {
-  nohup "gvim" "$1" &>/dev/null &
-  exit 0
-}
-
-[[ "$1" =~ .(eps)$ ]] && {
-  nohup "inkscape" "$1" &>/dev/null &
+[[ "$subject" =~ .(eps|svg)$ ]] && {
+  deattach_and_run "inkscape '$1'"
   exit 0
 }
 
