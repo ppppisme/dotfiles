@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+cd "$HOME/var/notes/" || exit
+
+notes_command="nvim ~/var/notes/ -c 'FzfFiles'"
+
+# if executed in terminal
+if (( SHLVL > 1 )); then
+  eval "$notes_command"
+
+  exit
+fi
+
+$TERMINAL $SHELL -c  "$notes_command"

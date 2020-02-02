@@ -5,8 +5,6 @@ alias f=fff
 
 # vim
 alias vim=nvim
-alias notes='vim ~/var/notes/ -c "cd ~/var/notes/" -c "FzfFiles"'
-alias work='vim ~/var/notes/work -c "cd ~/var/notes/work/" -c "FzfFiles"'
 
 # Git
 alias gs='git status'
