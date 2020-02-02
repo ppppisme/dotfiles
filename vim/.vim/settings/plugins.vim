@@ -28,9 +28,6 @@ call plug#begin('~/.vim/plugged')
   " php
   Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
-  " project
-  Plug 'vladgor/vim-project-finder'
-
   " misc
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
