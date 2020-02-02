@@ -1,11 +1,3 @@
-# trick myself
-alias feh=sxiv
-
-alias f=fff
-
-# vim
-alias vim=nvim
-
 # Git
 alias gs='git status'
 alias gc='git commit'
@@ -23,6 +15,9 @@ function gdh {
 }
 
 # Misc
+alias j=xdg-open
+alias f=fff
+alias vim=nvim
 alias scrot='maim -s | xclip -selection clipboard -t image/png'
 alias wt='curl wttr.in'
 alias dc=docker-compose
