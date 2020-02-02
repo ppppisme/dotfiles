@@ -54,10 +54,6 @@ if pluginstall != 0
 endif
 
 call plug#begin('~/.vim/plugged')
-  " file system navigation
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-
   " linter
   Plug 'w0rp/ale'
 
@@ -80,36 +76,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
 
   " color schemes
-  Plug 'vladgor/vim-gruvoff'
+  Plug 'scisssssssors/vim-gruvoff'
 call plug#end()
-
-"---
-" fzf.vim
-"---
-let g:fzf_command_prefix = 'Fzf'
-let g:fzf_layout = { 'down': '~25%' }
-let g:fzf_colors =
-      \ {'fg':     ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Comment'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Comment'],
-      \ 'header':  ['fg', 'Comment'] }
-
-function! s:fzf_statusline()
-  " Override statusline as you like
-  setlocal statusline=%#TermCursor#
-  setlocal statusline+=\ fzf\ 
-  setlocal statusline+=%#StatusLine#
-endfunction
-
-autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 "---
 " ale
@@ -159,6 +127,10 @@ set cindent
 set copyindent
 set cinkeys=
 
+set path=.,,
+set wildmenu
+set wildmode=list
+
 set pastetoggle=<F2>
 set backspace=indent,eol,start
 set colorcolumn=80
@@ -168,7 +140,6 @@ set incsearch
 set smartcase
 set visualbell t_vb=
 set showmatch
-set wildmode=list:longest
 set autoread
 set autowrite
 set encoding=utf8
@@ -249,8 +220,8 @@ nnoremap <leader>ss :Search<cr>
 nnoremap <leader>sw :silent! grep! <cword> \| copen<CR><C-l>
 vnoremap <leader>sw :call SearchVisual()<cr>
 
-nnoremap <c-p> :FzfFiles<cr>
-nnoremap <leader>m :FzfHistory<cr>
+nnoremap <leader>f :find **/**<left>
+nnoremap <leader>b :buffer 
 
 nnoremap <leader><leader> :e ~/.vim/minisnip/_
 " }}}
