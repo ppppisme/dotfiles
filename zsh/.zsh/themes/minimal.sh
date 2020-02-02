@@ -3,7 +3,8 @@ autoload -U colors && colors
 function minimal_indicator()
 {
   local color="%F{8}"
-  if [[ $(git diff --exit-code 2> /dev/null) ]] then
+
+  if [[ $(git diff --exit-code 2> /dev/null) ]]; then
     color="%{$fg[green]%}"
   fi
 
@@ -24,7 +25,7 @@ function minimal_git_branch()
   local gitbranch=$(git branch 2> /dev/null | sed -n '/\* /s///p')
 
   if [[ -z $gitbranch ]]; then
-    echo ''
+    echo ""
     exit
   fi
 

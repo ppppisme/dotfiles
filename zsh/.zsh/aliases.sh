@@ -21,7 +21,7 @@ alias gp='git pull --ff-only'
 alias nah="git reset --hard && git clean -df"
 
 function gdh {
-  git diff $1 HEAD
+  git diff "$1" HEAD
 }
 
 # Misc
