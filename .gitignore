@@ -1,7 +1,6 @@
 vim/.vim/swap
 vim/.vim/backup
 vim/.vim/undo
-vim/.vim/plugged
 vim/.vim/.netrwhist
 
 kitty/.config/kitty/cached.json
