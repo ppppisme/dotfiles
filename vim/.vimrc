@@ -43,41 +43,8 @@ endfunction
 command! GetSyntax call SynStack()
 " }}}
 
-" {{{ PLUG.VIM
-" install Plug if missing. taken from here:
-" https://www.reddit.com/r/vim/comments/54spzr/vim_config_portability/d84o661
-let pluginstall = system("[ -e ~/.vim/autoload/plug.vim ] ; echo $?")
-if pluginstall != 0
-  let temp = system("curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
-  so ~/.vim/autoload/plug.vim
-endif
-
-call plug#begin('~/.vim/plugged')
-  " linter
-  Plug 'w0rp/ale'
-
-  " git stuff
-  Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
-
-  " snippets
-  Plug 'joereynolds/vim-minisnip'
-
-  " text navigation
-  Plug 'thinca/vim-visualstar'
-
-  " php
-  Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
-
-  " misc
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-surround'
-
-  " color schemes
-  Plug 'scisssssssors/vim-gruvoff'
-call plug#end()
+" {{{ PLUGINS
+set packpath=~/.config/nvim
 
 "---
 " ale
