@@ -65,10 +65,6 @@ let g:surround_indent = 0
 set background=dark
 colorscheme gruvoff
 
-if has('nvim')
-  set guicursor=
-endif
-
 if has("gui_running")
   set guioptions-=T
   set guioptions-=m
@@ -89,8 +85,6 @@ set shiftround
 set tabstop=2
 set shiftwidth=2
 set autoindent
-set cpoptions+=I
-set cindent
 set copyindent
 set cinkeys=
 
@@ -109,11 +103,6 @@ set visualbell t_vb=
 set showmatch
 set autoread
 set autowrite
-set encoding=utf8
-set termencoding=utf8
-set fileencodings=utf8
-set showmode
-set undolevels=1024
 set virtualedit=all
 set completeopt=menuone,menu,longest
 set list
@@ -187,7 +176,8 @@ nnoremap <leader>ss :Search<cr>
 nnoremap <leader>sw :silent! grep! <cword> \| copen<CR><C-l>
 vnoremap <leader>sw :call SearchVisual()<cr>
 
-nnoremap <leader>f :find **/**<left>
+nnoremap <leader>f :find 
+nnoremap <leader>F :find **/*
 nnoremap <leader>b :buffer 
 
 nnoremap <leader><leader> :e ~/.vim/minisnip/_
