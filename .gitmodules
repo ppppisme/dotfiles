@@ -1,9 +1,39 @@
 [submodule "zsh/.zsh/zsh-syntax-highlighting"]
 	path = zsh/.zsh/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "awesome/.config/awesome/libraries/librarian"]
 	path = awesome/.config/awesome/librarian
-	url = https://github.com/vladgor/awesome-librarian
+	url = https://github.com/scisssssssors/awesome-librarian.git
 [submodule "st/src/st"]
 	path = st/src/st
-	url = https://github.com/vladgor/st
+	url = https://github.com/scisssssssors/st.git
+[submodule "vim/.vim/pack/misc/start/vim-surround"]
+	path = vim/.vim/pack/misc/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/.vim/pack/misc/start/vim-repeat"]
+	path = vim/.vim/pack/misc/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim/.vim/pack/misc/start/vim-commentary"]
+	path = vim/.vim/pack/misc/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/.vim/pack/misc/start/vim-minisnip"]
+	path = vim/.vim/pack/misc/start/vim-minisnip
+	url = https://github.com/joereynolds/vim-minisnip.git
+[submodule "vim/.vim/pack/lint/start/ale"]
+	path = vim/.vim/pack/lint/start/ale
+	url = https://github.com/w0rp/ale.git
+[submodule "vim/.vim/pack/git/start/vim-fugitive"]
+	path = vim/.vim/pack/git/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/.vim/pack/git/start/vim-gitgutter"]
+	path = vim/.vim/pack/git/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim/.vim/pack/php/start/phpactor"]
+	path = vim/.vim/pack/php/start/phpactor
+	url = https://github.com/phpactor/phpactor.git
+[submodule "vim/.vim/pack/misc/start/vim-visualstar"]
+	path = vim/.vim/pack/misc/start/vim-visualstar
+	url = https://github.com/thinca/vim-visualstar.git
+[submodule "vim/.vim/pack/theme/start/vim-gruvoff"]
+	path = vim/.vim/pack/theme/start/vim-gruvoff
+	url = https://github.com/scisssssssors/vim-gruvoff.git
