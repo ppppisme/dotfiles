@@ -161,6 +161,11 @@ c.fonts.web.family.sans_serif = font
 c.fonts.web.family.cursive = font
 c.fonts.web.family.fantasy = font
 
+config.bind('h', 'scroll-px -25 0')
+config.bind('j', 'scroll-px 0 25')
+config.bind('k', 'scroll-px 0 -25')
+config.bind('l', 'scroll-px 25 0')
+
 # Misc
 c.zoom.default = '110%'
 c.url.searchengines = { 'DEFAULT': 'https://search.scissssssso.rs/?q={}' }
