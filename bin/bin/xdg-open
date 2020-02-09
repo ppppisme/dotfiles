@@ -9,12 +9,16 @@ deattach_and_run()
 
 [[ "$subject" =~ ^https?://www.youtube.com ]] && {
   deattach_and_run "mpv '$1' --volume 50"
-
   exit 0
 }
 
 [[ "$subject" =~ ^https?:// ]] && {
   deattach_and_run "qutebrowser '$1'"
+  exit 0
+}
+
+[[ "$subject" =~ ^magnet: ]] && {
+  deattach_and_run "deluge '$1'"
   exit 0
 }
 
