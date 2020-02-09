@@ -65,7 +65,6 @@ theme = {
     'aqua':      palette['aqua'][theme_variation],
     'orange':    palette['orange'][theme_variation],
 }
-font_size = '16pt'
 
 c.colors.completion.fg = theme['fg']
 c.colors.completion.even.bg = theme['bg']
@@ -140,19 +139,20 @@ c.tabs.title.format = '{index}: {current_title}'
 # Fonts
 
 font = 'ttyp0'
+font_size = '14pt'
 
-c.fonts.monospace = font
-c.fonts.completion.entry = font_size + ' monospace'
-c.fonts.completion.category = 'bold ' + font_size + ' monospace'
-c.fonts.downloads = font_size + ' monospace'
-c.fonts.hints = 'bold ' + font_size + ' monospace'
-c.fonts.keyhint = font_size + ' monospace'
-c.fonts.messages.error = font_size + ' monospace'
-c.fonts.messages.info = font_size + ' monospace'
-c.fonts.messages.warning = font_size + ' monospace'
-c.fonts.prompts = font_size + ' monospace'
-c.fonts.statusbar = font_size + ' monospace'
-c.fonts.tabs = font_size + ' monospace'
+c.fonts.default_family = [font]
+c.fonts.completion.entry = font_size + ' default_family'
+c.fonts.completion.category = 'bold ' + font_size + ' default_family'
+c.fonts.downloads = font_size + ' default_family'
+c.fonts.hints = 'bold ' + font_size + ' default_family'
+c.fonts.keyhint = font_size + ' default_family'
+c.fonts.messages.error = font_size + ' default_family'
+c.fonts.messages.info = font_size + ' default_family'
+c.fonts.messages.warning = font_size + ' default_family'
+c.fonts.prompts = font_size + ' default_family'
+c.fonts.statusbar = font_size + ' default_family'
+c.fonts.tabs = font_size + ' default_family'
 
 c.fonts.web.family.standard = font
 c.fonts.web.family.fixed = font
