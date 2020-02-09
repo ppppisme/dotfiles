@@ -2,7 +2,7 @@
 
 cd "$HOME/var/notes/" || exit
 
-notes_command="nvim ~/var/notes/ -c 'FzfFiles'"
+notes_command="nvim ~/var/notes/"
 
 # if executed in terminal
 if (( SHLVL > 1 )); then
@@ -11,4 +11,4 @@ if (( SHLVL > 1 )); then
   exit
 fi
 
-$TERMINAL $SHELL -c  "$notes_command"
+$TERMINAL "$SHELL" -c  "$notes_command"
