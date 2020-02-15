@@ -91,9 +91,9 @@ install_notebook_stuff () {
   action 'sudo systemctl enable --now tlp.service' 'Start tlp now and on every system boot'
 }
 
-install_compton () {
-  action 'install_package compton' 'Install compton'
-  action 'stow compton -R' 'Deploy compton config'
+install_picom () {
+  action 'install_package picom' 'Install picom'
+  action 'stow picom -R' 'Deploy picom config'
 }
 
 # enter sudo-mode before doing anything
