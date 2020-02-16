@@ -166,6 +166,10 @@ config.bind('j', 'scroll-px 0 25')
 config.bind('k', 'scroll-px 0 -25')
 config.bind('l', 'scroll-px 25 0')
 
+config.bind('о', 'scroll-px 0 25')
+config.bind('л', 'scroll-px 0 -25')
+config.bind('в', 'tab-close')
+
 # Misc
 c.zoom.default = '110%'
 c.url.searchengines = { 'DEFAULT': 'https://search.scissssssso.rs/?q={}' }
