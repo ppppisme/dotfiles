@@ -96,6 +96,12 @@ install_picom () {
   action 'stow picom -R' 'Deploy picom config'
 }
 
+install_newsboat () {
+  action 'install_package newsboat' 'Install newsboat'
+  action 'stow picom -R' 'Deploy newsboat config'
+  touch "$HOME/.config/newsboat/config.local"
+}
+
 # enter sudo-mode before doing anything
 sudo echo ':: Start installation script'
 
@@ -133,6 +139,7 @@ action 'install_package unzip' 'Install unzip'
 action 'install_package bitwarden-bin' 'Install bitwarden'
 
 prompt 'Install notebook-related stuff? [Y/n]' 'install_notebook_stuff'
+prompt 'Install newsboat? [Y/n]' 'install_newsboat'
 prompt 'Install dbeaver? [Y/n]' 'install_package dbeaver'
 prompt 'Install firefox and brave? [Y/n]' 'install_package firefox brave-bin'
 prompt 'Install gimp? [Y/n]' 'install_package gimp'
