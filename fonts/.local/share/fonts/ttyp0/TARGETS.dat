@@ -19,7 +19,7 @@
 # If you want only a subset, delete those that you don't want in the
 # following line:
 
-SIZES = 18 18b 18i
+SIZES = 15 15b 15i 16 16b 16i 17 17b 17i 18 18b 18i
 
 # **********************************************************************
 #
