@@ -52,89 +52,89 @@ librarian.init({
   })
 
 librarian.require("scisssssssors/fuzzy", {
-    do_after = function(fuzzy)
-      local fuzzy_processors = require("fuzzy.processor")
-      local fuzzy_sources = require("fuzzy.source")
-      local fuzzy_handlers = require("fuzzy.handler")
-      local cache = require("fuzzy.cache.memory")
-      local lutris = require("plugins.fuzzy.lutris")
+  do_after = function(fuzzy)
+    local fuzzy_processors = require("fuzzy.processor")
+    local fuzzy_sources = require("fuzzy.source")
+    local fuzzy_handlers = require("fuzzy.handler")
+    local cache = require("fuzzy.cache.memory")
+    local lutris = require("plugins.fuzzy.lutris")
 
-      fuzzy.init({
-        box_options = {
-          lines = 10,
-        },
-      })
+    fuzzy.init({
+      box_options = {
+        lines = 10,
+      },
+    })
 
-      local processors = {
-        {
-          callback = fuzzy_processors.unique,
-          options = { attr = function (item) return item.title end, },
-        },
-        {
-          callback = fuzzy_processors.fuzzy,
-          options = { attr = function (item) return item.title end, },
-        },
-        {
-          callback = function (list, input, options)
-            if #list < 100 then
-              return list
-            end
+    local processors = {
+      {
+        callback = fuzzy_processors.unique,
+        options = { attr = function (item) return item.title end, },
+      },
+      {
+        callback = fuzzy_processors.fuzzy,
+        options = { attr = function (item) return item.title end, },
+      },
+      {
+        callback = function (list, input, options)
+          if #list < 100 then
+            return list
+          end
 
-            return fuzzy_processors.threshold(list, input, options)
-          end,
-          options = { attr = function (item) return item.data.fuzzy_score end, threshold = 0.9, },
-        },
-        {
-          callback = fuzzy_processors.limit,
-          options = { limit = 50, },
-        },
-        {
-          callback = fuzzy_processors.sort,
-          options = { attr = function (item) return item.data.fuzzy_score end, order = "DESC", },
-        },
-      }
+          return fuzzy_processors.threshold(list, input, options)
+        end,
+        options = { attr = function (item) return item.data.fuzzy_score end, threshold = 0.9, },
+      },
+      {
+        callback = fuzzy_processors.limit,
+        options = { limit = 50, },
+      },
+      {
+        callback = fuzzy_processors.sort,
+        options = { attr = function (item) return item.data.fuzzy_score end, order = "DESC", },
+      },
+    }
 
-      root.keys(gears.table.join( -- luacheck: globals root
-          root.keys(), -- luacheck: globals root
-          awful.key({ modkey }, "d", function () fuzzy.show(
-            {
-              cache = { storage = cache, key = "path" },
-              source = fuzzy_sources.path,
-              handler = fuzzy_handlers.spawn,
-              processors = processors,
-            }) end,
-            {description = "toggle fuzzy window", group = "app"}),
-          awful.key({ modkey }, "s", function () fuzzy.show(
-            {
-              cache = { storage = cache, key = "lutris" },
-              source = lutris.source,
-              handler = lutris.handler,
-              processors = processors
-            }) end,
-            {description = "toggle fuzzy window", group = "app"}),
-          awful.key({ modkey }, "u", function () fuzzy.show(
-            {
-              source = fuzzy_sources.client_options,
-              handler = fuzzy_handlers.callback,
-              processors = processors,
-            }) end,
-            {description = "toggle fuzzy window", group = "app"}),
-          awful.key({ modkey }, "c", function () fuzzy.show(
-            {
-              source = fuzzy_sources.client,
-              handler = fuzzy_handlers.jump_to,
-              processors = processors,
-              box_options = {
-                on_change = function (item)
-                  fuzzy_handlers.jump_to(item)
-                end,
-              },
-            }) end,
-            {description = "toggle fuzzy window", group = "app"})
-          )
-        )
-    end
-  })
+    root.keys(gears.table.join( -- luacheck: globals root
+      root.keys(), -- luacheck: globals root
+      awful.key({ modkey }, "d", function () fuzzy.show(
+        {
+          cache = { storage = cache, key = "path" },
+          source = fuzzy_sources.path,
+          handler = fuzzy_handlers.spawn,
+          processors = processors,
+        }) end,
+        {description = "toggle fuzzy window", group = "app"}),
+      awful.key({ modkey }, "s", function () fuzzy.show(
+        {
+          cache = { storage = cache, key = "lutris" },
+          source = lutris.source,
+          handler = lutris.handler,
+          processors = processors
+        }) end,
+        {description = "toggle fuzzy window", group = "app"}),
+      awful.key({ modkey }, "u", function () fuzzy.show(
+        {
+          source = fuzzy_sources.client_options,
+          handler = fuzzy_handlers.callback,
+          processors = processors,
+        }) end,
+        {description = "toggle fuzzy window", group = "app"}),
+      awful.key({ modkey }, "c", function () fuzzy.show(
+        {
+          source = fuzzy_sources.client,
+          handler = fuzzy_handlers.jump_to,
+          processors = processors,
+          box_options = {
+            on_change = function (item)
+              fuzzy_handlers.jump_to(item)
+            end,
+          },
+        }) end,
+        {description = "toggle fuzzy window", group = "app"})
+      )
+    )
+  end
+})
 
 local tagged = librarian.require("scisssssssors/awesome-tagged")
 
@@ -382,22 +382,6 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end) -- luacheck: globals client
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end) -- luacheck: globals client
-
-gears.timer {
-  timeout = 60 * 60 * 2,
-  autostart = true,
-  callback = function ()
-    naughty.notify { text = 'Закапай глаза' }
-  end
-}
-
-gears.timer {
-  timeout = 60 * 60 * 1,
-  autostart = true,
-  callback = function ()
-    naughty.notify { text = 'Разомнись' }
-  end
-}
 
 -- Rounded corners
 -- client.connect_signal("manage", function(c)
