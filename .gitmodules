@@ -37,6 +37,3 @@
 [submodule "vim/.vim/pack/theme/start/vim-gruvoff"]
 	path = vim/.vim/pack/theme/start/vim-gruvoff
 	url = https://github.com/scisssssssors/vim-gruvoff.git
-[submodule "fonts/.local/share/fonts/firacode"]
-	path = fonts/.local/share/fonts/firacode
-	url = https://github.com/tonsky/FiraCode.git
