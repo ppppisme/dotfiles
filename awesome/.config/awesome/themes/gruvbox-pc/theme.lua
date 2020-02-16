@@ -5,7 +5,7 @@ local dpi = require("beautiful.xresources").apply_dpi
 local naughty = require('naughty')
 
 local font = "ttyp0"
-local font_size = 16
+local font_size = 14
 
 local theme = require("themes.gruvbox.theme")
 
