@@ -173,3 +173,4 @@ config.bind('в', 'tab-close')
 # Misc
 c.zoom.default = '110%'
 c.url.searchengines = { 'DEFAULT': 'https://search.scissssssso.rs/?q={}' }
+c.content.notifications = False
