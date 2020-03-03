@@ -67,10 +67,6 @@ librarian.require("scisssssssors/fuzzy", {
 
     local processors = {
       {
-        callback = fuzzy_processors.unique,
-        options = { attr = function (item) return item.title end, },
-      },
-      {
         callback = fuzzy_processors.fuzzy,
         options = { attr = function (item) return item.title end, },
       },
@@ -83,10 +79,6 @@ librarian.require("scisssssssors/fuzzy", {
           return fuzzy_processors.threshold(list, input, options)
         end,
         options = { attr = function (item) return item.data.fuzzy_score end, threshold = 0.9, },
-      },
-      {
-        callback = fuzzy_processors.limit,
-        options = { limit = 50, },
       },
       {
         callback = fuzzy_processors.sort,
