@@ -90,7 +90,7 @@ set cinkeys=
 
 set path=.,,
 set wildmenu
-set wildmode=list
+set wildmode=list,full
 
 set pastetoggle=<F2>
 set backspace=indent,eol,start
