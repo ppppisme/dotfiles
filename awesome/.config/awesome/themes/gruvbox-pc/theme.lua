@@ -9,7 +9,7 @@ local font_size = 14
 
 local theme = require("themes.gruvbox.theme")
 
-theme.wallpaper = theme_path .. '/wallpapers/04.png'
+theme.wallpaper = theme_path .. '/wallpapers/05.jpg'
 theme.font = font .. " " .. (font_size + dpi(0.2))
 
 theme.border_width = dpi(5)
