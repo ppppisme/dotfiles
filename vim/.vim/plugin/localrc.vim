@@ -40,7 +40,7 @@ endfunction
 augroup plugin-localrc
   autocmd!
 
-  autocmd VimEnter,BufNewFile,BufReadPost * call s:Execute()
+  autocmd VimEnter,BufNewFile,BufReadPost,DirChanged * call s:Execute()
 augroup END
 
 command! LocalRcInit call s:Init()
