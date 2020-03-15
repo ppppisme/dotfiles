@@ -25,7 +25,7 @@ function! StopHL()
   silent call feedkeys("\<Plug>(StopHL)", 'm')
 endfunction
 
-augroup SearchHighlight
+augroup plugin-resethl
   autocmd!
   autocmd CursorMoved * call HlSearch()
   autocmd InsertEnter * call StopHL()

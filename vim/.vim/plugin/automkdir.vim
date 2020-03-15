@@ -42,7 +42,7 @@ function! EnsureDirExists ()
   endif
 endfunction
 
-augroup AutoMkdir
+augroup plugin-automkdir
   autocmd!
   autocmd  BufNewFile  *  :call EnsureDirExists()
 augroup END
