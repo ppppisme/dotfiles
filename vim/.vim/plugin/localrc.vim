@@ -44,3 +44,5 @@ augroup plugin-localrc
 augroup END
 
 command! LocalRcInit call s:Init()
+
+call s:Execute()
