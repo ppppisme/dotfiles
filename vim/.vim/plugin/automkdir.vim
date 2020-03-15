@@ -6,10 +6,10 @@
 " License:      This file is placed in the public domain.
 
 " If already loaded, we're done...
-if exists("loaded_AutoMkdir")
+if exists("g:loaded_automkdir")
   finish
 endif
-let loaded_AutoMkdir = 1
+let loaded_automkdir = 1
 
 " Preserve external compatibility options, then enable full vim compatibility...
 let s:save_cpo = &cpo

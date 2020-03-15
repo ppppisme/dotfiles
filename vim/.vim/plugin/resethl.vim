@@ -1,5 +1,11 @@
 " https://github.com/romainl/vim-cool/issues/9
 
+if exists("g:loaded_resethl")
+  finish
+endif
+
+let g:loaded_resethl = 1
+
 noremap <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
 noremap! <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
 

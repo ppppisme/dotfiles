@@ -1,3 +1,9 @@
+if exists("g:loaded_statusbar")
+  finish
+endif
+
+let g:loaded_statusbar = 1
+
 function! SetActiveStatusline()
   setlocal statusline=
   setlocal statusline+=%#StatusLinePrefix#
