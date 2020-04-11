@@ -1,10 +1,3 @@
-# Go to project
-function goto {
-  for dir in $GOTO_DIRS; do
-    cd "$dir/$1" 2> /dev/null && return
-  done
-}
-
 # Adjust brightness
 function br {
   if [ -z "$1" ]; then

@@ -1,13 +1,5 @@
 [ -f ~/.zsh/local.sh ] && source ~/.zsh/local.sh || source ~/.zsh/local.default.sh
 
-GOTO_DIRS=( \
-  "$HOME/src/work" \
-  "$HOME/mnt/media/music/library"
-)
-
-# init completion engine
-fpath=(~/.zsh/fpath $fpath)
-
 autoload -Uz compinit
 zmodload zsh/complist
 
@@ -51,5 +43,6 @@ source ~/.zsh/themes/minimal.sh
 source ~/.zsh/variables.sh
 source ~/.zsh/aliases.sh
 source ~/.zsh/functions.sh
+source ~/.zsh/bookmarks.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
