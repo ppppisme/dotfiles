@@ -19,6 +19,6 @@ fonts/.local/share/fonts/local
 
 newsboat/.config/newsboat/config.local
 
-zsh/.zsh/local.sh
-zsh/.zsh/tmp/*
-!zsh/.zsh/tmp/.gitkeep
+zsh/.config/zsh/.zsh/local.sh
+zsh/.config/zsh/.zsh/tmp/*
+!zsh/.config/zsh/.zsh/tmp/.gitkeep

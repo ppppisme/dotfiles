@@ -107,3 +107,11 @@ settings = {
 };
 
 logs = { };
+mainwindows = {
+  1 = { 
+    first_line = "1";
+    lines = "46";
+    first_column = "0";
+    columns = "201";
+  };
+};
