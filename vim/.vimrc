@@ -46,6 +46,9 @@ command! GetSyntax call SynStack()
 " {{{ PLUGINS
 set packpath=~/.config/nvim
 
+" to generate help files use :helptags ALL
+" ignore 'cannot open file' error
+
 "---
 " ale
 "---
