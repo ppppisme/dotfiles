@@ -9,11 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class {{++}}Controller
 {
-    public function __construct({{++}})
-    {
-       {{++}}
-    }
-
     /**
      * @Route("/{{++}}", name="{{++}}")
      * @Template()
