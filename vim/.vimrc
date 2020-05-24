@@ -90,6 +90,7 @@ set shiftwidth=2
 set autoindent
 set copyindent
 set cinkeys=
+set indentkeys=
 
 set path=.,,
 set wildmenu
