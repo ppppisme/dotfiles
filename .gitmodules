@@ -10,9 +10,6 @@
 [submodule "vim/.vim/pack/misc/start/vim-surround"]
 	path = vim/.vim/pack/misc/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/.vim/pack/misc/start/vim-repeat"]
-	path = vim/.vim/pack/misc/start/vim-repeat
-	url = https://github.com/tpope/vim-repeat.git
 [submodule "vim/.vim/pack/misc/start/vim-commentary"]
 	path = vim/.vim/pack/misc/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
