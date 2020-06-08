@@ -107,6 +107,7 @@ settings = {
 };
 
 logs = { };
+
 mainwindows = {
   1 = { 
     first_line = "1";

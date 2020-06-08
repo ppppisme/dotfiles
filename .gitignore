@@ -21,4 +21,5 @@ newsboat/.config/newsboat/config.local
 
 zsh/.config/zsh/.zsh/local.sh
 zsh/.config/zsh/.zsh/tmp/*
+!zsh/.config/zsh/.zsh/.bashmarks
 !zsh/.config/zsh/.zsh/tmp/.gitkeep

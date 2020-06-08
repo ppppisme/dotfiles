@@ -105,7 +105,7 @@ install_newsboat () {
 # enter sudo-mode before doing anything
 sudo echo ':: Start installation script'
 
-action 'sudo pacman -Syyu' 'Update packages database and packages themself'
+action 'sudo pacman -Syyu' 'Update packages database and packages themselves'
 install_pikaur
 action 'install_package stow' 'Install stow'
 install_neovim
@@ -160,4 +160,4 @@ prompt 'Install deluge? [Y/n]' 'install_package deluge'
 
 echo ':: Done!'
 
-# supercollider linux-zen linux-zen-headers materia-gtk-theme gbdfed  rtv
+# supercollider linux-zen linux-zen-headers materia-gtk-theme gbdfed rtv
