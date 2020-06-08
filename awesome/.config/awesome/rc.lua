@@ -149,7 +149,7 @@ if (librarian.is_installed("scisssssssors/awesome-tagged")) then
           { name = "1", layout = awful.layout.suit.tile, keys = tagged_keys[1], },
           { name = "2", layout = awful.layout.suit.tile, keys = tagged_keys[2], },
           { name = "3", layout = awful.layout.suit.tile, keys = tagged_keys[3], },
-          { name = "4", layout = awful.layout.suit.floating, keys = tagged_keys[4],
+          { name = "4", layout = awful.layout.suit.max.fullscreen, keys = tagged_keys[4],
             clients = {
               class = { "Gimp" }
             }
@@ -374,6 +374,13 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end) -- luacheck: globals client
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end) -- luacheck: globals client
+
+-- Make max.fullscreen layout actually fullscreen
+client.connect_signal("manage", function (c) -- luacheck: globals client
+  if c.first_tag.layout.name == awful.layout.suit.max.fullscreen.name then
+    c.fullscreen = true
+  end
+end)
 
 -- Rounded corners
 -- client.connect_signal("manage", function(c)
