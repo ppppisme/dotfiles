@@ -8,7 +8,7 @@ deattach_and_run()
 }
 
 [[ "$subject" =~ ^https?://www.youtube.com ]] && {
-  deattach_and_run "mpv '$1' --volume 50"
+  deattach_and_run "mpv  --volume=50 '$1'"
   exit 0
 }
 
