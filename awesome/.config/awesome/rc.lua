@@ -242,8 +242,8 @@ end
 -- }}}
 
 local function show_status()
-  local status_message = ":: " .. os.date('%X | %a, %x') .. "\n"
-  awful.spawn.easy_async_with_shell('bash -c "acpi | cut -d, -f 2 | head -1 | tr -d \'[:space:]\'"', function(stdout, _, _, _)
+  local status_message = ":: " .. os.date('%X | %a, %d/%m/%Y') .. "\n"
+  awful.spawn.easy_async_with_shell('bash -c "acpi | cut -d, -f 2 | head -1 | tr -d \'[:space:]\'"', function(stdout)
     status_message = status_message .. ":: " .. stdout:gsub("%c$", "")
     naughty.notify { text = status_message }
   end)
