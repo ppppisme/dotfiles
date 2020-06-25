@@ -45,3 +45,4 @@ source "$CONFIG_DIR"/.zsh/variables.sh
 source "$CONFIG_DIR"/.zsh/aliases.sh
 source "$CONFIG_DIR"/.zsh/functions.sh
 source "$CONFIG_DIR"/.zsh/bookmarks.sh
+source "$CONFIG_DIR"/.zsh/autotitle.sh
