@@ -18,7 +18,7 @@ function gdh {
 alias j=xdg-open
 alias f=fff
 alias vim=nvim
-alias scrot='maim -s | xclip -selection clipboard -t image/png'
+alias scrot='maim --select --hidecursor --quality 10 --capturebackground --nokeyboard | xclip -selection clipboard -t image/png'
 alias wt='curl wttr.in'
 alias dc=docker-compose
 alias irssi='irssi --home "$HOME"/.config/irssi'
