@@ -5,6 +5,9 @@ nnoremap <buffer><leader>rr :call phpactor#ContextMenu()<cr>
 nnoremap <buffer><leader>rt :call phpactor#Transform()<cr>
 vnoremap <buffer><leader>re :call phpactor#ExtractMethod()<cr>
 
+" generate getter for class field that is on current line
+nnoremap <buffer><leader>rg md02w"gyef$l"fyt;GOpublic function getf(): g{}<ESC>Oreturn $this->f;<ESC>2k03W3lgUl<ESC>0`d
+
 setlocal omnifunc=phpactor#Complete
 
 let g:ale_fixers = {
