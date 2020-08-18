@@ -14,6 +14,7 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 
 # clean-up
 export LESSHISTFILE="-"
+export LESS="-r"
 export DOCKER_CONFIG="$HOME"/.config/docker
 export GNUPGHOME="$HOME"/.config/gnupg
 export GTK2_RC_FILES="$HOME"/.config/gtk-2.0/gtkrc
