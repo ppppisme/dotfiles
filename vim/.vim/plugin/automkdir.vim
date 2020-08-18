@@ -9,7 +9,8 @@
 if exists("g:loaded_automkdir")
   finish
 endif
-let loaded_automkdir = 1
+
+let g:loaded_automkdir = 1
 
 " Preserve external compatibility options, then enable full vim compatibility...
 let s:save_cpo = &cpo
