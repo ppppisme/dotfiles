@@ -117,7 +117,6 @@ c.colors.messages.error.bg = theme['red']
 c.colors.messages.error.fg = theme['fg']
 
 # Statusbar
-c.statusbar.hide = False
 c.statusbar.padding = { 'bottom': 2, 'left': 0, 'right': 0, 'top': 2 }
 c.statusbar.position = 'bottom'
 
@@ -152,7 +151,6 @@ c.fonts.messages.info = font_size + ' default_family'
 c.fonts.messages.warning = font_size + ' default_family'
 c.fonts.prompts = font_size + ' default_family'
 c.fonts.statusbar = font_size + ' default_family'
-c.fonts.tabs = font_size + ' default_family'
 
 c.fonts.web.family.standard = font
 c.fonts.web.family.fixed = font
