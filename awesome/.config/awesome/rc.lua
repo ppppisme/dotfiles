@@ -32,6 +32,7 @@ for _, theme_file in pairs(theme_files) do
     break
   end
 end
+-- }}}
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -39,12 +40,11 @@ awful.layout.layouts = {
   awful.layout.suit.floating,
   awful.layout.suit.max,
 }
--- }}}
 
--- reset key bindings
+-- Reset key bindings
 root.keys({}) -- luacheck: globals root
 
--- Custom libraries
+-- {{{ Librarian
 local librarian = require("librarian")
 librarian.init({
     verbose = true,
@@ -127,7 +127,9 @@ librarian.require("scisssssssors/fuzzy", {
     )
   end
 })
+-- }}}
 
+-- {{{ Tagged
 local tagged = librarian.require("scisssssssors/awesome-tagged")
 
 if (librarian.is_installed("scisssssssors/awesome-tagged")) then
@@ -140,7 +142,7 @@ if (librarian.is_installed("scisssssssors/awesome-tagged")) then
     }
   end
 
-  local mytags = {
+  tagged.init({
     { -- 1 screen configuration
       {
         wallpaper = beautiful.wallpaper,
@@ -190,8 +192,13 @@ if (librarian.is_installed("scisssssssors/awesome-tagged")) then
           { name = "3", layout = awful.layout.suit.tile, keys = tagged_keys[3], },
           { name = "4", layout = awful.layout.suit.floating, keys = tagged_keys[4], },
           { name = "5", layout = awful.layout.suit.tile, keys = tagged_keys[5], },
+          { name = "6", layout = awful.layout.suit.floating, keys = tagged_keys[6],
+            clients = {
+              class = { "steam.exe", "Wine", "Lutris", "Steam", "elitedangerous64.exe" },
+              name = { "Steam" },
+            },
+          },
           { name = "7", layout = awful.layout.suit.tile, keys = tagged_keys[7], },
-          { name = "8", layout = awful.layout.suit.tile, keys = tagged_keys[8], },
           { name = "9", layout = awful.layout.suit.max, keys = tagged_keys[9],
             clients = {
               class = { "TelegramDesktop", "Skype", "discord", "Riot" }
@@ -202,19 +209,13 @@ if (librarian.is_installed("scisssssssors/awesome-tagged")) then
       { -- 2nd screen
         wallpaper = beautiful.wallpaper,
         tags = {
-          { name = "6", layout = awful.layout.suit.floating, keys = tagged_keys[6],
-            clients = {
-              class = { "steam.exe", "Wine", "Lutris", "Steam", "elitedangerous64.exe" },
-              name = { "Steam" },
-            },
-          },
+          { name = "8", layout = awful.layout.suit.tile, keys = tagged_keys[8], },
         },
       },
     },
-  }
-
-  tagged.init(mytags)
+  })
 end
+-- }}}
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -376,6 +377,7 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end) -- luacheck: globals client
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end) -- luacheck: globals client
+-- }}}
 
 -- Make max.fullscreen layout actually fullscreen
 client.connect_signal("manage", function (c) -- luacheck: globals client
