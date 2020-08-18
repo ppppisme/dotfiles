@@ -7,8 +7,15 @@ deattach_and_run()
   eval nohup "$1" &> /dev/null &
 }
 
-[[ "$subject" =~ ^https?://www.youtube.com ]] && {
+[[ "$subject" =~ ^https?://(www.youtube.com|youtu.be|invidio.us|m\.youtube\.com) ]] && {
   deattach_and_run "mpv  --volume=50 '$1'"
+  exit 0
+}
+
+[[ "$subject" =~ ^https?://.+\.(jpg|png|jpeg)$ ]] && {
+  tmp_path=$(mktemp)
+  curl "$1" > "$tmp_path"
+  deattach_and_run "sxiv '$tmp_path'"
   exit 0
 }
 
