@@ -15,7 +15,7 @@ theme.font = font .. " " .. (font_size + dpi(0.2))
 theme.border_width = dpi(5)
 
 theme.notification_font = font .. " " .. font_size
-theme.notification_width = 300
+theme.notification_width = 350
 theme.notification_margin = dpi(4)
 
 naughty.config.presets.normal.margin = dpi(20)
