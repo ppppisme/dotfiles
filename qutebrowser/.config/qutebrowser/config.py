@@ -1,4 +1,3 @@
-# Color theme
 palette = {
     'red': {
         'dark':  '#cc241d',
