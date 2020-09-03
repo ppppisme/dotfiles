@@ -3,7 +3,7 @@
 # This is lightweight version of bashmarks plugin:
 # https://github.com/huyng/bashmarks/blob/master/bashmarks.sh
 
-BOOKMARKS_FILE="$HOME"/.config/zsh/.zsh/.bashmarks
+BOOKMARKS_FILE="$HOME"/var/bashmarks
 
 if [ ! -f "$BOOKMARKS_FILE" ]; then
   echo "# example line:" >> "$BOOKMARKS_FILE"

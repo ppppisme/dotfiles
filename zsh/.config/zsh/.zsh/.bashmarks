@@ -1,9 +1,0 @@
-# example line:
-# export DIR_{bookmark_name}={path}
-export DIR_=$HOME
-export DIR_music=$HOME/mnt/media/music/library
-export DIR_video=$HOME/mnt/media/video
-export DIR_startupvillage=$HOME/src/work/startupvillage/app
-export DIR_awesome=$HOME/.config/awesome
-export DIR_rdsh=$HOME/src/work/rdsh/app
-export DIR_forumasi=$HOME/src/work/forum.asi/app
