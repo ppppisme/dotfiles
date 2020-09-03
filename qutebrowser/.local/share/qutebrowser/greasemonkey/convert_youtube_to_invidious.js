@@ -9,11 +9,11 @@ const getVideoCode = link => {
 }
 
 const getEmbedLink = code => {
-    return 'https://invidio.us/embed/' + code
+    return 'https://invidious.snopyta.org/embed/' + code
 }
 
 const getWatchLink = code => {
-    return 'https://invidio.us/watch?v=' + code
+    return 'https://invidious.snopyta.org/watch?v=' + code
 }
 
 const iframes = document.querySelectorAll(`
